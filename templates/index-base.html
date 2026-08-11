@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>3C 竞品分析 — {{CATEGORY_DISPLAY}} · {{BUILD_DATE}}</title>
   <meta name="description" content="{{CATEGORY_DISPLAY}}竞品分析报告·数据驱动·可追溯">
+  <!-- design-system: 模板内置设计系统声明（web-design-engineer 规范）
+       字体/色彩/间距/动效令牌见下方 :root CSS 变量
+       构建时 harness 会追加详细设计声明 -->
   <style>
     /* ===== CSS Reset & Variables ===== */
     :root {
@@ -44,11 +47,25 @@
 
     /* ===== Header ===== */
     .report-header {
-      background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
-      color: #ffffff;
-      padding: 40px 24px 36px;
+      /* 设计系统：深色卡片基底 + 细腻微光（非 AI 默认蓝紫渐变） */
+      background:
+        radial-gradient(120% 160% at 15% 0%, rgba(37,99,235,0.28) 0%, transparent 55%),
+        radial-gradient(120% 160% at 90% 100%, rgba(14,116,144,0.22) 0%, transparent 55%),
+        #0f172a;
+      color: #f8fafc;
+      padding: 44px 24px 38px;
       text-align: center;
-      border-bottom: 3px solid var(--accent);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      position: relative;
+      overflow: hidden;
+    }
+    .report-header::after {
+      /* 底部高光分隔线 */
+      content: '';
+      position: absolute;
+      left: 0; right: 0; bottom: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
     }
     .report-header .category-badge {
       display: inline-block;

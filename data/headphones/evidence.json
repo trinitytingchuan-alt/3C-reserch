@@ -146,6 +146,20 @@
       "status": "active"
     },
     {
+      "id": "E013",
+      "claim": "TWS 旗舰定价与性能呈正相关：B站 2026Q2 横评显示 ANC≥32dB 的机型（Sony XM5/Bose Ultra）定价均 ≥¥1999，而 ANC<30dB 的 Buds3 Pro 定价 ¥1599",
+      "source": "B站 2026Q2 横评 (E007) + 京东旗舰价格 (E010) 交叉分析",
+      "source_type": "social",
+      "source_url": "data/headphones/raw/social/bilibili-tws-comparison-2026q2.md",
+      "tier": "T1",
+      "verification_level": "L3",
+      "verification_method": "B站横评 + 京东价格交叉归纳",
+      "data_window": "2026-05-01 ~ 2026-08-11",
+      "category": "pricing",
+      "tags": ["price", "value_positioning", "tws", "flagship"],
+      "status": "active"
+    },
+    {
       "id": "E011",
       "claim": "TWS 连接稳定性为用户最关注的基础体验维度：京东差评 Top 1（连接不稳 18%），B站评测普遍将连接稳定性列为 TWS 核心评分项",
       "source": "京东 2026Q2 差评分析 (E006) + B站 2026Q2 横评 (E007) 交叉总结",
@@ -266,6 +280,15 @@
       "verified_at": "2026-08-11T10:00:00+08:00"
     },
     {
+      "id": "V013",
+      "evidence_id": "E013",
+      "L1": {"passed": false, "note": "非实测"},
+      "L2": {"passed": false, "note": "非官方定价声明"},
+      "L3": {"passed": true, "source": "B站横评 + 京东价格交叉归纳", "date": "2026-08-11"},
+      "final_level": "L3",
+      "verified_at": "2026-08-11T10:00:00+08:00"
+    },
+    {
       "id": "V011",
       "evidence_id": "E011",
       "L1": {"passed": false, "note": "非实测"},
@@ -294,8 +317,8 @@
         "competitor_reference": "Sony XM5 34dB (E001), Bose Ultra 32dB (E005), AirPods Pro 2 28dB (E003)",
         "target": "ANC 深度 ≥ 32dB @1kHz",
         "priority": "P0",
-        "evidence_ids": ["E001", "E003", "E005"],
-        "rationale": "ANC 是 TWS 旗舰最核心竞争维度，B站横评 (E007) 显示降噪为 Top 2 用户关注点"
+        "evidence_ids": ["E001", "E003", "E005", "E009"],
+        "rationale": "ANC 是 TWS 旗舰最核心竞争维度，B站横评 (E007) 显示降噪为 Top 2 用户关注点；抖音 (E009) 显示通勤降噪为最高播放量场景"
       },
       {
         "id": "OPT-002",
@@ -306,6 +329,16 @@
         "priority": "P0",
         "evidence_ids": ["E006", "E011"],
         "rationale": "连接是 TWS 基础体验，差评 Top 1 关键词，直接影响口碑与退货率"
+      },
+      {
+        "id": "OPT-002b",
+        "title": "定价策略对标竞品旗舰段位",
+        "status_current": "我方 TWS 旗舰定价待确认",
+        "competitor_reference": "Sony XM5 ¥1999 (E010), AirPods Pro 2 ¥1899 (E010), Bose Ultra ¥2299 (E010), Buds3 Pro ¥1599 (E010)",
+        "target": "旗舰定价落在 ¥1500-2000 段位，与 ANC/续航同档性能匹配",
+        "priority": "P1",
+        "evidence_ids": ["E010", "E013"],
+        "rationale": "E010 显示旗舰段位集中在 ¥1599-2299，E013 显示定价与 ANC 性能正相关，需确保定价与核心性能匹配，避免高端定位但性能不足"
       },
       {
         "id": "OPT-003",
@@ -334,8 +367,8 @@
         "competitor_reference": "AirPods Pro 2 在苹果生态内无缝切换 (E007)", 
         "target": "支持 ≥ 3 平台无缝切换（手机/平板/PC），延迟 < 100ms 切换",
         "priority": "P2",
-        "evidence_ids": ["E007", "E012"],
-        "rationale": "生态联动是 Apple 核心壁垒，短期对标困难，建议作为中长期方向"
+        "evidence_ids": ["E007", "E008", "E012"],
+        "rationale": "生态联动是 Apple 核心壁垒，短期对标困难，建议作为中长期方向；小红书 (E008) 显示 35% 用户因生态选择 AirPods，为差异化机会"
       }
     ]
   }

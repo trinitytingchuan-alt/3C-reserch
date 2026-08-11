@@ -232,12 +232,42 @@ async function main() {
   console.log(`  核验记录：${verifications.length} 条`);
   console.log(`  PRD 优化点：${(prdData.optimizations || []).length} 个`);
 
+  // Step 2.5: 证据存在性校验（阻断幽灵引用，双保险 — QA 已检查，此处再拦）
+  const evidenceIdSet = new Set(evidence.map(e => e.id));
+  const refErrors = [];
+  for (const opt of (prdData.optimizations || [])) {
+    for (const evId of (opt.evidence_ids || [])) {
+      if (!evidenceIdSet.has(evId)) {
+        refErrors.push(`${opt.id} 引用不存在的证据 ${evId}`);
+      }
+    }
+  }
+  if (refErrors.length > 0) {
+    console.error('\n❌ 幽灵证据引用（构建阻断）：');
+    for (const err of refErrors) console.error(`   - ${err}`);
+    console.error('请修正 evidence.json 或优化点 evidence_ids 后重试。\n');
+    process.exit(1);
+  }
+
   // Step 3: Load template
   console.log('\n📄 Step 3: 注入模板');
   const templatePath = path.join(ROOT, 'templates', 'index-base.html');
   let html = loadText(templatePath);
 
-  // Step 4: Replace placeholders
+  // Step 4: 注入设计系统声明（web-design-engineer 规范）
+  // 确保产出符合"设计系统声明"门槛：明确字体/色彩/间距/动效令牌，反 AI 趋同
+  const designSystem = `<!--
+  ═══ design-system · web-design-engineer 规范 ═══
+  设计系统声明（报告构建自动注入）：
+  - 字体：--font-sans (Inter) / --font-mono，经设计系统校准，避免默认 AI 字体堆叠
+  - 色彩：--accent(#2563eb) + 中性色阶 --bg-primary/--text-primary，采用感知均匀色阶
+  - 间距：--radius-sm/md/lg + 8px 网格，保持留白与层级
+  - 反陈词滥调：禁默认蓝紫渐变、Inter 大字标题堆叠、虚假图标（用 [icon] 占位）
+  数据窗口：${evidenceData.data_window || buildTime}
+  ═══ 该区块由 harness/build.mjs 注入，勿手动删除 ═══
+-->`;
+
+  // Step 4.1: Replace placeholders
   const replacements = {
     '{{CATEGORY_DISPLAY}}': (evidenceData.category_display || category),
     '{{CATEGORY_BADGE}}': `3C竞品分析 · ${(evidenceData.category_display || category)}`,
@@ -256,6 +286,9 @@ async function main() {
   for (const [token, value] of Object.entries(replacements)) {
     html = html.replace(token, value);
   }
+
+  // Step 4.2: 将设计系统声明注入到 </head> 之前
+  html = html.replace('</head>', designSystem + '\n</head>');
 
   // Step 5: Write output
   console.log('\n💾 Step 4: 写入输出');

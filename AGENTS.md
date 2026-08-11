@@ -6,119 +6,162 @@
 
 ```
 3C/
-├── AGENTS.md              ← 你在这里
-├── docs/                  ← 方法论文档（分析 SOP / 证据标准 / 数据源地图 / 硬规则）
-├── data/                  ← 多品类数据工作区（按品类组织：headphones/ smartwatch/ speaker/）
-├── templates/             ← 报告模板（index-base.html + 可复用 HTML 模块）
-├── harness/               ← 完整质量保障体系（Node: rules / build / qa / lock）
-├── scripts/               ← 工具脚本（初始化品类 / 发布 gh-pages）
+├── AGENTS.md              ← 你在这里（流程总纲）
+├── README.md              ← 项目说明 & 快速上手
+├── docs/                  ← 方法论文档 + superpowers 审视记录
+│   ├── methodology.md       分析 SOP
+│   ├── evidence-standard.md 证据链 E##/V## 规范
+│   ├── data-source-map.md   数据源地图（B站/小红书/抖音）
+│   ├── claim-discipline.md  三大硬规则
+│   └── superpowers/         工作流审视报告
+├── data/                  ← 多品类数据工作区
+├── templates/             ← 报告模板（含设计系统声明）
+├── harness/               ← 完整质量保障（rules/qa/lock/build）
+├── scripts/               ← 工具脚本（init/publish）
 └── output/                ← 发布追踪（releases.json）
 ```
 
+---
+
 ## 强制工作流（superpowers 方法论）
 
-本项目已内置 `.codebuddy/skills/` 下的 superpowers 技能集（brainstorming / writing-plans / executing-plans / test-driven-development / systematic-debugging / verification-before-completion / requesting-code-review / receiving-code-review / finishing-a-development-branch / subagent-driven-development 等）。
+**任何任务开始前，必须先调用 `using-superpowers` 技能。** 本项目已内置 `.codebuddy/skills/` 下全套 superpowers 技能集。
 
-**任何开发或分析任务开始前，必须先调用 `using-superpowers` 技能，再按以下流程推进：**
+### 硬性流程门槛（不可跳过）
 
-1. **brainstorming（必做）** — 写代码/采集/产出前，先与用户对齐目标、约束、成功标准；输出设计文档到 `docs/superpowers/specs/YYYY-MM-DD-<topic>-design.md` 并经用户审批。
-2. **writing-plans** — 设计批准后拆解为 2–5 分钟粒度的实施计划。
-3. **executing-plans** — 按计划执行，重大事项用 subagent-driven-development 并行推进。
-4. **verification-before-completion** — 完成前必须通过验证，禁止"看起来完成了就交付"。
-5. **requesting-code-review** — 任务间强制代码/产出审查，严重问题阻断进度。
-6. **finishing-a-development-branch** — 收尾、合并/提交、GitHub 推送。
+1. **brainstorming（必做）** — 采集/产出前先对齐目标、约束、成功标准；设计文档到 `docs/superpowers/specs/YYYY-MM-DD-<topic>-design.md` 并经审批。
+2. **verification-before-completion（必做）** — 完成前必须跑通全部 harness 校验，**禁止"看起来完成了就交付"**。
+3. **requesting-code-review（产出后）** — 数据/PRD/报告产出后做一次逻辑合理性审查（可用 code-explorer 扮演产品经理）。
+4. **writing-plans / executing-plans** — 复杂任务拆解推进。
 
-## 项目约定
+> ⚠️ superpowers 是**软流程**（指引方法），harness 是**硬闸门**（强制校验）。两者必须同时满足才算完成。
 
-- HTML 产出形式：单文件 `index.html`，采用 skill `web-design-engineer`。
-- 发布方式：GitHub Pages（独立 `gh-pages` 分支仅含 `index.html` + `.nojekyll`）。
-- 远程仓库：`https://github.com/trinitytingchuan-alt/3C-reserch.git`（注意原拼写为 reserch）。
-- 数据溯源：所有断言必须带可追溯出处（证据编号 E## / 数据集来源），凡已有出处的表述禁止改写描述。
-- **数据分析前，先查看 `docs/` 下的四份方法论文档**（methodology.md / evidence-standard.md / data-source-map.md / claim-discipline.md）。
+---
 
-## 三大硬规则
+## 三大硬规则（数据可信度红线）
 
 ### 1. verify_first — 现状三级核验
+任何竞品功能断言必须经至少一级核验：
+- **L1 端内实测**：真机/模拟器可复现
+- **L2 官方渠道**：官网规格书/固件日志/官方公告
+- **L3 第三方**：RTINGS/DXOMARK/专业博主/电商参数
 
-任何关于竞品功能的断言，必须经过三级核验之一：
-- **L1 端内实测**：用真机/模拟器/固件录制画面，可复现
-- **L2 官方渠道**：官网规格书、固件更新日志、官方社区公告
-- **L3 第三方**：专业媒体评测（RTINGS/DXOMARK/专业博主）、电商页参数
-
-未经任一核验的断言不得作为对比依据。每个 E## 证据必须标注核验级别。
+未核验的断言不得作为对比依据。每个 E## 必须标注核验级别。
 
 ### 2. claim_discipline — 断言纪律
-
-两条红线：
-- **不伪称"竞品无某功能"**：只能说"未在 L1/L2/L3 中发现"，并标注核验方式 + 数据窗口
-- **不立不可观测行为的伪需求**：只能分析可观测、可测量的功能/性能，不得推测内部算法或商业策略
+- **红线 1**：不伪称"竞品无某功能" → 只能说"未在 L1/L2/L3 中发现"并标注核验方式+数据窗口
+- **红线 2**：不立不可观测行为的伪需求 → 只能分析可观测/可测量目标，**禁止推测内部算法/策略/运营/供应链**（QA 会自动拦截）
 
 ### 3. feature_compare_logic — 同类可比
+- 用户功能 vs 用户功能、平台机制 vs 平台机制
+- **严禁跨维度混比**（用户侧功能 ≠ 供给侧平台机制）
 
-功能对比必须同类可比：
-- **用户功能 vs 用户功能**（如：耳机降噪模式 vs 耳机降噪模式）
-- **平台机制 vs 平台机制**（如：固件更新策略 vs 固件更新策略）
-- **严禁跨维度混比**（如：把用户侧功能与供给侧平台机制对标）
+---
 
-如果某个竞品不具备某功能 → 定位为**升级/补全**，而非从零建设。
+## Harness 质量保障（稳定输出的硬闸门）
+
+Harness 提供 **13 项 QA 校验** + 基线锁定 + 构建管线，是质量稳定的核心。
+
+### 13 项 QA 校验清单
+
+| # | 检测 | 严重度 | 作用 |
+|---|------|--------|------|
+| 1 | 证据数量 ≥ 阈值 | ERROR | 数据充足性 |
+| 2 | 每优化点 ≥ 2 证据 | ERROR | PRD 依据充分 |
+| 3 | 数据源 Tier ≥ 3 | ERROR | 来源广度 |
+| 4 | 无跨维度混比 | ERROR | 对比逻辑正确 |
+| 5 | 无"竞品无X"断言 | ERROR | 断言纪律 |
+| 6 | 无 AI 黑话 | WARNING | 去 AI 味 |
+| 7 | 证据字段完整性 | ERROR | 结构规范 |
+| 8 | 数字断言有出处 | WARNING | 数据溯源 |
+| 9 | **无幽灵引用**（引用的 E## 必须存在） | ERROR | 引用真实性 |
+| 10 | **无孤儿证据**（E## 都被使用） | WARNING | 证据利用 |
+| 11 | **无不可观测推测**（算法/策略/供应链） | ERROR | 断言纪律 |
+| 12 | **E##↔V## 一一对应 + final_level 合法** | ERROR | 核验可信 |
+| 13 | **设计系统声明 + 反陈词滥调** | WARNING | 设计质量 |
+
+### 命令
+
+```bash
+# QA 校验（13 项）
+node harness/qa.mjs --category headphones
+
+# 基线锁定（evidence/PRD 变更后必须执行）
+node harness/lock.mjs --category headphones
+
+# 构建报告（自动跑 QA + 幽灵引用双保险 + 注入设计系统）
+node harness/build.mjs --category headphones --time 2026-08-11
+
+# 基线校验（确认内容无漂移）
+node harness/lock.mjs --category headphones --check
+```
+
+### 三阶段验收闸门
+
+| 阶段 | 触发条件 | 必须执行 |
+|------|----------|----------|
+| **采集后** | 写入 evidence.json | QA（0 ERROR） |
+| **发布前** | 生成报告 | build（自动 QA + 幽灵引用拦截） |
+| **变更后** | 修改 evidence/PRD | lock 重新建立基线 |
+
+---
+
+## 报告设计规范（web-design-engineer）
+
+报告 HTML 必须满足以下设计门槛，避免 AI 趋同设计（Inter 字体+蓝紫渐变+大圆角卡片）：
+
+### 设计系统声明
+- 模板内置 `:root` CSS 变量（字体/色彩/间距令牌），build 时注入详细设计声明
+- 反陈词滥调：禁用默认蓝 `#3b82f6`、裸 `Inter` 堆叠、无目的居中
+
+### 设计要求
+1. **明确的字体选择**：font-sans/font-mono 令牌，非默认堆叠
+2. **感知均匀色彩**：oklch/HSL 中性色阶，禁用紫粉渐变
+3. **充足留白与层级**：8px 网格、卡片间距、层级清晰
+4. **诚实占位符**：无素材用 `[icon]` 标记，不塞劣质 SVG
+
+> 设计详细方法论参考 `web-design-engineer` skill（可用 `use_skill` 加载）。
+
+---
 
 ## 数据来源（3C 品类 · 2026 版）
 
 ### Tier 0 — 官方一手数据
-- 品牌官网产品页与规格书
-- 固件/FOTA 更新日志
-- 官方社区公告与 Beta 程序
-- 3C 认证数据库（CCC/SRRC/工信部型号核准）
+品牌官网规格书、固件/FOTA 日志、官方社区公告、3C 认证（CCC/SRRC/工信部）
 
-### Tier 1 — 专业媒体与 KOL 测评
-- 专业媒体：RTINGS、DXOMARK、SoundGuys、Linus Tech Tips
-- 中国专业平台：B站 3C UP主深度测评、小红书硬核测评笔记、抖音 3C 测评号
-- 拆解/拆机（iFixit、充电头网、楼斌等）
+### Tier 1 — 专业媒体 & KOL
+RTINGS、DXOMARK、SoundGuys、LTT；**B站 3C UP主、小红书测评、抖音测评**；拆解（iFixit/充电头网）
 
-### Tier 2 — 电商与社区用户声音
-- 电商评论与问答：京东、天猫、亚马逊（含差评分析）
-- 用户社区：Reddit（r/headphones r/AndroidWear）、知乎、贴吧、酷安、什么值得买
-- 产品论坛：各品牌官方社区、HiFi论坛（耳机大家坛等）
+### Tier 2 — 电商 & 社区用户声音
+京东/天猫/亚马逊（差评分析）、Reddit/知乎/贴吧/酷安/什么值得买、HiFi 论坛
 
-### Tier 3 — 第三方数据库与工具
-- 参数对比：RTINGS Compare、GSMArena（手表）
-- 性能测试：Geekbench（手表/平板）、频响测量工具
-- 价格追踪：慢慢买、Keepa、骆驼
+### Tier 3 — 第三方数据库
+RTINGS Compare、GSMArena、Geekbench、慢慢买/Keepa
 
-## Harness 质量保障
-
-构建/发布流程必须通过 harness 校验：
-
-```bash
-# 1. 建立基线（证据或 PRD 变更后执行）
-node harness/lock.mjs --category headphones
-
-# 2. 构建 HTML 报告（自动跑 QA 闸门）
-node harness/build.mjs --category headphones --time 2026-08-11
-
-# 3. 单独跑 QA 校验
-node harness/qa.mjs --category headphones
-```
-
-QA 闸门检验项：
-- 证据数量 ≥ 阈值（可配置）
-- 每个 PRD 优化点 ≥ 2 条证据支撑
-- 数据源覆盖 ≥ 3 个 Tier
-- 无跨维度混比（用户功能 vs 平台机制）
-- 无无出处断言
-- content hash 与 baseline 一致（非时间字段）
+---
 
 ## 工作模式
 
 ### 初始化新品类
 ```powershell
+# 注意：PowerShell 默认禁止脚本，首次需放行当前会话
+Set-ExecutionPolicy -Scope Process Bypass
 .\scripts\new-category.ps1 -Name "smartwatch" -DisplayName "智能手表"
 ```
 
-### 分析流程
-1. 确定品类与目标竞品 → 初始化 data/ 工作区
-2. 采集原始证据到 raw/ 子目录（电商/社区/social/媒体/官方/数据库）
-3. 结构化证据写入 evidence.json（E## 编号 + 出处 + 核验级别）
-4. 撰写 PRD draft → prd-draft.md
-5. 跑 harness/qa.mjs 校验
-6. 构建 index.html → 发布 gh-pages
+### 分析流程（必须按序，缺一不可）
+1. **brainstorming** → 确定品类/竞品/分析维度
+2. 初始化 `data/{category}/` 工作区
+3. 采集原始证据到 `raw/` 子目录（按 Tier 分层）
+4. 结构化证据 → `evidence.json`（E##+出处+核验级别）
+5. 撰写核验记录 → `verification.json`（V##，与 E## 一一对应）
+6. 撰写 PRD → `prd-draft.md`（每条优化点 ≥2 条证据）
+7. **QA 校验**（13 项，0 ERROR）
+8. **基线锁定** `lock`
+9. **构建报告** `build` → 检查设计质量
+10. **发布** `publish` → gh-pages
+
+### 每次改动后
+- 修改 `evidence.json` / `prd-draft.md` → **必须**重跑 `lock` 更新基线
+- 新增证据 → 补全 V## 核验记录
+- 新引用证据编号 → 确保该 E## 真实存在（防幽灵引用）
