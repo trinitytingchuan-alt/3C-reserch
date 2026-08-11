@@ -1,0 +1,11 @@
+{
+  "data/anker/company-profile.json": "effa5b30b5dc526d6125c5f06512def5596ed611c1cb0c047ae37abaaf9f3b27",
+  "data/anker/evidence.json": "90f510930068ea7a83abb32b08dfb37514cf4e40654eb7ada9414a3ee241107a",
+  "data/anker/ideas.json": "b27d22116a76601403ff2a6d8fae46a0af8e86bb03df2044de11ac50f0a70581",
+  "data/anker/prd-draft.md": "d5e93d0d9172b4f9270400db26e95c0671b45f27699c69033e359d4ee13fa7d3",
+  "data/anker/scores.json": "cdeb96aea0b1bd19317afeef713d2263a3ea7d76197724d525680117540de0a8",
+  "data/anker/verification.json": "3da4661b47f7599e2305f0c343c99981e95d8565cb9deadc6d17b156ace994b6",
+  "AGENTS.md": "5ab2dbdfd0a9df661ff55074c8021ba85c1b0ee3b9c808198bd54b658c1993a7",
+  "README.md": "9c31e71fa377e59b627b0ef38049ea1159b033b5d24aa0b15f647230dd59181b",
+  "harness/rules.mjs": "bba477668ce9829d618ad8ac04c17f6e4b98a1c8abfed5174dad9da79e7c3ebf"
+}

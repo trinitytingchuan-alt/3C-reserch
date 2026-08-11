@@ -1,0 +1,162 @@
+[
+  {
+    "id": "E001",
+    "source": "安克创新2025年报",
+    "tier": 0,
+    "url": "https://laoyaoba.com/n/1018302",
+    "date": "2026-04-21",
+    "summary": "2025年营收305.14亿元(+23.49%), 归母净利25.45亿(+20.37%), 充电储能类收入154.02亿占50.47%",
+    "verified": true,
+    "verification_level": "L1"
+  },
+  {
+    "id": "E002",
+    "source": "安克创新2025年报",
+    "tier": 0,
+    "url": "https://baijiahao.baidu.com/s?id=1862004112658152485",
+    "date": "2026-04-09",
+    "summary": "三大板块齐增:充电储能+21.59%, 智能创新增, 智能影音增; GaNPrime 2.0氮化镓快充技术迭代",
+    "verified": true,
+    "verification_level": "L1"
+  },
+  {
+    "id": "E003",
+    "source": "Verified Market Research",
+    "tier": 1,
+    "url": "https://www.verifiedmarketresearch.com/product/power-bank-market/",
+    "summary": "全球充电宝市场2024年规模140.3亿美元, 预计2032年达283.6亿美元, CAGR约9.2%",
+    "verified": true,
+    "verification_level": "L2"
+  },
+  {
+    "id": "E004",
+    "source": "GM Insights",
+    "tier": 1,
+    "url": "https://www.gminsights.com/industry-analysis/power-bank-market",
+    "summary": "2025年充电宝市场186亿美元, CAGR 9.6% (2026-2035)",
+    "verified": true,
+    "verification_level": "L2",
+    "isTrend": true
+  },
+  {
+    "id": "E005",
+    "source": "知乎/搜狐 出差场景调研",
+    "tier": 2,
+    "url": "https://www.sohu.com/a/948728621_122170300",
+    "date": "2025-10-29",
+    "summary": "出差痛点:'带大了占空间, 带小了不够用, 还要额外准备数据线'—充电宝+线缆管理场景被反复提及",
+    "verified": true,
+    "verification_level": "L3"
+  },
+  {
+    "id": "E006",
+    "source": "知乎充电宝避坑指南",
+    "tier": 2,
+    "url": "https://www.zhihu.com/tardis/bd/art/13784281101",
+    "date": "2024-12-23",
+    "summary": "使用痛点: '麻烦和太重' + '带了充电宝还要带数据线, 手机一条, 手表一条, 耳机一条'—多线缆焦虑",
+    "verified": true,
+    "verification_level": "L3"
+  },
+  {
+    "id": "E007",
+    "source": "阿里巴巴商业洞察",
+    "tier": 2,
+    "url": "https://www.alibaba.com/product-comparison/battery-solar-pack.html",
+    "date": "2026-02",
+    "summary": "Google Trends: 太阳能充电宝搜索量在2025年8月和11月出现峰值, 受气候事件和户外旅行需求驱动",
+    "verified": true,
+    "verification_level": "L3",
+    "isTrend": true
+  },
+  {
+    "id": "E008",
+    "source": "QYResearch / 东方财富",
+    "tier": 1,
+    "url": "https://caifuhao.eastmoney.com/news/20260310153202331564000",
+    "date": "2026-03-10",
+    "summary": "全球便携式太阳能折叠板市场2025年7.37亿美元, CAGR 5.5%, 预计2032年破10.66亿",
+    "verified": true,
+    "verification_level": "L2",
+    "isTrend": true
+  },
+  {
+    "id": "E009",
+    "source": "国标 GB 47372-2026",
+    "tier": 0,
+    "url": "https://post.smzdm.com/p/aggxkq23/",
+    "date": "2026-03(发布), 2027-04-01(实施)",
+    "summary": "首部充电宝强制性国家标准发布, 由华为/小米/绿联/Anker共同参与制定, 安全成为核心门槛",
+    "verified": true,
+    "verification_level": "L1"
+  },
+  {
+    "id": "E010",
+    "source": "什么值得买2026充电宝品牌推荐",
+    "tier": 2,
+    "url": "https://post.smzdm.com/p/a262z997/",
+    "date": "2026-04-21",
+    "summary": "倍思卡片磁吸Air成为行业首款符合2026新国标的移动电源, 先发占领合规市场认知",
+    "verified": true,
+    "verification_level": "L3"
+  },
+  {
+    "id": "E011",
+    "source": "Mordor Intelligence",
+    "tier": 1,
+    "url": "https://www.mordorintelligence.com/industry-reports/power-bank-market",
+    "summary": "2026年充电宝市场217.2亿美元, 新兴市场(东南亚/拉美/非洲)增长超平均水平",
+    "verified": true,
+    "verification_level": "L2",
+    "isTrend": true
+  },
+  {
+    "id": "E012",
+    "source": "东方财富/安克港交所聆讯分析",
+    "tier": 1,
+    "url": "https://caifuhao.eastmoney.com/news/20260615161549898286500",
+    "date": "2026-06-15",
+    "summary": "安克智能创新业务中扫地机竞品为石头/科沃斯/追觅/小米; 具身AI机器人是公司战略方向",
+    "verified": true,
+    "verification_level": "L2"
+  },
+  {
+    "id": "E013",
+    "source": "极客公园IFA 2025报道",
+    "tier": 1,
+    "url": "https://www.geekpark.net/news/363004",
+    "date": "2026-04-22",
+    "summary": "安克将家庭机器人分三形态:平面移动(扫地机/割草机)、具身智能(多关节)、AI系统",
+    "verified": true,
+    "verification_level": "L2"
+  },
+  {
+    "id": "E014",
+    "source": "绿色能源/户外趋势Alibaba分析",
+    "tier": 2,
+    "url": "https://www.alibaba.com/product-comparison/battery-solar-pack.html",
+    "date": "2026-02",
+    "summary": "太阳能充电宝+便携电站组合在2025年搜索爆发, 尤其'portable solar power bank'搜索高峰月份集中在夏季",
+    "verified": true,
+    "verification_level": "L3",
+    "isTrend": true
+  },
+  {
+    "id": "E015",
+    "source": "MBO Partners 数字游民报告（行业引用）",
+    "tier": 1,
+    "summary": "美国数字游民数量自2020年以来增长超过130%, 远程办公/数字游民经济持续膨胀, 'desk setup'相关搜索与内容生态同步增长",
+    "verified": true,
+    "verification_level": "L2",
+    "isTrend": true
+  },
+  {
+    "id": "E016",
+    "source": "全球创作者经济统计（第三方聚合）",
+    "tier": 1,
+    "summary": "全球内容创作者约5亿人, 创作者经济规模超2500亿美元, YouTube/TikTok/Instagram创作者持续增长, 外拍设备轻量化与数据安全需求同步上升",
+    "verified": true,
+    "verification_level": "L2",
+    "isTrend": true
+  }
+]

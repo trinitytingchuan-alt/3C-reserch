@@ -1,0 +1,16 @@
+{
+  "name": "new-idea-harness",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "NEW IDEA Product Opportunity Mining — Harness (rules/qa/lock/build)",
+  "main": "rules.mjs",
+  "scripts": {
+    "qa": "node qa.mjs",
+    "lock": "node lock.mjs",
+    "build": "node build.mjs",
+    "full": "node build.mjs && node qa.mjs && node lock.mjs"
+  },
+  "dependencies": {
+    "jsdom": "^30.0.1"
+  }
+}

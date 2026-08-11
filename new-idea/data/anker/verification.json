@@ -1,0 +1,65 @@
+[
+  {
+    "id": "V001",
+    "evidence_id": "E001",
+    "level": "L1",
+    "method": "官方年报原文核验",
+    "data_window": "2025-01-01 ~ 2025-12-31",
+    "conclusion": "确认营收305.14亿和利润25.45亿数据准确",
+    "date": "2026-08-11"
+  },
+  {
+    "id": "V002",
+    "evidence_id": "E003",
+    "level": "L2",
+    "method": "行业报告交叉引用(Verified Market Research vs GM Insights vs Mordor Intelligence)",
+    "data_window": "2024-01-01 ~ 2032-12-31",
+    "conclusion": "三家报告充电宝市场规模估计范围140-217亿, CAGR约9-10%, 趋势方向一致",
+    "date": "2026-08-11"
+  },
+  {
+    "id": "V003",
+    "evidence_id": "E005",
+    "level": "L3",
+    "method": "用户声音分析:知乎/搜狐文章底层评论统计",
+    "data_window": "2024-08 ~ 2026-08",
+    "conclusion": "出差场景中'多线缆'和'体积vs容量'是排名前二的用户痛点, 数十篇文章反复提及",
+    "date": "2026-08-11"
+  },
+  {
+    "id": "V004",
+    "evidence_id": "E009",
+    "level": "L1",
+    "method": "工信部官网公告",
+    "data_window": "2026-03-01 ~ 2027-04-01",
+    "conclusion": "GB 47372-2026确认为强制国标, 实施日2027-04-01, 行业面临合规升级窗口",
+    "date": "2026-08-11"
+  },
+  {
+    "id": "V005",
+    "evidence_id": "E007",
+    "level": "L3",
+    "method": "Google Trends数据+阿里巴巴商业洞察分析交叉",
+    "data_window": "2025-01-01 ~ 2026-01-31",
+    "conclusion": "太阳能充电宝搜索兴趣在夏季(8月)和年末(11月)出现两次峰值, 户外需求趋势明显",
+    "date": "2026-08-11"
+  },
+  {
+    "id": "V006",
+    "evidence_id": "E015",
+    "level": "L2",
+    "method": "MBO Partners数字游民统计引用",
+    "data_window": "2020-01-01 ~ 2026-01-01",
+    "conclusion": "数字游民群体6年增长130%+, 远程办公常态化的宏观趋势明确",
+    "date": "2026-08-11"
+  },
+  {
+    "id": "V007",
+    "evidence_id": "E016",
+    "level": "L2",
+    "method": "全球创作者经济统计第三方聚合",
+    "data_window": "2023-01-01 ~ 2026-01-01",
+    "conclusion": "创作者经济规模与人数双增长, 外拍装备需求同步扩大",
+    "date": "2026-08-11"
+  }
+]
