@@ -44,6 +44,9 @@ const dom = new JSDOM(html, {
 const { window } = dom;
 
 function waitFor(ms) { return new Promise(r => setTimeout(r, ms)); }
+function closeModalForTest() {
+  window.document.getElementById('modalBackdrop').classList.remove('open');
+}
 
 // 捕获未捕获异常
 window.addEventListener('error', (e) => {
@@ -51,15 +54,13 @@ window.addEventListener('error', (e) => {
 });
 
 const checks = [
-  { id: 'top5Detail', desc: 'TOP5 详情卡渲染' },
-  { id: 'rankList', desc: 'TOP5 排名列表渲染' },
+  { id: 'top5Flat', desc: 'TOP5 平铺列表渲染' },
   { id: 'radarContainer', desc: '10 维雷达图渲染' },
   { id: 'dimBars', desc: '维度评分条渲染' },
-  { id: 'top5Evidence', desc: 'TOP5 证据链渲染' },
   { id: 'listBody', desc: '功能清单渲染' },
   { id: 'prdTabs', desc: 'PRD 导航渲染' },
   { id: 'prdPanels', desc: 'PRD 面板渲染' },
-  { id: 'gtmGrid', desc: 'GTM 矩阵渲染' },
+  { id: 'gtmCards', desc: 'GTM 策略卡渲染' },
   { id: 'evBody', desc: '证据链总表渲染' },
   { id: 'verBody', desc: '核验记录表渲染' },
 ];
@@ -80,31 +81,44 @@ async function run() {
   const assertions = [
     ['TOP5 冠军 ID-005', bodyText.includes('HomeCharge OS')],
     ['TOP5 分数 91.6', bodyText.includes('91.6')],
+    ['平铺含目标用户', bodyText.includes('目标用户')],
+    ['平铺含用户场景', bodyText.includes('用户场景')],
     ['清单含 ID-007', bodyText.includes('StairClimber')],
     ['PRD 背景块', bodyText.includes('Background')],
     ['证据 E009 国标', bodyText.includes('E009')],
     ['核验 V001', bodyText.includes('V001')],
-    ['GTM 北极星', bodyText.includes('northStar') || bodyText.includes('北极星')],
+    ['GTM 差异化定位', bodyText.includes('GTM 差异化定位')],
+    ['导航全文字 GTM', bodyText.includes('GTM 策略')],
   ];
   for (const [name, ok] of assertions) {
     if (ok) console.log(`[OK]    断言通过: ${name}`);
     else { errors.push(`断言失败: ${name}`); }
   }
 
-  // 交互测试 1：切换排名列表项
+  // 交互测试 1：点击平铺卡 → 联动雷达
   try {
-    const items = window.document.querySelectorAll('#rankList .rank-item');
-    if (items.length >= 2) {
-      items[1].dispatchEvent(new window.Event('click', { bubbles: true }));
+    const cards = window.document.querySelectorAll('#top5Flat .top5-flat-card');
+    if (cards.length >= 2) {
+      cards[1].dispatchEvent(new window.Event('click', { bubbles: true }));
       await waitFor(50);
-      const detailText = window.document.getElementById('top5Detail').textContent;
-      if (detailText.includes('ID-001') || detailText.includes('Battery')) {
-        console.log('[OK]    交互: 排名列表切换 TOP5 详情');
-      } else {
-        errors.push('交互失败: 排名切换后详情未更新');
-      }
-    } else {
-      warnings.push('排名列表项不足 2 个，跳过切换测试');
+      const title = window.document.getElementById('radarTitleLabel').textContent;
+      if (title.length > 0) {
+        console.log(`[OK]    交互: 平铺卡联动雷达 (${title})`);
+      } else { errors.push('交互失败: 平铺卡联动后雷达标题为空'); }
+    } else { warnings.push('平铺卡不足 2 个，跳过联动测试'); }
+  } catch (e) { errors.push(`交互异常: ${e.message}`); }
+
+  // 交互测试 1b：证据按钮 → 弹层
+  try {
+    const evBtn = window.document.querySelector('#top5Flat .tf-ev-btn');
+    if (evBtn) {
+      evBtn.dispatchEvent(new window.Event('click', { bubbles: true }));
+      await waitFor(50);
+      const modalOpen = window.document.getElementById('modalBackdrop').classList.contains('open');
+      const modalHasEv = (window.document.getElementById('modalContent').textContent || '').includes('趋势');
+      if (modalOpen && modalHasEv) { console.log('[OK]    交互: TOP5 证据按钮弹层'); }
+      else errors.push('交互失败: 证据弹层未正确打开');
+      closeModalForTest();
     }
   } catch (e) { errors.push(`交互异常: ${e.message}`); }
 

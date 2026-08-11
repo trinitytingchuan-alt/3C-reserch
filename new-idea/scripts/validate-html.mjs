@@ -41,8 +41,8 @@ scripts.forEach((code, i) => {
 
 // 2. 关键渲染挂载点
 const requiredIds = [
-  'top5Detail', 'rankList', 'radarContainer', 'dimBars', 'top5Evidence',
-  'listBody', 'listEmpty', 'prdTabs', 'prdPanels', 'gtmGrid', 'evBody', 'verBody',
+  'top5Flat', 'radarContainer', 'dimBars',
+  'listBody', 'listEmpty', 'prdTabs', 'prdPanels', 'gtmCards', 'evBody', 'verBody',
   'modalBackdrop', 'modalContent', 'expertTabs',
 ];
 for (const id of requiredIds) {
