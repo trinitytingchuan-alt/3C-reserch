@@ -1,0 +1,10 @@
+{
+  "locked_at": "2026-08-11T07:28:25.078Z",
+  "category": "headphones",
+  "hashes": {
+    "evidence": "9cd5f6175c7aaac1bca6810f1f6005fde05398bcf5252a195d94879090c00393",
+    "prd_draft": "7fa2edf564bd6d2d78b8ce4c4b173083467b63510cf42555ed34a8cf29e175f7"
+  },
+  "algorithm": "sha256",
+  "note": "修改 evidence.json 或 prd-draft.md 后必须重新 lock"
+}
