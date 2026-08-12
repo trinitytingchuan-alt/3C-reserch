@@ -1,11 +1,17 @@
 {
-  "data/anker/company-profile.json": "effa5b30b5dc526d6125c5f06512def5596ed611c1cb0c047ae37abaaf9f3b27",
-  "data/anker/evidence.json": "90f510930068ea7a83abb32b08dfb37514cf4e40654eb7ada9414a3ee241107a",
-  "data/anker/ideas.json": "b27d22116a76601403ff2a6d8fae46a0af8e86bb03df2044de11ac50f0a70581",
-  "data/anker/prd-draft.md": "d5e93d0d9172b4f9270400db26e95c0671b45f27699c69033e359d4ee13fa7d3",
-  "data/anker/scores.json": "cdeb96aea0b1bd19317afeef713d2263a3ea7d76197724d525680117540de0a8",
-  "data/anker/verification.json": "3da4661b47f7599e2305f0c343c99981e95d8565cb9deadc6d17b156ace994b6",
-  "AGENTS.md": "5ab2dbdfd0a9df661ff55074c8021ba85c1b0ee3b9c808198bd54b658c1993a7",
+  "data/anker/company-profile.json": "65ed84c3938cffd6a4e1ba964d73bf25422d7deb1c8cf5c9ea0107bae3d11468",
+  "data/anker/evidence.json": "ff130d6d62ac2af79d8f78fa92734df88e74e8eee3666240eee1572f9e3fe9cc",
+  "data/anker/ideas.json": "1271ee4c6f7e9ba9904663d7cdad79710a8464e314764cc9aa590c4f5d78530c",
+  "data/anker/prd-draft.md": "d6dd49abf3990b327a340b9f755152fd6d4923cdb1c9cf4dd6533ad53e61c8a6",
+  "data/anker/scores.json": "c103731faddaf9d3052e782ddde33bf8b56e3def554c00f0def90ffea187721e",
+  "data/anker/verification.json": "9f3dc7e07079e81695f267fee5b65736979b561c8d58daea731e249244c864cb",
+  "data/testco/company-profile.json": "f5467e6016882cce18c3b1a0a74a535bceb347bde7518bf270cd245a7f88bbc1",
+  "data/testco/evidence.json": "489f78c19ab56281f4fbe086adf595d57a491a21f0fc5aa1b506295e78e049c5",
+  "data/testco/ideas.json": "15f655624ea14eb61cada62a491ad6ffa067c91ccd30ff90a0a5e63fa667f22b",
+  "data/testco/prd-draft.md": "fb681763b643c2efb875370905aac7fd8ead3bce6629f18cc6cab8577667bea4",
+  "data/testco/scores.json": "1f2a74c7b84dbf9e61af285e0aabc9bbfa74ecc0824476dfc50cfdb018d90c41",
+  "data/testco/verification.json": "a6c78e3097b34b81e710fe39858f9e75d4c69234c3f9dfb545d88cc7903d6845",
+  "AGENTS.md": "50769670839fe174193858729d3799334b5dc3214106f344fa69cb23139f1a6b",
   "README.md": "9c31e71fa377e59b627b0ef38049ea1159b033b5d24aa0b15f647230dd59181b",
-  "harness/rules.mjs": "bba477668ce9829d618ad8ac04c17f6e4b98a1c8abfed5174dad9da79e7c3ebf"
+  "harness/rules.mjs": "55ade24dee2404424e722e7f775799189791153fb882100b39a1aa32090149d0"
 }

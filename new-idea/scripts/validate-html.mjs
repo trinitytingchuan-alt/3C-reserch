@@ -63,20 +63,25 @@ if (openSections !== closeSections) {
   console.log(`[OK]    section 配对 (${openSections} 个)`);
 }
 
-// 4. 数据与 JSON 勾稽：HTML 内嵌的 TOP5 评分应与 scores.json 一致
+// 4. 评分勾稽：用 harness computeFinalScore 重算 scores.json，确认存储 finalScore 与规则一致；
+//    并确认 HTML 内嵌了各需求的专家评分数据（模板已改为运行时统一计算，不内嵌 finalScore 字段）
 try {
   const scoresPath = join(BASE, 'data', 'anker', 'scores.json');
   const scores = JSON.parse(readFileSync(scoresPath, 'utf-8'));
+  const { computeFinalScore } = await import('../harness/rules.mjs');
   for (const s of scores) {
-    const finalHtml = new RegExp(`'${s.ideaId}':[\\s\\S]*?finalScore: ${s.finalScore.toFixed(1)}(,|\\s)`);
-    // 宽松校验：最终分出现在模板中
-    const inHtml = html.includes(`finalScore: ${s.finalScore}`);
-    if (!inHtml) {
-      console.error(`❌ HTML 缺少 ${s.ideaId} finalScore=${s.finalScore} 内嵌数据`);
+    const computed = computeFinalScore(s.scores);
+    if (Math.abs(computed - s.finalScore) > 0.05) {
+      console.error(`❌ ${s.ideaId} 存储 finalScore=${s.finalScore} 与 computeFinalScore 重算=${computed} 不一致`);
+      errors++;
+    }
+    // HTML 必须内嵌该需求专家评分（'ID-XXX': 块存在）
+    if (!new RegExp(`'${s.ideaId}':\\s*\\{`).test(html)) {
+      console.error(`❌ HTML 未内嵌 ${s.ideaId} 专家评分数据`);
       errors++;
     }
   }
-  console.log(`[OK]    scores.json 与 HTML 内嵌评分勾稽一致 (${scores.length} 条)`);
+  if (errors === 0) console.log(`[OK]    scores.json 评分均由 computeFinalScore 口径校验一致 (${scores.length} 条)`);
 } catch (e) {
   console.error(`❌ 评分勾稽校验失败: ${e.message}`);
   errors++;
