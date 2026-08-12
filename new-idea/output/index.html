@@ -34,6 +34,7 @@
   --amber: #fbbf24;
   --red: #f87171;
   --violet: #a78bfa;
+  --purple: #c084fc;
 
   /* ===== 字体 ===== */
   --font-display: 'Space Grotesk', 'Noto Sans SC', 'Microsoft YaHei', sans-serif;
@@ -466,7 +467,7 @@ main { position: relative; z-index: 1; }
 .timeline-step p { font-size: 13px; color: var(--text-mid); }
 
 /* ============================================================
-   第一章 · 八维权重环
+   第一章 · 十维权重环
    ============================================================ */
 .weights-wrap {
   display: grid;
@@ -491,9 +492,9 @@ main { position: relative; z-index: 1; }
 .weight-row .w-val { font-family: var(--font-mono); font-size: 13px; color: var(--text-hi); text-align: right; }
 
 /* ============================================================
-   第一章 · 三专家
+   第一章 · 四专家
    ============================================================ */
-.expert-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-4); }
+.expert-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-4); }
 .expert-card {
   padding: var(--space-5);
   border-radius: var(--r-lg);
@@ -507,6 +508,7 @@ main { position: relative; z-index: 1; }
 .expert-card.prod:hover { border-color: var(--blue); box-shadow: 0 0 24px rgba(56,189,248,0.15); }
 .expert-card.mkt:hover  { border-color: var(--amber); box-shadow: 0 0 24px rgba(251,191,36,0.15); }
 .expert-card.user:hover { border-color: var(--green); box-shadow: 0 0 24px rgba(52,211,153,0.15); }
+.expert-card.hw:hover  { border-color: var(--purple); box-shadow: 0 0 24px rgba(192,132,252,0.18); }
 .expert-icon {
   width: 44px; height: 44px;
   border-radius: 12px;
@@ -518,6 +520,7 @@ main { position: relative; z-index: 1; }
 .expert-card.prod .expert-icon { color: var(--blue); border-color: rgba(56,189,248,0.35); background: rgba(56,189,248,0.08); }
 .expert-card.mkt .expert-icon  { color: var(--amber); border-color: rgba(251,191,36,0.35); background: rgba(251,191,36,0.08); }
 .expert-card.user .expert-icon { color: var(--green); border-color: rgba(52,211,153,0.35); background: rgba(52,211,153,0.08); }
+.expert-card.hw .expert-icon { color: var(--purple); border-color: rgba(192,132,252,0.35); background: rgba(192,132,252,0.08); }
 .expert-card h3 { font-family: var(--font-display); font-size: 17px; font-weight: 600; margin-bottom: var(--space-2); }
 .expert-card .role { font-size: 12px; color: var(--text-lo); margin-bottom: var(--space-3); }
 .expert-focus { display: flex; flex-wrap: wrap; gap: var(--space-2); }
@@ -531,6 +534,7 @@ main { position: relative; z-index: 1; }
 .expert-card.prod .focus-chip:hover { border-color: var(--blue); color: var(--blue); }
 .expert-card.mkt .focus-chip:hover  { border-color: var(--amber); color: var(--amber); }
 .expert-card.user .focus-chip:hover { border-color: var(--green); color: var(--green); }
+.expert-card.hw .focus-chip:hover { border-color: var(--purple); color: var(--purple); }
 .expert-note { margin-top: var(--space-4); font-size: 13px; color: var(--text-mid); }
 
 /* ============================================================
@@ -942,6 +946,22 @@ main { position: relative; z-index: 1; }
 .gtm-six .gs-cell .gs-k { font-family: var(--font-mono); font-size: 10.5px; color: var(--text-lo); letter-spacing: 1px; margin-bottom: 3px; }
 .gtm-six .gs-cell .gs-v { font-size: 12.5px; color: var(--text-mid); line-height: 1.6; }
 
+/* 差异化转化矩阵 */
+.gtm-matrix { margin-bottom: var(--space-2); }
+.gm-grid { display: grid; grid-template-columns: 0.5fr 2fr 1.6fr 1.8fr 1.1fr 1.8fr; gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--r-lg); overflow: hidden; }
+.gm-th { background: rgba(11,16,28,0.95); padding: var(--space-3) var(--space-4); font-family: var(--font-display); font-size: 11.5px; font-weight: 700; letter-spacing: 0.5px; color: var(--text-hi); }
+.gmt-product { color: var(--amber); }
+.gm-cell { background: rgba(16,24,38,0.85); padding: var(--space-3) var(--space-4); font-size: 12px; color: var(--text-mid); line-height: 1.55; vertical-align: top; }
+.gmc-rank { font-family: var(--font-display); font-weight: 700; color: var(--amber); text-align: center; }
+.gm-prod { font-family: var(--font-display); font-size: 13px; font-weight: 700; color: var(--text-hi); margin-bottom: 4px; }
+.gm-diff-core { font-size: 11.5px; color: var(--text-mid); line-height: 1.6; }
+.gm-price { font-family: var(--font-mono); font-size: 11.5px; color: var(--green); }
+@media (max-width: 900px) {
+  .gm-grid { grid-template-columns: 1fr; }
+  .gm-th { display: none; }
+  .gm-cell { padding: var(--space-3); }
+}
+
 /* ============================================================
    弹层 (详情下钻)
    ============================================================ */
@@ -1151,6 +1171,25 @@ main { position: relative; z-index: 1; }
 .doc-ev-list { padding-left: var(--space-5); }
 .doc-ev-list li { margin-bottom: var(--space-2); font-size: 13px; color: var(--text-mid); line-height: 1.9; }
 
+/* 验证闭环：正/负向双栏 */
+.val-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); margin-bottom: var(--space-4); }
+.val-col { border-radius: var(--r-md); border: 1px solid var(--line-strong); background: rgba(16,24,38,0.5); padding: var(--space-4); }
+.val-col-head { font-family: var(--font-display); font-size: 13px; font-weight: 700; margin-bottom: var(--space-3); padding-bottom: var(--space-2); border-bottom: 1px solid var(--line); }
+.val-pos .val-col-head { color: var(--green); }
+.val-neg .val-col-head { color: var(--red); }
+.val-list { padding-left: 0; list-style: none; }
+.val-list li { display: flex; gap: 8px; align-items: flex-start; margin-bottom: var(--space-3); font-size: 12.5px; color: var(--text-mid); line-height: 1.6; }
+.val-list li .ev-badge { flex-shrink: 0; margin-top: 2px; }
+.val-list li span:last-child { flex: 1; }
+.val-list li a { font-size: 11px; }
+.val-pseudo { background: rgba(220,38,38,0.1); border: 1px solid var(--red); color: var(--red); font-size: 13px; font-weight: 700; padding: var(--space-3) var(--space-4); border-radius: var(--r-md); margin-bottom: var(--space-4); }
+.val-hw { margin-top: var(--space-3); padding: var(--space-3) var(--space-4); border-radius: var(--r-md); border: 1px dashed rgba(192,132,252,0.4); background: rgba(192,132,252,0.06); font-size: 13px; color: var(--text-mid); line-height: 1.7; }
+.val-hw b { color: var(--purple); }
+.val-hw-ev { margin-top: 8px; display: flex; gap: 6px; flex-wrap: wrap; }
+.doc-pseudo-banner { background: rgba(220,38,38,0.1); border: 1px solid var(--red); color: var(--text-hi); font-size: 13px; line-height: 1.8; padding: var(--space-4); border-radius: var(--r-md); margin-bottom: var(--space-3); }
+.doc-pseudo-banner b { color: var(--red); }
+.pseudo-block .vcell-row { border-color: var(--red); }
+
 /* ============================================================
    第五章 · GTM & 证据链
    ============================================================ */
@@ -1285,7 +1324,7 @@ footer .f-brand { font-family: var(--font-display); color: var(--text-mid); marg
   .hero { grid-template-columns: 1fr; gap: var(--space-5); }
   .weights-wrap { grid-template-columns: 1fr; }
   .timeline-grid { grid-template-columns: repeat(2, 1fr); }
-  .expert-grid { grid-template-columns: 1fr; }
+  .expert-grid { grid-template-columns: repeat(2, 1fr); }
   .evidence-band { grid-template-columns: 1fr; }
   .placeholder-grid { grid-template-columns: 1fr; }
   .side-nav { display: none; }
@@ -1342,7 +1381,7 @@ footer .f-brand { font-family: var(--font-display); color: var(--text-mid); marg
   </button>
   <button class="nav-item" data-target="scoring-final">
     <span class="ni-no">08</span>
-    <span class="ni-label">三专家综合评分<span class="ni-en">COMPREHENSIVE SCORE</span></span>
+    <span class="ni-label">四专家综合评分<span class="ni-en">COMPREHENSIVE SCORE</span></span>
   </button>
 </nav>
 
@@ -1356,7 +1395,7 @@ footer .f-brand { font-family: var(--font-display); color: var(--text-mid); marg
     <div>
       <div class="section-index">CHAPTER 01 / OVERVIEW</div>
       <h1>安克创新 · 产品机会雷达</h1>
-      <p class="sub">从"人想"到"事成"——以安克创新四步法为方法论，用场景优先 + 三专家评审 + 八维加权，扫描安克现有产品线外的空白机会。</p>
+      <p class="sub">从"人想"到"事成"——以安克创新四步法为方法论，用场景优先 + 四专家评审（含硬件专家伪需求技术拦截）+ 十维加权，扫描安克现有产品线外的空白机会。</p>
     </div>
     <div class="head-tag">数据窗口 <b>2025-08 ~ 2026-08</b></div>
   </div>
@@ -1366,7 +1405,7 @@ footer .f-brand { font-family: var(--font-display); color: var(--text-mid); marg
     <div class="reveal">
       <span class="hero-badge">◈ 首个演示案例 · Anker Innovations</span>
       <h1>把"市场发声"变成<br><span class="grad">可信的产品机会</span></h1>
-      <p class="hero-sub">灵感只需要"看"：看趋势、看场景、看人群、看痛点。本报告以安克为起点，系统化完成五维采集 → 8 条候选需求 → 三专家交叉验证 → 评分排序 → TOP5 + PRD 的完整闭环，并用证据链证明每个机会"非伪需求、有递增趋势"。</p>
+      <p class="hero-sub">灵感只需"看"：看趋势、看场景、看人群、看痛点。本报告以安克为起点，系统化完成五维采集 → 8 条候选需求 → 四专家交叉验证（含硬件专家伪需求技术拦截）→ 评分排序 → TOP5 + PRD 的完整闭环，并以证据链证明每个机会"非伪需求、处递增趋势"。</p>
       <div class="hero-meta">
         <div class="meta-item"><div class="v">2亿+</div><div class="k">安克全球用户</div></div>
         <div class="meta-item"><div class="v">154亿</div><div class="k">充电储能营收(¥)</div></div>
@@ -1441,12 +1480,12 @@ footer .f-brand { font-family: var(--font-display); color: var(--text-mid); marg
       <div class="guide-card reveal reveal-delay-1">
         <div class="g-no">06</div>
         <h3>证据链</h3>
-        <p>E001-E026 全部证据 + V001-V007 三级核验，Tier 分级、来源可溯源、趋势证据标记，支撑"非伪需求"论证。</p>
+        <p>全量证据 E## 与三级核验 V##，Tier 分级、来源可溯源、趋势证据标记，支撑"非伪需求"论证。</p>
       </div>
       <div class="guide-card reveal reveal-delay-2">
         <div class="g-no">06</div>
         <h3>设计方法论</h3>
-        <p>本报告背后的完整思路：四步法、场景优先采集、10 维评分体系、三专家评审、勾稽传导、设计系统规范。</p>
+        <p>本报告背后的完整思路：四步法、场景优先采集、10 维评分体系、四专家评审（含硬件专家伪需求技术拦截）、勾稽传导、设计系统规范。</p>
       </div>
     </div>
   </div>
@@ -1558,6 +1597,12 @@ footer .f-brand { font-family: var(--font-display); color: var(--text-mid); marg
     <div class="head-tag">5 份 GTM · 差异化导向</div>
   </div>
   <div class="section-block">
+    <div class="section-index reveal">STRATEGY / 差异化转化总览</div>
+    <h2 style="font-family: var(--font-display); font-size: 24px; margin-bottom: var(--space-4);" class="reveal">产品差异化 → GTM 差异化：转化矩阵</h2>
+    <p class="sub" style="margin-bottom: var(--space-5);">每个机会的产品差异化内核，如何决定其 GTM 在人群、渠道、定价、切入路径上的差异化落点。差异化并非营销话术，而是由技术可行性与竞争空白（四专家评审结论）外推至上市动作的可推导链路。</p>
+    <div id="gtmMatrix" class="gtm-matrix"></div>
+  </div>
+  <div class="section-block" style="margin-top: var(--space-7);">
     <div class="section-index reveal">STRATEGY / 每需求一份</div>
     <h2 style="font-family: var(--font-display); font-size: 24px; margin-bottom: var(--space-5);" class="reveal">差异化 GTM · 六要素 + 差异化策略</h2>
     <div id="gtmCards" class="gtm-cards"></div>
@@ -1572,15 +1617,15 @@ footer .f-brand { font-family: var(--font-display); color: var(--text-mid); marg
     <div>
       <div class="section-index">CHAPTER 05 / EVIDENCE CHAIN</div>
       <h1>证据链</h1>
-      <p class="sub">26 条证据 E001-E026 + 7 条三级核验 V001-V007 全量展示：按<b>市场 / 竞争者 / 用户需求 / 战略合规</b>四维分层、Tier 数据源分级、趋势证据标记、核验方法可追溯——支撑每个机会"非伪需求、有递增趋势"。所有数据严格限定在一年数据窗口内。</p>
+      <p class="sub">全量证据 E## 与三级核验 V## 可追溯展示：按<b>市场 / 竞争者 / 用户需求 / 战略合规</b>四维分层、Tier 数据源分级、趋势证据标记、核验方法可审计——逐条支撑每个机会"非伪需求、处递增趋势"。所有证据限定于指定数据窗口内，失效来源已剔除。</p>
     </div>
-    <div class="head-tag">E001-E026 · V001-V007</div>
+    <div class="head-tag">E## 全量 · V## 三级核验</div>
   </div>
 
   <!-- 证据链总表（可筛选） -->
   <div class="section-block">
     <div class="section-index reveal">EVIDENCE / 证据总表（可筛选二级视图）</div>
-    <h2 style="font-family: var(--font-display); font-size: 24px; margin-bottom: var(--space-4);" class="reveal">E001-E026 · 数据源三级分层 · 每条可溯源</h2>
+    <h2 style="font-family: var(--font-display); font-size: 24px; margin-bottom: var(--space-4);" class="reveal">E001-E026 · E## 数据源三级分层 · 每条可溯源</h2>
     <div class="ev-summary reveal" id="evSummary"></div>
     <div class="ev-filters reveal" id="evFilters">
       <div class="evf-group">
@@ -1658,7 +1703,7 @@ footer .f-brand { font-family: var(--font-display); color: var(--text-mid); marg
     <div>
       <div class="section-index">CHAPTER 06 / METHOD & DESIGN</div>
       <h1>设计方法论</h1>
-      <p class="sub">本报告背后完整的产品机会发现思路：四步法 → 场景优先采集 → 10 维评分 → 三专家评审 → 勾稽传导 → 证据规范 → 网页设计系统</p>
+      <p class="sub">本报告背后完整的产品机会发现思路：四步法 → 场景优先采集 → 10 维评分 → 四专家评审（含硬件专家伪需求技术拦截）→ 勾稽传导 → 证据规范 → 网页设计系统</p>
     </div>
     <div class="head-tag">方法论 · 设计系统</div>
   </div>
@@ -1768,10 +1813,10 @@ footer .f-brand { font-family: var(--font-display); color: var(--text-mid); marg
     </div>
   </div>
 
-  <!-- 三专家评审 -->
+  <!-- 四专家评审 -->
   <div class="section-block" style="margin-top: var(--space-7);">
-    <div class="section-index reveal">EXPERTS / 三专家评审</div>
-    <h2 style="font-family: var(--font-display); font-size: 24px; margin-bottom: var(--space-5);" class="reveal">独立评审 · 子权重加权 · 交叉验证</h2>
+    <div class="section-index reveal">EXPERTS / 四专家评审</div>
+    <h2 style="font-family: var(--font-display); font-size: 24px; margin-bottom: var(--space-5);" class="reveal">独立评审 · 子权重加权 · 交叉验证 · 含硬件伪需求拦截</h2>
     <div class="expert-grid">
       <div class="expert-card prod reveal">
         <div class="expert-icon">◆</div>
@@ -1807,6 +1852,18 @@ footer .f-brand { font-family: var(--font-display); color: var(--text-mid); marg
         </div>
         <div class="expert-note">"用户真的痛吗？频率多高？现有替代方案是什么？愿意为它付多少钱？"</div>
       </div>
+      <div class="expert-card hw reveal reveal-delay-3">
+        <div class="expert-icon">▣</div>
+        <h3>硬件专家</h3>
+        <div class="role">Hardware Expert · 伪需求技术拦截 × 工程可行性</div>
+        <div class="expert-focus">
+          <span class="focus-chip">技术可行性 ×3</span>
+          <span class="focus-chip">执行风险 ×2</span>
+          <span class="focus-chip">竞争壁垒 ×1.5</span>
+          <span class="focus-chip">单位经济 ×1.5</span>
+        </div>
+        <div class="expert-note">"硬件层真能合体吗？供电/协议/主控/热耦合是否可行？技术壁垒能否突破？—— 对伪需求做一票否决式拦截。"</div>
+      </div>
     </div>
   </div>
 
@@ -1819,19 +1876,20 @@ footer .f-brand { font-family: var(--font-display); color: var(--text-mid); marg
       <div class="score-step">
         <div class="ss-no">①</div>
         <div class="ss-body">
-          <div class="ss-t">三专家各自独立打分</div>
+          <div class="ss-t">四专家各自独立打分</div>
           <p>产品 / 市场投资 / 用户 三名专家，分别对同一需求的 <b>10 个维度</b> 打 0-10 分——技术可行性、UX 潜力、创新溢价、竞争壁垒、市场机会、趋势增长、单位经济、痛点强度、参数体验、用户体验。每位专家只评自己关心的维度。</p>
         </div>
       </div>
       <div class="score-step">
         <div class="ss-no">②</div>
         <div class="ss-body">
-          <div class="ss-t">每个维度分 = 三专家按「子权重」加权平均</div>
-          <p>雷达图里看到的每个维度分（0-10），不是简单取平均，而是按各专家在该维度的 <b>子权重</b> 加权：</p>
+          <div class="ss-t">每个维度分 = 四专家按「子权重」加权平均</div>
+          <p>雷达图里看到的每个维度分（0-10），不是简单取平均，而是按各专家在该维度的 <b>子权重</b> 加权（第四位硬件专家对技术可行性与执行风险加权最高，专司伪需求拦截）：</p>
           <ul class="score-formula">
             <li>产品专家侧重：技术可行性 ×2、UX 潜力 ×2、创新溢价 ×2、竞争壁垒 ×1.5</li>
             <li>市场投资专家侧重：市场机会 ×2、趋势增长 ×2、竞争壁垒 ×2、单位经济 ×2</li>
             <li>用户专家侧重：痛点强度 ×2.5、UX 潜力 ×2.5、市场机会 ×1</li>
+            <li>硬件专家侧重：技术可行性 ×3、执行风险 ×2、竞争壁垒 ×1.5、单位经济 ×1.5</li>
             <li>维度分 = Σ(专家分 × 子权重) ÷ Σ(子权重)，结果落在 0-10</li>
           </ul>
         </div>
@@ -1865,11 +1923,11 @@ footer .f-brand { font-family: var(--font-display); color: var(--text-mid); marg
       <div class="flow-layer">
         <div class="flow-layer-label">验证层</div>
         <div class="flow-row">
-          <div class="flow-node"><div class="fn-t">证据链 E##</div><div class="fn-s">evidence.json · 26 条</div></div>
+          <div class="flow-node"><div class="fn-t">证据链 E##</div><div class="fn-s">evidence.json · 全量可溯源</div></div>
           <div class="flow-arrow">→</div>
           <div class="flow-node"><div class="fn-t">三级核验 V##</div><div class="fn-s">verification.json · 7 条</div></div>
           <div class="flow-arrow">→</div>
-          <div class="flow-node hot"><div class="fn-t">三专家 × 10 维</div><div class="fn-s">scores.json</div></div>
+          <div class="flow-node hot"><div class="fn-t">四专家 × 10 维</div><div class="fn-s">scores.json</div></div>
         </div>
       </div>
       <div class="flow-layer">
@@ -1944,14 +2002,14 @@ footer .f-brand { font-family: var(--font-display); color: var(--text-mid); marg
 </section>
 
 <!-- ============================================================
-     第八章 · 三专家加权综合评分（每个需求一份综合评价，统一 100 分制）
+     第八章 · 四专家加权综合评分（每个需求一份综合评价，统一 100 分制）
      ============================================================ -->
 <section class="section" id="scoring-final" style="border-top: 1px solid var(--line);">
   <div class="section-head reveal">
     <div>
       <div class="section-index">CHAPTER 08 / COMPREHENSIVE SCORE</div>
-      <h1>三专家加权综合评分</h1>
-      <p class="sub">对每个 TOP5 需求单独给出综合评价：产品 / 市场投资 / 用户 三专家各自综合分 + 加权综合分，统一 100 分制——与需求卡右侧的「综合分 / 100」口径一致，避免 10 分制 / 100 分制混淆。</p>
+      <h1>四专家加权综合评分</h1>
+      <p class="sub">对每个 TOP5 需求单独给出综合评价：产品 / 市场投资 / 用户 / 硬件 四专家各自综合分 + 加权综合分，统一 100 分制——硬件专家对伪需求具一票否决式拦截；与需求卡右侧的「综合分 / 100」口径一致，避免 10 分制 / 100 分制混淆。</p>
     </div>
     <div class="head-tag">统一 <b>100 分制</b> · 每需求一份</div>
   </div>
@@ -2012,7 +2070,7 @@ const DIMS = [
   { key: 'innovation', name: '创新溢价', w: 5 },
 ];
 const PATH_LABEL = { 'scene-pain': '场景-痛点', 'competitor-gap': '竞品-缺口', 'cross-industry': '跨行业-迁移' };
-const EXPERT_LABEL = { all: '综合加权', product_expert: '产品专家', market_expert: '市场投资专家', user_expert: '用户专家' };
+const EXPERT_LABEL = { all: '综合加权', product_expert: '产品专家', market_expert: '市场投资专家', user_expert: '用户专家', hardware_expert: '硬件专家' };
 
 const IDEAS = [
   { id: 'ID-001', title: 'AI 充电健康与安全管家系统', eng: 'Anker Battery Health', path: 'competitor-gap', category: '软件平台 + 硬件生态',
@@ -2085,42 +2143,50 @@ const SCORES = {
   'ID-001': { expert: {
     product_expert: { marketOpp: 9, pain: 10, trend: 9, techFeas: 9, competitiveMoat: 9, unitEcon: 9, strategicFit: 9, uxPotential: 10, execRisk: 9, innovation: 9 },
     market_expert: { marketOpp: 9, pain: 9, trend: 9, techFeas: 8, competitiveMoat: 9, unitEcon: 9, strategicFit: 9, uxPotential: 9, execRisk: 9, innovation: 8 },
-    user_expert: { marketOpp: 9, pain: 10, trend: 9, techFeas: 8, competitiveMoat: 9, unitEcon: 8, strategicFit: 9, uxPotential: 10, execRisk: 9, innovation: 8 } },
+    user_expert: { marketOpp: 9, pain: 10, trend: 9, techFeas: 8, competitiveMoat: 9, unitEcon: 8, strategicFit: 9, uxPotential: 10, execRisk: 9, innovation: 8 },
+    hardware_expert: { marketOpp: 9, pain: 10, trend: 9, techFeas: 9, competitiveMoat: 9, unitEcon: 9, strategicFit: 9, uxPotential: 10, execRisk: 9, innovation: 9 } },
     evidenceIds: ['E009','E010','E019','E020','E018','E013'], verificationIds: ['V004','V002'] },
   'ID-002': { expert: {
     product_expert: { marketOpp: 9, pain: 10, trend: 9, techFeas: 9, competitiveMoat: 9, unitEcon: 9, strategicFit: 9, uxPotential: 10, execRisk: 9, innovation: 9 },
     market_expert: { marketOpp: 9, pain: 9, trend: 9, techFeas: 9, competitiveMoat: 8, unitEcon: 9, strategicFit: 9, uxPotential: 9, execRisk: 9, innovation: 8 },
-    user_expert: { marketOpp: 8, pain: 10, trend: 9, techFeas: 8, competitiveMoat: 8, unitEcon: 8, strategicFit: 9, uxPotential: 10, execRisk: 9, innovation: 8 } },
+    user_expert: { marketOpp: 8, pain: 10, trend: 9, techFeas: 8, competitiveMoat: 8, unitEcon: 8, strategicFit: 9, uxPotential: 10, execRisk: 9, innovation: 8 },
+    hardware_expert: { marketOpp: 9, pain: 10, trend: 9, techFeas: 9, competitiveMoat: 9, unitEcon: 9, strategicFit: 9, uxPotential: 10, execRisk: 9, innovation: 9 } },
     evidenceIds: ['E015','E026','E025','E011'], verificationIds: ['V003'] },
   'ID-003': { expert: {
     product_expert: { marketOpp: 9, pain: 9, trend: 10, techFeas: 9, competitiveMoat: 9, unitEcon: 9, strategicFit: 8, uxPotential: 9, execRisk: 9, innovation: 10 },
     market_expert: { marketOpp: 9, pain: 8, trend: 10, techFeas: 8, competitiveMoat: 9, unitEcon: 10, strategicFit: 8, uxPotential: 8, execRisk: 9, innovation: 9 },
-    user_expert: { marketOpp: 9, pain: 10, trend: 10, techFeas: 8, competitiveMoat: 8, unitEcon: 9, strategicFit: 8, uxPotential: 9, execRisk: 9, innovation: 9 } },
+    user_expert: { marketOpp: 9, pain: 10, trend: 10, techFeas: 8, competitiveMoat: 8, unitEcon: 9, strategicFit: 8, uxPotential: 9, execRisk: 9, innovation: 9 },
+    hardware_expert: { marketOpp: 9, pain: 9, trend: 10, techFeas: 8, competitiveMoat: 8, unitEcon: 9, strategicFit: 8, uxPotential: 9, execRisk: 9, innovation: 9 } },
     evidenceIds: ['E007','E008','E014','E021','E022'], verificationIds: ['V005','V002'] },
-  'ID-004': { expert: {
+  'ID-004': { isPseudo: true, pseudoReason: '硬件专家(第四角色)技术拦截: 充电宝无USB Host控制器无法直写SSD、SSD由主机取电、NVMe主控技术壁垒不可破、安克无存储人才栈、锂电+主控热耦合违背可靠性、电商无在售单品。三者硬件层无任何合体必要。', expert: {
     product_expert: { marketOpp: 9, pain: 9, trend: 10, techFeas: 9, competitiveMoat: 10, unitEcon: 8, strategicFit: 9, uxPotential: 10, execRisk: 8, innovation: 10 },
     market_expert: { marketOpp: 9, pain: 9, trend: 10, techFeas: 8, competitiveMoat: 9, unitEcon: 8, strategicFit: 9, uxPotential: 9, execRisk: 8, innovation: 9 },
-    user_expert: { marketOpp: 8, pain: 10, trend: 9, techFeas: 8, competitiveMoat: 8, unitEcon: 8, strategicFit: 9, uxPotential: 10, execRisk: 8, innovation: 9 } },
+    user_expert: { marketOpp: 8, pain: 10, trend: 9, techFeas: 8, competitiveMoat: 8, unitEcon: 8, strategicFit: 9, uxPotential: 10, execRisk: 8, innovation: 9 },
+    hardware_expert: { marketOpp: 7, pain: 9, trend: 7, techFeas: 1, competitiveMoat: 2, unitEcon: 3, strategicFit: 1, uxPotential: 4, execRisk: 1, innovation: 5 } },
     evidenceIds: ['E016','E023','E024','E005'], verificationIds: ['V003','V007'] },
   'ID-005': { expert: {
     product_expert: { marketOpp: 9, pain: 9, trend: 10, techFeas: 9, competitiveMoat: 9, unitEcon: 9, strategicFit: 10, uxPotential: 10, execRisk: 8, innovation: 10 },
     market_expert: { marketOpp: 9, pain: 9, trend: 10, techFeas: 8, competitiveMoat: 9, unitEcon: 9, strategicFit: 10, uxPotential: 9, execRisk: 8, innovation: 9 },
-    user_expert: { marketOpp: 8, pain: 10, trend: 9, techFeas: 8, competitiveMoat: 8, unitEcon: 8, strategicFit: 10, uxPotential: 10, execRisk: 8, innovation: 8 } },
+    user_expert: { marketOpp: 8, pain: 10, trend: 9, techFeas: 8, competitiveMoat: 8, unitEcon: 8, strategicFit: 10, uxPotential: 10, execRisk: 8, innovation: 8 },
+    hardware_expert: { marketOpp: 9, pain: 9, trend: 10, techFeas: 9, competitiveMoat: 9, unitEcon: 9, strategicFit: 10, uxPotential: 10, execRisk: 8, innovation: 9 } },
     evidenceIds: ['E017','E013','E004','E018'], verificationIds: ['V001'] },
   'ID-006': { expert: {
     product_expert: { marketOpp: 7, pain: 8, trend: 7, techFeas: 8, competitiveMoat: 7, unitEcon: 8, strategicFit: 8, uxPotential: 9, execRisk: 8, innovation: 7 },
     market_expert: { marketOpp: 7, pain: 8, trend: 7, techFeas: 7, competitiveMoat: 7, unitEcon: 8, strategicFit: 7, uxPotential: 8, execRisk: 8, innovation: 6 },
-    user_expert: { marketOpp: 6, pain: 9, trend: 7, techFeas: 7, competitiveMoat: 7, unitEcon: 7, strategicFit: 7, uxPotential: 9, execRisk: 8, innovation: 6 } },
+    user_expert: { marketOpp: 6, pain: 9, trend: 7, techFeas: 7, competitiveMoat: 7, unitEcon: 7, strategicFit: 7, uxPotential: 9, execRisk: 8, innovation: 6 },
+    hardware_expert: { marketOpp: 7, pain: 8, trend: 7, techFeas: 8, competitiveMoat: 7, unitEcon: 8, strategicFit: 7, uxPotential: 9, execRisk: 8, innovation: 7 } },
     evidenceIds: ['E005','E006','E026'], verificationIds: ['V003'] },
   'ID-007': { expert: {
     product_expert: { marketOpp: 8, pain: 8, trend: 7, techFeas: 7, competitiveMoat: 9, unitEcon: 6, strategicFit: 8, uxPotential: 8, execRisk: 6, innovation: 10 },
     market_expert: { marketOpp: 8, pain: 8, trend: 8, techFeas: 7, competitiveMoat: 9, unitEcon: 6, strategicFit: 8, uxPotential: 7, execRisk: 6, innovation: 10 },
-    user_expert: { marketOpp: 7, pain: 9, trend: 7, techFeas: 5, competitiveMoat: 8, unitEcon: 6, strategicFit: 7, uxPotential: 8, execRisk: 6, innovation: 9 } },
+    user_expert: { marketOpp: 7, pain: 9, trend: 7, techFeas: 5, competitiveMoat: 8, unitEcon: 6, strategicFit: 7, uxPotential: 8, execRisk: 6, innovation: 9 },
+    hardware_expert: { marketOpp: 8, pain: 8, trend: 7, techFeas: 5, competitiveMoat: 9, unitEcon: 6, strategicFit: 8, uxPotential: 8, execRisk: 6, innovation: 10 } },
     evidenceIds: ['E012','E013'], verificationIds: [] },
   'ID-008': { expert: {
     product_expert: { marketOpp: 7, pain: 9, trend: 8, techFeas: 7, competitiveMoat: 7, unitEcon: 7, strategicFit: 7, uxPotential: 9, execRisk: 7, innovation: 8 },
     market_expert: { marketOpp: 7, pain: 9, trend: 8, techFeas: 6, competitiveMoat: 7, unitEcon: 7, strategicFit: 6, uxPotential: 8, execRisk: 7, innovation: 7 },
-    user_expert: { marketOpp: 6, pain: 10, trend: 8, techFeas: 6, competitiveMoat: 7, unitEcon: 7, strategicFit: 7, uxPotential: 9, execRisk: 7, innovation: 7 } },
+    user_expert: { marketOpp: 6, pain: 10, trend: 8, techFeas: 6, competitiveMoat: 7, unitEcon: 7, strategicFit: 7, uxPotential: 9, execRisk: 7, innovation: 7 },
+    hardware_expert: { marketOpp: 7, pain: 9, trend: 8, techFeas: 7, competitiveMoat: 7, unitEcon: 7, strategicFit: 7, uxPotential: 9, execRisk: 7, innovation: 8 } },
     evidenceIds: ['E009'], verificationIds: ['V004'] },
 };
 
@@ -2162,7 +2228,6 @@ const GTMS = {
   'ID-001': { audience: '安克全量充电用户（2 亿存量），先打数码发烧友与 3C 评测圈', channel: 'App 生态内推 + Reddit/知乎测评 + 苹果/安卓应用商店', pricing: 'App 免费 + 高级健康报告订阅 ¥15/月', entry: '随安克充电硬件捆绑首发，扫码激活即送 3 个月高级版', northStar: '月活健康设备数 ≥ 500 万（发布后 12 个月）', first100: '安克论坛/社群种子用户 1000 人内测' },
   'ID-002': { audience: '数字游民、远程工作者、重度通勤族（25-40 岁）', channel: '亚马逊 Prime Day + TikTok #desksetup 圈层营销 + 数码 KOL 评测', pricing: '$89-129，中高端定位', entry: '先发美国/欧洲数码生态，Reddit r/digitalnomad 种草', northStar: '发布后 6 个月全球销量 ≥ 30 万件', first100: '数字游民社区 100 人共创内测' },
   'ID-003': { audience: '户外半日游人群、海滩/公园游客、轻度露营者', channel: '亚马逊户外品类 + 电商 KA 活动 + YouTube 露营博主评测', pricing: '$39-59，冲动消费品定价', entry: '夏季户外季前全球首发，抢占搜索峰值窗口（8 月）', northStar: '首个夏季季度销量 ≥ 50 万件', first100: '户外社群 200 人试用（露营/钓鱼/野餐场景）' },
-  'ID-004': { audience: '独立摄影师、旅行 Vlogger、内容创作者', channel: '摄影器材垂类电商 + YouTube 相机博主 + 摄影师社群', pricing: '$129-199（含 SSD 存储价值）', entry: '与相机配件生态联动（三脚架/相机包品牌联名）', northStar: '发布后 12 个月销量 ≥ 10 万件，复购率 ≥ 25%', first100: '摄影社区 200 人内测（风光/旅拍/婚礼摄影师）' },
   'ID-005': { audience: '智能家居家庭、光伏业主、电价敏感家庭', channel: '智能家居渠道 + 能源媒体 + eufy App 生态', pricing: '硬件 $29-59/插排 + 软件订阅 $5/月', entry: '先在欧洲（高电价地区）试点，再进美国/东南亚', northStar: '发布后 24 个月连接设备数 ≥ 300 万', first100: '欧洲智能家居用户 1000 人内测' },
   'ID-006': { audience: '高频差旅商务人士', channel: '机场/高铁站礼品店 + 差旅垂直媒体', pricing: '$79-119', entry: '企业礼品/伴手礼渠道', northStar: '发布后 12 个月销量 ≥ 20 万件', first100: '差旅达人 100 人评测' },
   'ID-007': { audience: '复式/别墅/多楼层家庭', channel: 'eufy 品牌渠道 + 高端家居杂志', pricing: '$799-999 高端定价', entry: '技术先发 + 专利布局，冲击高端', northStar: '发布后 12 个月销量 ≥ 5 万件', first100: '别墅社区 50 户体验' },
@@ -2197,11 +2262,6 @@ const SCEN_SRC = {
     { t: 'voice', label: '户外太阳能实测·效率与携带', url: 'https://baijiahao.baidu.com/s?id=1872301791430326762', date: '2026-08-01' },
     { t: 'media', label: '太阳能充电宝搜索趋势峰值', url: 'https://www.alibaba.com/product-comparison/battery-solar-pack.html', date: '2026-02' },
     { t: 'media', label: '便携太阳能折叠板市场', url: 'https://caifuhao.eastmoney.com/news/20260310153202331564000', date: '2026-03-13' }
-  ],
-  'ID-004': [
-    { t: 'voice', label: '摄影师备份焦虑·数据安全', url: 'https://baijiahao.baidu.com/s?id=1873093697715597170', date: '2026-08-10' },
-    { t: 'official', label: '存储与充电分离·产品现状', url: 'https://www.sandisk.com/products/ssd/external-ssd/sandisk-extreme-portable-ssd-v3', date: '2026' },
-    { t: 'voice', label: '多设备线缆负担', url: 'https://www.zhihu.com/tardis/bd/art/13784281101', date: '2024-12-23' }
   ],
   'ID-005': [
     { t: 'media', label: '家庭用电统计需求·米家智能插座3', url: 'https://mbd.baidu.com/newspage/data/dtlandingsuper?nid=dt_4434681917353489503', date: '2025-02-04' },
@@ -2256,13 +2316,6 @@ const VALIDATION = {
       industryValidation: { ev: ['E014'], logic: 'solar power bank搜索2025夏季爆发(E014)，便携能源需求处上升通道' },
       crossIndustryRef: { ev: ['E007'], logic: '太阳能充电宝搜索峰值(E007)反映户外便携能源已有需求认知，可迁移为「轻量二合一」产品形态依据' },
       userVoice: { ev: ['E022','E007'], logic: '户外手机断电焦虑、太阳能板效率低/功率虚标(E022) + 搜索量峰值(E007)，证明「半日户外充电」是真实痛点' }
-    },
-    'ID-004': {
-      marketVoice: { ev: ['E016'], logic: '全球创作者经济2025年2523亿美元、外拍创作扩大(E016)，目标客群规模大且为数据安全愿付溢价' },
-      competitorValidation: { ev: ['E023'], logic: '闪迪/西数SSD仅存储、与充电分离(E023)，市场无「充电+备份」一体产品，新品类空白' },
-      industryValidation: { ev: ['E016'], logic: '创作者经济规模持续增长(E016)，外拍轻量供电+本地备份需求同步上升' },
-      crossIndustryRef: { ev: ['E023'], logic: '借鉴移动SSD行业(闪迪/西数 E023)成熟存储供应链，与充电宝组合成一体化新形态' },
-      userVoice: { ev: ['E024','E005'], logic: '摄影师户外备份难、存储充电双设备累赘(E024) + 差旅数据+充电焦虑(E005)，证明复合场景痛点真实存在' }
     },
     'ID-005': {
       marketVoice: { ev: ['E004'], logic: '充电宝市场186亿美元、CAGR 9.6%(E004)反映消费电子充电刚需扩容，家庭多设备充电是其中持续增长子场景' },
@@ -2319,20 +2372,6 @@ const PRDS = {
       { k: '口碑', v: '用户评分 ≥ 4.3/5' } ],
     risks: [ ['太阳能效率受天气影响', '高', '中', '明确定位「辅助补电」，不做唯一能源'], ['夏季季节性波动', '中', '中', '延伸冬季应急/露营场景'], ['竞品跟进', '中', '中', '磁吸+轻量+价格三重卡位'] ],
     timeline: ['0-2 月：太阳能片选型 + 效率测试', '2-4 月：原型 + 户外实测', '4-6 月：夏季季前全球首发'] },
-  'ID-004': { decision: '【建议立项】创作者经济全球超 2500 亿美元（E016），外拍「充电焦虑 + 数据安全焦虑」叠加（E024）构成高价值复合痛点；市场无「充电宝 + SSD + 读卡器」一体产品（E023）为空白新品类。综合分 90.5/100。目标客群为数据安全愿付溢价，建议以摄影社区内测冷启动，重点解决 SSD 与电池散热冲突。',
-    background: [
-    '创作者经济全球超 2500 亿美元、约 2 亿创作者',
-    '外拍场景存在「充电焦虑 + 数据安全焦虑」叠加：拍摄成果在回酒店前无备份（场景痛点延伸）',
-    '市场上无「充电宝 + SSD + 读卡器」一体化产品——空白新品类' ],
-    users: ['独立摄影师、旅行 Vlogger、内容创作者、外拍团队'],
-    scenarios: ['场景 A：一日外拍后相机 SD 卡满、手机存储告急、设备电量见底', '场景 B：担心设备丢失/进水/被偷导致全天素材丢失', '场景 C：不想带移动硬盘+充电宝+读卡器+N 根线的「装备爆炸」'],
-    solution: ['20000mAh 电池 + 内置 1TB NVMe SSD', 'USB-C 连接相机/手机自动触发「充电时增量备份」', 'SD 卡直插一键全盘备份 + App 确认推送', '定价 $129-199'],
-    metrics: [
-      { k: '北极星', v: '发布后 12 个月销量 ≥ 10 万件，复购率 ≥ 25%' },
-      { k: '可靠', v: '备份成功率 ≥ 99.9%' },
-      { k: '渗透', v: '创作者社区渗透率 ≥ 5%' } ],
-    risks: [ ['SSD 与电池散热冲突', '中', '高', '分区布局 + 主动散热设计'], ['数据损坏风险', '低', '高', '三重校验 + 断电保护（电容掉电缓存）'], ['成本高于纯充电宝', '高', '中', '明确「数据安全」溢价价值主张'] ],
-    timeline: ['0-3 月：SSD+电池集成设计 + 掉电保护验证', '3-6 月：摄影社区 200 人内测', '6-12 月：正式发售'] },
   'ID-005': { decision: '【建议立项】家庭能源管理 B2C 下沉（E004）创造充电级能耗管理需求，家庭多设备充电能耗不可见（E018）为真实痛点；Tapo/小米仅做开关控制（E017）留下「per-port 计量 + 电池健康 + 充电策略」空白；叠加端侧智能战略契合（E013）。综合分 91.6/100 居 TOP1。建议从「卖充电器」升级为「家庭充电操作系统」，以软件订阅为长期价值。',
     background: [
     '全球电价持续上涨，家庭能源管理从 B2B 向 B2C 下沉——家庭「充电级」能耗管理是扩容中的充电刚需子场景',
@@ -2435,12 +2474,13 @@ function expertFinalScore(id, expert) {
 }
 
 /* 唯一「加权综合分」真相源：与 harness/rules.mjs computeFinalScore 完全一致口径
-   —— 用专家子权重(EXPERT_SUB_WEIGHTS)在每维上加权三专家→再×维度权重累加→归一化0-100。
+   —— 用专家子权重(EXPERT_SUB_WEIGHTS)在每维上加权四专家→再×维度权重累加→归一化0-100。
    需求卡 / 第八章评分表 / PRD 文档全部调用此函数，杜绝手填值与计算值不一致 */
 const EXPERT_SUB_WEIGHTS = {
   product_expert: { techFeas: 2.0, uxPotential: 2.0, innovation: 2.0, competitiveMoat: 1.5 },
   market_expert:  { marketOpp: 2.0, trend: 2.0, competitiveMoat: 2.0, unitEcon: 2.0 },
   user_expert:    { pain: 2.5, uxPotential: 2.5 },
+  hardware_expert:{ techFeas: 3.0, execRisk: 2.0, competitiveMoat: 1.5, unitEcon: 1.5 },
 };
 function finalAggregateScore(id) {
   const es = SCORES[id].expert;
@@ -2459,10 +2499,14 @@ function finalAggregateScore(id) {
   return Math.round(total / 10 * 10) / 10;
 }
 
-// TOP5 = 加权综合分（finalAggregateScore，统一100分制）倒序且 >90 的需求，动态计算避免与手填值漂移
+// TOP5 = 排除伪需求(isPseudo)后，按加权综合分（finalAggregateScore，统一100分制）倒序取前5，动态计算避免与手填值漂移
+const PSEUDO_IDS = Object.keys(SCORES).filter(id => SCORES[id].isPseudo);
 const TOP5 = Object.keys(SCORES)
-  .filter(id => finalAggregateScore(id) > 90)
-  .sort((a, b) => finalAggregateScore(b) - finalAggregateScore(a));
+  .filter(id => !SCORES[id].isPseudo)
+  .map(id => ({ id, s: finalAggregateScore(id) }))
+  .sort((a, b) => b.s - a.s)
+  .slice(0, 5)
+  .map(x => x.id);
 let selectedTop5 = TOP5[0] || 'ID-005';
 let selectedExpert = 'all';
 
@@ -2741,7 +2785,7 @@ function openPrdDoc(id) {
   // 右侧锚点导航
   const SECTIONS = [
     ['s-raw', '原始素材'], ['s-decision', '决策摘要'], ['s-bg', '背景'],
-    ['s-derivation', '推导逻辑'], ['s-users', '目标用户'], ['s-scenarios', '用户场景'],
+    ['s-derivation', '推导逻辑'], ['s-validation', '验证闭环'], ['s-users', '目标用户'], ['s-scenarios', '用户场景'],
     ['s-solution', '解决方案'], ['s-metrics', '成功指标'], ['s-risks', '风险对策'], ['s-timeline', '排期'], ['s-evidence', '证据附录']
   ];
   const navHtml = `<nav class="doc-sidenav"><div class="sn-title">PRD 目录</div>${SECTIONS.map(([sid, label], i) => `<a href="#${sid}" data-target="${sid}">${i + 1}. ${label}</a>`).join('')}</nav>`;
@@ -2757,7 +2801,7 @@ function openPrdDoc(id) {
     <div class="doc-ctrl">
       <div class="doc-ctrl-head">DOCUMENT CONTROL · 文档控制</div>
       <div class="doc-ctrl-grid">
-        <div class="doc-ctrl-item"><span class="k">STATUS 状态</span><span class="v status">建议立项（决策档）</span></div>
+        <div class="doc-ctrl-item"><span class="k">STATUS 状态</span><span class="v ${SCORES[id] && SCORES[id].isPseudo ? 'status-pseudo' : 'status'}">${SCORES[id] && SCORES[id].isPseudo ? '伪需求 · 已拦截（决策档）' : '建议立项（决策档）'}</span></div>
         <div class="doc-ctrl-item"><span class="k">编号 ID</span><span class="v">${id}</span></div>
         <div class="doc-ctrl-item"><span class="k">综合分 SCORE</span><span class="v">${finalAggregateScore(id).toFixed(1)} / 100</span></div>
         <div class="doc-ctrl-item"><span class="k">排名 RANK</span><span class="v">TOP${rank}</span></div>
@@ -2774,6 +2818,7 @@ function openPrdDoc(id) {
         </section>
         <section class="doc-sec" id="s-decision">
           <h2><span class="sn-no">1</span>评审决策摘要 Decision</h2>
+          ${SCORES[id] && SCORES[id].isPseudo ? `<div class="doc-pseudo-banner">⚠ 硬件专家（第四角色）判定为 <b>伪需求</b>，不予立项。技术拦截结论：${esc(SCORES[id].pseudoReason || '')}</div>` : ''}
           <p>${esc(prd.decision || '')}</p>
         </section>
         <section class="doc-sec" id="s-bg">
@@ -2786,6 +2831,11 @@ function openPrdDoc(id) {
           <p class="doc-note">需求成立须由 <b>市场 / 竞争者 / 用户需求</b> 三层证据分别支撑——单点数据不足以定义根因，根因须由 ≥2 个独立来源交叉验证。下列按维度分组，逐条说明证据如何推导出 / 支撑本需求。</p>
           ${dimCoverageHtml}
           ${derHtml}
+        </section>
+        <section class="doc-sec" id="s-validation">
+          <h2><span class="sn-no">3.5</span>验证闭环 Validation Loop（正向+负向）</h2>
+          <p class="doc-note">每条需求须同时收集 <b>正向验证</b>（支撑为真需求）与 <b>负向验证</b>（评估是否伪需求），两方向支撑数据均 ≥ 10 条，且每条挂可溯源证据链（E##）。硬件专家（第四角色）对技术可行性做独立拦截。</p>
+          ${renderValidationBlock(id)}
         </section>
         <section class="doc-sec" id="s-users">
           <h2><span class="sn-no">4</span>目标用户 Target Users</h2>
@@ -2912,11 +2962,12 @@ function renderDimBars(scores) {
 function getScores(id, expert) {
   const sc = SCORES[id];
   if (expert === 'all') {
-    // 综合 = 三专家按子权重加权平均（与 harness rules.mjs computeFinalScore 一致）
+    // 综合 = 四专家按子权重加权平均（与 harness rules.mjs computeFinalScore 一致）
     const SUB = {
       product_expert: { techFeas: 2, uxPotential: 2, innovation: 2, competitiveMoat: 1.5 },
       market_expert: { marketOpp: 2, trend: 2, competitiveMoat: 2, unitEcon: 2 },
       user_expert: { pain: 2.5, uxPotential: 2.5, marketOpp: 1 },
+      hardware_expert: { techFeas: 3, execRisk: 2, competitiveMoat: 1.5, unitEcon: 1.5 },
     };
     const out = {};
     for (const d of DIMS) {
@@ -2954,6 +3005,7 @@ function renderScoreTable() {
     { key: 'product_expert', label: '产品专家', color: 'var(--blue)' },
     { key: 'market_expert', label: '市场投资专家', color: 'var(--amber)' },
     { key: 'user_expert', label: '用户专家', color: 'var(--green)' },
+    { key: 'hardware_expert', label: '硬件专家', color: 'var(--purple)' },
   ];
   const rows = TOP5.map((id, i) => {
     const idea = IDEAS.find(x => x.id === id);
@@ -2985,10 +3037,30 @@ function renderScoreTable() {
           <span style="font-size:12px; color:var(--text-lo);">/100</span>
         </div>
       </div>
-      <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-3);">${expCells}</div>
+      <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-3);">${expCells}</div>
     </div>`;
   }).join('');
-  el.innerHTML = rows;
+  // 伪需求拦截说明（硬件专家第四角色判定）
+  const pseudoBlock = PSEUDO_IDS.length ? PSEUDO_IDS.map(id => {
+    const idea = IDEAS.find(i => i.id === id);
+    const sc = SCORES[id];
+    const hw = sc.expert.hardware_expert;
+    return `
+    <div class="vcell-row pseudo-block" style="padding: var(--space-5); border-radius: var(--r-lg); border:1px solid var(--red); background: rgba(220,38,38,0.07);">
+      <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:var(--space-3); margin-bottom:var(--space-3);">
+        <div style="display:flex; align-items:center; gap:var(--space-3);">
+          <span style="font-family:var(--font-mono); color:var(--red); font-size:14px;">⚠ 伪需求</span>
+          <div>
+            <h3 style="font-family:var(--font-display); font-size:18px; color:var(--text-hi);">${esc(idea.title)}</h3>
+            <div style="font-size:12px; color:var(--text-lo); font-family:var(--font-mono);">${esc(idea.eng)} · 硬件专家 techFeas ${hw.techFeas}/10 · execRisk ${hw.execRisk}/10</div>
+          </div>
+        </div>
+        <span style="font-family:var(--font-display); font-size:22px; font-weight:700; color:var(--red);">${finalAggregateScore(id).toFixed(1)}</span>
+      </div>
+      <p style="font-size:13px; color:var(--text-mid); line-height:1.7;">${esc(sc.pseudoReason || '硬件专家(第四角色)判定为技术不可行/伪需求')}</p>
+    </div>`;
+  }).join('') : '';
+  el.innerHTML = rows + pseudoBlock;
 }
 
 function bindExpertTabs() {
@@ -3166,6 +3238,33 @@ function renderPrdPanels() {
   bindEvBadges();
 }
 
+function renderValidationBlock(id) {
+  const idea = IDEAS.find(i => i.id === id);
+  const vc = idea && idea.validationChain;
+  if (!vc) return `<p style="color:var(--text-lo)">（暂无验证闭环数据）</p>`;
+  const pos = vc.positive || [];
+  const neg = vc.negative || [];
+  const hw = vc.hardware ? `<div class="val-hw"><b>硬件专家判定：</b>${esc(vc.hardware.logic)}<div class="val-hw-ev">${vc.hardware.evidenceIds.map(eid => { const e = EVIDENCE.find(x => x.id === eid); return `<span class="ev-badge t${e ? e.tier || '' : ''}">${eid}</span>`; }).join(' ')}</div></div>` : '';
+  const pseudoTag = SCORES[id] && SCORES[id].isPseudo ? `<div class="val-pseudo">⚠ 硬件专家判定为伪需求（技术不可行）</div>` : '';
+  const renderList = (arr, cls) => arr.map(it => {
+    const e = EVIDENCE.find(x => x.id === it.ev) || {};
+    return `<li class="${cls}"><span class="ev-badge t${e.tier || ''}">${esc(it.ev)}</span> <span>${esc(it.note)}</span> ${srcLink(e)}</li>`;
+  }).join('');
+  return `
+    ${pseudoTag}
+    <div class="val-grid">
+      <div class="val-col val-pos">
+        <div class="val-col-head">正向验证 · 支撑为真需求（${pos.length} 条）</div>
+        <ul class="val-list">${renderList(pos, 'vp')}</ul>
+      </div>
+      <div class="val-col val-neg">
+        <div class="val-col-head">负向验证 · 评估是否伪需求（${neg.length} 条）</div>
+        <ul class="val-list">${renderList(neg, 'vn')}</ul>
+      </div>
+    </div>
+    ${hw}`;
+}
+
 function renderPrdBody(b, prd, id) {
   switch (b.key) {
     case 'background': return `<ul>${prd.background.map(x => `<li>${stripInlineBadge(x)}</li>`).join('')}</ul>`;
@@ -3218,6 +3317,28 @@ const GTM_KEYS = [
 ];
 
 function renderGtmCards() {
+  // 差异化转化矩阵：产品差异化内核 → GTM 落点（人群/渠道/定价/切入）
+  const mx = document.getElementById('gtmMatrix');
+  if (mx) {
+    mx.innerHTML = `<div class="gm-grid">
+      <div class="gm-th gmt-product">产品机会</div>
+      <div class="gm-th">差异化内核（技术 / 竞争空白）</div>
+      <div class="gm-th">目标人群差异化</div>
+      <div class="gm-th">渠道差异化</div>
+      <div class="gm-th">定价差异化</div>
+      <div class="gm-th">切入路径差异化</div>
+      ${TOP5.map((id, i) => {
+        const idea = IDEAS.find(x => x.id === id);
+        const g = GTMS[id] || {};
+        return `<div class="gm-cell gmc-rank">#0${i + 1}</div>
+        <div class="gm-cell"><div class="gm-prod">${esc(idea.eng)}</div><div class="gm-diff-core">${esc(idea.differentiation)}</div></div>
+        <div class="gm-cell">${esc(g.audience || '—')}</div>
+        <div class="gm-cell">${esc(g.channel || '—')}</div>
+        <div class="gm-cell"><span class="gm-price">${esc(g.pricing || '—')}</span></div>
+        <div class="gm-cell">${esc(g.entry || '—')}</div>`;
+      }).join('')}
+    </div>`;
+  }
   document.getElementById('gtmCards').innerHTML = TOP5.map((id, i) => {
     const idea = IDEAS.find(x => x.id === id);
     const g = GTMS[id];

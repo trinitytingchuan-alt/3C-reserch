@@ -51,11 +51,13 @@ export const IDEA_RULES = {
     innovation: 5,          // 创新溢价（市场新颖度/先发优势）
   },
 
-  // ========== 三专家子权重（专家在其擅长领域的放大系数） ==========
+  // ========== 四专家子权重（专家在其擅长领域的放大系数） ==========
+  // 第四角色 hardware_expert（硬件专家）：伪需求技术拦截，techFeas/execRisk 放大
   EXPERT_SUB_WEIGHTS: {
     product_expert:   { techFeas: 2.0, uxPotential: 2.0, innovation: 2.0, competitiveMoat: 1.5 },
     market_expert:    { marketOpp: 2.0, trend: 2.0, competitiveMoat: 2.0, unitEcon: 2.0 },
     user_expert:      { pain: 2.5, uxPotential: 2.5 },
+    hardware_expert:  { techFeas: 3.0, execRisk: 2.0, competitiveMoat: 1.5, unitEcon: 1.5 },
   },
 
   // ========== 评分维度范围 ==========

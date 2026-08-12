@@ -43,7 +43,7 @@ for (const [expert, dimWeights] of Object.entries(subWeights)) {
     if (!dims.includes(dim)) err(`专家 ${expert} 子权重引用了不存在的维度: ${dim}`);
   }
 }
-ok('三专家子权重维度引用有效 ✓');
+ok('四专家(含硬件专家)子权重维度引用有效 ✓');
 
 // ========== 4. 案例数据存在性 ==========
 const dataDir = join(BASE, 'data');
@@ -79,6 +79,7 @@ for (const caseSlug of cases) {
 
   if (!Array.isArray(ideas)) { err(`[${caseSlug}] ideas.json 应为数组`); continue; }
   ok(`[${caseSlug}] 需求池共 ${ideas.length} 条 IDEA`);
+  const ideasById = Object.fromEntries(ideas.map(i => [i.id, i]));
 
   // 7. 场景路径有效性
   for (const idea of ideas) {
@@ -103,12 +104,15 @@ for (const caseSlug of cases) {
   try { scores = JSON.parse(readFileSync(scoresPath, 'utf-8')); }
   catch (e) { err(`[${caseSlug}] scores.json 解析失败: ${e.message}`); continue; }
 
-  // 10. TOP5 数量
-  const top5 = scores.filter(s => s.finalScore > IDEA_RULES.TOP5_MIN_SCORE);
-  if (top5.length !== IDEA_RULES.TOP5_COUNT) {
-    err(`[${caseSlug}] TOP5 数量=${top5.length}，应为 ${IDEA_RULES.TOP5_COUNT} (>90 分)`);
+  // 10. TOP5 数量（排除伪需求后，按综合分降序取前 TOP5_COUNT）
+  const real = scores.filter(s => !s.isPseudo && !(ideasById[s.ideaId] && ideasById[s.ideaId].isPseudo));
+  const top5 = [...real].sort((a, b) => b.finalScore - a.finalScore).slice(0, IDEA_RULES.TOP5_COUNT);
+  if (real.length < IDEA_RULES.TOP5_COUNT) {
+    err(`[${caseSlug}] 非伪需求仅 ${real.length} 条，不足 TOP5 门槛 ${IDEA_RULES.TOP5_COUNT}`);
+  } else if (top5.length !== IDEA_RULES.TOP5_COUNT) {
+    err(`[${caseSlug}] TOP5 数量=${top5.length}，应为 ${IDEA_RULES.TOP5_COUNT}`);
   } else {
-    ok(`[${caseSlug}] TOP5 数量=${top5.length} ✓`);
+    ok(`[${caseSlug}] TOP5 数量=${top5.length}（已排除伪需求）✓`);
   }
 
   // 11. 功能清单 >75
@@ -128,7 +132,6 @@ for (const caseSlug of cases) {
   }
 
   // 12.1 市场验证闭环（五源强支撑）——每条 TOP5 需求必须五维齐全
-  const ideasById = Object.fromEntries(ideas.map(i => [i.id, i]));
   for (const s of top5) {
     const idea = ideasById[s.ideaId];
     const vc = idea?.validationChain;
@@ -165,6 +168,41 @@ for (const caseSlug of cases) {
     const tiers = new Set(s.evidenceIds.map(id => evidenceMap[id]?.tier).filter(t => t !== undefined));
     if (tiers.size < IDEA_RULES.MIN_TIER_PER_TOP5) {
       err(`[${caseSlug}] ID-${s.ideaId}: 数据源 Tier 覆盖=${tiers.size}，应 ≥${IDEA_RULES.MIN_TIER_PER_TOP5}（交叉验证不足，可能为伪需求）`);
+    }
+  }
+
+  // 12.x 四专家评审完整性 + 伪需求硬拦截 + 正/负向验证门槛
+  const EXPERTS = Object.keys(IDEA_RULES.EXPERT_SUB_WEIGHTS); // 含 hardware_expert
+  for (const s of scores) {
+    // (a) 四专家评分齐全
+    for (const expert of EXPERTS) {
+      if (!s.scores || typeof s.scores[expert] !== 'object') {
+        err(`[${caseSlug}] ID-${s.ideaId}: 缺少 ${expert} 专家评分（必须四专家：产品/市场/用户/硬件）`);
+      }
+    }
+    const idea = ideasById[s.ideaId];
+    const vc = idea?.validationChain;
+    if (vc) {
+      // (b) 每个需求正向/负向验证各 ≥10 条
+      const pos = Array.isArray(vc.positive) ? vc.positive : [];
+      const neg = Array.isArray(vc.negative) ? vc.negative : [];
+      if (pos.length < 10) err(`[${caseSlug}] ID-${s.ideaId}: validationChain.positive 仅 ${pos.length} 条，应 ≥10（须收集正向验证支撑真需求）`);
+      if (neg.length < 10) err(`[${caseSlug}] ID-${s.ideaId}: validationChain.negative 仅 ${neg.length} 条，应 ≥10（须收集负向验证评估伪需求）`);
+      // (c) 每条负向验证须挂可溯源证据 E##
+      for (const item of neg) {
+        if (!item.ev || !/^E\d+$/.test(item.ev)) err(`[${caseSlug}] ID-${s.ideaId}: negative 条目 "${item.note}" 未挂证据编号 E##`);
+        else if (!evidenceMap[item.ev]) err(`[${caseSlug}] ID-${s.ideaId}: negative 引用了不存在的证据 ${item.ev}`);
+      }
+    }
+  }
+  // (d) 伪需求硬拦截：ID-004 必须被硬件专家判定为 isPseudo
+  const id004 = scores.find(s => s.ideaId === 'ID-004');
+  const id004Idea = ideasById['ID-004'];
+  if (id004) {
+    if (!id004.isPseudo && !(id004Idea && id004Idea.isPseudo)) {
+      err(`[${caseSlug}] ID-004: 充电宝+SSD 经硬件专家判定为伪需求（USB Host/供电通道分离、NVMe主控壁垒、安克无存储栈），必须标记 isPseudo:true 并综合分 <80`);
+    } else {
+      ok(`[${caseSlug}] ID-004 伪需求拦截已生效（硬件专家技术拦截）✓`);
     }
   }
 

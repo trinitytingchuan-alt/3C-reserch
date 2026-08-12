@@ -38,9 +38,21 @@
         "uxPotential": 10,
         "execRisk": 9,
         "innovation": 8
+      },
+      "hardware_expert": {
+        "marketOpp": 9,
+        "pain": 10,
+        "trend": 9,
+        "techFeas": 9,
+        "competitiveMoat": 9,
+        "unitEcon": 9,
+        "strategicFit": 9,
+        "uxPotential": 10,
+        "execRisk": 9,
+        "innovation": 9
       }
     },
-    "finalScore": 91,
+    "finalScore": 91.4,
     "evidenceIds": [
       "E001",
       "E004",
@@ -103,9 +115,21 @@
         "uxPotential": 10,
         "execRisk": 9,
         "innovation": 8
+      },
+      "hardware_expert": {
+        "marketOpp": 9,
+        "pain": 10,
+        "trend": 9,
+        "techFeas": 9,
+        "competitiveMoat": 9,
+        "unitEcon": 9,
+        "strategicFit": 9,
+        "uxPotential": 10,
+        "execRisk": 9,
+        "innovation": 9
       }
     },
-    "finalScore": 90.2,
+    "finalScore": 90.7,
     "evidenceIds": [
       "E015",
       "E011",
@@ -165,9 +189,21 @@
         "uxPotential": 9,
         "execRisk": 9,
         "innovation": 9
+      },
+      "hardware_expert": {
+        "marketOpp": 9,
+        "pain": 9,
+        "trend": 10,
+        "techFeas": 8,
+        "competitiveMoat": 8,
+        "unitEcon": 9,
+        "strategicFit": 8,
+        "uxPotential": 9,
+        "execRisk": 9,
+        "innovation": 9
       }
     },
-    "finalScore": 90.7,
+    "finalScore": 90.1,
     "evidenceIds": [
       "E021",
       "E022",
@@ -227,9 +263,23 @@
         "uxPotential": 10,
         "execRisk": 8,
         "innovation": 9
+      },
+      "hardware_expert": {
+        "marketOpp": 7,
+        "pain": 9,
+        "trend": 7,
+        "techFeas": 1,
+        "competitiveMoat": 2,
+        "unitEcon": 3,
+        "strategicFit": 1,
+        "uxPotential": 4,
+        "execRisk": 1,
+        "innovation": 5
       }
     },
-    "finalScore": 90.5,
+    "isPseudo": true,
+    "pseudoReason": "硬件专家(第四角色)技术拦截: 充电宝无USB Host控制器无法直写SSD、SSD由主机取电、NVMe主控技术壁垒不可破、安克无存储人才栈、锂电+主控热耦合违背可靠性、电商无在售单品。三者硬件层无任何合体必要。",
+    "finalScore": 78.5,
     "evidenceIds": [
       "E016",
       "E023",
@@ -289,9 +339,21 @@
         "uxPotential": 10,
         "execRisk": 8,
         "innovation": 8
+      },
+      "hardware_expert": {
+        "marketOpp": 9,
+        "pain": 9,
+        "trend": 10,
+        "techFeas": 9,
+        "competitiveMoat": 9,
+        "unitEcon": 9,
+        "strategicFit": 10,
+        "uxPotential": 10,
+        "execRisk": 8,
+        "innovation": 9
       }
     },
-    "finalScore": 91.6,
+    "finalScore": 92,
     "evidenceIds": [
       "E001",
       "E004",
@@ -351,9 +413,21 @@
         "uxPotential": 9,
         "execRisk": 8,
         "innovation": 6
+      },
+      "hardware_expert": {
+        "marketOpp": 7,
+        "pain": 8,
+        "trend": 7,
+        "techFeas": 8,
+        "competitiveMoat": 7,
+        "unitEcon": 8,
+        "strategicFit": 7,
+        "uxPotential": 9,
+        "execRisk": 8,
+        "innovation": 7
       }
     },
-    "finalScore": 75.5,
+    "finalScore": 75.8,
     "evidenceIds": [
       "E005",
       "E006",
@@ -410,9 +484,21 @@
         "uxPotential": 8,
         "execRisk": 6,
         "innovation": 9
+      },
+      "hardware_expert": {
+        "marketOpp": 8,
+        "pain": 8,
+        "trend": 7,
+        "techFeas": 5,
+        "competitiveMoat": 9,
+        "unitEcon": 6,
+        "strategicFit": 8,
+        "uxPotential": 8,
+        "execRisk": 6,
+        "innovation": 10
       }
     },
-    "finalScore": 76.6,
+    "finalScore": 75.9,
     "evidenceIds": [
       "E012",
       "E013"
@@ -466,12 +552,28 @@
         "uxPotential": 9,
         "execRisk": 7,
         "innovation": 7
+      },
+      "hardware_expert": {
+        "marketOpp": 7,
+        "pain": 9,
+        "trend": 8,
+        "techFeas": 7,
+        "competitiveMoat": 7,
+        "unitEcon": 7,
+        "strategicFit": 7,
+        "uxPotential": 9,
+        "execRisk": 7,
+        "innovation": 8
       }
     },
-    "finalScore": 76,
+    "finalScore": 76.2,
     "evidenceIds": [
       "E001",
-      "E009"
+      "E009",
+      "E013",
+      "E017",
+      "E018",
+      "E047"
     ],
     "verificationIds": [
       "V004"
