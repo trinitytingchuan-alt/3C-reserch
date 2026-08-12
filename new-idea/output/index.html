@@ -2393,6 +2393,39 @@ document.addEventListener('keydown', (e) => {
 /* ============================================================
    第二章 · TOP5 需求 (评分 > 90，硬性 5 个)
    ============================================================ */
+/* 单专家综合分：用全局权重对该专家 10 维分加权求和，归一化到 0-100（用于第八章分专家展示） */
+function expertFinalScore(id, expert) {
+  const dims = SCORES[id].expert[expert];
+  const totW = DIMS.reduce((s, d) => s + d.w, 0);
+  const weighted = DIMS.reduce((s, d) => s + dims[d.key] * d.w, 0);
+  return Math.round((weighted / totW) * 100);
+}
+
+/* 唯一「加权综合分」真相源：与 harness/rules.mjs computeFinalScore 完全一致口径
+   —— 用专家子权重(EXPERT_SUB_WEIGHTS)在每维上加权三专家→再×维度权重累加→归一化0-100。
+   需求卡 / 第八章评分表 / PRD 文档全部调用此函数，杜绝手填值与计算值不一致 */
+const EXPERT_SUB_WEIGHTS = {
+  product_expert: { techFeas: 2.0, uxPotential: 2.0, innovation: 2.0, competitiveMoat: 1.5 },
+  market_expert:  { marketOpp: 2.0, trend: 2.0, competitiveMoat: 2.0, unitEcon: 2.0 },
+  user_expert:    { pain: 2.5, uxPotential: 2.5 },
+};
+function finalAggregateScore(id) {
+  const es = SCORES[id].expert;
+  const experts = Object.keys(es);
+  let total = 0;
+  for (const d of DIMS) {
+    let sum = 0, subTotal = 0;
+    for (const ex of experts) {
+      const sub = (EXPERT_SUB_WEIGHTS[ex] && EXPERT_SUB_WEIGHTS[ex][d.key]) || 1.0;
+      sum += es[ex][d.key] * sub;
+      subTotal += sub;
+    }
+    const dimAvg = subTotal === 0 ? 0 : sum / subTotal;
+    total += dimAvg * d.w;
+  }
+  return Math.round(total / 10 * 10) / 10;
+}
+
 // TOP5 = 加权综合分（finalAggregateScore，统一100分制）倒序且 >90 的需求，动态计算避免与手填值漂移
 const TOP5 = Object.keys(SCORES)
   .filter(id => finalAggregateScore(id) > 90)
@@ -2850,39 +2883,6 @@ function renderRadarView() {
   document.getElementById('radarViewLabel').textContent = EXPERT_LABEL[selectedExpert];
 }
 
-/* 单专家综合分：用全局权重对该专家 10 维分加权求和，归一化到 0-100（用于第八章分专家展示） */
-function expertFinalScore(id, expert) {
-  const dims = SCORES[id].expert[expert];
-  const totW = DIMS.reduce((s, d) => s + d.w, 0);
-  const weighted = DIMS.reduce((s, d) => s + dims[d.key] * d.w, 0);
-  return Math.round((weighted / totW) * 100);
-}
-
-/* 唯一「加权综合分」真相源：与 harness/rules.mjs computeFinalScore 完全一致口径
-   —— 用专家子权重(EXPERT_SUB_WEIGHTS)在每维上加权三专家→再×维度权重累加→归一化0-100。
-   需求卡 / 第八章评分表 / PRD 文档全部调用此函数，杜绝手填值与计算值不一致 */
-const EXPERT_SUB_WEIGHTS = {
-  product_expert: { techFeas: 2.0, uxPotential: 2.0, innovation: 2.0, competitiveMoat: 1.5 },
-  market_expert:  { marketOpp: 2.0, trend: 2.0, competitiveMoat: 2.0, unitEcon: 2.0 },
-  user_expert:    { pain: 2.5, uxPotential: 2.5 },
-};
-function finalAggregateScore(id) {
-  const es = SCORES[id].expert;
-  const experts = Object.keys(es);
-  let total = 0;
-  for (const d of DIMS) {
-    let sum = 0, subTotal = 0;
-    for (const ex of experts) {
-      const sub = (EXPERT_SUB_WEIGHTS[ex] && EXPERT_SUB_WEIGHTS[ex][d.key]) || 1.0;
-      sum += es[ex][d.key] * sub;
-      subTotal += sub;
-    }
-    const dimAvg = subTotal === 0 ? 0 : sum / subTotal;
-    total += dimAvg * d.w;
-  }
-  return Math.round(total / 10 * 10) / 10;
-}
-
 /* 综合评分表：每个 TOP5 需求的三专家综合分 + 加权综合分（统一 100 分制） */
 function renderScoreTable() {
   const el = document.getElementById('scoreTablePanel');
@@ -2966,9 +2966,9 @@ function renderList() {
       <td class="lt-name"><b>${esc(x.idea.title)}</b><div class="lt-eng">${esc(x.idea.eng)} · ${PATH_LABEL[x.idea.path]}${inTop ? ' · TOP5' : ''}</div></td>
       <td><span class="rank-tag ${x.idea.path === 'cross-industry' ? 'path' : ''}">${PATH_LABEL[x.idea.path]}</span></td>
       <td class="lt-pain">${esc(x.idea.painPoint)}</td>
-      <td class="lt-score">${x.finalScore.toFixed(1)}</td>
+      <td class="lt-score">${finalAggregateScore(x.id).toFixed(1)}</td>
       <td class="score-bar-cell">
-        <div class="sb"><i style="width:${x.finalScore}%"></i></div>
+        <div class="sb"><i style="width:${finalAggregateScore(x.id)}%"></i></div>
         <span class="sbv">痛点 ${painScore}/10 · 趋势 ${x.expert.user_expert.trend}/10</span>
       </td>
     </tr>`;
