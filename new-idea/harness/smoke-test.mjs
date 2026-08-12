@@ -58,8 +58,7 @@ const checks = [
   { id: 'radarContainer', desc: '10 维雷达图渲染' },
   { id: 'dimBars', desc: '维度评分条渲染' },
   { id: 'listBody', desc: '功能清单渲染' },
-  { id: 'prdTabs', desc: 'PRD 导航渲染' },
-  { id: 'prdPanels', desc: 'PRD 面板渲染' },
+  { id: 'prdDocBackdrop', desc: 'PRD 二级覆盖页 DOM 存在' },
   { id: 'gtmCards', desc: 'GTM 策略卡渲染' },
   { id: 'evBody', desc: '证据链总表渲染' },
   { id: 'verBody', desc: '核验记录表渲染' },
@@ -82,9 +81,10 @@ async function run() {
     ['TOP5 冠军 ID-005', bodyText.includes('HomeCharge OS')],
     ['TOP5 分数 91.6', bodyText.includes('91.6')],
     ['平铺含目标用户', bodyText.includes('目标用户')],
-    ['平铺含用户场景', bodyText.includes('用户场景')],
+    ['平铺含核心需求', bodyText.includes('核心需求')],
+    ['平铺含目标用户', bodyText.includes('目标用户')],
     ['清单含 ID-007', bodyText.includes('StairClimber')],
-    ['PRD 背景块', bodyText.includes('Background')],
+    ['设计方法论含加权聚合', bodyText.includes('加权聚合')],
     ['证据 E009 国标', bodyText.includes('E009')],
     ['核验 V001', bodyText.includes('V001')],
     ['GTM 差异化定位', bodyText.includes('GTM 差异化定位')],
@@ -162,17 +162,21 @@ async function run() {
     }
   } catch (e) { errors.push(`交互异常: ${e.message}`); }
 
-  // 交互测试 5：PRD 折叠
+  // 交互测试 5：点击 TOP5 卡片 → 打开 PRD 二级覆盖页
   try {
-    const prdHeads = window.document.querySelectorAll('.prd-block-head');
-    if (prdHeads.length >= 2) {
-      prdHeads[1].dispatchEvent(new window.Event('click', { bubbles: true }));
-      await waitFor(50);
-      const blocks = window.document.querySelectorAll('.prd-block');
-      const openCount = [...blocks].filter(b => b.classList.contains('open')).length;
-      if (openCount === 2) console.log('[OK]    交互: PRD 折叠展开');
-      else errors.push(`交互失败: PRD 折叠后 open=${openCount}`);
-    }
+    const card = window.document.querySelector('#top5Flat .top5-flat-card');
+    if (card) {
+      card.dispatchEvent(new window.Event('click', { bubbles: true }));
+      await waitFor(80);
+      const backdropOpen = window.document.getElementById('prdDocBackdrop').classList.contains('open');
+      const docText = window.document.getElementById('prdDocContent').textContent || '';
+      const hasDeriv = docText.includes('推导逻辑');
+      const hasUser = docText.includes('目标用户');
+      const hasRaw = docText.includes('需求原始素材');
+      if (backdropOpen && hasDeriv && hasUser && hasRaw) { console.log('[OK]    交互: TOP5 卡点击打开 PRD 覆盖页（含推导逻辑/目标用户/原始素材）'); }
+      else errors.push(`交互失败: PRD open=${backdropOpen} 推导=${hasDeriv} 用户=${hasUser} 素材=${hasRaw}`);
+      window.document.getElementById('prdDocBackdrop').classList.remove('open');
+    } else { errors.push('交互失败: 未找到 TOP5 卡片'); }
   } catch (e) { errors.push(`交互异常: ${e.message}`); }
 
   for (const w of warnings) console.warn(`[WARN]  ${w}`);

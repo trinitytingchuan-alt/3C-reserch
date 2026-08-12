@@ -44,8 +44,12 @@
     "evidenceIds": [
       "E001",
       "E004",
-      "E009",
-      "E010"
+      "E002",
+      "E019",
+      "E010",
+      "E020",
+      "E018",
+      "E009"
     ],
     "verificationIds": [
       "V004",
@@ -103,10 +107,12 @@
     },
     "finalScore": 90.2,
     "evidenceIds": [
+      "E015",
+      "E011",
+      "E025",
       "E005",
       "E006",
-      "E001",
-      "E015"
+      "E026"
     ],
     "verificationIds": [
       "V003"
@@ -163,10 +169,11 @@
     },
     "finalScore": 90.7,
     "evidenceIds": [
+      "E021",
+      "E022",
       "E007",
-      "E008",
       "E014",
-      "E004"
+      "E008"
     ],
     "verificationIds": [
       "V005",
@@ -224,10 +231,11 @@
     },
     "finalScore": 90.5,
     "evidenceIds": [
+      "E016",
+      "E023",
+      "E024",
       "E005",
-      "E006",
-      "E001",
-      "E016"
+      "E006"
     ],
     "verificationIds": [
       "V003",
@@ -286,8 +294,11 @@
     "finalScore": 91.6,
     "evidenceIds": [
       "E001",
-      "E013",
-      "E004"
+      "E004",
+      "E017",
+      "E018",
+      "E020",
+      "E013"
     ],
     "verificationIds": [
       "V001"

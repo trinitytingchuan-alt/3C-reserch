@@ -19,6 +19,24 @@ export const IDEA_RULES = {
   VALID_DISCOVERY_PATHS: ['scene-pain', 'competitor-gap', 'cross-industry'],
   MAX_SCENE_ONLY_IDEAS: 0,           // 禁止无场景锚的产品优先 idea
 
+  // ========== 市场验证闭环（五源强支撑，进入 TOP5 前置硬门槛） ==========
+  VALIDATION_CHAIN_TYPES: [           // 五类验证维度，缺任一 → 不得进 TOP5
+    'marketVoice',                    // ① 市场声音：市场够大且在增长
+    'competitorValidation',           // ② 竞品验证：同类已被市场接受
+    'industryValidation',             // ③ 行业验证：处于上升通道
+    'crossIndustryRef',               // ④ 参考行业验证：路径可复用
+    'userVoice',                      // ⑤ 用户声音：真实痛点非伪需求
+  ],
+  VC_MIN_EVIDENCE: {                  // 各维度最小证据数
+    marketVoice: 1,
+    competitorValidation: 1,
+    industryValidation: 1,
+    crossIndustryRef: 1,              // 允许"无可参考行业"需显式说明
+    userVoice: 2,                     // 用户声音须 ≥2 且来自不同平台
+  },
+  VC_USER_VOICE_MIN_PLATFORMS: 2,     // 用户声音至少来自 2 个不同平台（防单平台偏差）
+
+
   // ========== 八维权重（合计 100） ==========
   WEIGHTS: {
     marketOpp: 15,          // 市场机会 TAM/SAM/SOM 评估

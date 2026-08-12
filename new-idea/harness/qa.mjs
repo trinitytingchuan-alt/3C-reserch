@@ -59,6 +59,12 @@ for (const caseSlug of cases) {
   const caseDir = join(dataDir, caseSlug);
   ok(`\n--- 案例校验: ${caseSlug} ---`);
 
+  // 新公司脚手架跳过：data/<company>/ 存在 .incomplete 标记 → 数据未采集完，跳过校验
+  if (existsSync(join(caseDir, '.incomplete'))) {
+    ok(`[${caseSlug}] 标记为未完成（.incomplete），跳过校验（采集完成后删除该文件再 build）`);
+    continue;
+  }
+
   // 5. company-profile.json
   const profilePath = join(caseDir, 'company-profile.json');
   if (!existsSync(profilePath)) { err(`[${caseSlug}] 缺 company-profile.json`); continue; }
@@ -119,6 +125,30 @@ for (const caseSlug of cases) {
     }
   } catch (e) {
     err(`[${caseSlug}] evidence.json 解析失败: ${e.message}`);
+  }
+
+  // 12.1 市场验证闭环（五源强支撑）——每条 TOP5 需求必须五维齐全
+  const ideasById = Object.fromEntries(ideas.map(i => [i.id, i]));
+  for (const s of top5) {
+    const idea = ideasById[s.ideaId];
+    const vc = idea?.validationChain;
+    if (!vc || typeof vc !== 'object') {
+      err(`[${caseSlug}] ID-${s.ideaId}: 缺少 validationChain（市场验证闭环）——进入 TOP5 必须五维强支撑，详见 docs/market-validation-loop.md`);
+      continue;
+    }
+    for (const type of IDEA_RULES.VALIDATION_CHAIN_TYPES) {
+      const slot = vc[type];
+      const min = IDEA_RULES.VC_MIN_EVIDENCE[type];
+      if (!slot || !Array.isArray(slot.evidenceIds) || slot.evidenceIds.length < min) {
+        err(`[${caseSlug}] ID-${s.ideaId}: validationChain.${type} 证据=${slot?.evidenceIds?.length || 0} 条，应 ≥${min}（市场验证闭环缺失，不得进入 TOP5）`);
+      }
+    }
+    // 用户声音须来自 ≥2 个不同独立来源（防单条评论/单一文章偏差）
+    const userVoiceSlots = (vc.userVoice?.evidenceIds || []).map(id => evidenceMap[id]).filter(Boolean);
+    const userSources = new Set(userVoiceSlots.map(e => e?.source).filter(Boolean));
+    if (userSources.size < IDEA_RULES.VC_USER_VOICE_MIN_PLATFORMS) {
+      err(`[${caseSlug}] ID-${s.ideaId}: 用户声音仅覆盖 ${userSources.size} 个独立来源，应 ≥${IDEA_RULES.VC_USER_VOICE_MIN_PLATFORMS}（须来自不同来源防单源偏差）`);
+    }
   }
 
   for (const s of top5) {

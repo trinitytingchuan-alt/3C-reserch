@@ -90,5 +90,15 @@
     { "name": "UGREEN (绿联)", "focus": "充电器+数据线+扩展坞+户外储能", "anker_gap": "绿联磷酸铁锂户外电源(320000mAh)已上市" },
     { "name": "Roborock/Dreame/ECOVACS", "focus": "扫地机器人(高端)", "anker_gap": "eufy在扫地机高端市场的份额" },
     { "name": "街电/怪兽充电", "focus": "共享充电宝(中国市场)", "anker_gap": "安克未涉足充电共享网络" }
-  ]
+  ],
+  "dataSourceStrategy": {
+    "coreAudienceGeography": "overseas-primary",
+    "userVoiceChannels": ["Amazon Reviews", "Reddit r/anker / r/chargers", "Trustpilot", "Best Buy Reviews", "YouTube/Twitter 海外社媒"],
+    "competitorValidationChannels": ["RTINGS", "The Wirecutter", "The Verge", "Amazon Best Sellers"],
+    "industryValidationChannels": ["Canalys", "IDC", "Verified Market Research", "GM Insights"],
+    "trendSignalChannels": ["Google Trends", "SimilarWeb", "Apptopia"],
+    "crossIndustryRefChannels": ["Gartner", "McKinsey 消费电子", "清洁能源/户外经济报告"],
+    "language": "en",
+    "note": "海外客群为主，用户声音以 Amazon/Reddit/Trustpilot 为主，中文渠道仅作补充验证"
+  }
 }

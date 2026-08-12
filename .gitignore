@@ -14,6 +14,12 @@ tmp/
 *.swp
 *.swo
 *~
+# 临时校验/构建输出（保留 _check.mjs 源码工具，忽略其产物）
+new-idea/_*.txt
+new-idea/output/_*.txt
+new-idea/_build.log
+new-idea/_check.log
+new-idea/_syntax.log
 
 # IDE
 .vscode/settings.json
