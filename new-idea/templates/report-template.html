@@ -1304,8 +1304,12 @@ footer .f-brand { font-family: var(--font-display); color: var(--text-mid); marg
     <span class="ni-label">证据链<span class="ni-en">EVIDENCE CHAIN</span></span>
   </button>
   <button class="nav-item" data-target="method">
-    <span class="ni-no">06</span>
+    <span class="ni-no">07</span>
     <span class="ni-label">设计方法论<span class="ni-en">METHOD & DESIGN</span></span>
+  </button>
+  <button class="nav-item" data-target="scoring-final">
+    <span class="ni-no">08</span>
+    <span class="ni-label">三专家综合评分<span class="ni-en">COMPREHENSIVE SCORE</span></span>
   </button>
 </nav>
 
@@ -1443,28 +1447,6 @@ footer .f-brand { font-family: var(--font-display); color: var(--text-mid); marg
       <p class="sub">评分 &gt; 90 的硬性 5 个产品机会 · 每条平铺完整陈述（目标用户 / 用户场景 / 解决方案 / 差异化）· 证据标签点击查看详情 · 切换专家视角联动 10 维雷达</p>
     </div>
     <div class="head-tag">硬性约束 <b>5 个</b> · 评分 <b>&gt;90</b> · 证据 <b>≥3</b></div>
-  </div>
-
-  <!-- 三专家视角切换 + 联动雷达 -->
-  <div class="section-block" style="margin-bottom: var(--space-7);">
-    <div class="section-index reveal">EXPERT VIEW / 三专家视角</div>
-    <h2 style="font-family: var(--font-display); font-size: 24px; margin-bottom: var(--space-3);" class="reveal">同一需求 · 三种专业视角 · 加权聚合</h2>
-    <p class="radar-hint reveal">点击下方任意需求卡，右侧雷达与维度分即时联动。雷达图展示各维度 0-10 能力分布；右下角「综合分」为该需求经三专家子权重加权后的 0-100 总分（口径详见 <a href="#method">第六章 · 设计方法论</a>）。</p>
-    <div class="expert-tabs reveal" id="expertTabs">
-      <button class="expert-tab all active" data-expert="all">综合加权</button>
-      <button class="expert-tab prod-tab" data-expert="product_expert">产品专家</button>
-      <button class="expert-tab mkt-tab" data-expert="market_expert">市场投资专家</button>
-      <button class="expert-tab user-tab" data-expert="user_expert">用户专家</button>
-    </div>
-    <div class="radar-panel">
-      <div class="radar-box glass reveal" style="padding: var(--space-5);">
-        <div id="radarContainer" style="width:100%; display:grid; place-items:center;"></div>
-        <div style="text-align:center; font-size:11px; color: var(--text-lo); font-family: var(--font-mono); margin-top: var(--space-2);">
-          <span id="radarRankLabel">#01</span> <span id="radarTitleLabel">HomeCharge OS</span> · <span id="radarViewLabel">综合加权</span> · 10 维评分 0-10
-        </div>
-      </div>
-      <div class="dim-bars reveal reveal-delay-1" id="dimBars"></div>
-    </div>
   </div>
 
   <!-- 平铺 TOP5 完整陈述 -->
@@ -1928,6 +1910,32 @@ footer .f-brand { font-family: var(--font-display); color: var(--text-mid); marg
   </div>
 </section>
 
+<!-- ============================================================
+     第八章 · 三专家加权综合评分（每个需求一份综合评价，统一 100 分制）
+     ============================================================ -->
+<section class="section" id="scoring-final" style="border-top: 1px solid var(--line);">
+  <div class="section-head reveal">
+    <div>
+      <div class="section-index">CHAPTER 08 / COMPREHENSIVE SCORE</div>
+      <h1>三专家加权综合评分</h1>
+      <p class="sub">对每个 TOP5 需求单独给出综合评价：产品 / 市场投资 / 用户 三专家各自综合分 + 加权综合分，统一 100 分制——与需求卡右侧的「综合分 / 100」口径一致，避免 10 分制 / 100 分制混淆。</p>
+    </div>
+    <div class="head-tag">统一 <b>100 分制</b> · 每需求一份</div>
+  </div>
+  <div class="section-block">
+    <div class="section-index reveal">SCORING / 每需求综合评价</div>
+    <h2 style="font-family: var(--font-display); font-size: 24px; margin-bottom: var(--space-3);" class="reveal">三种专业视角 · 加权聚合为综合分</h2>
+    <p class="reveal" style="color: var(--text-mid); max-width: 76ch; margin-bottom: var(--space-5);">
+      每个需求由 <b>产品 / 市场投资 / 用户</b> 三名专家分别对 10 个维度（市场机会、痛点、趋势、技术可行、竞争壁垒、单位经济、战略契合、UX、执行风险、创新）独立打 0-10 分；
+      每位专家的综合分 = 该专家 10 维分 × 全局权重（合计 100）加权求和并归一化到 0-100；最终「加权综合分」再按各专家在维度上的子权重加权平均。三者统一为 100 分制，可直接比较。
+    </p>
+    <div id="scoreTablePanel" style="display:flex; flex-direction:column; gap: var(--space-5);"></div>
+    <div class="verify-note reveal" style="margin-top: var(--space-5);">
+      <span>口径说明：需求卡右上角「综合分 / 100」即下表的「加权综合分」，二者同源一致；&gt;90 进 TOP5，&gt;75 进功能清单。完整权重与校验口径见 <a href="#method">设计方法论</a>。</span>
+    </div>
+  </div>
+</section>
+
 </main>
 
 <!-- ===== 详情下钻弹层 ===== -->
@@ -2234,7 +2242,8 @@ const VALIDATION = {
 };
 
 const PRDS = {
-  'ID-001': { background: [
+  'ID-001': { decision: '【建议立项】国标强制合规（E009）使电池安全从「加分项」变为「准入线」，叠加跨设备健康管理生态空白（E010/E019）与真实充电痛点（E018/E020），综合分 91.0/100 居 TOP5。建议先以纯软件 MVP（系统电池 API）快速验证，再随新国标 2027 实施窗口硬件渐进升级，抢占「合规+健康管理」品类心智。',
+    background: [
     '充电宝强制性国标 GB 47372-2026 已于 2026-04-03 发布、2027-04-01 实施，安全从「加分项」变为「准入线」——这直接驱动「合规检测 + 电池健康管理」成为刚需 <span class="ev-badge t0" data-ev="E009">E009</span>',
     '竞品倍思已率先推出新国标首款合规移动电源，但仅停留在单品合规，无品牌做跨设备电池健康管理生态 <span class="ev-badge t2" data-ev="E010">E010</span> <span class="ev-badge t1" data-ev="E019">E019</span>',
     '消费电子向「智能化管理」转型（端侧 AI + 家庭机器人），电池健康管理是该趋势在充电场景的自然延伸 <span class="ev-badge t1" data-ev="E013">E013</span>',
@@ -2249,7 +2258,8 @@ const PRDS = {
       { k: 'NPS', v: '≥ 40' } ],
     risks: [ ['用户对数据授权敏感', '中', '中', '本地化计算优先，数据不出设备'], ['硬件改造周期长', '中', '高', '先做纯软件版本（读取系统电池 API），硬件渐进升级'], ['隐私合规', '低', '高', '提前做 GDPR/个保法合规评估'] ],
     timeline: ['0-3 月：软件 MVP（系统电池 API + 基础报告）', '3-6 月：与充电宝/充电器硬件联动 + 安全预警', '6-12 月：新国标合规检测 + 生态扩展'] },
-  'ID-002': { background: [
+  'ID-002': { decision: '【建议立项】远程办公常态化（E015）与移动办公容量焦虑（E026）构成明确场景需求，现有「砖头形态」方案（E025）留下「折叠便携 + 无线 + 内置电池 + 线缆管理」一体化空白，综合分 90.2/100。建议以数字游民社区共创冷启动，建立折叠结构专利防止被快速复制。',
+    background: [
     '美国数字游民 2025 年达 1850 万、较 2019 年增长 153%，远程办公常态化直接催生「多设备移动充电」需求 <span class="ev-badge t1" data-ev="E015">E015</span>',
     '移动办公人群容量焦虑：「带大了占空间、带小了不够用、还要塞一堆数据线」，多设备一体化充电需求真实存在 <span class="ev-badge t2" data-ev="E026">E026</span>',
     '现有方案（UGREEN 扩展坞 / Baseus 多口充电器）均为「砖头形态」，Anker MagGo 磁吸充电宝固定容量无法扩展，无折叠便携 + 无线 + 内置电池 + 线缆管理一体化产品 <span class="ev-badge t1" data-ev="E025">E025</span>' ],
@@ -2262,7 +2272,8 @@ const PRDS = {
       { k: '客单价', v: '$89-129' } ],
     risks: [ ['体积与容量的物理平衡', '中', '中', '多轮原型迭代，优先保证折叠形态'], ['差异化被快速复制', '高', '中', '建立折叠结构专利 + 快速迭代'], ['定价高于传统充电宝', '中', '中', '场景化营销证明价值'] ],
     timeline: ['0-3 月：概念验证 + 用户共创（数字游民社区 100 人）', '3-6 月：原型 + 认证 + 首批量产', '6-9 月：全球首发'] },
-  'ID-003': { background: [
+  'ID-003': { decision: '【建议立项】「portable solar power bank」搜索 2025 年 8/11 月两次夏季峰值（E007/E014）证明户外便携能源是上升需求而非偶发；便携太阳能折叠板市场 7.37 亿美元且 CAGR 5.5%（E008）有可量化空间；现有方案「电站太重 / 太阳能板太小」两极分化（E021）留下「半日户外轻量二合一」空白。综合分 90.7/100。建议夏季季前首发，定位「辅助补电」避免效率争议。',
+    background: [
     '「portable solar power bank」搜索量 2025 年 8 月、11 月两次爆发峰值，户外能源需求上行 <span class="ev-badge t2" data-ev="E007">E007</span><span class="ev-badge t2" data-ev="E014">E014</span>',
     '便携太阳能折叠板市场 2025 年 7.37 亿美元、CAGR 5.5% <span class="ev-badge t1" data-ev="E008">E008</span>',
     '现有方案两极分化：EcoFlow/Jackery 便携电站 ≥2kg；传统太阳能充电宝太阳能板过小（仅补电）——「半日户外轻量方案」是空白 <span class="ev-badge t1" data-ev="E021">E021</span>' ],
@@ -2275,7 +2286,8 @@ const PRDS = {
       { k: '口碑', v: '用户评分 ≥ 4.3/5' } ],
     risks: [ ['太阳能效率受天气影响', '高', '中', '明确定位「辅助补电」，不做唯一能源'], ['夏季季节性波动', '中', '中', '延伸冬季应急/露营场景'], ['竞品跟进', '中', '中', '磁吸+轻量+价格三重卡位'] ],
     timeline: ['0-2 月：太阳能片选型 + 效率测试', '2-4 月：原型 + 户外实测', '4-6 月：夏季季前全球首发'] },
-  'ID-004': { background: [
+  'ID-004': { decision: '【建议立项】创作者经济全球超 2500 亿美元（E016），外拍「充电焦虑 + 数据安全焦虑」叠加（E024）构成高价值复合痛点；市场无「充电宝 + SSD + 读卡器」一体产品（E023）为空白新品类。综合分 90.5/100。目标客群为数据安全愿付溢价，建议以摄影社区内测冷启动，重点解决 SSD 与电池散热冲突。',
+    background: [
     '创作者经济全球超 2500 亿美元、约 2 亿创作者 <span class="ev-badge t1" data-ev="E016">E016</span>',
     '外拍场景存在「充电焦虑 + 数据安全焦虑」叠加：拍摄成果在回酒店前无备份（场景痛点延伸） <span class="ev-badge t2" data-ev="E024">E024</span>',
     '市场上无「充电宝 + SSD + 读卡器」一体化产品——空白新品类 <span class="ev-badge t1" data-ev="E023">E023</span>' ],
@@ -2288,7 +2300,8 @@ const PRDS = {
       { k: '渗透', v: '创作者社区渗透率 ≥ 5%' } ],
     risks: [ ['SSD 与电池散热冲突', '中', '高', '分区布局 + 主动散热设计'], ['数据损坏风险', '低', '高', '三重校验 + 断电保护（电容掉电缓存）'], ['成本高于纯充电宝', '高', '中', '明确「数据安全」溢价价值主张'] ],
     timeline: ['0-3 月：SSD+电池集成设计 + 掉电保护验证', '3-6 月：摄影社区 200 人内测', '6-12 月：正式发售'] },
-  'ID-005': { background: [
+  'ID-005': { decision: '【建议立项】家庭能源管理 B2C 下沉（E004）创造充电级能耗管理需求，家庭多设备充电能耗不可见（E018）为真实痛点；Tapo/小米仅做开关控制（E017）留下「per-port 计量 + 电池健康 + 充电策略」空白；叠加端侧智能战略契合（E013）。综合分 91.6/100 居 TOP1。建议从「卖充电器」升级为「家庭充电操作系统」，以软件订阅为长期价值。',
+    background: [
     '全球电价持续上涨，家庭能源管理从 B2B 向 B2C 下沉——家庭「充电级」能耗管理是扩容中的充电刚需子场景 <span class="ev-badge t1" data-ev="E004">E004</span>',
     '家庭每天 10-15 台设备同时充电，充电能耗不可见、过充损伤电池——「家庭充电数据看板」是真实未被满足的痛点 <span class="ev-badge t2" data-ev="E018">E018</span>',
     '安克 2026-04-22 披露端侧智能三大布局（存算一体芯片 Thus™、端侧 AI、具身智能三级路线），家庭机器人是战略延伸 <span class="ev-badge t1" data-ev="E013">E013</span>',
@@ -2335,7 +2348,7 @@ const weightIo = new IntersectionObserver((entries) => {
 if (weightSection) weightIo.observe(weightSection);
 
 /* ---------- 左侧章节导航 scroll-spy + 点击 ---------- */
-const sections = ['overview', 'top5', 'list', 'prd', 'gtm', 'evidence', 'method'];
+const sections = ['overview', 'top5', 'list', 'prd', 'gtm', 'evidence', 'method', 'scoring-final'];
 const navItems = document.querySelectorAll('.nav-item');
 
 // scroll-spy：滚动时高亮当前模块（修复：此前仅点击不随滚动高亮）
@@ -2522,13 +2535,12 @@ function renderTop5Flat() {
     </div>`;
   }).join('');
 
-  // 绑定：点击整卡或「展开完整 PRD」→ 选中 + 联动雷达 + 打开二级覆盖页；证据按钮独立处理
+  // 绑定：点击整卡或「展开完整 PRD」→ 选中 + 打开二级覆盖页；证据按钮独立处理
   document.querySelectorAll('#top5Flat .top5-flat-card').forEach(card => {
     const id = card.dataset.id;
     const open = () => {
       selectedTop5 = id;
       document.querySelectorAll('#top5Flat .top5-flat-card').forEach(c => c.classList.toggle('active', c.dataset.id === id));
-      renderRadarView();
       openPrdDoc(id);
     };
     card.addEventListener('click', (e) => {
@@ -2817,6 +2829,8 @@ function getScores(id, expert) {
 }
 
 function renderRadarView() {
+  const el = document.getElementById('radarContainer');
+  if (!el) return; // 雷达容器已移除（改为综合评分表）
   const scores = getScores(selectedTop5, selectedExpert);
   drawRadar(scores);
   renderDimBars(scores);
@@ -2825,6 +2839,59 @@ function renderRadarView() {
   document.getElementById('radarRankLabel').textContent = '#' + String(rank).padStart(2, '0');
   document.getElementById('radarTitleLabel').textContent = idea ? idea.eng : selectedTop5;
   document.getElementById('radarViewLabel').textContent = EXPERT_LABEL[selectedExpert];
+}
+
+/* 单专家综合分：用全局权重对该专家 10 维分加权求和，归一化到 0-100 */
+function expertFinalScore(id, expert) {
+  const dims = SCORES[id].expert[expert];
+  const totW = DIMS.reduce((s, d) => s + d.w, 0);
+  const weighted = DIMS.reduce((s, d) => s + dims[d.key] * d.w, 0);
+  return Math.round((weighted / totW) * 10) / 10;
+}
+
+/* 综合评分表：每个 TOP5 需求的三专家综合分 + 加权综合分（统一 100 分制） */
+function renderScoreTable() {
+  const el = document.getElementById('scoreTablePanel');
+  if (!el) return;
+  const EXP = [
+    { key: 'product_expert', label: '产品专家', color: 'var(--blue)' },
+    { key: 'market_expert', label: '市场投资专家', color: 'var(--amber)' },
+    { key: 'user_expert', label: '用户专家', color: 'var(--green)' },
+  ];
+  const rows = TOP5.map((id, i) => {
+    const idea = IDEAS.find(x => x.id === id);
+    const sc = SCORES[id];
+    const rank = i + 1;
+    const expCells = EXP.map(e => {
+      const v = expertFinalScore(id, e.key);
+      const c = v >= 90 ? 'var(--green)' : v >= 85 ? 'var(--cyan)' : v >= 80 ? 'var(--amber)' : 'var(--red)';
+      return `<div style="text-align:center; padding: var(--space-2) 0; border-radius: var(--r-md); background: rgba(11,16,28,0.4);">
+        <div style="font-size:11px; color:var(--text-lo); margin-bottom:4px;">${e.label}</div>
+        <div style="font-family:var(--font-display); font-size:20px; font-weight:700; color:${c};">${v.toFixed(1)}</div>
+        <div style="font-size:10px; color:var(--text-lo);">/ 100</div>
+      </div>`;
+    }).join('');
+    const f = sc.finalScore;
+    return `
+    <div class="vcell-row" style="padding: var(--space-5); border-radius: var(--r-lg); border:1px solid var(--line-strong); background: rgba(16,24,38,0.7);">
+      <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:var(--space-3); margin-bottom:var(--space-4);">
+        <div style="display:flex; align-items:center; gap:var(--space-3);">
+          <span style="font-family:var(--font-mono); color:var(--cyan); font-size:14px;">#0${rank}</span>
+          <div>
+            <h3 style="font-family:var(--font-display); font-size:18px; color:var(--text-hi);">${esc(idea.title)}</h3>
+            <div style="font-size:12px; color:var(--text-lo); font-family:var(--font-mono);">${esc(idea.eng)} · ${PATH_LABEL[idea.path]}</div>
+          </div>
+        </div>
+        <div style="display:flex; align-items:center; gap:var(--space-2);">
+          <span style="font-size:12px; color:var(--text-lo);">加权综合分</span>
+          <span style="font-family:var(--font-display); font-size:26px; font-weight:700; color:var(--cyan);">${f.toFixed(1)}</span>
+          <span style="font-size:12px; color:var(--text-lo);">/100</span>
+        </div>
+      </div>
+      <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-3);">${expCells}</div>
+    </div>`;
+  }).join('');
+  el.innerHTML = rows;
 }
 
 function bindExpertTabs() {
@@ -3236,15 +3303,14 @@ function renderValidationLoop() {
    ============================================================ */
 function initRemaining() {
   renderTop5Flat();
-  renderRadarView();
   renderList();
   renderGtmCards();
   renderEvidenceChain();
   renderVerTable();
   renderDataSource();
   renderValidationLoop();
+  renderScoreTable();
   bindEvFilters();
-  bindExpertTabs();
   bindEvBadges();
   updateNavSpy();
   document.getElementById('modalClose').addEventListener('click', closeModal);
