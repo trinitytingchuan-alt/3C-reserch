@@ -36,6 +36,16 @@ export const IDEA_RULES = {
   },
   VC_USER_VOICE_MIN_PLATFORMS: 2,     // 用户声音至少来自 2 个不同平台（防单平台偏差）
 
+  // ========== 数据质量准则（data-quality-criteria.md） ==========
+  MIN_DATA_SOURCES_PER_IDEA: 10,       // 每条 TOP5 功能需求至少 10 条数据源（去重）
+  MIN_DATA_SOURCES_LIST: 6,            // 功能需求清单（>75）至少 6 条数据源
+  MIN_S_TIER_EVIDENCE: 4,              // S 级（直接支撑）至少 4 条
+  MIN_S_TIER_LIST: 2,                  // 功能清单 S 级至少 2 条
+  MIN_A_TIER_EVIDENCE: 3,              // A 级（间接强关联）至少 3 条
+  MIN_A_TIER_LIST: 2,                  // 功能清单 A 级至少 2 条
+  MAX_B_TIER_EVIDENCE: 3,              // B 级（背景）最多 3 条
+  MIN_SOURCE_TYPES: 4,                 // 至少 4 种不同来源类型
+  MAX_SHARED_EVIDENCE_COUNT: 3,        // 被 >3 个 IDEA 引用的证据自动降级为 B 级
 
   // ========== 八维权重（合计 100） ==========
   WEIGHTS: {
@@ -76,6 +86,16 @@ export const IDEA_RULES = {
     /底座/g, /赋能/g, /抓手/g, /组合拳/g, /飞轮/g,
     /侵蚀(?!沟)/g, /降维打击/g, /端到端/g, /闭环/g,
     /倒逼/g, /对齐(?!颗粒)/g, /颗粒度/g, /拉通/g,
+  ],
+
+  // ========== 报告透出红线（External Report Disclosure Rules） ==========
+  // 以下术语严禁在 HTML 报告正文中透出（仅限 AGENTS.md / docs/ 内部文档使用）
+  FORBIDDEN_REPORT_TERMS: [
+    'AI 采集', 'AI 排除错误', 'Agent 架构', 'skill 加载',
+    'pipeline', '勾稽传导', 'harness 闸门', 'QA 校验过程',
+    '子权重', '伪需求拦截机制', '五源强支撑',
+    'evidence.json', 'ideas.json', 'scores.json', 'verification.json',
+    'web-design-engineer', '伪需求技术拦截', '一票否决式拦截',
   ],
 };
 
