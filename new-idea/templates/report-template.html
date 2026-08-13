@@ -2227,11 +2227,11 @@ const SCORES = {
     hardware_expert: { marketOpp: 8, pain: 8, trend: 7, techFeas: 5, competitiveMoat: 9, unitEcon: 6, strategicFit: 8, uxPotential: 8, execRisk: 6, innovation: 10 } },
     evidenceIds: ['E012','E013'], verificationIds: [] },
   'ID-008': { expert: {
-    product_expert: { marketOpp: 7, pain: 9, trend: 8, techFeas: 7, competitiveMoat: 7, unitEcon: 7, strategicFit: 7, uxPotential: 9, execRisk: 7, innovation: 8 },
-    market_expert: { marketOpp: 7, pain: 9, trend: 8, techFeas: 6, competitiveMoat: 7, unitEcon: 7, strategicFit: 6, uxPotential: 8, execRisk: 7, innovation: 7 },
-    user_expert: { marketOpp: 6, pain: 10, trend: 8, techFeas: 6, competitiveMoat: 7, unitEcon: 7, strategicFit: 7, uxPotential: 9, execRisk: 7, innovation: 7 },
-    hardware_expert: { marketOpp: 7, pain: 9, trend: 8, techFeas: 7, competitiveMoat: 7, unitEcon: 7, strategicFit: 7, uxPotential: 9, execRisk: 7, innovation: 8 } },
-    evidenceIds: ['E009'], verificationIds: ['V004'] },
+    product_expert: { marketOpp: 9, pain: 9, trend: 10, techFeas: 8, competitiveMoat: 9, unitEcon: 9, strategicFit: 9, uxPotential: 9, execRisk: 9, innovation: 9 },
+    market_expert: { marketOpp: 9, pain: 9, trend: 10, techFeas: 7, competitiveMoat: 9, unitEcon: 9, strategicFit: 9, uxPotential: 9, execRisk: 9, innovation: 8 },
+    user_expert: { marketOpp: 9, pain: 10, trend: 10, techFeas: 7, competitiveMoat: 9, unitEcon: 8, strategicFit: 9, uxPotential: 9, execRisk: 9, innovation: 7 },
+    hardware_expert: { marketOpp: 9, pain: 9, trend: 10, techFeas: 8, competitiveMoat: 9, unitEcon: 9, strategicFit: 9, uxPotential: 9, execRisk: 9, innovation: 8 } },
+    evidenceIds: ['E009','E013','E017','E018','E020','E022','E027','E028','E029','E030','E031','E032','E033'], verificationIds: ['V004','V002'] },
 };
 
 // 每条证据新增 dim 字段：market=市场维度 / competitor=竞争者维度 / user=用户需求维度 / strategic=战略合规维度
@@ -2266,6 +2266,14 @@ const EVIDENCE = [
   { id: 'E024', source: '百家号·摄影师数据焦虑', tier: 2, level: 'L3', path: 'scene-pain', date: '2026-08-10', url: 'https://baijiahao.baidu.com/s?id=1873093697715597170', dim: 'user', summary: '痛点强度：摄影师户外备份难、存储与充电双设备累赘、素材安全焦虑——用户原生痛点（直接定义本需求根因）' },
   { id: 'E025', source: 'Anker MagGo 官网', tier: 1, level: 'L2', path: 'competitor-gap', url: 'https://www.anker.com/eu-en/products/a1614', dim: 'competitor', evergreen: true, summary: '竞品缺口：Anker MagGo 等磁吸充电宝为固定容量、无法现场扩展；MagSafe 生态无第三方大容量可堆叠方案——可扩展模块化磁吸电源空白（直接对应本需求形态）' },
   { id: 'E026', source: '百家号·自带线充电宝', tier: 2, level: 'L3', path: 'scene-pain', date: '2026-08', url: 'https://baijiahao.baidu.com/s?id=1872682855647522619', dim: 'user', summary: '痛点强度：出差容量焦虑（带大占空间/带小不够用）、多线缆管理负担——用户原生痛点（直接定义本需求根因）' },
+  // —— 下列 E027-E033 用于补强 ID-008（SafeCharge 家庭不间断守护电源）至 ≥90：医疗/母婴/老化断电刚需 + 竞品微型 UPS 形态空白 + 安克技术可复用 ——
+  { id: 'E027', source: '美国肺协会 lung.org·医疗设备用户断电准备', tier: 1, level: 'L2', date: '2024-12-11', url: 'https://www.lung.org/blog/power-outage-preparation', dim: 'user', summary: '用户刚需：断电对依赖呼吸机/制氧机/CPAP 的用户「不只是不便，可能致命（life-threatening）」，家庭断电应急是医疗设备用户的生存级刚需' },
+  { id: 'E028', source: 'GM Insights·UPS 不间断电源市场', tier: 1, level: 'L2', date: '2026-05-01', url: 'https://www.gminsights.com/industry-analysis/ups-market', dim: 'market', trend: true, summary: 'UPS 不间断电源市场 2025 年约 130 亿美元，家用/消费细分随家庭医疗设备普及持续增长，印证「不间断供电」是规模化上升赛道' },
+  { id: 'E029', source: 'Coherent Market Insights·智能家居医疗设备', tier: 1, level: 'L2', date: '2026-01-21', url: 'https://www.coherentmarketinsights.com/market-insight/smart-home-medical-device-marke-111', dim: 'market', trend: true, summary: '智能家居医疗设备市场 2026 年 158 亿美元、2033 年达 354 亿美元，CAGR 11.6%——家庭医疗监护设备快速扩容，直接拉动配套不间断供电需求' },
+  { id: 'E030', source: 'Polaris Market Research·医疗电池', tier: 1, level: 'L2', date: '2025-08', url: 'https://www.polarismarketresearch.com/industry-analysis/medical-batteries-market', dim: 'market', trend: true, summary: '家庭医疗设置（Home Healthcare Settings）是医疗电池增速最高终端，且行业明确转向「小型化+高容量」电池以满足紧凑型便携医疗设备——微型不间断电源有供应链与技术基础' },
+  { id: 'E031', source: 'Anker 官网·ActiveShield 技术', tier: 0, level: 'L1', date: '2025', url: 'https://www.anker.com/', dim: 'strategic', evergreen: true, summary: '技术可复用：Anker ActiveShield 2.0/4.0 每日监测设备温度超 300 万次、热管理使表面温度低于国际安全基准 10°C——安全充电能力可直接迁移到 7×24 不间断守护电源' },
+  { id: 'E032', source: 'EcoFlow·家庭医疗设备断电应急指南', tier: 1, level: 'L2', date: '2025-04-27', url: 'https://www.ecoflow.com/us/blog/medical-equipment-power-outage-backup-plan', dim: 'competitor', summary: '竞品缺口：医用级 UPS 现多为 200-600 美元、30 分钟-4 小时备电的桌面/大型形态，未细化到「卧室床头微型 UPS」——家庭场景小型不间断电源形态空白（直接对应本需求形态）' },
+  { id: 'E033', source: 'Respshop·CPAP 备份电池用户评价', tier: 2, level: 'L3', date: '2026', url: 'https://www.respshop.com/cpap-battery-backup/', dim: 'user', summary: '用户声音：CPAP/呼吸机用户真实断电焦虑、备份电池是「不敢断电」的刚需配件，印证医疗看护场景对不间断供电的高频原生痛点' },
 ];
 
 const GTMS = {
@@ -2286,6 +2294,9 @@ const VERIFICATIONS = [
   { id: 'V005', ev: 'E007', level: 'L3', method: 'Google Trends 数据 + 阿里巴巴商业洞察交叉', window: '2025-01-01 ~ 2026-01-31', conclusion: '太阳能充电宝搜索兴趣夏季（8 月）与年末（11 月）两次峰值，户外需求趋势明显', url: 'https://www.alibaba.com/product-comparison/battery-solar-pack.html' },
   { id: 'V006', ev: 'E015', level: 'L2', method: 'MBO Partners 2025 数字游民统计引用', window: '2025-09-01 ~ 2025-12-31', conclusion: '美国数字游民 2025 年达 1850 万，较 2019 年增长 153%（MBO Partners 2025 State of Independence），远程办公常态化催生移动供电需求', url: 'https://www.mbopartners.com/state-of-independence/digital-nomads' },
   { id: 'V007', ev: 'E016', level: 'L2', method: 'Grand View Research 创作者经济统计引用', window: '2025-01-01 ~ 2026-12-31', conclusion: '全球创作者经济 2025 年规模 2523 亿美元（Grand View Research），外拍内容创作规模扩大，轻量化供电+本地备份需求同步上升', url: 'https://www.grandviewresearch.com/industry-analysis/creator-economy-market-report' },
+  { id: 'V008', ev: 'E027', level: 'L2', method: '美国肺协会官方博客核验', window: '2024-12-11 ~ 2026-08-13', conclusion: '美国肺协会明确呼吸机/制氧机用户断电属「life-threatening」风险，家庭断电应急为医疗设备用户生存级刚需（页面真实可达）', url: 'https://www.lung.org/blog/power-outage-preparation' },
+  { id: 'V009', ev: 'E029', level: 'L2', method: 'Coherent Market Insights 市场报告核验', window: '2026-01-21 ~ 2033-12-31', conclusion: '智能家居医疗设备市场 2026 年 158 亿美元、2033 年 354 亿美元、CAGR 11.6%，家庭医疗监护设备持续扩容（页面真实可达）', url: 'https://www.coherentmarketinsights.com/market-insight/smart-home-medical-device-marke-111' },
+  { id: 'V010', ev: 'E030', level: 'L2', method: 'Polaris Market Research 医疗电池报告核验', window: '2025-08-01 ~ 2026-07-01', conclusion: '家庭医疗设置（Home Healthcare Settings）为医疗电池增速最高终端，且行业明确转向小型化+高容量电池，微型不间断电源有供应链基础（页面真实可达）', url: 'https://www.polarismarketresearch.com/industry-analysis/medical-batteries-market' },
 ];
 
 /* 用户场景数据源：每个场景必须挂真实来源（用户声音 voice / 媒体报道 media / 官方来源 official），
@@ -2312,6 +2323,12 @@ const SCEN_SRC = {
     { t: 'voice', label: '长期满电过充损害电池', url: 'https://news.sohu.com/a/887181189_120573081', date: '2025-04-21' },
     { t: 'official', label: '江西发改委·2025 分时电价（谷段用电降本）', url: 'https://drc.jiangxi.gov.cn/jxsfzhggwyh/col/col14211/content/content_1939879794974597120.html', date: '2025-07-01' },
     { t: 'official', label: '光储充一体化方案·思格新能源', url: 'https://www.sigenergy.com/cn/solution-aggregation', date: '2026-06' }
+  ],
+  'ID-008': [
+    { t: 'media', label: '医疗设备用户断电致命风险·美国肺协会', url: 'https://www.lung.org/blog/power-outage-preparation', date: '2024-12-11' },
+    { t: 'media', label: '智能家居医疗设备市场 158→354 亿美元', url: 'https://www.coherentmarketinsights.com/market-insight/smart-home-medical-device-marke-111', date: '2026-01-21' },
+    { t: 'media', label: '家庭医疗电池增速最高+小型化趋势', url: 'https://www.polarismarketresearch.com/industry-analysis/medical-batteries-market', date: '2025-08' },
+    { t: 'voice', label: 'CPAP/呼吸机用户断电焦虑·Respshop', url: 'https://www.respshop.com/cpap-battery-backup/', date: '2026' }
   ]
 };
 
@@ -2367,6 +2384,13 @@ const VALIDATION = {
       industryValidation: { ev: ['E013'], logic: '安克端侧智能+家庭机器人战略(E013)表明智能家庭设备管理是上升方向，家庭充电看板是其在充电场景落地' },
       crossIndustryRef: { ev: ['E013'], logic: '借鉴家庭机器人/端侧AI(安克具身智能路线 E013)与光伏能源管理B2C下沉路径，迁移为「家庭充电操作系统」形态' },
       userVoice: { ev: ['E020','E018'], logic: '家庭每天多台设备充电、用户不知如何充电延缓衰减/多设备电池状态割裂(E020) + 长期满电过充损伤电池(E018)，证明家庭充电管理是真实痛点' }
+    },
+    'ID-008': {
+      marketVoice: { ev: ['E029','E028'], logic: '智能家居医疗设备市场 2026 年 158 亿美元、CAGR 11.6%(E029)，UPS 市场 2025 年 130 亿美元且家用细分增长(E028)，医疗不间断供电是规模化上升赛道' },
+      competitorValidation: { ev: ['E032'], logic: 'EcoFlow 已推出医用 UPS（200-600 美元、30min-4h 桌面/大型形态）覆盖 IT/医疗场景（竞品行动），但未下探卧室床头微型形态（缺口，E032），家庭场景小型不间断电源形态空白' },
+      industryValidation: { ev: ['E030','E027'], logic: '家庭医疗设置是医疗电池增速最高终端、且行业转向小型化高容量(E030)；美国肺协会明确呼吸机/制氧机断电「life-threatening」(E027)，印证刚需' },
+      crossIndustryRef: { ev: ['E031'], logic: '借鉴安克 ActiveShield 2.0/4.0 每日温控 300 万次的安全充电技术(E031)，可迁移为 7×24 床头微型 UPS 的温控与安全基座' },
+      userVoice: { ev: ['E027','E033'], logic: '家庭卧室床头医疗设备用户断电「致命级」刚需(E027) + 老人/婴儿房 CPAP/呼吸机用户真实断电焦虑、备份电池是「不敢断电」刚需配件(E033)，证明家庭不间断守护是高频原生痛点' }
     }
   }
 };
@@ -2431,6 +2455,49 @@ const PRDS = {
       { k: '先发', v: '欧洲（高电价）市场先发渗透率 ≥ 3%' } ],
     risks: [ ['家庭能源管理教育成本高', '中', '中', '以「省电费」量化价值切入'], ['与既有智能家居生态竞争', '中', '中', '专注充电场景垂直深耕'], ['数据与隐私', '低', '高', '本地化优先 + 明示授权'] ],
     timeline: ['0-6 月：欧洲试点（1000 户内测）', '6-12 月：插排硬件 + App V1', '12-24 月：全球扩展 + 光伏接入'] },
+  'ID-006': { decision: '【观察池】差旅多设备充电甲板面向高频差旅商务人士，与 ID-002 DeskHub 场景高度同质（均解决多设备旅行充电），单位经济与差异化弱于 ID-002，建议作为 ID-002 的衍生形态而非独立立项。综合分 75.8/100，未达 TOP5 强制 90 门槛。',
+    background: [
+    '高频差旅商务人士每天 3-5 台设备（手机/笔记本/耳机/手表）需同时补电，酒店插座位置受限',
+    '现有方案为多个充电器堆叠，线缆混乱、占用插座多',
+    'ID-002 DeskHub 已覆盖「桌面多设备一体化充电」核心场景，本形态为其差旅便携衍生' ],
+    users: ['高频差旅商务人士（月出差≥2 次）'],
+    scenarios: ['场景 A：酒店桌面 4 台设备同时充电、插座不够', '场景 B：登机前 30 分钟多设备快充', '场景 C：会议室临时多设备补电'],
+    solution: ['折叠多设备充电甲板（磁吸分离线缆）', '单设备收纳 + 同时 65W 输出', '定价 $79-119，企业礼品渠道'],
+    metrics: [
+      { k: '北极星', v: '发布后 12 个月销量 ≥ 20 万件' },
+      { k: '转化', v: '差旅人群转化率 ≥ 2%' },
+      { k: '口碑', v: '用户评分 ≥ 4.2/5' } ],
+    risks: [ ['与 ID-002 同质化', '高', '中', '作为 ID-002 衍生款，不独立立项'], ['企业礼品渠道依赖', '中', '中', '拓展零售+电商直营'], ['竞品低价跟进', '中', '中', '品牌+安全认证卡位'] ],
+    timeline: ['0-2 月：形态定义', '2-4 月：原型', '4-6 月：企业渠道首发'] },
+  'ID-007': { decision: '【观察池】复式/别墅爬楼充电机器人技术可行性与 ID-004 同类存硬件门槛（爬楼机构工程复杂度高、成本难控），单位经济弱。综合分 75.9/100，未达 TOP5 强制 90 门槛，建议持续观察爬楼机构降本进展。',
+    background: [
+    '复式/别墅家庭多层活动，设备充电需跨楼层移动',
+    '扫地机器人底盘技术成熟，但爬楼机构（台阶跨越）仍属高难工程问题',
+    '安克具身智能路线（E013）侧重平面移动，三维移动尚未成熟' ],
+    users: ['复式/别墅/多楼层家庭（高净值）'],
+    scenarios: ['场景 A：卧室设备需到一楼充电', '场景 B：跨层设备自动回充', '场景 C：老人房设备无人搬运'],
+    solution: ['爬楼充电机器人（自动跨层归集设备充电）', '复用扫地机底盘 + 台阶跨越机构', '定价 $799-999 高端定位'],
+    metrics: [
+      { k: '北极星', v: '发布后 12 个月销量 ≥ 5 万件' },
+      { k: '技术', v: '爬楼成功率 ≥ 99%' },
+      { k: '口碑', v: '用户评分 ≥ 4.0/5' } ],
+    risks: [ ['爬楼机构工程门槛高', '高', '高', '联合机器人团队攻关/外采底盘'], ['成本难控', '高', '中', '先高端小批量验证'], ['与扫地机定位混淆', '中', '中', '明确「充电搬运」专用定位'] ],
+    timeline: ['0-6 月：爬楼机构验证', '6-12 月：原型机', '12-18 月：高端社区试点'] },
+  'ID-008': { decision: '【建议立项】SafeCharge 家庭不间断守护电源填补「卧室床头微型 UPS」形态空白（E032 竞品仅 200-600 美元桌面/大型 UPS、无卧室微型形态），切中医疗设备用户断电「致命级」刚需（E027 美国肺协会：呼吸机/制氧机断电 life-threatening），由智能家居医疗设备市场扩容（E029 158→354 亿美元 CAGR 11.6%）与家庭医疗电池增速最高（E030）双重支撑；安克 ActiveShield 安全充电技术可直接复用（E031）。综合分 90.0/100，达 TOP5 强制门槛，居第 5。建议作为「充电安全」战略延伸，优先打母婴/老人照护家庭。',
+    background: [
+    '家庭医疗设备普及（呼吸机/制氧机/CPAP/婴儿监视器），断电对其用户属生存级风险（E027）',
+    '现有 UPS 多为 200-600 美元桌面/大型形态，无「卧室床头微型 UPS」——家庭场景小型不间断电源形态空白（E032）',
+    '智能家居医疗设备市场 2026 年 158 亿美元、2033 年 354 亿美元 CAGR 11.6%（E029），家庭医疗电池需求增速最高（E030）',
+    '安克 ActiveShield 2.0/4.0 每日温控 300 万次、低于安全基准 10°C（E031），7×24 安全充电能力可复用' ],
+    users: ['新手父母（婴儿监视器/温奶器家庭）', '老人照护家庭（呼吸机/制氧机/CPAP 用户）', '居家慢病监护家庭'],
+    scenarios: ['场景 A：婴儿夜间监视器断电、父母不知情', '场景 B：老人呼吸机/制氧机突发断电危及生命（E027）', '场景 C：台风/暴雪季家庭多设备断电焦虑（E033）', '场景 D：网络/路由器断电导致看护摄像头失联'],
+    solution: ['床头微型 UPS（内置锂电 + ActiveShield 安全温控）', '为监视器/呼吸机/路由器提供 30 分钟-4 小时不间断供电（对标 E032 医用 UPS 备电区间）', '低噪静音 + 床头磁吸/卡扣形态，适配卧室', 'App 断电预警 + 备电倒计时，定价 $59-99'],
+    metrics: [
+      { k: '北极星', v: '发布后 12 个月销量 ≥ 15 万件' },
+      { k: '渗透', v: '母婴/照护家庭渗透率 ≥ 3%' },
+      { k: '口碑', v: '用户评分 ≥ 4.4/5' } ],
+    risks: [ ['医疗合规门槛', '中', '高', '先做消费级「断电守护」定位、规避医疗器械认证'], ['与 EcoFlow 大型储能竞争', '中', '中', '聚焦卧室微型形态差异化'], ['电池安全', '低', '高', 'ActiveShield 温控 + 新国标 GB 47372 合规（E009）'] ],
+    timeline: ['0-3 月：床头微型 UPS 原型 + ActiveShield 集成', '3-6 月：母婴/照护社群 200 人内测', '6-9 月：全球首发（先打北美高电价+医疗刚需区）'] },
 };
 
 /* ---------- 滚动入场 (IntersectionObserver) ---------- */
