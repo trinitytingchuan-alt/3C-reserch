@@ -1,9 +1,9 @@
 {
   "data/anker/company-profile.json": "65ed84c3938cffd6a4e1ba964d73bf25422d7deb1c8cf5c9ea0107bae3d11468",
-  "data/anker/evidence.json": "ff130d6d62ac2af79d8f78fa92734df88e74e8eee3666240eee1572f9e3fe9cc",
-  "data/anker/ideas.json": "1271ee4c6f7e9ba9904663d7cdad79710a8464e314764cc9aa590c4f5d78530c",
+  "data/anker/evidence.json": "9633846d8b0054a7139801f92b91cef1708e639ee9af31bdf88afaf69c0104ad",
+  "data/anker/ideas.json": "345c6bba363c9e7b9de66891408f9f3b8ec0a8ac04ad6de558fcb5bf283442ce",
   "data/anker/prd-draft.md": "d6dd49abf3990b327a340b9f755152fd6d4923cdb1c9cf4dd6533ad53e61c8a6",
-  "data/anker/scores.json": "c103731faddaf9d3052e782ddde33bf8b56e3def554c00f0def90ffea187721e",
+  "data/anker/scores.json": "fbe6ac1135854116180b1acf25067ad1594d68666f843a3dbf01b44305942bfc",
   "data/anker/verification.json": "9f3dc7e07079e81695f267fee5b65736979b561c8d58daea731e249244c864cb",
   "data/testco/company-profile.json": "f5467e6016882cce18c3b1a0a74a535bceb347bde7518bf270cd245a7f88bbc1",
   "data/testco/evidence.json": "489f78c19ab56281f4fbe086adf595d57a491a21f0fc5aa1b506295e78e049c5",
@@ -13,5 +13,5 @@
   "data/testco/verification.json": "a6c78e3097b34b81e710fe39858f9e75d4c69234c3f9dfb545d88cc7903d6845",
   "AGENTS.md": "50769670839fe174193858729d3799334b5dc3214106f344fa69cb23139f1a6b",
   "README.md": "9c31e71fa377e59b627b0ef38049ea1159b033b5d24aa0b15f647230dd59181b",
-  "harness/rules.mjs": "55ade24dee2404424e722e7f775799189791153fb882100b39a1aa32090149d0"
+  "harness/rules.mjs": "bccb5ccdd427d55ef0f4cd8f114868e1d59e826b2184688d41d25b51bdb7bf0c"
 }
