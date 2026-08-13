@@ -7,7 +7,7 @@
 <meta name="description" content="NEW IDEA 产品机会挖掘框架 · 安克创新首例 · 深色高科技数据面板">
 <style>
 /* ============================================================
-   NEW IDEA 设计系统声明 (web-design-engineer 规范)
+   NEW IDEA 设计系统声明 (专业网页设计规范)
    ============================================================
    风格锚点: 深色高科技数据面板 / 产品机会雷达 / 投资决策终端
    色彩: 近黑海军蓝基底 + 青色/青绿发光强调（非 AI 默认蓝紫渐变）
@@ -538,7 +538,7 @@ main { position: relative; z-index: 1; }
 .expert-note { margin-top: var(--space-4); font-size: 13px; color: var(--text-mid); }
 
 /* ============================================================
-   第一章 · 勾稽关系传导
+   第一章 · 数据传导关系
    ============================================================ */
 .flow-wrap {
   background: rgba(16,24,38,0.7);
@@ -612,6 +612,43 @@ main { position: relative; z-index: 1; }
   color: var(--text-mid);
 }
 .verify-note b { color: var(--text-hi); font-family: var(--font-mono); font-size: 12px; }
+
+/* ---------- 折叠面板（方法论三级信息） ---------- */
+.accordion-section {
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  background: rgba(16,24,38,0.4);
+  overflow: hidden;
+  transition: background 0.3s ease;
+}
+.accordion-section[open] {
+  background: rgba(16,24,38,0.7);
+}
+.accordion-summary {
+  cursor: pointer;
+  padding: var(--space-5) var(--space-5) var(--space-4);
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  position: relative;
+}
+.accordion-summary::-webkit-details-marker { display: none; }
+.accordion-summary::after {
+  content: '＋';
+  position: absolute;
+  right: var(--space-5);
+  top: var(--space-5);
+  font-family: var(--font-mono);
+  font-size: 20px;
+  color: var(--cyan);
+  transition: transform 0.3s ease;
+}
+.accordion-section[open] .accordion-summary::after {
+  content: '－';
+}
+.accordion-summary h2 { margin-bottom: 0 !important; }
+.accordion-section .section-block { border-top: 1px solid var(--line); padding-top: var(--space-4); }
 
 /* ============================================================
    占位章节（待产出）
@@ -1377,11 +1414,11 @@ footer .f-brand { font-family: var(--font-display); color: var(--text-mid); marg
     <span class="ni-label">证据链<span class="ni-en">EVIDENCE CHAIN</span></span>
   </button>
   <button class="nav-item" data-target="method">
-    <span class="ni-no">07</span>
+    <span class="ni-no">06</span>
     <span class="ni-label">设计方法论<span class="ni-en">METHOD & DESIGN</span></span>
   </button>
   <button class="nav-item" data-target="scoring-final">
-    <span class="ni-no">08</span>
+    <span class="ni-no">07</span>
     <span class="ni-label">四专家综合评分<span class="ni-en">COMPREHENSIVE SCORE</span></span>
   </button>
 </nav>
@@ -1396,7 +1433,7 @@ footer .f-brand { font-family: var(--font-display); color: var(--text-mid); marg
     <div>
       <div class="section-index">CHAPTER 01 / OVERVIEW</div>
       <h1>安克创新 · 产品机会雷达</h1>
-      <p class="sub">从"人想"到"事成"——以安克创新四步法为方法论，用场景优先 + 四专家评审（含硬件专家伪需求技术拦截）+ 十维加权，扫描安克现有产品线外的空白机会。</p>
+      <p class="sub">以系统化市场扫描与多维专业评估，发现安克产品线外的真实机会。</p>
     </div>
     <div class="head-tag">数据窗口 <b>2025-08 ~ 2026-08</b></div>
   </div>
@@ -1406,13 +1443,7 @@ footer .f-brand { font-family: var(--font-display); color: var(--text-mid); marg
     <div class="reveal">
       <span class="hero-badge">◈ 首个演示案例 · Anker Innovations</span>
       <h1>把"市场发声"变成<br><span class="grad">可信的产品机会</span></h1>
-      <p class="hero-sub">灵感只需"看"：看趋势、看场景、看人群、看痛点。本报告以安克为起点，系统化完成五维采集 → 8 条候选需求 → 四专家交叉验证（含硬件专家伪需求技术拦截）→ 评分排序 → TOP5 + PRD 的完整闭环，并以证据链证明每个机会"非伪需求、处递增趋势"。</p>
-      <div class="hero-meta">
-        <div class="meta-item"><div class="v">2亿+</div><div class="k">安克全球用户</div></div>
-        <div class="meta-item"><div class="v">154亿</div><div class="k">充电储能营收(¥)</div></div>
-        <div class="meta-item"><div class="v">8条</div><div class="k">候选需求 IDEA</div></div>
-        <div class="meta-item"><div class="v">26条</div><div class="k">证据链 E##</div></div>
-      </div>
+<p class="hero-sub">灵感只需"看"：看趋势、看场景、看人群、看痛点。本报告系统化完成市场扫描 → 需求候选 → 专业评估 → 排序优选的完整闭环，并以证据链证明每个机会的真实性与增长潜力。</p>
     </div>
 
     <!-- 右侧雷达图 -->
@@ -1456,7 +1487,7 @@ footer .f-brand { font-family: var(--font-display); color: var(--text-mid); marg
   <!-- 页面功能导览 -->
   <div class="section-block" style="margin-top: var(--space-7);">
     <div class="section-index reveal">GUIDE / 本页导览</div>
-    <h2 style="font-family: var(--font-display); font-size: 24px; margin-bottom: var(--space-5);" class="reveal">这个页面在做什么 · 六个模块各司其职</h2>
+    <h2 style="font-family: var(--font-display); font-size: 24px; margin-bottom: var(--space-5);" class="reveal">这个页面在做什么 · 五个模块各司其职</h2>
     <div class="guide-grid">
       <div class="guide-card reveal">
         <div class="g-no">01</div>
@@ -1476,17 +1507,12 @@ footer .f-brand { font-family: var(--font-display); color: var(--text-mid); marg
       <div class="guide-card reveal">
         <div class="g-no">04</div>
         <h3>GTM 策略</h3>
-        <p>5 个 TOP5 各一份上市策略，突出<b>基于产品差异化制定的 GTM 差异化</b>（人群/渠道/定价/切入/北极星/首批用户）。</p>
+        <p>5 个 TOP5 各一份上市策略，包含与产品定位匹配的人群、渠道、定价、切入路径、核心指标与首批用户计划。</p>
       </div>
       <div class="guide-card reveal reveal-delay-1">
-        <div class="g-no">06</div>
-        <h3>证据链</h3>
-        <p>全量证据 E## 与三级核验 V##，Tier 分级、来源可溯源、趋势证据标记，支撑"非伪需求"论证。</p>
-      </div>
-      <div class="guide-card reveal reveal-delay-2">
-        <div class="g-no">06</div>
-        <h3>设计方法论</h3>
-        <p>本报告背后的完整思路：四步法、场景优先采集、10 维评分体系、四专家评审（含硬件专家伪需求技术拦截）、勾稽传导、设计系统规范。</p>
+        <div class="g-no">05</div>
+        <h3>研究方法与证据</h3>
+        <p>完整评估体系、全量证据链与核验记录，支撑每个机会的真实性与可行性论证。</p>
       </div>
     </div>
   </div>
@@ -1504,7 +1530,7 @@ footer .f-brand { font-family: var(--font-display); color: var(--text-mid); marg
       <div class="meta-item"><div class="v">7条</div><div class="k">三级核验 V##</div></div>
     </div>
     <div class="verify-note reveal">
-      <span><b>阅读路径</b>：01 看结构 → 02 看结论（TOP5）→ 03 看全量 → 04 看 PRD → 05 看怎么上市 → 06 验证证据 → 07 看方法论</span>
+      <span><b>阅读路径</b>：01 看结构 → 02 看结论（TOP5）→ 03 看全量 → 04 看 PRD → 05 看怎么上市 → 06 验证证据 → 07 研究方法</span>
     </div>
   </div>
 </section>
@@ -1519,7 +1545,7 @@ footer .f-brand { font-family: var(--font-display); color: var(--text-mid); marg
       <h1>TOP5 需求</h1>
       <p class="sub">评分 &gt; 90 的硬性 5 个产品机会 · 每条平铺完整陈述（目标用户 / 用户场景 / 解决方案 / 差异化）· 证据标签点击查看详情 · 切换专家视角联动 10 维雷达</p>
     </div>
-    <div class="head-tag">硬性约束 <b>5 个</b> · 评分 <b>&gt;90</b> · 证据 <b>≥3</b></div>
+    <div class="head-tag">TOP5 精选 · 评分 <b>&gt;90</b> · 证据 <b>≥3</b></div>
   </div>
 
   <!-- 平铺 TOP5 完整陈述 -->
@@ -1575,7 +1601,7 @@ footer .f-brand { font-family: var(--font-display); color: var(--text-mid); marg
   <div class="list-empty reveal" id="listEmpty" style="display:none;">当前筛选下无需求（本案例 8 条全部 &gt;75，一般不会出现）</div>
 
   <div class="verify-note reveal" style="margin-top: var(--space-5);">
-    <span>勾稽说明：本清单 = scores.json 中 <b>finalScore &gt; 75</b> 的全部需求，按综合分倒序；TOP5（&gt;90）以金色首列标注，其余为"机会型"需求（75-90）</span>
+    <span>说明：本清单包含综合评分 &gt; 75 的全部需求，按综合分倒序；TOP5（&gt;90）以金色首列标注，其余为机会型需求（75-90）</span>
   </div>
 </section>
 
@@ -1593,19 +1619,19 @@ footer .f-brand { font-family: var(--font-display); color: var(--text-mid); marg
     <div>
       <div class="section-index">CHAPTER 04 / GO-TO-MARKET</div>
       <h1>GTM 策略</h1>
-      <p class="sub">5 个 TOP5 需求各一份独立上市策略，严格按大厂 GTM 文档结构：差异化定位 → 目标人群 → 渠道 → 定价 → 切入路径 → 北极星 → 首批 100 用户，突出"产品差异化如何转化为 GTM 差异化"</p>
+      <p class="sub">5 个 TOP5 需求各一份独立上市策略，包含目标人群、渠道策略、定价策略、切入路径、核心指标与首批用户计划</p>
     </div>
     <div class="head-tag">5 份 GTM · 差异化导向</div>
   </div>
   <div class="section-block">
-    <div class="section-index reveal">STRATEGY / 差异化转化总览</div>
-    <h2 style="font-family: var(--font-display); font-size: 24px; margin-bottom: var(--space-4);" class="reveal">产品差异化 → GTM 差异化：转化矩阵</h2>
-    <p class="sub" style="margin-bottom: var(--space-5);">每个机会的产品差异化内核，如何决定其 GTM 在人群、渠道、定价、切入路径上的差异化落点。差异化并非营销话术，而是由技术可行性与竞争空白（四专家评审结论）外推至上市动作的可推导链路。</p>
+    <div class="section-index reveal">STRATEGY / 上市策略总览</div>
+    <h2 style="font-family: var(--font-display); font-size: 24px; margin-bottom: var(--space-4);" class="reveal">上市策略总览：定位与策略矩阵</h2>
+    <p class="sub" style="margin-bottom: var(--space-5);">每个上市策略均基于产品核心优势与市场验证结论制定，涵盖人群定位、渠道选择、定价策略与切入路径。</p>
     <div id="gtmMatrix" class="gtm-matrix"></div>
   </div>
   <div class="section-block" style="margin-top: var(--space-7);">
     <div class="section-index reveal">STRATEGY / 每需求一份</div>
-    <h2 style="font-family: var(--font-display); font-size: 24px; margin-bottom: var(--space-5);" class="reveal">差异化 GTM · 六要素 + 差异化策略</h2>
+    <h2 style="font-family: var(--font-display); font-size: 24px; margin-bottom: var(--space-5);" class="reveal">上市策略六要素</h2>
     <div id="gtmCards" class="gtm-cards"></div>
   </div>
 </section>
@@ -1618,7 +1644,7 @@ footer .f-brand { font-family: var(--font-display); color: var(--text-mid); marg
     <div>
       <div class="section-index">CHAPTER 05 / EVIDENCE CHAIN</div>
       <h1>证据链</h1>
-      <p class="sub">全量证据 E## 与三级核验 V## 可追溯展示：按<b>市场 / 竞争者 / 用户需求 / 战略合规</b>四维分层、Tier 数据源分级、趋势证据标记、核验方法可审计——逐条支撑每个机会"非伪需求、处递增趋势"。所有证据限定于指定数据窗口内，失效来源已剔除。</p>
+      <p class="sub">全量证据 E## 与三级核验 V## 可追溯展示：按<b>市场 / 竞争者 / 用户需求 / 战略合规</b>四维分层、Tier 数据源分级、趋势证据标记、核验方法可审计——逐条支撑每个机会的真实性与递增趋势。所有证据限定于指定数据窗口内，失效来源已剔除。</p>
     </div>
     <div class="head-tag">E## 全量 · V## 三级核验</div>
   </div>
@@ -1704,7 +1730,7 @@ footer .f-brand { font-family: var(--font-display); color: var(--text-mid); marg
     <div>
       <div class="section-index">CHAPTER 06 / METHOD & DESIGN</div>
       <h1>设计方法论</h1>
-      <p class="sub">本报告背后完整的产品机会发现思路：四步法 → 场景优先采集 → 10 维评分 → 四专家评审（含硬件专家伪需求技术拦截）→ 勾稽传导 → 证据规范 → 网页设计系统</p>
+      <p class="sub">本报告背后完整的产品机会发现思路：市场扫描方法 → 需求发现策略 → 多维评估 → 专家评审 → 数据传导 → 证据标准 → 网页设计系统</p>
     </div>
     <div class="head-tag">方法论 · 设计系统</div>
   </div>
@@ -1726,7 +1752,7 @@ footer .f-brand { font-family: var(--font-display); color: var(--text-mid); marg
       </div>
       <div class="timeline-step reveal reveal-delay-2">
         <div class="step-no">STEP 03</div>
-        <h3>AI 排除错误</h3>
+        <h3>专业筛选</h3>
         <p>用数据 + 逻辑 + 专家经验剔除不可行假设，保留真实机会。</p>
       </div>
       <div class="timeline-step reveal reveal-delay-3">
@@ -1763,20 +1789,28 @@ footer .f-brand { font-family: var(--font-display); color: var(--text-mid); marg
     </div>
   </div>
 
-  <!-- 数据源差异化配置 -->
-  <div class="section-block" style="margin-top: var(--space-7);">
-    <div class="section-index reveal">DATA SOURCE / 数据源差异化配置</div>
-    <h2 style="font-family: var(--font-display); font-size: 24px; margin-bottom: var(--space-5);" class="reveal">按核心客群地理定向 · 客群在哪，数据源就在哪</h2>
-    <div id="dataSourcePanel" style="display:flex; flex-direction:column; gap: var(--space-4);"></div>
-  </div>
+  <!-- 数据源差异化配置（折叠） -->
+  <details class="accordion-section" style="margin-top: var(--space-7);">
+    <summary class="accordion-summary">
+      <div class="section-index reveal">DATA SOURCE / 数据源差异化配置</div>
+      <h2 style="font-family: var(--font-display); font-size: 24px;" class="reveal">按核心客群地理定向 · 客群在哪，数据源就在哪</h2>
+    </summary>
+    <div class="section-block" style="margin-top: var(--space-4);">
+      <div id="dataSourcePanel" style="display:flex; flex-direction:column; gap: var(--space-4);"></div>
+    </div>
+  </details>
 
-  <!-- 市场验证闭环 -->
-  <div class="section-block" style="margin-top: var(--space-7);">
-    <div class="section-index reveal">MARKET VALIDATION / 市场验证闭环</div>
-    <h2 style="font-family: var(--font-display); font-size: 24px; margin-bottom: var(--space-5);" class="reveal">五源强支撑 · 缺一不可进 TOP5</h2>
-    <p class="sub" style="margin-bottom: var(--space-5);">每个新功能 IDEA 必须同时通过市场声音、竞品验证、行业验证、参考行业验证、用户声音（≥2 独立来源）五类源头数据强支撑，才能判定为「真实需求」进入 TOP5。</p>
-    <div id="validationLoopPanel" style="display:flex; flex-direction:column; gap: var(--space-6);"></div>
-  </div>
+  <!-- 市场验证闭环（折叠） -->
+  <details class="accordion-section" style="margin-top: var(--space-7);">
+    <summary class="accordion-summary">
+      <div class="section-index reveal">MARKET VALIDATION / 市场验证闭环</div>
+      <h2 style="font-family: var(--font-display); font-size: 24px;" class="reveal">多维交叉验证 · 缺一不可进 TOP5</h2>
+    </summary>
+    <div class="section-block" style="margin-top: var(--space-4);">
+      <p class="sub" style="margin-bottom: var(--space-5);">每个新功能 IDEA 必须同时通过市场声音、竞品验证、行业验证、参考行业验证、用户声音（≥2 独立来源）五类源头数据强支撑，才能判定为「真实需求」进入 TOP5。</p>
+      <div id="validationLoopPanel" style="display:flex; flex-direction:column; gap: var(--space-6);"></div>
+    </div>
+  </details>
 
   <!-- 10 维评分体系 -->
   <div class="section-block" style="margin-top: var(--space-7);">
@@ -1810,14 +1844,14 @@ footer .f-brand { font-family: var(--font-display); color: var(--text-mid); marg
     </div>
     <div class="verify-note reveal">
       <span><b>评分门槛</b>：综合分 &gt;90 → TOP5（硬性 5 个）· &gt;75 → 功能需求清单</span>
-      <span><b>伪需求拦截</b>：每条须 场景→痛点→方案 完整闭环，无场景锚的产品优先 idea 不计分</span>
+      <span><b>质量门槛</b>：每条须 场景→痛点→方案 完整闭环，无场景锚的产品优先 idea 不计分</span>
     </div>
   </div>
 
   <!-- 四专家评审 -->
   <div class="section-block" style="margin-top: var(--space-7);">
     <div class="section-index reveal">EXPERTS / 四专家评审</div>
-    <h2 style="font-family: var(--font-display); font-size: 24px; margin-bottom: var(--space-5);" class="reveal">独立评审 · 子权重加权 · 交叉验证 · 含硬件伪需求拦截</h2>
+    <h2 style="font-family: var(--font-display); font-size: 24px; margin-bottom: var(--space-5);" class="reveal">独立评审 · 专业加权 · 交叉验证</h2>
     <div class="expert-grid">
       <div class="expert-card prod reveal">
         <div class="expert-icon">◆</div>
@@ -1856,14 +1890,14 @@ footer .f-brand { font-family: var(--font-display); color: var(--text-mid); marg
       <div class="expert-card hw reveal reveal-delay-3">
         <div class="expert-icon">▣</div>
         <h3>硬件专家</h3>
-        <div class="role">Hardware Expert · 伪需求技术拦截 × 工程可行性</div>
+        <div class="role">Hardware Expert · 技术可行性把关 × 工程可行性</div>
         <div class="expert-focus">
           <span class="focus-chip">技术可行性 ×3</span>
           <span class="focus-chip">执行风险 ×2</span>
           <span class="focus-chip">竞争壁垒 ×1.5</span>
           <span class="focus-chip">单位经济 ×1.5</span>
         </div>
-        <div class="expert-note">"硬件层真能合体吗？供电/协议/主控/热耦合是否可行？技术壁垒能否突破？—— 对伪需求做一票否决式拦截。"</div>
+        <div class="expert-note">"硬件层真能合体吗？供电/协议/主控/热耦合是否可行？技术壁垒能否突破？—— 对技术不可行方案做严格把关。"</div>
       </div>
     </div>
   </div>
@@ -1871,7 +1905,7 @@ footer .f-brand { font-family: var(--font-display); color: var(--text-mid); marg
   <!-- 加权聚合 · 综合分说明 -->
   <div class="section-block" style="margin-top: var(--space-7);">
     <div class="section-index reveal">SCORING / 加权聚合与综合分</div>
-    <h2 style="font-family: var(--font-display); font-size: 24px; margin-bottom: var(--space-4);" class="reveal">「综合分」到底怎么算 · 别把它和雷达图混为一谈</h2>
+    <h2 style="font-family: var(--font-display); font-size: 24px; margin-bottom: var(--space-4);" class="reveal">「综合分」计算方式 · 与雷达图维度分的区别</h2>
     <p class="reveal" style="color: var(--text-mid); max-width: 72ch; margin-bottom: var(--space-5);">第二章雷达图右上角的 <b>综合分（0-100）</b> 是很多人看不懂的数。它和雷达图里每个维度的 0-10 分不是同一个概念，分三步理解：</p>
     <div class="score-steps">
       <div class="score-step">
@@ -1884,14 +1918,14 @@ footer .f-brand { font-family: var(--font-display); color: var(--text-mid); marg
       <div class="score-step">
         <div class="ss-no">②</div>
         <div class="ss-body">
-          <div class="ss-t">每个维度分 = 四专家按「子权重」加权平均</div>
-          <p>雷达图里看到的每个维度分（0-10），不是简单取平均，而是按各专家在该维度的 <b>子权重</b> 加权（第四位硬件专家对技术可行性与执行风险加权最高，专司伪需求拦截）：</p>
+          <div class="ss-t">每个维度分 = 四专家按「专业权重」加权平均</div>
+          <p>雷达图里看到的每个维度分（0-10），不是简单取平均，而是按各专家在该维度的 <b>专业权重</b> 加权（第四位硬件专家对技术可行性与执行风险加权最高，专司技术可行性把关）：</p>
           <ul class="score-formula">
             <li>产品专家侧重：技术可行性 ×2、UX 潜力 ×2、创新溢价 ×2、竞争壁垒 ×1.5</li>
             <li>市场投资专家侧重：市场机会 ×2、趋势增长 ×2、竞争壁垒 ×2、单位经济 ×2</li>
             <li>用户专家侧重：痛点强度 ×2.5、UX 潜力 ×2.5、市场机会 ×1</li>
             <li>硬件专家侧重：技术可行性 ×3、执行风险 ×2、竞争壁垒 ×1.5、单位经济 ×1.5</li>
-            <li>维度分 = Σ(专家分 × 子权重) ÷ Σ(子权重)，结果落在 0-10</li>
+            <li>维度分 = Σ(专家分 × 专业权重) ÷ Σ(专业权重)，结果落在 0-10</li>
           </ul>
         </div>
       </div>
@@ -1900,35 +1934,38 @@ footer .f-brand { font-family: var(--font-display); color: var(--text-mid); marg
         <div class="ss-body">
           <div class="ss-t">综合分 = 10 个维度分 ×「全局权重」求和，归一化到 100</div>
           <p>报告右上角那个综合分（如 <b>91.6</b>）是把 10 个维度分各自乘以该维度在全局的权重——技术×15 / UX×15 / 创新×12 / 竞争×10 / 市场×10 / 趋势×10 / 单位经济×8 / 痛点×10 / 参数×5 / 体验×5（合计 100）——加权求和直接落到 0-100。</p>
-          <div class="score-rule">硬性门槛：综合分 &gt; 90 → TOP5 需求；综合分 &gt; 75 → 功能需求清单。<b>雷达图看「各项能力分布」，综合分看「总价值高低」</b>，二者配合而非同一概念。所有权重与 harness 闸门一致，改一处即全链联动。</div>
+          <div class="score-rule">硬性门槛：综合分 &gt; 90 → TOP5 需求；综合分 &gt; 75 → 功能需求清单。<b>雷达图看「各项能力分布」，综合分看「总价值高低」</b>，二者配合而非同一概念。所有权重与质量保障校验一致，改一处即全链联动。</div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- 勾稽传导 -->
-  <div class="section-block" style="margin-top: var(--space-7);">
-    <div class="section-index reveal">PIPELINE / 勾稽关系传导</div>
-    <h2 style="font-family: var(--font-display); font-size: 24px; margin-bottom: var(--space-5);" class="reveal">数据 → 评分 → 分层产出的完整闭环</h2>
+  <!-- 数据传导（折叠） -->
+  <details class="accordion-section" style="margin-top: var(--space-7);">
+    <summary class="accordion-summary">
+      <div class="section-index reveal">DATA FLOW / 数据传导关系</div>
+      <h2 style="font-family: var(--font-display); font-size: 24px;" class="reveal">数据 → 评分 → 分层产出的完整闭环</h2>
+    </summary>
+    <div class="section-block" style="margin-top: var(--space-4);">
     <div class="flow-wrap reveal">
       <div class="flow-layer">
         <div class="flow-layer-label">输入层</div>
         <div class="flow-row">
           <div class="flow-node"><div class="fn-t">五维采集</div><div class="fn-s">场景/客群/参数/竞品/趋势</div></div>
           <div class="flow-arrow">→</div>
-          <div class="flow-node"><div class="fn-t">公司画像</div><div class="fn-s">company-profile.json</div></div>
+          <div class="flow-node"><div class="fn-t">公司画像</div><div class="fn-s">企业画像数据</div></div>
           <div class="flow-arrow">→</div>
-          <div class="flow-node hot"><div class="fn-t">需求 IDEA 池</div><div class="fn-s">ideas.json · 8 条</div></div>
+          <div class="flow-node hot"><div class="fn-t">需求 IDEA 池</div><div class="fn-s">需求池 · 8 条</div></div>
         </div>
       </div>
       <div class="flow-layer">
         <div class="flow-layer-label">验证层</div>
         <div class="flow-row">
-          <div class="flow-node"><div class="fn-t">证据链 E##</div><div class="fn-s">evidence.json · 全量可溯源</div></div>
+          <div class="flow-node"><div class="fn-t">证据链 E##</div><div class="fn-s">全量可溯源</div></div>
           <div class="flow-arrow">→</div>
-          <div class="flow-node"><div class="fn-t">三级核验 V##</div><div class="fn-s">verification.json · 7 条</div></div>
+          <div class="flow-node"><div class="fn-t">三级核验 V##</div><div class="fn-s">7 条</div></div>
           <div class="flow-arrow">→</div>
-          <div class="flow-node hot"><div class="fn-t">四专家 × 10 维</div><div class="fn-s">scores.json</div></div>
+          <div class="flow-node hot"><div class="fn-t">四专家 × 10 维</div><div class="fn-s">评分数据</div></div>
         </div>
       </div>
       <div class="flow-layer">
@@ -1938,21 +1975,24 @@ footer .f-brand { font-family: var(--font-display); color: var(--text-mid); marg
           <div class="flow-arrow">→</div>
           <div class="flow-node"><div class="fn-t">功能需求清单</div><div class="fn-s">评分 &gt; 75 · 倒序</div></div>
           <div class="flow-arrow">→</div>
-          <div class="flow-node hot"><div class="fn-t">大厂 PRD + GTM</div><div class="fn-s">prd-draft.md · scores.json.gtm</div></div>
+          <div class="flow-node hot"><div class="fn-t">产品需求文档 + 上市策略</div><div class="fn-s">完整 PRD · 上市策略</div></div>
         </div>
       </div>
       <div class="flow-legend">
         <span class="lg"><span class="dot" style="background: var(--cyan)"></span>核心产出</span>
         <span class="lg"><span class="dot" style="background: var(--text-lo)"></span>支撑数据</span>
-        <span class="lg">← 每层严格勾稽，harness QA 闸门校验</span>
+        <span class="lg">← 每层严格质量保障校验</span>
       </div>
     </div>
-  </div>
+  </details>
 
-  <!-- 证据规范 -->
-  <div class="section-block" style="margin-top: var(--space-7);">
-    <div class="section-index reveal">EVIDENCE / 证据规范</div>
-    <h2 style="font-family: var(--font-display); font-size: 24px; margin-bottom: var(--space-5);" class="reveal">交叉验证 · 三级核验 · 数据源分层</h2>
+  <!-- 证据规范（折叠） -->
+  <details class="accordion-section" style="margin-top: var(--space-7);">
+    <summary class="accordion-summary">
+      <div class="section-index reveal">EVIDENCE / 证据规范</div>
+      <h2 style="font-family: var(--font-display); font-size: 24px;" class="reveal">交叉验证 · 三级核验 · 数据源分层</h2>
+    </summary>
+    <div class="section-block" style="margin-top: var(--space-4);">
     <div class="evidence-band">
       <div class="tier-card reveal">
         <div class="t-tier">TIER 0 · 官方</div>
@@ -1974,14 +2014,17 @@ footer .f-brand { font-family: var(--font-display); color: var(--text-mid); marg
       <span><b>L1</b> 端内实测/官方渠道</span>
       <span><b>L2</b> 专业媒体/行业报告</span>
       <span><b>L3</b> 社区/电商用户声音</span>
-      <span style="margin-left:auto; color: var(--cyan);">伪需求拦截：TOP5 须 ≥3 证据 + ≥1 趋势证据 + ≥2 数据源 Tier</span>
+      <span style="margin-left:auto; color: var(--cyan);">质量门槛：TOP5 须 ≥3 条证据支撑 + 趋势验证 + 多源交叉验证</span>
     </div>
-  </div>
+  </details>
 
-  <!-- 网页设计系统 -->
-  <div class="section-block" style="margin-top: var(--space-7);">
-    <div class="section-index reveal">DESIGN / 网页设计系统</div>
-    <h2 style="font-family: var(--font-display); font-size: 24px; margin-bottom: var(--space-5);" class="reveal">本报告的设计思路 · web-design-engineer 规范</h2>
+  <!-- 网页设计系统（折叠） -->
+  <details class="accordion-section" style="margin-top: var(--space-7);">
+    <summary class="accordion-summary">
+      <div class="section-index reveal">DESIGN / 网页设计系统</div>
+      <h2 style="font-family: var(--font-display); font-size: 24px;" class="reveal">本报告的设计思路 · 专业网页设计规范</h2>
+    </summary>
+    <div class="section-block" style="margin-top: var(--space-4);">
     <div class="evidence-band">
       <div class="tier-card reveal">
         <div class="t-tier">STYLE · 风格锚点</div>
@@ -1999,7 +2042,7 @@ footer .f-brand { font-family: var(--font-display); color: var(--text-mid); marg
         <div class="t-desc">关键字段平铺展示不全隐藏；证据/详情等二级内容用弹层下钻；左侧导航 scroll-spy 高亮当前模块</div>
       </div>
     </div>
-  </div>
+  </details>
 </section>
 
 <!-- ============================================================
@@ -2010,7 +2053,7 @@ footer .f-brand { font-family: var(--font-display); color: var(--text-mid); marg
     <div>
       <div class="section-index">CHAPTER 08 / COMPREHENSIVE SCORE</div>
       <h1>四专家加权综合评分</h1>
-      <p class="sub">对每个 TOP5 需求单独给出综合评价：产品 / 市场投资 / 用户 / 硬件 四专家各自综合分 + 加权综合分，统一 100 分制——硬件专家对伪需求具一票否决式拦截；与需求卡右侧的「综合分 / 100」口径一致，避免 10 分制 / 100 分制混淆。</p>
+      <p class="sub">对每个 TOP5 需求单独给出综合评价：产品 / 市场投资 / 用户 / 硬件 四专家各自综合分 + 加权综合分，统一 100 分制——硬件专家对技术不可行方案严格把关；与需求卡右侧的「综合分 / 100」口径一致，避免 10 分制 / 100 分制混淆。</p>
     </div>
     <div class="head-tag">统一 <b>100 分制</b> · 每需求一份</div>
   </div>
@@ -2019,7 +2062,7 @@ footer .f-brand { font-family: var(--font-display); color: var(--text-mid); marg
     <h2 style="font-family: var(--font-display); font-size: 24px; margin-bottom: var(--space-3);" class="reveal">三种专业视角 · 加权聚合为综合分</h2>
     <p class="reveal" style="color: var(--text-mid); max-width: 76ch; margin-bottom: var(--space-5);">
       每个需求由 <b>产品 / 市场投资 / 用户</b> 三名专家分别对 10 个维度（市场机会、痛点、趋势、技术可行、竞争壁垒、单位经济、战略契合、UX、执行风险、创新）独立打 0-10 分；
-      每位专家的综合分 = 该专家 10 维分 × 全局权重（合计 100）加权求和并归一化到 0-100；最终「加权综合分」再按各专家在维度上的子权重加权平均。三者统一为 100 分制，可直接比较。
+      每位专家的综合分 = 该专家 10 维分 × 全局权重（合计 100）加权求和并归一化到 0-100；最终「加权综合分」再按各专家在维度上的专业权重加权平均。三者统一为 100 分制，可直接比较。
     </p>
     <div id="scoreTablePanel" style="display:flex; flex-direction:column; gap: var(--space-5);"></div>
     <div class="verify-note reveal" style="margin-top: var(--space-5);">
@@ -2045,7 +2088,7 @@ footer .f-brand { font-family: var(--font-display); color: var(--text-mid); marg
 
 <footer>
   <div class="f-brand">NEW IDEA · 产品机会挖掘与需求验证框架</div>
-  Anker 安克创新首例 · data/anker 全量数据 · harness QA 0 ERROR · 2026-08-12
+  Anker 安克创新首例 · data/anker 全量数据 · 质量保障校验通过 · 2026-08-12
 </footer>
 
 <div class="page-hint"><kbd>←</kbd> <kbd>→</kbd> 键盘翻章 · 点左侧导航跳转</div>
@@ -2056,7 +2099,7 @@ footer .f-brand { font-family: var(--font-display); color: var(--text-mid); marg
    ============================================================ */
 
 /* ============================================================
-   数据层（与 data/anker/*.json 严格对齐，harness QA 校验）
+   数据层（全量数据严格对齐，质量保障校验）
    ============================================================ */
 const DIMS = [
   { key: 'marketOpp', name: '市场机会', w: 15 },
@@ -2287,7 +2330,7 @@ const DATASOURCE = {
   note: '安克 180+ 国家、主要营收来自海外（充电储能类海外占比高），用户声音以 Amazon/Reddit/Trustpilot 为主，中文渠道仅作补充验证，避免用错地理渠道误判需求。'
 };
 
-/* 市场验证闭环：五源强支撑（docs/market-validation-loop.md）——每条 TOP5 进入前的硬门槛 */
+/* 市场验证闭环：多维交叉验证（docs/market-validation-loop.md）——每条 TOP5 进入前的硬门槛 */
 const VALIDATION = {
   chainDef: [
     { key: 'marketVoice', label: '① 市场声音', color: 'var(--cyan)', desc: '市场够大且在增长', min: '≥1' },
@@ -2474,8 +2517,8 @@ function expertFinalScore(id, expert) {
   return Math.round((weighted / totW) * 100);
 }
 
-/* 唯一「加权综合分」真相源：与 harness/rules.mjs computeFinalScore 完全一致口径
-   —— 用专家子权重(EXPERT_SUB_WEIGHTS)在每维上加权四专家→再×维度权重累加→归一化0-100。
+/* 唯一「加权综合分」真相源：与质量保障规则 computeFinalScore 完全一致口径
+   —— 用专家专业权重(EXPERT_SUB_WEIGHTS)在每维上加权四专家→再×维度权重累加→归一化0-100。
    需求卡 / 第八章评分表 / PRD 文档全部调用此函数，杜绝手填值与计算值不一致 */
 const EXPERT_SUB_WEIGHTS = {
   product_expert: { techFeas: 2.0, uxPotential: 2.0, innovation: 2.0, competitiveMoat: 1.5 },
@@ -2500,13 +2543,15 @@ function finalAggregateScore(id) {
   return Math.round(total / 10 * 10) / 10;
 }
 
-// TOP5 = 排除伪需求(isPseudo)后，按加权综合分（finalAggregateScore，统一100分制）倒序取前5，动态计算避免与手填值漂移
+// TOP5 = 排除技术不可行(isPseudo) + 强制加权综合分≥90（TOP_MIN_SCORE 硬门槛，用户强制规则）后，按 finalAggregateScore 倒序取前N（不足5按实际）。
+// 分数低于 90 的需求一律不得进入 TOP 需求展示，从架构层杜绝低分卡混入。
+const TOP_MIN_SCORE = (typeof IDEA_RULES !== 'undefined' && IDEA_RULES.TOP_MIN_SCORE) ? IDEA_RULES.TOP_MIN_SCORE : 90;
 const PSEUDO_IDS = Object.keys(SCORES).filter(id => SCORES[id].isPseudo);
 const TOP5 = Object.keys(SCORES)
   .filter(id => !SCORES[id].isPseudo)
   .map(id => ({ id, s: finalAggregateScore(id) }))
+  .filter(x => x.s >= TOP_MIN_SCORE)
   .sort((a, b) => b.s - a.s)
-  .slice(0, 5)
   .map(x => x.id);
 let selectedTop5 = TOP5[0] || 'ID-005';
 let selectedExpert = 'all';
@@ -2574,7 +2619,7 @@ const DERIVATION = {
   },
   'ID-003': {
     market: [
-      { ev: 'E007', claim: '户外能源搜索趋势真实上行', logic: 'Google Trends 太阳能充电宝 2025 年 8/11 月两次夏季峰值，证明「便携太阳能充电」是上升需求而非偶发（伪需求拦截硬指标通过）。' },
+      { ev: 'E007', claim: '户外能源搜索趋势真实上行', logic: 'Google Trends 太阳能充电宝 2025 年 8/11 月两次夏季峰值，证明「便携太阳能充电」是上升需求而非偶发（质量门槛硬指标通过）。' },
       { ev: 'E014', claim: '半日轻量方案空白被搜索验证', logic: '太阳能充电宝+便携电站组合搜索爆发但两极分化（电站太重/充电宝板太小），直指「半日轻量二合一」空白。' },
       { ev: 'E008', claim: '细分市场有规模且增长', logic: '便携太阳能折叠板 7.37 亿美元 + 5.5% CAGR，证明轻量太阳能方案有可量化市场，非小众玩具。' }
     ],
@@ -2711,7 +2756,7 @@ function openEvidenceModal(id) {
       </div>` : ''}
     </div>
     <div class="verify-note" style="margin-top: var(--space-4);">
-      <span>◈ = 趋势证据（证明需求有递增趋势，伪需求拦截硬性要求）</span>
+      <span>◈ = 趋势证据（证明需求有递增趋势，质量门槛硬性要求）</span>
     </div>`;
   document.getElementById('modalBackdrop').classList.add('open');
 }
@@ -2724,6 +2769,7 @@ function renderPrdDocList() {
 function openPrdDoc(id) {
   const idea = IDEAS.find(x => x.id === id);
   const sc = SCORES[id];
+  if (!idea || !sc) { console.warn('[openPrdDoc] 缺少数据，无法打开:', id); return; }
   const prd = PRDS[id] || {};
   const rank = TOP5.indexOf(id) + 1;
   const evs = sc.evidenceIds || [];
@@ -2786,7 +2832,7 @@ function openPrdDoc(id) {
   // 右侧锚点导航
   const SECTIONS = [
     ['s-raw', '原始素材', '0'], ['s-decision', '决策摘要', '1'], ['s-bg', '背景', '2'],
-    ['s-derivation', '推导逻辑', '3'], ['s-validation', '验证闭环', '3.5'], ['s-users', '目标用户', '4'], ['s-scenarios', '用户场景', '5'],
+    ['s-derivation', '推导逻辑', '3'], ['s-users', '目标用户', '4'], ['s-scenarios', '用户场景', '5'],
     ['s-solution', '解决方案', '6'], ['s-metrics', '成功指标', '7'], ['s-risks', '风险对策', '8'], ['s-timeline', '排期', '9']
   ];
   const navHtml = `<nav class="doc-sidenav"><div class="sn-title">PRD 目录</div>${SECTIONS.map(([sid, label, no]) => `<a href="#${sid}" data-target="${sid}"><span class="sn-nav-no">${no}</span>${label}</a>`).join('')}</nav>`;
@@ -2802,7 +2848,7 @@ function openPrdDoc(id) {
     <div class="doc-ctrl">
       <div class="doc-ctrl-head">DOCUMENT CONTROL · 文档控制</div>
       <div class="doc-ctrl-grid">
-        <div class="doc-ctrl-item"><span class="k">STATUS 状态</span><span class="v ${SCORES[id] && SCORES[id].isPseudo ? 'status-pseudo' : 'status'}">${SCORES[id] && SCORES[id].isPseudo ? '伪需求 · 已拦截（决策档）' : '建议立项（决策档）'}</span></div>
+        <div class="doc-ctrl-item"><span class="k">STATUS 状态</span><span class="v ${SCORES[id] && SCORES[id].isPseudo ? 'status-pseudo' : 'status'}">${SCORES[id] && SCORES[id].isPseudo ? '技术不可行 · 已拦截（决策档）' : '建议立项（决策档）'}</span></div>
         <div class="doc-ctrl-item"><span class="k">编号 ID</span><span class="v">${id}</span></div>
         <div class="doc-ctrl-item"><span class="k">综合分 SCORE</span><span class="v">${finalAggregateScore(id).toFixed(1)} / 100</span></div>
         <div class="doc-ctrl-item"><span class="k">排名 RANK</span><span class="v">TOP${rank}</span></div>
@@ -2819,7 +2865,7 @@ function openPrdDoc(id) {
         </section>
         <section class="doc-sec" id="s-decision">
           <h2><span class="sn-no">1</span>评审决策摘要 Decision</h2>
-          ${SCORES[id] && SCORES[id].isPseudo ? `<div class="doc-pseudo-banner">⚠ 硬件专家（第四角色）判定为 <b>伪需求</b>，不予立项。技术拦截结论：${esc(SCORES[id].pseudoReason || '')}</div>` : ''}
+          ${SCORES[id] && SCORES[id].isPseudo ? `<div class="doc-pseudo-banner">⚠ 硬件专家（第四角色）判定为 <b>技术不可行</b>，不予立项。技术把关结论：${esc(SCORES[id].pseudoReason || '')}</div>` : ''}
           <p>${esc(prd.decision || '')}</p>
         </section>
         <section class="doc-sec" id="s-bg">
@@ -2832,11 +2878,6 @@ function openPrdDoc(id) {
           <p class="doc-note">需求成立须由 <b>市场 / 竞争者 / 用户需求</b> 三层证据分别支撑——单点数据不足以定义根因，根因须由 ≥2 个独立来源交叉验证。下列按维度分组，逐条说明证据如何推导出 / 支撑本需求。</p>
           ${dimCoverageHtml}
           ${derHtml}
-        </section>
-        <section class="doc-sec" id="s-validation">
-          <h2><span class="sn-no">3.5</span>验证闭环 Validation Loop（正向+负向）</h2>
-          <p class="doc-note">每条需求须同时收集 <b>正向验证</b>（支撑为真需求）与 <b>负向验证</b>（评估是否伪需求），两方向支撑数据均 ≥ 10 条，且每条挂可溯源证据链（E##）。硬件专家（第四角色）对技术可行性做独立拦截。</p>
-          ${renderValidationBlock(id)}
         </section>
         <section class="doc-sec" id="s-users">
           <h2><span class="sn-no">4</span>目标用户 Target Users</h2>
@@ -2959,7 +3000,7 @@ function renderDimBars(scores) {
 function getScores(id, expert) {
   const sc = SCORES[id];
   if (expert === 'all') {
-    // 综合 = 四专家按子权重加权平均（与 harness rules.mjs computeFinalScore 一致）
+    // 综合 = 四专家按专业权重加权平均（与质量保障规则一致）
     const SUB = {
       product_expert: { techFeas: 2, uxPotential: 2, innovation: 2, competitiveMoat: 1.5 },
       market_expert: { marketOpp: 2, trend: 2, competitiveMoat: 2, unitEcon: 2 },
@@ -3037,7 +3078,7 @@ function renderScoreTable() {
       <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-3);">${expCells}</div>
     </div>`;
   }).join('');
-  // 伪需求拦截说明（硬件专家第四角色判定）
+  // 技术不可行拦截说明（硬件专家第四角色判定）
   const pseudoBlock = PSEUDO_IDS.length ? PSEUDO_IDS.map(id => {
     const idea = IDEAS.find(i => i.id === id);
     const sc = SCORES[id];
@@ -3046,7 +3087,7 @@ function renderScoreTable() {
     <div class="vcell-row pseudo-block" style="padding: var(--space-5); border-radius: var(--r-lg); border:1px solid var(--red); background: rgba(220,38,38,0.07);">
       <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:var(--space-3); margin-bottom:var(--space-3);">
         <div style="display:flex; align-items:center; gap:var(--space-3);">
-          <span style="font-family:var(--font-mono); color:var(--red); font-size:14px;">⚠ 伪需求</span>
+          <span style="font-family:var(--font-mono); color:var(--red); font-size:14px;">⚠ 技术不可行</span>
           <div>
             <h3 style="font-family:var(--font-display); font-size:18px; color:var(--text-hi);">${esc(idea.title)}</h3>
             <div style="font-size:12px; color:var(--text-lo); font-family:var(--font-mono);">${esc(idea.eng)} · 硬件专家 techFeas ${hw.techFeas}/10 · execRisk ${hw.execRisk}/10</div>
@@ -3054,7 +3095,7 @@ function renderScoreTable() {
         </div>
         <span style="font-family:var(--font-display); font-size:22px; font-weight:700; color:var(--red);">${finalAggregateScore(id).toFixed(1)}</span>
       </div>
-      <p style="font-size:13px; color:var(--text-mid); line-height:1.7;">${esc(sc.pseudoReason || '硬件专家(第四角色)判定为技术不可行/伪需求')}</p>
+      <p style="font-size:13px; color:var(--text-mid); line-height:1.7;">${esc(sc.pseudoReason || '硬件专家(第四角色)判定为技术不可行')}</p>
     </div>`;
   }).join('') : '';
   el.innerHTML = rows + pseudoBlock;
@@ -3242,7 +3283,7 @@ function renderValidationBlock(id) {
   const pos = vc.positive || [];
   const neg = vc.negative || [];
   const hw = vc.hardware ? `<div class="val-hw"><b>硬件专家判定：</b>${esc(vc.hardware.logic)}<div class="val-hw-ev">${vc.hardware.evidenceIds.map(eid => { const e = EVIDENCE.find(x => x.id === eid); return `<span class="ev-badge t${e ? e.tier || '' : ''}">${eid}</span>`; }).join(' ')}</div></div>` : '';
-  const pseudoTag = SCORES[id] && SCORES[id].isPseudo ? `<div class="val-pseudo">⚠ 硬件专家判定为伪需求（技术不可行）</div>` : '';
+  const pseudoTag = SCORES[id] && SCORES[id].isPseudo ? `<div class="val-pseudo">⚠ 硬件专家判定为技术不可行</div>` : '';
   const renderList = (arr, cls) => arr.map(it => {
     const e = EVIDENCE.find(x => x.id === it.ev) || {};
     return `<li class="${cls}"><span class="ev-badge t${e.tier || ''}">${esc(it.ev)}</span> <span>${esc(it.note)}</span> ${srcLink(e)}</li>`;
@@ -3255,7 +3296,7 @@ function renderValidationBlock(id) {
         <ul class="val-list">${renderList(pos, 'vp')}</ul>
       </div>
       <div class="val-col val-neg">
-        <div class="val-col-head">负向验证 · 评估是否伪需求（${neg.length} 条）</div>
+        <div class="val-col-head">负向验证 · 评估是否技术不可行（${neg.length} 条）</div>
         <ul class="val-list">${renderList(neg, 'vn')}</ul>
       </div>
     </div>
@@ -3466,7 +3507,7 @@ function renderDataSource() {
     </div>`;
 }
 
-/* 市场验证闭环渲染（五源强支撑） */
+/* 市场验证闭环渲染（多维交叉验证） */
 function renderValidationLoop() {
   const TOP5 = Object.keys(VALIDATION.byIdea);
   document.getElementById('validationLoopPanel').innerHTML = TOP5.map(id => {
@@ -3516,18 +3557,38 @@ function renderValidationLoop() {
 /* ============================================================
    初始化渲染
    ============================================================ */
+/* 渐进式分块载入：首屏只渲染轻量必需的 TOP5，其余重渲染块在章节进入视口时惰性生成，
+   降低首屏 JS 解析/渲染开销（数据分块异步加载的「单文件内部分块延迟解析」实现） */
 function initRemaining() {
+  // —— 首屏同步渲染（轻量、首屏可见）——
   renderTop5Flat();
-  renderList();
-  renderGtmCards();
-  renderEvidenceChain();
-  renderVerTable();
-  renderDataSource();
-  renderValidationLoop();
-  renderScoreTable();
-  bindEvFilters();
-  bindEvBadges();
   updateNavSpy();
+
+  // —— 分块惰性渲染注册表：sectionId → 渲染函数（进入视口才执行一次）——
+  const lazyBlocks = {
+    'list': () => { renderList(); bindListFilters(); },
+    'gtm': () => { renderGtmCards(); },
+    'evidence': () => { renderEvidenceChain(); renderVerTable(); bindEvFilters(); bindEvBadges(); },
+    'method': () => { renderValidationLoop(); renderDataSource(); },
+    'scoring-final': () => { renderScoreTable(); }
+  };
+  const rendered = new Set();
+  const ioLazy = new IntersectionObserver((entries) => {
+    entries.forEach(en => {
+      if (!en.isIntersecting) return;
+      const id = en.target.id;
+      if (lazyBlocks[id] && !rendered.has(id)) {
+        rendered.add(id);
+        lazyBlocks[id]();
+        ioLazy.unobserve(en.target);
+      }
+    });
+  }, { rootMargin: '120px 0px', threshold: 0.01 });
+  Object.keys(lazyBlocks).forEach(id => {
+    const sec = document.getElementById(id);
+    if (sec) ioLazy.observe(sec); else lazyBlocks[id](); // 无锚点则直接渲染兜底
+  });
+
   document.getElementById('modalClose').addEventListener('click', closeModal);
   document.getElementById('modalBackdrop').addEventListener('click', (e) => {
     if (e.target === e.currentTarget) closeModal();
@@ -3538,20 +3599,24 @@ function initRemaining() {
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') { closeModal(); closePrdDoc(); }
   });
-  // 证据链筛选
-  function bindEvFilters() {
-    document.querySelectorAll('#evFilters .filter-chip').forEach(chip => {
-      chip.addEventListener('click', () => {
-        const g = chip.dataset.group, val = chip.dataset.val;
-        evFilter[g] = val;
-        // 同组互斥高亮
-        document.querySelectorAll(`#evFilters .filter-chip[data-group="${g}"]`).forEach(c => c.classList.remove('active'));
-        chip.classList.add('active');
-        renderEvidenceChain();
-      });
+  // 新生成的 reveal 元素补 observe
+  document.querySelectorAll('.reveal:not(.in)').forEach(el => io.observe(el));
+}
+
+// 证据链筛选（惰性块渲染后绑定）
+function bindEvFilters() {
+  document.querySelectorAll('#evFilters .filter-chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      const g = chip.dataset.group, val = chip.dataset.val;
+      evFilter[g] = val;
+      document.querySelectorAll(`#evFilters .filter-chip[data-group="${g}"]`).forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      renderEvidenceChain();
     });
-  }
-  // 清单筛选/排序
+  });
+}
+// 清单筛选/排序（惰性块渲染后绑定）
+function bindListFilters() {
   document.querySelectorAll('.filter-chip').forEach(chip => {
     chip.addEventListener('click', () => {
       if (chip.dataset.path) {
@@ -3567,8 +3632,6 @@ function initRemaining() {
       renderList();
     });
   });
-  // 新生成的 reveal 元素补 observe
-  document.querySelectorAll('.reveal:not(.in)').forEach(el => io.observe(el));
 }
 document.addEventListener('DOMContentLoaded', initRemaining);
 </script>

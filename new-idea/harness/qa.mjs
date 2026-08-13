@@ -104,15 +104,25 @@ for (const caseSlug of cases) {
   try { scores = JSON.parse(readFileSync(scoresPath, 'utf-8')); }
   catch (e) { err(`[${caseSlug}] scores.json 解析失败: ${e.message}`); continue; }
 
-  // 10. TOP5 数量（排除伪需求后，按综合分降序取前 TOP5_COUNT）
+  // 10. TOP5 强门槛：排除伪需求 + 最终分必须 ≥ TOP5_MIN_SCORE(90) 才能进入 TOP5（用户强制规则）
   const real = scores.filter(s => !s.isPseudo && !(ideasById[s.ideaId] && ideasById[s.ideaId].isPseudo));
-  const top5 = [...real].sort((a, b) => b.finalScore - a.finalScore).slice(0, IDEA_RULES.TOP5_COUNT);
-  if (real.length < IDEA_RULES.TOP5_COUNT) {
-    err(`[${caseSlug}] 非伪需求仅 ${real.length} 条，不足 TOP5 门槛 ${IDEA_RULES.TOP5_COUNT}`);
-  } else if (top5.length !== IDEA_RULES.TOP5_COUNT) {
-    err(`[${caseSlug}] TOP5 数量=${top5.length}，应为 ${IDEA_RULES.TOP5_COUNT}`);
+  const eligible = real.filter(s => s.finalScore >= IDEA_RULES.TOP5_MIN_SCORE);
+  const top5 = [...eligible].sort((a, b) => b.finalScore - a.finalScore).slice(0, IDEA_RULES.TOP5_COUNT);
+  // 10.1 分数门槛校验：任何进入 TOP5 的卡必须 ≥90，否则 ERROR（防止低分卡混入）
+  for (const s of top5) {
+    if (s.finalScore < IDEA_RULES.TOP5_MIN_SCORE) {
+      err(`[${caseSlug}] ID-${s.ideaId}: finalScore=${s.finalScore} < ${IDEA_RULES.TOP5_MIN_SCORE}（强制门槛：低于 ${IDEA_RULES.TOP5_MIN_SCORE} 不得进入 TOP5）`);
+    }
+  }
+  // 10.2 所有非伪需求中低于门槛的卡不得出现在 TOP5（反向校验）
+  const belowThresholdInTop5 = top5.filter(s => s.finalScore < IDEA_RULES.TOP5_MIN_SCORE);
+  if (belowThresholdInTop5.length > 0) {
+    err(`[${caseSlug}] TOP5 含 ${belowThresholdInTop5.length} 张低于 ${IDEA_RULES.TOP5_MIN_SCORE} 分的卡（${belowThresholdInTop5.map(s=>'ID-'+s.ideaId).join(',')}），违反强制门槛`);
   } else {
-    ok(`[${caseSlug}] TOP5 数量=${top5.length}（已排除伪需求）✓`);
+    ok(`[${caseSlug}] TOP5 全部 ≥${IDEA_RULES.TOP5_MIN_SCORE} 分（强制门槛校验通过，实际 ${top5.length} 条达标）✓`);
+  }
+  if (top5.length === 0) {
+    err(`[${caseSlug}] 无需求达到 TOP5 强制门槛 ${IDEA_RULES.TOP5_MIN_SCORE} 分，TOP5 为空`);
   }
 
   // 11. 功能清单 >75
@@ -169,6 +179,145 @@ for (const caseSlug of cases) {
     if (tiers.size < IDEA_RULES.MIN_TIER_PER_TOP5) {
       err(`[${caseSlug}] ID-${s.ideaId}: 数据源 Tier 覆盖=${tiers.size}，应 ≥${IDEA_RULES.MIN_TIER_PER_TOP5}（交叉验证不足，可能为伪需求）`);
     }
+  }
+
+  // 12.2 数据质量准则（data-quality-criteria.md）——强逻辑闭环，ERROR 级强制
+  // 统计每条证据被多少个 IDEA 引用（通用证据检测）
+  const evidenceUsageCount = {};
+  for (const idea of ideas) {
+    const vc = idea?.validationChain;
+    if (!vc) continue;
+    const allEvIds = new Set();
+    for (const type of IDEA_RULES.VALIDATION_CHAIN_TYPES) {
+      const slot = vc[type];
+      if (slot && Array.isArray(slot.evidenceIds)) {
+        slot.evidenceIds.forEach(id => allEvIds.add(id));
+      }
+    }
+    if (vc.hardware && Array.isArray(vc.hardware.evidenceIds)) {
+      vc.hardware.evidenceIds.forEach(id => allEvIds.add(id));
+    }
+    allEvIds.forEach(id => { evidenceUsageCount[id] = (evidenceUsageCount[id] || 0) + 1; });
+  }
+
+  for (const s of top5) {
+    const idea = ideasById[s.ideaId];
+    const vc = idea?.validationChain;
+    if (!vc) continue;
+
+    // 收集所有维度的去重 evidenceIds
+    const allEvIds = new Set();
+    const allDims = [...IDEA_RULES.VALIDATION_CHAIN_TYPES, 'hardware'];
+    for (const type of allDims) {
+      const slot = vc[type];
+      if (slot && Array.isArray(slot.evidenceIds)) {
+        slot.evidenceIds.forEach(id => allEvIds.add(id));
+      }
+    }
+    if (Array.isArray(vc.positive)) vc.positive.forEach(p => { if (p.ev) allEvIds.add(p.ev); });
+    if (Array.isArray(vc.negative)) vc.negative.forEach(n => { if (n.ev) allEvIds.add(n.ev); });
+
+    const totalCount = allEvIds.size;
+    if (totalCount < IDEA_RULES.MIN_DATA_SOURCES_PER_IDEA) {
+      err(`[${caseSlug}] ID-${s.ideaId}: 数据源总量=${totalCount}，必须 >=${IDEA_RULES.MIN_DATA_SOURCES_PER_IDEA}（验证闭环硬门槛：不足则需求不成立）`);
+    } else {
+      ok(`[${caseSlug}] ID-${s.ideaId}: 数据源总量=${totalCount} >=${IDEA_RULES.MIN_DATA_SOURCES_PER_IDEA} ✓`);
+    }
+
+    // 检查通用证据（被 >3 个 IDEA 引用 → 降级为 B 级，不计入强相关）
+    const overSharedEvs = [...allEvIds].filter(id => (evidenceUsageCount[id] || 0) > IDEA_RULES.MAX_SHARED_EVIDENCE_COUNT);
+    if (overSharedEvs.length > 0) {
+      warn(`[${caseSlug}] ID-${s.ideaId}: 以下证据被 >${IDEA_RULES.MAX_SHARED_EVIDENCE_COUNT} 个 IDEA 引用（自动降级为 B 级，不计入强相关）: ${overSharedEvs.join(', ')}`);
+    }
+
+    // dataSourceSummary 必须存在且满足 S/A/B 门槛
+    if (!idea.dataSourceSummary) {
+      err(`[${caseSlug}] ID-${s.ideaId}: 缺少 dataSourceSummary 字段（验证闭环要求显式标注数据质量分布）`);
+    } else {
+      const dss = idea.dataSourceSummary;
+      if (dss.sTier < IDEA_RULES.MIN_S_TIER_EVIDENCE) {
+        err(`[${caseSlug}] ID-${s.ideaId}: S 级（直接支撑）证据=${dss.sTier}，必须 >=${IDEA_RULES.MIN_S_TIER_EVIDENCE}（强相关数据不足，需求推导不成立）`);
+      }
+      if (dss.bTier > IDEA_RULES.MAX_B_TIER_EVIDENCE) {
+        err(`[${caseSlug}] ID-${s.ideaId}: B 级（背景）证据=${dss.bTier}，必须 <=${IDEA_RULES.MAX_B_TIER_EVIDENCE}（弱相关数据过多，稀释推导强度）`);
+      }
+      if (dss.sourceTypes && dss.sourceTypes.length < IDEA_RULES.MIN_SOURCE_TYPES) {
+        err(`[${caseSlug}] ID-${s.ideaId}: 来源类型=${dss.sourceTypes.length}，必须 >=${IDEA_RULES.MIN_SOURCE_TYPES}（多方来源不足，无法交叉验证）`);
+      }
+    }
+
+    // relevance 标注检测：每个维度须有 relevance 数组
+    for (const type of IDEA_RULES.VALIDATION_CHAIN_TYPES) {
+      const slot = vc[type];
+      if (slot && slot.evidenceIds && !Array.isArray(slot.relevance)) {
+        err(`[${caseSlug}] ID-${s.ideaId}: validationChain.${type} 缺少 relevance 数组（须标注每条证据的 S/A/B 相关性级别）`);
+      }
+    }
+  }
+
+  // 12.3 推导链路闭环检查（derivation-logic-standard.md）——ERROR 级强制
+  for (const s of top5) {
+    const idea = ideasById[s.ideaId];
+    const vc = idea?.validationChain;
+    if (!vc) continue;
+
+    // chainLink 必须存在（每个维度须显式描述跨维度因果关系）
+    for (const type of IDEA_RULES.VALIDATION_CHAIN_TYPES) {
+      const slot = vc[type];
+      if (slot && slot.logic && !slot.chainLink) {
+        err(`[${caseSlug}] ID-${s.ideaId}: validationChain.${type} 缺少 chainLink（推导链路断裂：维度之间无因果连接）`);
+      }
+    }
+
+    // 规则 1：场景-痛点对应（userVoice 必须同时描述场景和痛点）
+    const uvLogic = vc.userVoice?.logic || '';
+    const sceneRe = /场景|出差|户外|家庭|办公|酒店|海滩|旅行|咖啡馆|拍摄|通勤|露营|桌面|充电/;
+    const painRe = /痛点|焦虑|抱怨|不满|困难|负担|麻烦|损伤|老化|缺失|不足|空白|无感知|找不到|不够|缠绕/;
+    if (uvLogic && (!sceneRe.test(uvLogic) || !painRe.test(uvLogic))) {
+      err(`[${caseSlug}] ID-${s.ideaId}: userVoice.logic 未同时包含场景词和痛点词（推导链路规则 1 断裂：用户声音必须描述「在什么场景存在什么痛点」）`);
+    }
+
+    // 规则 2：竞品响应描述（competitorValidation 必须说明竞品针对该痛点做了什么+缺口在哪）
+    const cvLogic = vc.competitorValidation?.logic || '';
+    const compActionRe = /已|率先|推出|发布|做|提供|上线|落地|拿到|获得/;
+    const compGapRe = /但|无|缺|仅|未|不|空白|不足|局限|没有|停/;
+    if (cvLogic && (!compActionRe.test(cvLogic) || !compGapRe.test(cvLogic))) {
+      err(`[${caseSlug}] ID-${s.ideaId}: competitorValidation.logic 未同时包含竞品行动和缺口描述（推导链路规则 2 断裂：必须说明竞品针对该场景/痛点如何反应及未覆盖什么）`);
+    }
+
+    // 规则 3：chainLink 跨维度因果引用（必须引用至少一个其他维度的证据编号）
+    for (const type of IDEA_RULES.VALIDATION_CHAIN_TYPES) {
+      const slot = vc[type];
+      if (!slot?.chainLink) continue;
+      const ownEvs = new Set(slot.evidenceIds || []);
+      const crossRef = (slot.chainLink.match(/E\d+/g) || []).filter(eid => !ownEvs.has(eid));
+      if (crossRef.length === 0) {
+        err(`[${caseSlug}] ID-${s.ideaId}: validationChain.${type}.chainLink 未引用其他维度的证据（推导链路规则 3 断裂：维度之间无交叉支撑，为散点堆砌）`);
+      }
+    }
+
+    // 规则 4：方案-缺口对接（solution 必须引用竞品缺口或跨行业参考）
+    const solution = idea.solution || '';
+    const gapRefRe = /空白|缺口|无.*做|没有.*提供|未.*覆盖|借鉴|迁移|跨行业/;
+    if (solution && !gapRefRe.test(solution)) {
+      warn(`[${caseSlug}] ID-${s.ideaId}: solution 未显式引用竞品缺口或跨行业参考（推导链路规则 4：方案应说明填补了哪个缺口）`);
+    }
+  }
+
+  // 12.4 报告透出红线扫描（FORBIDDEN_REPORT_TERMS）
+  const templatePath = join(BASE, 'templates', 'report-template.html');
+  if (existsSync(templatePath)) {
+    const htmlContent = readFileSync(templatePath, 'utf-8');
+    let disclosureViolations = 0;
+    for (const term of IDEA_RULES.FORBIDDEN_REPORT_TERMS) {
+      const escaped = term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      const matches = htmlContent.match(new RegExp(escaped, 'g'));
+      if (matches) {
+        err(`[${caseSlug}] report-template.html: 透出红线违规——"${term}" 出现 ${matches.length} 次`);
+        disclosureViolations += matches.length;
+      }
+    }
+    if (disclosureViolations === 0) ok(`[${caseSlug}] 报告透出红线扫描通过 ✓`);
   }
 
   // 12.x 四专家评审完整性 + 伪需求硬拦截 + 正/负向验证门槛
