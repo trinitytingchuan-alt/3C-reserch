@@ -52,6 +52,16 @@
 | `qa.mjs` | 闸门：TOP5 硬性 5 个、证据≥3、趋势≥1、Tier≥2、场景路径有效、五维强支撑、无空降方案 |
 | `lock.mjs` | SHA-256 基线，防内容漂移 |
 | `build.mjs` | 数据注入模板 + 自动 QA + 幽灵引用双保险 |
+| `scripts/run-with-recovery.mjs` | 任务超时自动恢复运行器：10s 心跳看门狗，长任务无响应自动 kill+重试(≤3)，checkpoint 续跑 |
+
+## 任务中断自动恢复机制
+长任务（QA/build/inject 等）可能卡死无响应。统一用 recovery runner 包裹执行：
+```powershell
+cd "new-idea"
+node scripts/run-with-recovery.mjs --name <任务名> -- <命令...>
+node scripts/run-with-recovery.mjs --resume        # 读取 .recovery-checkpoint.json 续跑失败步骤
+```
+规则：子进程 >10s 无 stdout/stderr 心跳 ⇒ 判定卡死 ⇒ SIGKILL 终止 ⇒ 自动重试（最多 3 次）；每步写 `.recovery-checkpoint.json`，中断后可 `--resume` 续跑。
 
 ## 关键文档
 - `docs/agent-architecture.md` 四层架构 + 信息源推导

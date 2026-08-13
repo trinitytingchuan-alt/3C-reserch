@@ -24,3 +24,6 @@ new-idea/_syntax.log
 # IDE
 .vscode/settings.json
 .idea/
+
+# 任务恢复运行时检查点（运行时产物，非源码）
+new-idea/.recovery-checkpoint.json
