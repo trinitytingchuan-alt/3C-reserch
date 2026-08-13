@@ -1,0 +1,9 @@
+[
+  { "id": "V001", "ideaId": "ID-001", "method": "端内/官方核验（L1）", "level": "L1", "conclusion": "雷鸟 X3 Pro 官方参数确认骁龙 AR1+全彩波导高功耗，续航为公开短板（E001），与用户续航吐槽一致", "window": "2025-05-10~2026-05-10", "evidenceIds": ["E001", "E005"] },
+  { "id": "V002", "method": "社区/电商核验（L3）", "level": "L3", "conclusion": "什么值得买/观察者网用户多帖印证续航、佩戴、发热、可读性痛点真实存在（E005/E006/E012/E015）", "window": "2025-05-10~2026-05-10", "evidenceIds": ["E005", "E006", "E012", "E015"] },
+  { "id": "V003", "method": "专业媒体/行业报告核验（L2）", "level": "L2", "conclusion": "Counterpoint/洛图/IDC 一致确认 AR 与智能眼镜高增长（E002/E003/E013/E014），AI 拍摄眼镜路径由 Meta Ray-Ban 验证（E009）", "window": "2025-05-10~2026-05-10", "evidenceIds": ["E002", "E003", "E009", "E013", "E014"] },
+  { "id": "V004", "method": "社区/电商核验（L3）", "level": "L3", "conclusion": "第一代铰链松/磁吸夹发、Air 系列发热为真实用户反馈（E006），轻量化需求确证", "window": "2025-05-10~2026-05-10", "evidenceIds": ["E006", "E010"] },
+  { "id": "V005", "method": "专业媒体/竞品核验（L2）", "level": "L2", "conclusion": "XREAL One Pro 电致变色已被市场接受（E007），雷鸟光学可读性短板与一键变暗缺口确证（E001/E015）", "window": "2025-05-10~2026-05-10", "evidenceIds": ["E007", "E001", "E015"] },
+  { "id": "V006", "method": "专业媒体/竞品核验（L2）", "level": "L2", "conclusion": "雷鸟 RayNeo AR VM 已具备生态基础（E001），Rokid 内容生态追赶（E008）印证开放平台缺口真实", "window": "2025-05-10~2026-05-10", "evidenceIds": ["E001", "E008", "E010"] },
+  { "id": "V007", "method": "趋势弱信号核验（L3）", "level": "L3", "conclusion": "AR 健身仅为弱信号，竞品未规模化验证、用户证据不足，列入观察池暂不建议进 TOP5", "window": "2025-05-10~2026-05-10", "evidenceIds": ["E013", "E003", "E012"] }
+]

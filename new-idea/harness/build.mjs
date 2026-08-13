@@ -24,10 +24,11 @@ if (!existsSync(dataDir)) {
   process.exit(1);
 }
 
-// Step 1: Load template
-const templatePath = join(BASE, 'templates', 'report-template.html');
+// Step 1: Load template (按 company 自动匹配 report-template-<company>.html，隔离不同公司数据)
+const templatePath = join(BASE, 'templates', `report-template-${company}.html`);
 if (!existsSync(templatePath)) {
-  console.log('⚠️  模板文件不存在，将直接构建 HTML');
+  console.error(`❌ 模板不存在: ${templatePath}（请复制 templates/report-template.html 为 report-template-${company}.html 并替换内联数据）`);
+  process.exit(1);
 }
 
 // Step 2: Load case data

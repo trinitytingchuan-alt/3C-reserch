@@ -1,0 +1,21 @@
+{
+  "company": "rayneo",
+  "displayName": "雷鸟创新",
+  "business": "",
+  "products": [],
+  "revenue": null,
+  "userBase": null,
+  "annualReportUrl": "",
+  "dataWindow": "",
+  "dataSourceStrategy": {
+    "coreAudienceGeography": "overseas-primary",
+    "userVoiceChannels": [],
+    "competitorValidationChannels": [],
+    "industryValidationChannels": [],
+    "trendSignalChannels": [],
+    "crossIndustryRefChannels": [],
+    "language": "en",
+    "note": "鎸夋牳蹇冨缇ゅ湴鐞嗕綅缃畾鍚戦厤缃噰闆嗘笭閬擄細娴峰涓轰富鈫扐mazon/Reddit/Trustpilot/Google Trends锛涘浗鍐呬负涓烩啋浜笢/鐭ヤ箮/灏忕孩涔?鐧惧害鎸囨暟銆傝瑙?docs/data-source-strategy.md"
+  },
+  "notes": "锛堥噰闆嗚嚜锛氬畼缃?骞存姤/鎷涜偂涔︼紝椤婚檮鐪熷疄閾炬帴涓庢棩鏈燂級"
+}

@@ -1,0 +1,101 @@
+[
+  {
+    "ideaId": "ID-001",
+    "discoveryPath": "scene-pain",
+    "scores": {
+      "product_expert": { "marketOpp": 9, "pain": 9, "trend": 10, "techFeas": 8, "competitiveMoat": 9, "unitEcon": 9, "strategicFit": 9, "uxPotential": 9, "execRisk": 9, "innovation": 9 },
+      "market_expert": { "marketOpp": 9, "pain": 9, "trend": 10, "techFeas": 7, "competitiveMoat": 9, "unitEcon": 9, "strategicFit": 9, "uxPotential": 9, "execRisk": 9, "innovation": 9 },
+      "user_expert": { "marketOpp": 9, "pain": 10, "trend": 10, "techFeas": 7, "competitiveMoat": 9, "unitEcon": 8, "strategicFit": 9, "uxPotential": 9, "execRisk": 9, "innovation": 9 },
+      "hardware_expert": { "marketOpp": 9, "pain": 9, "trend": 10, "techFeas": 8, "competitiveMoat": 9, "unitEcon": 9, "strategicFit": 9, "uxPotential": 9, "execRisk": 9, "innovation": 9 }
+    },
+    "finalScore": 90.8,
+    "evidenceIds": ["E005", "E012", "E001", "E002", "E013", "E015", "E010", "E003", "E014", "E006", "E004"],
+    "verificationIds": ["V001", "V002"],
+    "gtm": { "audience": "雷鸟 X 系列重度观影/导航用户、通勤差旅户外人群", "channel": "雷鸟官方商城 + 京东/天猫旗舰店 + B站测评", "pricing": "颈挂模组 ¥499 单独售 / 套装优惠", "entry": "随 X3 Pro 购机捆绑首发，扫码激活赠延保" }
+  },
+  {
+    "ideaId": "ID-002",
+    "discoveryPath": "competitor-gap",
+    "scores": {
+      "product_expert": { "marketOpp": 9, "pain": 10, "trend": 10, "techFeas": 8, "competitiveMoat": 9, "unitEcon": 9, "strategicFit": 9, "uxPotential": 10, "execRisk": 9, "innovation": 9 },
+      "market_expert": { "marketOpp": 9, "pain": 10, "trend": 10, "techFeas": 7, "competitiveMoat": 9, "unitEcon": 9, "strategicFit": 9, "uxPotential": 10, "execRisk": 9, "innovation": 9 },
+      "user_expert": { "marketOpp": 9, "pain": 10, "trend": 10, "techFeas": 7, "competitiveMoat": 9, "unitEcon": 8, "strategicFit": 9, "uxPotential": 10, "execRisk": 9, "innovation": 9 },
+      "hardware_expert": { "marketOpp": 9, "pain": 10, "trend": 10, "techFeas": 8, "competitiveMoat": 9, "unitEcon": 9, "strategicFit": 9, "uxPotential": 10, "execRisk": 9, "innovation": 9 }
+    },
+    "finalScore": 91.2,
+    "evidenceIds": ["E009", "E011", "E001", "E010", "E013", "E016", "E012", "E003", "E002", "E004", "E014"],
+    "verificationIds": ["V001", "V003"],
+    "gtm": { "audience": "旅行/商务用户、AI 早期采用者", "channel": "雷鸟官网 + 小红书/抖音种草 + 海外众筹", "pricing": "X3 Pro 拍摄版溢价 ¥800", "entry": "V3 用户以旧换新优先推送" }
+  },
+  {
+    "ideaId": "ID-003",
+    "discoveryPath": "scene-pain",
+    "scores": {
+      "product_expert": { "marketOpp": 9, "pain": 9, "trend": 10, "techFeas": 8, "competitiveMoat": 9, "unitEcon": 9, "strategicFit": 9, "uxPotential": 9, "execRisk": 9, "innovation": 9 },
+      "market_expert": { "marketOpp": 9, "pain": 10, "trend": 10, "techFeas": 7, "competitiveMoat": 9, "unitEcon": 9, "strategicFit": 9, "uxPotential": 9, "execRisk": 9, "innovation": 9 },
+      "user_expert": { "marketOpp": 9, "pain": 10, "trend": 10, "techFeas": 7, "competitiveMoat": 9, "unitEcon": 8, "strategicFit": 9, "uxPotential": 10, "execRisk": 9, "innovation": 9 },
+      "hardware_expert": { "marketOpp": 9, "pain": 9, "trend": 10, "techFeas": 9, "competitiveMoat": 9, "unitEcon": 9, "strategicFit": 9, "uxPotential": 9, "execRisk": 10, "innovation": 9 }
+    },
+    "finalScore": 90.5,
+    "evidenceIds": ["E006", "E001", "E010", "E015", "E012", "E005", "E002", "E013", "E003", "E014", "E007"],
+    "verificationIds": ["V002", "V004"],
+    "gtm": { "audience": "全天佩戴用户、办公/观影人群", "channel": "雷鸟线下体验店 + 京东自营", "pricing": "新款轻量版溢价 ¥300", "entry": "以旧换新抵扣铰链缺陷机型" }
+  },
+  {
+    "ideaId": "ID-005",
+    "discoveryPath": "competitor-gap",
+    "scores": {
+      "product_expert": { "marketOpp": 9, "pain": 9, "trend": 10, "techFeas": 8, "competitiveMoat": 9, "unitEcon": 9, "strategicFit": 9, "uxPotential": 9, "execRisk": 9, "innovation": 9 },
+      "market_expert": { "marketOpp": 9, "pain": 9, "trend": 10, "techFeas": 7, "competitiveMoat": 10, "unitEcon": 9, "strategicFit": 9, "uxPotential": 9, "execRisk": 9, "innovation": 9 },
+      "user_expert": { "marketOpp": 9, "pain": 10, "trend": 10, "techFeas": 7, "competitiveMoat": 10, "unitEcon": 8, "strategicFit": 9, "uxPotential": 9, "execRisk": 9, "innovation": 9 },
+      "hardware_expert": { "marketOpp": 9, "pain": 9, "trend": 10, "techFeas": 8, "competitiveMoat": 10, "unitEcon": 9, "strategicFit": 9, "uxPotential": 9, "execRisk": 9, "innovation": 9 }
+    },
+    "finalScore": 90.3,
+    "evidenceIds": ["E007", "E001", "E010", "E015", "E002", "E013", "E003", "E014", "E012", "E005", "E008"],
+    "verificationIds": ["V002", "V005"],
+    "gtm": { "audience": "户外/通勤/商务用户", "channel": "雷鸟官网 + 极客测评", "pricing": "电致变色版溢价 ¥600", "entry": "X3 Pro 高配版标配" }
+  },
+  {
+    "ideaId": "ID-006",
+    "discoveryPath": "cross-industry",
+    "scores": {
+      "product_expert": { "marketOpp": 9, "pain": 10, "trend": 10, "techFeas": 8, "competitiveMoat": 9, "unitEcon": 9, "strategicFit": 10, "uxPotential": 9, "execRisk": 9, "innovation": 9 },
+      "market_expert": { "marketOpp": 9, "pain": 10, "trend": 10, "techFeas": 7, "competitiveMoat": 9, "unitEcon": 9, "strategicFit": 10, "uxPotential": 9, "execRisk": 9, "innovation": 9 },
+      "user_expert": { "marketOpp": 9, "pain": 10, "trend": 10, "techFeas": 7, "competitiveMoat": 9, "unitEcon": 8, "strategicFit": 10, "uxPotential": 10, "execRisk": 9, "innovation": 9 },
+      "hardware_expert": { "marketOpp": 9, "pain": 10, "trend": 10, "techFeas": 8, "competitiveMoat": 9, "unitEcon": 9, "strategicFit": 10, "uxPotential": 9, "execRisk": 9, "innovation": 9 }
+    },
+    "finalScore": 90.6,
+    "evidenceIds": ["E001", "E008", "E010", "E013", "E016", "E002", "E012", "E003", "E014", "E011", "E004"],
+    "verificationIds": ["V003", "V006"],
+    "gtm": { "audience": "内容消费/办公用户", "channel": "雷鸟开发者社区 + 应用商店", "pricing": "开发者分成 + 基础免费", "entry": "RayNeo VM 开放 SDK 公测" }
+  },
+  {
+    "ideaId": "ID-004",
+    "discoveryPath": "cross-industry",
+    "isPseudo": true,
+    "scores": {
+      "product_expert": { "marketOpp": 5, "pain": 5, "trend": 4, "techFeas": 3, "competitiveMoat": 4, "unitEcon": 5, "strategicFit": 3, "uxPotential": 4, "execRisk": 3, "innovation": 4 },
+      "market_expert": { "marketOpp": 5, "pain": 5, "trend": 4, "techFeas": 3, "competitiveMoat": 4, "unitEcon": 5, "strategicFit": 3, "uxPotential": 4, "execRisk": 3, "innovation": 4 },
+      "user_expert": { "marketOpp": 5, "pain": 5, "trend": 4, "techFeas": 3, "competitiveMoat": 4, "unitEcon": 4, "strategicFit": 3, "uxPotential": 4, "execRisk": 3, "innovation": 4 },
+      "hardware_expert": { "marketOpp": 5, "pain": 5, "trend": 4, "techFeas": 2, "competitiveMoat": 4, "unitEcon": 5, "strategicFit": 3, "uxPotential": 4, "execRisk": 2, "innovation": 4 }
+    },
+    "finalScore": 42.0,
+    "evidenceIds": ["E012", "E006"],
+    "verificationIds": ["V002"],
+    "gtm": { "audience": "（伪需求）外拍创作者小众", "channel": "（无）", "pricing": "（无）", "entry": "（不进入 TOP5）" }
+  },
+  {
+    "ideaId": "ID-007",
+    "discoveryPath": "cross-industry",
+    "scores": {
+      "product_expert": { "marketOpp": 7, "pain": 7, "trend": 8, "techFeas": 7, "competitiveMoat": 7, "unitEcon": 7, "strategicFit": 8, "uxPotential": 7, "execRisk": 7, "innovation": 7 },
+      "market_expert": { "marketOpp": 7, "pain": 7, "trend": 8, "techFeas": 6, "competitiveMoat": 7, "unitEcon": 7, "strategicFit": 8, "uxPotential": 7, "execRisk": 7, "innovation": 7 },
+      "user_expert": { "marketOpp": 7, "pain": 7, "trend": 8, "techFeas": 6, "competitiveMoat": 7, "unitEcon": 6, "strategicFit": 8, "uxPotential": 7, "execRisk": 7, "innovation": 7 },
+      "hardware_expert": { "marketOpp": 7, "pain": 7, "trend": 8, "techFeas": 7, "competitiveMoat": 7, "unitEcon": 7, "strategicFit": 8, "uxPotential": 7, "execRisk": 7, "innovation": 7 }
+    },
+    "finalScore": 76.4,
+    "evidenceIds": ["E013", "E003", "E012"],
+    "verificationIds": ["V007"],
+    "gtm": { "audience": "（观察池）居家健身用户", "channel": "（观察）", "pricing": "（观察）", "entry": "（暂不推进）" }
+  }
+]
