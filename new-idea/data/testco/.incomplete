@@ -1,0 +1,1 @@
+testco 为废弃测试案例（占位数据，证据/需求不完整），标记 .incomplete 使 QA 与 schema 校验均跳过，不参与真实产品（anker/rayneo）的产出与校验。

@@ -1,0 +1,11 @@
+{
+  "company": "anker",
+  "stages": {
+    "demand": "pending",
+    "evidence": "pending",
+    "gtm": "pending",
+    "report": "pending"
+  },
+  "updatedAt": "2026-08-14",
+  "notes": "分模块逐步产出状态机：demand(TOP5需求)→evidence(证据核验)→gtm(GTM策略)→report(完整报告)。前置未 done 时后置拒绝产出。"
+}
