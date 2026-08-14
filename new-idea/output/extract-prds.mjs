@@ -1,0 +1,11 @@
+import { readFileSync, writeFileSync } from 'node:fs';
+const f = 'c:/Users/Administrator/Desktop/zg/NEW IDEA/_ref_full_v.html';
+const h = readFileSync(f, 'utf16le');
+// 定位 PRDS 对象：const PRDS = { ... };;
+const start = h.indexOf('const PRDS = ');
+const open = h.indexOf('{', start);
+const end = h.indexOf('};;', open);
+const json = h.slice(open, end + 1);
+const P = JSON.parse(json);
+writeFileSync('prds-extract.json', json);
+console.log('PRDS keys:', Object.keys(P).join(', '));

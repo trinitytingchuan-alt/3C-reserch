@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>用户需求 · 证据链 · 雷鸟创新 RayNeo · AR 智能眼镜产品机会白皮书</title>
+<style>
+:root{
+  --paper:#FFFFFF; --surface:#F5F5F7; --surface-2:#FBFBFD;
+  --ink:#1D1D1F; --ink-mid:#515154; --ink-lo:#86868B; --ink-faint:#A1A1A6;
+  --line:#D2D2D7; --line-soft:#E8E8ED; --line-strong:#B8B8BE;
+  --signal:#0071E3; --signal-press:#005BBF; --signal-dim:rgba(0,113,227,.06); --signal-line:rgba(0,113,227,.28);
+  --font-display:"Geist",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --font-body:"Geist",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --font-mono:"Geist Mono",ui-monospace,SFMono-Regular,monospace;
+  --s2:8px; --s3:16px; --s4:24px; --s5:40px; --s6:64px; --s7:96px; --s8:160px;
+  --r-xs:10px; --r-sm:12px; --r-md:18px; --r-lg:22px;
+  --ease:cubic-bezier(.22,1,.36,1); --maxw:1120px;
+  --shadow:0 1px 2px rgba(0,0,0,.04),0 6px 20px rgba(0,0,0,.05);
+  --shadow-hi:0 2px 6px rgba(0,0,0,.05),0 18px 48px rgba(0,0,0,.10);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--paper);color:var(--ink);font-family:var(--font-body);font-size:17px;line-height:1.5;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;letter-spacing:-.01em;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,h4,h5{font-family:var(--font-display);font-weight:600;letter-spacing:-.03em;line-height:1.1;color:var(--ink)}
+p{color:var(--ink-mid)}
+.signal{color:var(--signal)}.muted{color:var(--ink-lo)}.mono{font-family:var(--font-mono)}
+.eyebrow{font-family:var(--font-mono);font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--signal);font-weight:500}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--s5);position:relative;z-index:1}
+.section{padding:var(--s8) 0}
+.nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.72);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid transparent;transition:border-color .4s var(--ease),background .4s var(--ease)}
+.nav.scrolled{border-bottom-color:var(--line-soft)}
+.nav-inner{max-width:var(--maxw);margin:0 auto;padding:0 var(--s5);height:56px;display:flex;align-items:center;justify-content:space-between}
+.brand{font-family:var(--font-display);font-weight:600;font-size:17px;letter-spacing:-.02em;display:flex;align-items:center;gap:9px}
+.brand .dot{width:9px;height:9px;border-radius:50%;background:var(--signal);box-shadow:0 0 0 4px var(--signal-dim)}
+.nav-links{display:flex;gap:20px}
+.nav-links a{font-size:14px;color:var(--ink-lo);position:relative;padding:4px 0;transition:color .25s var(--ease)}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:-2px;height:1.5px;width:0;background:var(--signal);transition:width .3s var(--ease)}
+.nav-links a:hover{color:var(--ink)}
+.nav-links a:hover::after{width:100%}
+.hero{padding:var(--s7) 0 var(--s6)}
+.hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:var(--s6);align-items:center}
+.hero h1{font-size:clamp(34px,4.6vw,56px);font-weight:600}
+.hero h1 .co{color:var(--signal)}
+.hero .lead{margin-top:var(--s4);font-size:20px;line-height:1.5;color:var(--ink-mid);max-width:38ch;letter-spacing:-.015em}
+.hero .meta{margin-top:var(--s5);display:flex;gap:26px;flex-wrap:wrap}
+.hero .meta .item .k{font-family:var(--font-mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint)}
+.hero .meta .item .v{font-size:17px;font-weight:500;margin-top:4px;color:var(--ink)}
+.hero-figure{border-radius:var(--r-lg);overflow:hidden;background:var(--surface);aspect-ratio:4/4.6;box-shadow:var(--shadow);position:relative;display:flex;align-items:center;justify-content:center}
+.hero-figure svg{width:78%;height:78%}
+.fw{margin-top:var(--s6);display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s3);align-items:stretch}
+.fw .cell{background:var(--surface);border:1px solid var(--line-soft);border-radius:var(--r-sm);padding:var(--s3);text-align:center}
+.fw .cell .ico{width:100%;aspect-ratio:16/9;border-radius:var(--r-xs);overflow:hidden;background:var(--paper);margin-bottom:12px;display:flex;align-items:center;justify-content:center}
+.fw .cell .ico svg{width:46%;height:46%}
+.fw .cell .t{font-size:14px;font-weight:600;color:var(--ink)}
+.fw .cell .d{font-size:12px;color:var(--ink-lo);margin-top:2px}
+
+.sec-head{margin-bottom:var(--s6)}
+.sec-head .eyebrow{display:block;margin-bottom:14px}
+.sec-head h2{font-size:clamp(28px,3.6vw,42px)}
+.sec-head .sub{margin-top:14px;font-size:18px;color:var(--ink-lo);max-width:64ch}
+.sec-head .meta-row{margin-top:var(--s4);display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.pill{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--ink-lo);background:var(--surface);border:1px solid var(--line-soft);padding:7px 13px;border-radius:999px}
+.pill b{color:var(--ink);font-weight:600}
+.top5{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--s5)}
+.card{background:var(--paper);border:1px solid var(--line-soft);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow);transition:transform .45s var(--ease),box-shadow .45s var(--ease),border-color .45s var(--ease);display:flex;flex-direction:column}
+.card:hover{transform:translateY(-6px);box-shadow:var(--shadow-hi);border-color:var(--signal-line)}
+.card .topbar{height:4px;background:var(--line-soft);transition:background .45s var(--ease)}
+.card:hover .topbar{background:linear-gradient(90deg,var(--signal),var(--signal-press))}
+.card .fig{aspect-ratio:16/9;overflow:hidden;background:var(--surface);position:relative;display:flex;align-items:center;justify-content:center}
+.card .fig svg{width:42%;height:42%}
+.card .body{padding:var(--s4);flex:1}
+.card .rank{font-family:var(--font-mono);font-size:12px;color:var(--signal);font-weight:500}
+.card .body h3{font-size:21px;margin-top:6px;line-height:1.18}
+.card .body .val{margin-top:10px;font-size:15px;color:var(--ink-mid);line-height:1.5}
+.card .chain{margin-top:var(--s3);border-top:1px solid var(--line-soft);padding-top:var(--s3);display:flex;flex-direction:column;gap:10px}
+.chain .row{display:grid;grid-template-columns:74px 1fr;gap:12px;font-size:14px}
+.chain .row .lab{font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);padding-top:2px}
+.chain .row .txt{color:var(--ink-mid);line-height:1.48}
+.chain .row .txt .ev{color:var(--signal);font-family:var(--font-mono);font-size:12.5px}
+.card .foot{display:flex;align-items:center;justify-content:space-between;padding:0 var(--s4) var(--s4);gap:16px}
+.score{display:flex;align-items:baseline;gap:7px}
+.score .num{font-family:var(--font-display);font-weight:600;font-size:28px;letter-spacing:-.03em}
+.score .den{font-family:var(--font-mono);font-size:13px;color:var(--ink-faint)}
+.bar{height:5px;border-radius:3px;background:var(--line-soft);overflow:hidden;width:120px}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--signal),var(--signal-press));border-radius:3px;width:0;transition:width 1.1s var(--ease)}
+.btn-doc{display:inline-flex;align-items:center;gap:8px;background:var(--signal);color:#fff;font-size:15px;font-weight:600;padding:13px 20px;border-radius:12px;transition:background .25s var(--ease),transform .25s var(--ease);white-space:nowrap}
+.btn-doc:hover{background:var(--signal-press);transform:translateY(-1px)}
+.btn-doc svg{width:17px;height:17px}
+.flist{background:var(--paper);border:1px solid var(--line-soft);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow)}
+.flist table{width:100%;border-collapse:collapse;font-size:14.5px}
+.flist th{text-align:left;font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);padding:14px var(--s4);background:var(--surface);font-weight:500;border-bottom:1px solid var(--line-soft)}
+.flist td{padding:14px var(--s4);border-bottom:1px solid var(--line-soft);color:var(--ink-mid);vertical-align:middle}
+.flist tr:last-child td{border-bottom:0}
+.flist tr:hover td{background:var(--surface-2)}
+.flist .name{color:var(--ink);font-weight:500}
+.flist .id{font-family:var(--font-mono);font-size:12px;color:var(--ink-lo)}
+.flist .cat{font-size:13px;color:var(--ink-lo)}
+.flist .st{font-family:var(--font-mono);font-size:12px;padding:3px 9px;border-radius:6px;font-weight:500}
+.st.top{background:var(--signal-dim);color:var(--signal);border:1px solid var(--signal-line)}
+.st.watch{background:#FFF4E5;color:#9A5B00;border:1px solid #F3D9A8}
+.st.pseudo{background:#FFE9E9;color:#B4202A;border:1px solid #F2B8B8}
+
+.gtm-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--s5)}
+.gcard{background:var(--paper);border:1px solid var(--line-soft);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow);transition:transform .45s var(--ease),box-shadow .45s var(--ease),border-color .45s var(--ease);display:flex;flex-direction:column}
+.gcard:hover{transform:translateY(-6px);box-shadow:var(--shadow-hi);border-color:var(--signal-line)}
+.gcard .gfig{aspect-ratio:16/9;overflow:hidden;background:var(--surface);position:relative;display:flex;align-items:center;justify-content:center}
+.gcard .gfig svg{width:38%;height:38%}
+.gcard .gbody{padding:var(--s4);flex:1}
+.gcard .gbody .gtag{font-family:var(--font-mono);font-size:11px;color:var(--signal);letter-spacing:.06em}
+.gcard .gbody h3{font-size:19px;margin-top:7px;line-height:1.2}
+.gcard .gbody .glead{margin-top:9px;font-size:14.5px;color:var(--ink-mid);line-height:1.5}
+.gcard .gfoot{display:flex;justify-content:flex-end;align-items:center;padding:0 var(--s4) var(--s4)}
+/* —— 证据链一级维度卡（点击跳转二级页） —— */
+.dimnav{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--s4);margin-top:var(--s5)}
+.dimcard{display:flex;flex-direction:column;background:var(--paper);border:1px solid var(--line-soft);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow);transition:transform .45s var(--ease),box-shadow .45s var(--ease),border-color .45s var(--ease);text-decoration:none}
+.dimcard:hover{transform:translateY(-6px);box-shadow:var(--shadow-hi);border-color:var(--signal-line)}
+.dimcard .dchead{display:flex;align-items:center;gap:14px;padding:var(--s4) var(--s4) 0}
+.dimcard .dcico{width:46px;height:46px;border-radius:13px;display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+.dimcard .dcico svg{width:26px;height:26px}
+.dimcard .dctitle{font-family:var(--font-display);font-size:20px;font-weight:600;color:var(--ink)}
+.dimcard .dcmeta{margin-top:3px;font-size:13px;color:var(--ink-lo)}
+.dimcard .dclist{list-style:none;margin:var(--s3) var(--s4) 0;display:flex;flex-direction:column;gap:11px}
+.dimcard .dclist li{display:flex;gap:11px;font-size:13.5px;color:var(--ink-mid);line-height:1.5}
+.dimcard .dclist .eid{font-family:var(--font-mono);font-size:12px;font-weight:600;color:var(--signal);flex:0 0 auto;padding-top:1px}
+.dimcard .dcfoot{margin-top:auto;padding:var(--s3) var(--s4) var(--s4);display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--line-soft);margin-top:var(--s4)}
+.dimcard .dcfoot .count{font-family:var(--font-mono);font-size:12.5px;color:var(--ink-lo)}
+.dimcard .dcfoot .go{display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:600;color:var(--signal)}
+.dimcard .dcfoot .go svg{width:15px;height:15px}
+/* 维度配色 */
+.dim-m.dcico{background:rgba(0,113,227,.10)} .dim-m.dcico svg{color:var(--signal)}
+.dim-c.dcico{background:rgba(120,80,230,.10)} .dim-c.dcico svg{color:#7850E6}
+.dim-u.dcico{background:rgba(40,170,110,.10)} .dim-u.dcico svg{color:#28AA6E}
+.dim-s.dcico{background:rgba(214,150,20,.10)} .dim-s.dcico svg{color:#D69614}
+.dim-m .dctitle{color:var(--ink)}
+.score-sec{background:var(--surface);border-radius:var(--r-lg);padding:var(--s6) var(--s5)}
+.score-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:var(--s5)}
+.sdim{background:var(--paper);border:1px solid var(--line-soft);border-radius:var(--r-sm);padding:var(--s3);text-align:center;display:flex;flex-direction:column;align-items:center;gap:14px}
+.sdim .n{font-family:var(--font-mono);font-size:24px;font-weight:600;letter-spacing:-.02em}
+.sdim .l{font-size:12px;color:var(--ink-lo);line-height:1.3}
+.method{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s4);margin-top:var(--s5)}
+.mcell{background:var(--paper);border:1px solid var(--line-soft);border-radius:var(--r-md);overflow:hidden;box-shadow:var(--shadow)}
+.mcell .mfig{aspect-ratio:16/9;overflow:hidden;background:var(--surface);display:flex;align-items:center;justify-content:center}
+.mcell .mfig svg{width:40%;height:40%}
+.mcell .mbody{padding:var(--s3)}
+.mcell .step{font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;color:var(--signal)}
+.mcell .mbody h4{font-size:16px;margin-top:6px}
+.mcell .mbody p{font-size:13.5px;color:var(--ink-lo);margin-top:8px;line-height:1.5}
+.footer{padding:var(--s6) 0;border-top:1px solid var(--line-soft);color:var(--ink-lo);font-size:13.5px;line-height:1.6}
+.footer a{color:var(--signal)}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+@media(max-width:900px){
+  .hero-grid{grid-template-columns:1fr;gap:var(--s5)}
+  .hero-figure{aspect-ratio:16/10;max-height:320px}
+  .fw{grid-template-columns:repeat(2,1fr)}
+  .top5,.gtm-grid{grid-template-columns:1fr}
+  .evi{grid-template-columns:1fr}
+  .score-grid{grid-template-columns:repeat(2,1fr)}
+  .method{grid-template-columns:1fr 1fr}
+}
+@media(max-width:560px){
+  .wrap{padding:0 var(--s4)}
+  .nav-links{gap:13px;font-size:13px}
+  body{font-size:16px}
+  .fw{grid-template-columns:1fr 1fr}
+  .score-grid{grid-template-columns:1fr 1fr}
+  .method{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){
+  *{transition:none!important;animation:none!important}
+  .reveal{opacity:1;transform:none}
+}
+</style>
+<style>
+.evlist{display:flex;flex-direction:column;gap:16px;margin-top:32px}
+.evrow{background:var(--paper);border:1px solid var(--line-soft);border-radius:var(--r-lg);padding:24px 28px;box-shadow:var(--shadow);transition:border-color .3s var(--ease),transform .3s var(--ease)}
+.evrow:hover{border-color:var(--signal-line);transform:translateY(-2px)}
+.evrow-head{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+.evrow .eid{font-family:var(--font-mono);font-size:14px;font-weight:600;color:var(--signal)}
+.evrow .etag{font-size:11px;font-family:var(--font-mono);letter-spacing:.04em;padding:3px 9px;border-radius:6px;background:var(--surface-2);border:1px solid var(--line-soft);color:var(--ink-lo)}
+.evrow-sum{font-size:15.5px;color:var(--ink-mid);line-height:1.65;margin:0}
+.evrow-src{margin-top:12px;font-size:13px;color:var(--ink-lo);display:flex;align-items:center;gap:7px}
+.evrow-src a{color:var(--signal);text-decoration:none}
+.evrow-src a:hover{text-decoration:underline}
+.dim-pills{display:flex;gap:10px;flex-wrap:wrap;margin-top:40px;padding-top:24px;border-top:1px solid var(--line-soft)}
+.dim-pill{font-size:13px;padding:8px 16px;border-radius:999px;border:1px solid var(--line-soft);background:var(--paper);color:var(--ink-mid);text-decoration:none;transition:.25s}
+.dim-pill:hover{border-color:var(--signal);color:var(--signal)}
+</style>
+</head>
+<body>
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <div class="brand"><span class="dot"></span>雷鸟 RayNeo · 产品机会白皮书</div>
+    <div class="nav-links">
+      <a href="#top5">TOP5 机会</a>
+      <a href="#flist">功能总览</a>
+      <a href="#gtm">落地策略</a>
+      <a href="#evidence">证据链</a>
+      <a href="#method">方法论</a>
+    </div>
+  </div>
+</nav>
+<header class="hero">
+  <div class="wrap">
+    <span class="eyebrow">Evidence Chain · 用户需求</span>
+    <h1>用户需求证据链</h1>
+    <p class="lede">核心场景、痛点与付费意愿。本页汇总该维度下的全部 5 条证据，每条均附真实来源链接，可点击跳转核验。数据窗口 2025-05 至 2026-05。</p>
+  </div>
+</header>
+<section class="section wrap">
+  <div class="evlist">
+    
+    <div class="evrow" id="ev-E005">
+      <div class="evrow-head"><span class="eid">E005</span><span class="etag">用户声音</span></div>
+      <p class="evrow-sum">什么值得买 876+ 用户 PK：X3 Pro 续航短板为高频原生痛点。</p>
+      <div class="evrow-src"><span class="arrow">↗</span><a href="https://post.smzdm.com/p/a6z3zveo/" target="_blank" rel="noopener">什么值得买</a></div>
+    </div>
+    <div class="evrow" id="ev-E006">
+      <div class="evrow-head"><span class="eid">E006</span><span class="etag">用户声音</span></div>
+      <p class="evrow-sum">第一代铰链松 / 磁吸夹发 / Air 发热，轻量化需求确证。</p>
+      <div class="evrow-src"><span class="arrow">↗</span><a href="https://post.smzdm.com/zz/p/akodg6e4/" target="_blank" rel="noopener">什么值得买</a></div>
+    </div>
+    <div class="evrow" id="ev-E012">
+      <div class="evrow-head"><span class="eid">E012</span><span class="etag">用户声音</span></div>
+      <p class="evrow-sum">搜狐：用户吐槽续航焦虑、功能逊手机，核心体验短板。</p>
+      <div class="evrow-src"><span class="arrow">↗</span><a href="https://www.sohu.com/a/960478640_122483470" target="_blank" rel="noopener">搜狐</a></div>
+    </div>
+    <div class="evrow" id="ev-E015">
+      <div class="evrow-head"><span class="eid">E015</span><span class="etag">用户声音</span></div>
+      <p class="evrow-sum">观察者网：Air 3 性价比下画质 / 亮度局限，可读性短板。</p>
+      <div class="evrow-src"><span class="arrow">↗</span><a href="https://user.guancha.cn/main/content?id=1338763" target="_blank" rel="noopener">观察者网</a></div>
+    </div>
+    <div class="evrow" id="ev-E016">
+      <div class="evrow-head"><span class="eid">E016</span><span class="etag">用户声音</span></div>
+      <p class="evrow-sum">知乎：雷鸟新功能长期使用率仅 6%，「有功能无粘性」痛点。</p>
+      <div class="evrow-src"><span class="arrow">↗</span><a href="https://zhuanlan.zhihu.com/p/2043388489065042838" target="_blank" rel="noopener">知乎</a></div>
+    </div>
+  </div>
+  <div class="dim-pills"><a class="dim-pill" href="evidence-market.html">市场与行业</a><a class="dim-pill" href="evidence-competitor.html">竞品动态</a><a class="dim-pill" href="evidence-strategic.html">战略与合规</a><a class="dim-pill" href="index.html">← 返回白皮书</a></div>
+</section>
+<footer class="footer wrap">
+  <p>数据来源：雷鸟创新 RayNeo 官方参数与产品资料、洛图科技 / Counterpoint / IDC 行业报告、什么值得买 / 观察者网 / 知乎 / 搜狐社区核验、XREAL / Rokid / Meta Ray-Ban 竞品公开动作。证据链 E001–E017 详见各卡片来源标注与独立 PRD 页。</p>
+  <p style="margin-top:10px">本白皮书为产品机会推导文档，供产品与战略决策参考，非产品发布页。</p>
+</footer>
+</body>
+</html>
