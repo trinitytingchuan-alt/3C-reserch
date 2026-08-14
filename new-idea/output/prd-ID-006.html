@@ -3,8 +3,9 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>RayNeo VM 开放应用生态 · 需求文档 · 雷鸟创新 RayNeo · AR 智能眼镜产品机会白皮书</title>
+<title>安卓应用生态 / RayNeo VM · 需求文档 · 雷鸟创新 RayNeo · AR 智能眼镜产品机会白皮书</title>
 <style>
+
 :root{
   --paper:#FFFFFF; --surface:#F5F5F7; --surface-2:#FBFBFD;
   --ink:#1D1D1F; --ink-mid:#515154; --ink-lo:#86868B; --ink-faint:#A1A1A6;
@@ -49,6 +50,7 @@ p{color:var(--ink-mid)}
 .hero .meta .item .v{font-size:17px;font-weight:500;margin-top:4px;color:var(--ink)}
 .hero-figure{border-radius:var(--r-lg);overflow:hidden;background:var(--surface);aspect-ratio:4/4.6;box-shadow:var(--shadow);position:relative;display:flex;align-items:center;justify-content:center}
 .hero-figure svg{width:78%;height:78%}
+.hero-img{width:100%;height:100%;object-fit:cover;object-position:center 30%;display:block}
 .fw{margin-top:var(--s6);display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s3);align-items:stretch}
 .fw .cell{background:var(--surface);border:1px solid var(--line-soft);border-radius:var(--r-sm);padding:var(--s3);text-align:center}
 .fw .cell .ico{width:100%;aspect-ratio:16/9;border-radius:var(--r-xs);overflow:hidden;background:var(--paper);margin-bottom:12px;display:flex;align-items:center;justify-content:center}
@@ -105,13 +107,19 @@ p{color:var(--ink-mid)}
 .gtm-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--s5)}
 .gcard{background:var(--paper);border:1px solid var(--line-soft);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow);transition:transform .45s var(--ease),box-shadow .45s var(--ease),border-color .45s var(--ease);display:flex;flex-direction:column}
 .gcard:hover{transform:translateY(-6px);box-shadow:var(--shadow-hi);border-color:var(--signal-line)}
-.gcard .gfig{aspect-ratio:16/9;overflow:hidden;background:var(--surface);position:relative;display:flex;align-items:center;justify-content:center}
-.gcard .gfig svg{width:38%;height:38%}
-.gcard .gbody{padding:var(--s4);flex:1}
-.gcard .gbody .gtag{font-family:var(--font-mono);font-size:11px;color:var(--signal);letter-spacing:.06em}
-.gcard .gbody h3{font-size:19px;margin-top:7px;line-height:1.2}
+.gcard .gbody{padding:var(--s4) var(--s4) 0;flex:1}
+.gcard .gbody .gtag{font-family:var(--font-mono);font-size:11px;color:#C2811A;letter-spacing:.06em;font-weight:600}
+.gcard .gbody h3{font-size:20px;margin-top:7px;line-height:1.2}
 .gcard .gbody .glead{margin-top:9px;font-size:14.5px;color:var(--ink-mid);line-height:1.5}
-.gcard .gfoot{display:flex;justify-content:flex-end;align-items:center;padding:0 var(--s4) var(--s4)}
+.gcard .gbody .glead .gpersp{display:inline-block;font-family:var(--font-mono);font-size:10px;color:#fff;background:#C2811A;border-radius:4px;padding:2px 7px;margin-right:7px;vertical-align:middle;letter-spacing:.04em}
+.gcard .gbody .grow{display:grid;grid-template-columns:52px 1fr;gap:10px;margin-top:11px;align-items:start}
+.gcard .gbody .glab{font-family:var(--font-mono);font-size:11.5px;color:var(--ink-lo);padding-top:1px}
+.gcard .gbody .gtxt{font-size:13.5px;color:var(--ink-mid);line-height:1.5}
+.gcard .gbody .gch-wrap{display:flex;flex-wrap:wrap;gap:6px}
+.gcard .gbody .gch{font-size:12px;background:var(--surface-2);border:1px solid var(--line-soft);border-radius:999px;padding:3px 10px;color:var(--ink-mid);white-space:nowrap}
+.gcard .gbody .gscale .gtam{display:inline-block;font-size:12.5px;background:rgba(194,129,26,.08);border:1px solid rgba(194,129,26,.25);border-radius:8px;padding:4px 9px;margin:0 6px 6px 0;color:var(--ink)}
+.gcard .gbody .gscale .gtam b{color:#C2811A;font-family:var(--font-mono)}
+.gcard .gfoot{display:flex;justify-content:flex-end;align-items:center;padding:var(--s4)}
 /* —— 证据链一级维度卡（点击跳转二级页） —— */
 .dimnav{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--s4);margin-top:var(--s5)}
 .dimcard{display:flex;flex-direction:column;background:var(--paper);border:1px solid var(--line-soft);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow);transition:transform .45s var(--ease),box-shadow .45s var(--ease),border-color .45s var(--ease);text-decoration:none}
@@ -172,8 +180,7 @@ p{color:var(--ink-mid)}
   *{transition:none!important;animation:none!important}
   .reveal{opacity:1;transform:none}
 }
-</style>
-<style>
+
 .doc-hero{padding:64px 0 40px}
 .doc-hero .eyebrow{color:var(--signal)}
 .doc-hero h1{font-family:var(--font-display);font-size:clamp(30px,4.4vw,46px);font-weight:600;letter-spacing:-.02em;margin:14px 0 10px;color:var(--ink)}
@@ -183,7 +190,7 @@ p{color:var(--ink-mid)}
 .figure{margin:34px 0;background:linear-gradient(160deg,#10182A,#0B1120);border:1px solid rgba(139,184,238,.18);border-radius:var(--r-lg);padding:18px;box-shadow:0 20px 50px rgba(10,18,34,.35)}
 .figsvg{width:100%;height:auto;display:block;border-radius:12px}
 .figcap{margin-top:14px;font-size:12.5px;color:#9FB0CC;text-align:center;font-family:var(--font-mono);letter-spacing:.02em}
-.nav-back{display:inline-flex;align-items:center;gap:7px;font-size:14px;font-weight:600;color:var(--signal);background:rgba(11,124,242,.10);border:1px solid var(--signal-line);padding:8px 16px;border-radius:999px;transition:background .25s,border-color .25s}
+.nav-back{display:inline-flex;align-items:center;gap:7px;font-size:14px;font-weight:600;color:var(--signal);background:rgba(11,124,242,.10);border:1px solid var(--signal-line);padding:8px 16px;border-radius:999px;transition:.25s}
 .nav-back:hover{background:rgba(11,124,242,.18);border-color:var(--signal)}
 .nav-back .bk{font-size:16px;line-height:1}
 .prd-block{background:var(--paper);border:1px solid var(--line-soft);border-radius:var(--r-lg);padding:30px 34px;margin:22px 0;box-shadow:var(--shadow)}
@@ -191,19 +198,64 @@ p{color:var(--ink-mid)}
 .prd-block h2 .no{font-family:var(--font-mono);font-size:14px;color:var(--signal);background:rgba(11,124,242,.1);border:1px solid var(--signal-line);border-radius:8px;padding:3px 10px}
 .prd-block ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:11px}
 .prd-block li{font-size:15.5px;color:var(--ink-mid);line-height:1.65}
+.prd-block li strong{color:var(--ink)}
 .prd-block .decision{font-size:16px;line-height:1.7;color:var(--ink);background:var(--surface-2);border-left:4px solid var(--signal);padding:16px 20px;border-radius:0 10px 10px 0}
-.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.metrics{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px}
 .metric{background:var(--surface-2);border:1px solid var(--line-soft);border-radius:12px;padding:18px}
 .metric .mk{font-size:12.5px;color:var(--ink-lo);font-family:var(--font-mono);margin-bottom:8px}
 .metric .mv{font-size:15px;color:var(--ink);font-weight:600;line-height:1.45}
-table.risk{width:100%;border-collapse:collapse;font-size:14px}
+table.risk{width:100%;border-collapse:collapse;font-size:14px;margin-top:6px}
 table.risk th,table.risk td{border:1px solid var(--line-soft);padding:11px 14px;text-align:left}
 table.risk th{background:var(--surface-2);color:var(--ink);font-weight:600;font-family:var(--font-mono);font-size:12.5px}
 table.risk td{color:var(--ink-mid)}
-.evcover{background:rgba(11,124,242,.06);border:1px solid var(--signal-line);border-radius:12px;padding:18px 22px;margin-top:8px}
-.evcover .lab{font-family:var(--font-mono);font-size:12px;color:var(--signal);margin-bottom:8px}
-.evcover .nums{font-size:16px;color:var(--ink);font-weight:600;letter-spacing:.04em}
-.backprd{display:inline-flex;align-items:center;gap:7px;margin-top:30px;font-weight:600;color:var(--signal);text-decoration:none;font-size:15px}
+.timeline{display:flex;flex-direction:column;gap:12px;margin-top:6px}
+.tl-item{display:grid;grid-template-columns:1.3fr .8fr 2fr;gap:14px;align-items:start;padding:14px 18px;background:var(--surface-2);border:1px solid var(--line-soft);border-radius:12px}
+.tl-phase{font-weight:600;color:var(--ink)}
+.tl-dur{font-family:var(--font-mono);font-size:13px;color:var(--signal)}
+.tl-d{font-size:14px;color:var(--ink-mid)}
+.sc-item{background:var(--surface-2);border:1px solid var(--line-soft);border-radius:12px;padding:18px 20px;margin-bottom:14px}
+.sc-name{font-weight:600;font-size:16px;color:var(--ink);margin-bottom:12px}
+.sc-row{display:grid;grid-template-columns:90px 1fr;gap:12px;margin-bottom:8px;align-items:start}
+.sc-lab{font-family:var(--font-mono);font-size:12px;color:var(--ink-lo);padding-top:2px}
+.sc-lab.pain{color:#D6655A}.sc-lab.good{color:#28AA6E}
+.sc-val{font-size:14.5px;color:var(--ink-mid);line-height:1.6}
+.vl-section{background:linear-gradient(135deg,#f8fafc,#f0f4f8);border:1px solid var(--line-soft);border-radius:var(--r-lg);padding:32px 36px;margin:24px 0}
+.vl-section > .vl-title{font-family:var(--font-display);font-size:25px;font-weight:600;color:var(--ink);margin:0 0 8px;display:flex;align-items:center;gap:12px}
+.vl-section > .vl-title .vno{font-family:var(--font-mono);font-size:14px;color:#fff;background:var(--signal);border-radius:8px;padding:4px 11px}
+.vl-section > .vl-desc{font-size:14.5px;color:var(--ink-mid);margin:0 0 22px;line-height:1.6}
+.vl-step{margin-bottom:26px;padding-bottom:22px;border-bottom:1px solid var(--line-soft)}
+.vl-step:last-child{margin-bottom:0;padding-bottom:0;border-bottom:none}
+.vl-step .stitle{font-family:var(--font-display);font-size:18px;font-weight:600;color:var(--ink);margin-bottom:10px;display:flex;align-items:center;gap:10px}
+.vl-step .stitle .snum{font-family:var(--font-mono);font-size:12px;background:var(--signal);color:#fff;width:24px;height:24px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
+.vl-step .sclaim{font-size:15.5px;color:var(--ink);line-height:1.65;margin-bottom:12px;padding-left:34px}
+.vl-evlist{margin:0 0 0 34px;padding:0;list-style:none;display:flex;flex-direction:column;gap:8px}
+.vl-evlist li{font-size:14px;color:var(--ink-mid);line-height:1.55;display:flex;gap:8px;align-items:flex-start}
+.vl-evlist li .evtag{font-family:var(--font-mono);font-size:11.5px;color:#fff;background:var(--signal);padding:2px 8px;border-radius:4px;flex-shrink:0;height:fit-content}
+.vl-evlist li .evref{font-family:var(--font-mono);font-size:11.5px;color:var(--ink-lo);flex-shrink:0;height:fit-content}
+.vl-conclusion{font-size:14.5px;color:var(--ink);line-height:1.6;background:var(--paper);border-left:3px solid #28AA6E;padding:12px 16px;margin:8px 0 0 34px;border-radius:0 8px 8px 0}
+.gtm-section{background:var(--paper);border:1px solid var(--line-soft);border-radius:var(--r-lg);padding:32px 36px;margin:24px 0;box-shadow:var(--shadow)}
+.gtm-section h2{font-family:var(--font-display);font-size:23px;font-weight:600;color:var(--ink);margin:0 0 16px;display:flex;align-items:center;gap:12px}
+.gtm-section h2 .gno{font-family:var(--font-mono);font-size:14px;color:#D69614;background:rgba(214,150,20,.10);border:1px solid rgba(214,150,20,.3);border-radius:8px;padding:3px 10px}
+.gtm-pos{font-size:16px;line-height:1.65;color:var(--ink);background:rgba(214,150,20,.06);border-left:4px solid #D69614;padding:16px 20px;border-radius:0 10px 10px 0;margin-bottom:8px}
+.gtm-sub{font-size:16px;font-weight:600;color:var(--ink);margin:22px 0 12px}
+.gtm-aud-wrap{display:flex;flex-direction:column;gap:12px}
+.gtm-aud{background:var(--surface-2);border:1px solid var(--line-soft);border-radius:12px;padding:16px 20px}
+.ga-group{font-weight:600;color:var(--ink);font-size:15.5px}
+.ga-size{font-family:var(--font-mono);font-size:13px;color:var(--signal);margin:5px 0}
+.ga-insight{font-size:14px;color:var(--ink-mid);line-height:1.55}
+.gtm-ch-wrap,.gtm-pr-wrap{display:flex;flex-direction:column;gap:10px}
+.gtm-ch{display:grid;grid-template-columns:1.2fr 2fr;gap:14px;background:var(--surface-2);border:1px solid var(--line-soft);border-radius:12px;padding:14px 18px}
+.gc-ch{font-weight:600;color:var(--ink)}
+.gc-t{font-size:14px;color:var(--ink-mid);line-height:1.55}
+.gtm-pr{display:grid;grid-template-columns:1.2fr 2fr;gap:14px;background:var(--surface-2);border:1px solid var(--line-soft);border-radius:12px;padding:14px 18px}
+.gp-m{font-weight:600;color:var(--ink)}
+.gp-p{font-size:14px;color:var(--ink-mid);line-height:1.55}
+table.risk .tam-num{font-family:var(--font-mono);font-weight:600;color:var(--ink)}
+.ms-wrap{display:flex;flex-direction:column;gap:12px}
+.ms-item{display:grid;grid-template-columns:70px 1fr;gap:14px;background:var(--surface-2);border:1px solid var(--line-soft);border-radius:12px;padding:14px 18px}
+.ms-t{font-family:var(--font-mono);font-weight:600;color:#D69614}
+.ms-a{font-size:14.5px;color:var(--ink)}
+.ms-k{font-size:13px;color:var(--ink-lo);margin-top:4px}
 .pill-nav{display:flex;gap:9px;flex-wrap:wrap;margin:34px 0 0;padding-top:22px;border-top:1px solid var(--line-soft)}
 .pill-nav a{font-size:13px;padding:7px 14px;border-radius:999px;border:1px solid var(--line-soft);background:var(--paper);color:var(--ink-mid);text-decoration:none;transition:.25s}
 .pill-nav a:hover{border-color:var(--signal);color:var(--signal)}
@@ -213,116 +265,59 @@ table.risk td{color:var(--ink-mid)}
 <nav class="nav" id="nav">
   <div class="nav-inner">
     <div class="brand"><span class="dot"></span>雷鸟 RayNeo · 产品机会白皮书</div>
-    <div class="nav-links"><a class="nav-back" href="index.html"><span class="bk">←</span> 返回白皮书</a></div>
+    <div class="nav-links"><a class="nav-back" href="index.html"><span class="bk">&larr;</span> 返回白皮书</a></div>
   </div>
 </nav>
-<header class="hero doc-hero">
-  <div class="wrap">
-    <span class="eyebrow">PRD · 产品需求文档 · ID-006</span>
-    <h1>RayNeo VM 开放应用生态</h1>
+<main class="container">
+  <section class="doc-hero">
+    <div class="eyebrow">TOP5 产品需求 · 需求文档</div>
+    <h1>安卓应用生态 / RayNeo VM</h1>
     <div class="tagrow">
-      <span class="doc-tag">生态 · 空间计算</span>
-      <span class="doc-tag">一级维度：strategic</span>
-      <span class="doc-tag score">综合分 90.6 / 100</span>
+      <span class="doc-tag">平台 · 生态</span>
+      <span class="doc-tag score">综合分 90.6</span>
+      <span class="doc-tag">需求编号 ID-006</span>
     </div>
-  </div>
-</header>
-<section class="section wrap">
-  <!-- 主实物图 -->
-  <div class="figure">
-    <svg viewBox="0 0 480 280" xmlns="http://www.w3.org/2000/svg" class="figsvg">
-    <defs>
-      <linearGradient id="bg6" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#15203A"/><stop offset="1" stop-color="#0B1222"/></linearGradient>
-      <linearGradient id="lens6" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#27406A"/><stop offset="1" stop-color="#0C1E3C"/></linearGradient>
-    </defs>
-    <rect width="480" height="280" rx="18" fill="url(#bg6)"/>
-    <ellipse cx="240" cy="250" rx="150" ry="14" fill="#000" opacity="0.3"/>
-    <!-- 眼镜 -->
-    <g>
-      <rect x="150" y="92" width="74" height="50" rx="16" fill="url(#lens6)" stroke="#8FB8EE" stroke-width="1.5"/>
-      <rect x="256" y="92" width="74" height="50" rx="16" fill="url(#lens6)" stroke="#8FB8EE" stroke-width="1.5"/>
-      <path d="M224 116 h32" stroke="#9BB4D6" stroke-width="4" stroke-linecap="round"/>
-    </g>
-    <!-- 悬浮 App 网格（空间 UI） -->
-    <g>
-      <rect x="170" y="166" width="44" height="44" rx="11" fill="#16243F" stroke="#3A6EA5" stroke-width="1.3"/>
-      <rect x="222" y="166" width="44" height="44" rx="11" fill="#0B7CF2" opacity="0.85"/>
-      <rect x="274" y="166" width="44" height="44" rx="11" fill="#16243F" stroke="#3A6EA5" stroke-width="1.3"/>
-      <rect x="326" y="166" width="44" height="44" rx="11" fill="#16243F" stroke="#3A6EA5" stroke-width="1.3"/>
-      <text x="244" y="193" text-anchor="middle" font-family="monospace" font-size="13" fill="#fff" font-weight="600">VM</text>
-      <circle cx="192" cy="188" r="6" fill="#5BA8FF"/><circle cx="296" cy="188" r="6" fill="#28AA6E"/><circle cx="348" cy="188" r="6" fill="#D69614"/>
-    </g>
-    <text x="240" y="262" text-anchor="middle" font-family="monospace" font-size="12.5" fill="#AEBED8" letter-spacing="1">RayNeo VM 开放应用商店 · 空间计算 SDK</text>
-  </svg>
-    <div class="figcap">图 1 · RayNeo VM 开放应用生态功能示意（自绘实物线稿）</div>
-  </div>
+  </section>
+  <div class="figure"><svg viewBox="0 0 480 280" class="figsvg"><defs><linearGradient id="bg3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#141E30"/><stop offset="1" stop-color="#0B1018"/></linearGradient><linearGradient id="vm" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1A3A5C"/><stop offset="1" stop-color="#0D2035"/></linearGradient></defs><rect width="480" height="280" rx="18" fill="url(#bg3)"/><ellipse cx="240" cy="255" rx="140" ry="12" fill="#000" opacity="0.3"/><g><rect x="148" y="86" width="74" height="50" rx="14" fill="#1A2D4A" stroke="#5A82A8" stroke-width="1.5"/><rect x="258" y="86" width="74" height="50" rx="14" fill="#1A2D4A" stroke="#5A82A8" stroke-width="1.5"/><path d="M222 110 h36" stroke="#5A82A8" stroke-width="3.5" stroke-linecap="round"/></g><g transform="translate(120,156)"><rect x="0" y="0" width="240" height="78" rx="14" fill="url(#vm)" stroke="#0B7CF2" stroke-width="1.5" stroke-dasharray="4 3"/><rect x="14" y="14" width="56" height="20" rx="6" fill="#0B7CF2" opacity="0.2"/><rect x="14" y="42" width="80" height="8" rx="4" fill="#fff" opacity="0.08"/><rect x="104" y="14" width="56" height="20" rx="6" fill="#28AA6E" opacity="0.2"/><rect x="104" y="42" width="64" height="8" rx="4" fill="#fff" opacity="0.08"/><rect x="178" y="14" width="42" height="20" rx="6" fill="#D69614" opacity="0.2"/><rect x="178" y="42" width="48" height="8" rx="4" fill="#fff" opacity="0.08"/><text x="120" y="70" text-anchor="middle" font-family="monospace" font-size="10" fill="#5BA8FF">RayNeo VM · 安卓应用容器</text></g><text x="240" y="266" text-anchor="middle" font-family="monospace" font-size="12.5" fill="#AEBED8" letter-spacing="1">RayNeo VM 开放应用生态</text></svg><div class="figcap">安卓应用生态 / RayNeo VM · 产品形态示意</div></div>
 
-  <!-- 决策结论 -->
-  <div class="prd-block">
-    <h2><span class="no">00</span>立项决策</h2>
-    <div class="decision">【建议立项】空间计算是增长方向（E003/E014），内容消费场景增长（E013），用户要眼镜不逊手机（E012）。综合分 90.6/100。</div>
-  </div>
+  <section class="vl-section">
+    <div class="vl-title"><span class="vno">V</span>需求验证逻辑</div>
+    <p class="vl-desc">为什么这个需求成立？下列四个维度交叉验证，每一环均有可追溯证据支撑，形成完整逻辑闭环。</p>
+    <div class="vl-step"><div class="stitle"><span class="snum">1</span>市场竞争验证</div><div class="sclaim">Rokid 通过内容生态追赶正在挤压雷鸟市场份额，封闭生态应用匮乏成为劣势。</div><ul class="vl-evlist"><li><span class="evref">竞品数据</span><span>Rokid 销量占比升至 15%，内容生态追赶挤压雷鸟份额</span></li></ul><div class="vl-conclusion">竞品通过生态差异化取得份额增长，反证开放生态的战略必要性。</div></div><div class="vl-step"><div class="stitle"><span class="snum">2</span>用户需求验证</div><div class="sclaim">用户频繁在不同 App 间切换（微信/导航/笔记/音乐），封闭生态下每次切换都要掏手机。</div><ul class="vl-evlist"><li><span class="evref">用户声音</span><span>知乎社区：雷鸟新功能长期使用率仅 6%，「有功能无粘性」</span></li></ul><div class="vl-conclusion">应用匮乏导致用户粘性低（仅 6% 长期使用率），开放生态是提升留存的关键杠杆。</div></div><div class="vl-step"><div class="stitle"><span class="snum">3</span>技术可行性验证</div><div class="sclaim">RayNeo VM（虚拟机运行安卓应用）已在 X3 Pro 初步实现，第三方接入是工程扩展。</div><ul class="vl-evlist"><li><span class="evref">官方动态</span><span>X3 Pro 上线支付宝「看一下支付」，验证软件生态轻量路径</span></li></ul><div class="vl-conclusion">已有单应用移植先例（支付宝），虚拟机方案可将此能力泛化为平台级能力。</div></div>
+  </section>
 
-  <!-- 背景 -->
-  <div class="prd-block">
-    <h2><span class="no">01</span>背景与问题</h2>
-    <ul><li>雷鸟 X3 Pro 已做 RayNeo AR VM 安卓虚拟机（E001）但生态仍弱，用户期待「能装 App」却应用少；Rokid 内容生态追赶（E008）</li><li>Rokid 内容生态追赶（E008）、雷鸟 RayNeo VM 已具备但弱（E001）→ 升级缺口明确，竞品已先发内容</li><li>空间计算是增长方向（E003/E014），内容消费场景增长（E013），用户要眼镜不逊手机（E012）</li></ul>
-  </div>
+  <section>
+    <div class="vl-title" style="font-family:var(--font-display);font-size:25px;font-weight:600;color:var(--ink);margin:34px 0 4px;display:flex;align-items:center;gap:12px"><span class="vno" style="font-family:var(--font-mono);font-size:14px;color:#fff;background:var(--signal);border-radius:8px;padding:4px 11px">PRD</span>产品需求文档</div>
+    <p style="font-size:14.5px;color:var(--ink-mid);margin:0 0 8px;line-height:1.6"><strong>视角：产品岗</strong> —— 回答「做什么、为什么做、怎么做、做到什么程度」。</p>
+    
+  <div class="prd-block"><h2><span class="no">1</span>立项决策</h2><div class="decision">【建议立项】Rokid 生态追赶已造成实质份额挤压（升至 15%）；用户粘性极低（新功能长期使用率仅 6%）根因在于应用匮乏；已有支付宝移植先例验证技术路径可行。综合分 90.6/100。</div></div>
+  <div class="prd-block"><h2><span class="no">2</span>项目背景</h2><ul><li>AR 眼镜竞争已从硬件参数（亮度/视场角/重量）转向「硬件 + 内容生态」综合较量。Rokid 近一年策略转向明显：开放内容合作、引入第三方应用、优化应用商店，份额从个位数升至 15%。这对雷鸟是明确警示。</li><li>用户数据更触目惊心：知乎长测反馈显示，新功能（除基础显示/通知外）长期使用率仅 6%。用户买回去试几天就回归「只看通知」最小化模式。根本不是功能不好用，而是「没有用户想用的 App」。</li><li>雷鸟并非没意识到。X3 Pro 已实现支付宝「看一下支付」——首个在雷鸟眼镜运行的第三方安卓应用。虽是轻量 H5，但证明「在 AR 眼镜运行安卓应用」技术可行。</li><li>RayNeo VM 核心思路：在眼镜端运行轻量 Android Runtime，允许经适配的安卓 APK 安装运行。不同于「从零开发眼镜专属 App」，而是复用海量已有安卓应用生态。</li></ul></div>
+  <div class="prd-block"><h2><span class="no">3</span>目标用户</h2><ul><li><strong>开发者</strong> —— 个人开发者和小团队，希望将 App 适配 AR 眼镜平台，获取早期流量红利。</li><li><strong>效率工具重度用户</strong> —— 需在眼镜上使用笔记/待办/日历/邮件等生产力 App。</li><li><strong>出行/导航重度用户</strong> —— 希望在眼镜上使用高德/百度地图等成熟导航 App。</li><li><strong>内容消费者</strong> —— 希望在眼镜上使用抖音/B站/网易云音乐等娱乐 App。</li></ul></div>
+  <div class="prd-block"><h2><span class="no">4</span>使用场景</h2><div class="sc-item"><div class="sc-name">通勤路上的效率中心</div><div class="sc-row"><span class="sc-lab">流程</span><span class="sc-val">地铁戴眼镜 → 高德查路线 → 切待办看任务 → 微信语音回复 → 切播客听节目</span></div><div class="sc-row"><span class="sc-lab pain">现状痛点</span><span class="sc-val">每个操作都要掏手机→解锁→找App→操作→放回，频繁掏放</span></div><div class="sc-row"><span class="sc-lab good">需求价值</span><span class="sc-val">所有 App 以轻量界面呈现，头部/触摸/语音即可切换</span></div></div><div class="sc-item"><div class="sc-name">开发者的适配之旅</div><div class="sc-row"><span class="sc-lab">流程</span><span class="sc-val">注册开发者 → 下载 SDK 和 VM 适配工具 → 界面适配（自动缩放+手势映射）→ 提交审核 → 上架</span></div><div class="sc-row"><span class="sc-lab pain">现状痛点</span><span class="sc-val">为眼镜从零开发全新 App，投入产出比不确定</span></div><div class="sc-row"><span class="sc-lab good">需求价值</span><span class="sc-val">已有安卓 App 经适配即可上架，开发成本降 70%+</span></div></div></div>
+  <div class="prd-block"><h2><span class="no">5</span>产品方案</h2><ul><li>RayNeo VM 架构：在 X3 Pro Android 之上运行受控 Application Container（基于 namespace cgroup 隔离），每第三方应用独立沙箱互不干扰。VM 层负责输入事件分发、渲染管线适配（App 界面→光波导区域）、权限管理（摄像头/麦克风/位置精细化授权）。</li><li>应用商店：搭建 RayNeo Store（Web 端 + 眼镜端），支持开发者自助上传/更新/查数据。审核：自动化安全扫描 + 人工体验审核（确保眼镜小屏/低交互带宽可用性）。</li><li>开发者激励：前两年免分成；第三年起 15% 分成（低于 Google Play 30%）；适配奖金（高质量 App 奖励 ¥2000–5000）。</li><li>首批重点引进：微信（消息+语音回复）、高德/百度地图、网易云/QQ音乐、Flomo/滴答清单、抖音极速版。</li></ul></div>
+  <div class="prd-block"><h2><span class="no">6</span>核心指标</h2><div class="metrics"><div class="metric"><div class="mk">北极星指标</div><div class="mv">应用商店上架应用数 ≥ 50 款（发布后 6 个月）</div></div><div class="metric"><div class="mk">用户活跃度</div><div class="mv">人均日启动 VM 应用次数 ≥ 8 次</div></div><div class="metric"><div class="mk">开发者规模</div><div class="mv">注册开发者 ≥ 500，月活 ≥ 100</div></div><div class="metric"><div class="mk">留存改善</div><div class="mv">VM 用户周留存 ≥ 35%（对比基线 6%）</div></div><div class="metric"><div class="mk">收入</div><div class="mv">应用商店 GMV ≥ ¥50 万/月（12 个月后）</div></div></div></div>
+  <div class="prd-block"><h2><span class="no">7</span>风险与对策</h2><table class="risk"><thead><tr><th>风险</th><th>概率</th><th>影响</th><th>对策</th></tr></thead><tbody><tr><td>眼镜端体验远不如手机（屏小/交互有限）</td><td>高</td><td>高</td><td>不强求完整 App 体验，聚焦轻量场景；引导开发者做「眼镜优先」精简界面</td></tr><tr><td>性能开销（VM 层 + 多 App 并发卡顿/发热）</td><td>高</td><td>中</td><td>限制并发 ≤3 前台；后台冻结；VM 层 AOT 预编译优化</td></tr><tr><td>安全问题（沙箱逃逸/恶意应用）</td><td>中</td><td>极高</td><td>权限最小化默认拒绝；行为审计日志；漏洞赏金 ¥5000–50000</td></tr><tr><td>头部 App 厂商不愿适配</td><td>中</td><td>高</td><td>官方团队主动适配 Top 10；以「AR 新兴渠道」说服厂商</td></tr></tbody></table></div>
+  <div class="prd-block"><h2><span class="no">8</span>排期规划</h2><div class="timeline"><div class="tl-item"><div class="tl-phase">P0 SDK 与 VM 内核开发</div><div class="tl-dur">第 1–3 月</div><div class="tl-d">VM Runtime alpha、SDK 1.0 发布、开发者文档站上线</div></div><div class="tl-item"><div class="tl-phase">P1 首批应用适配（官方主导）</div><div class="tl-dur">第 4–5 月</div><div class="tl-d">Top 10 核心应用适配、应用商店 beta 上线</div></div><div class="tl-item"><div class="tl-phase">P2 开发者公测</div><div class="tl-dur">第 6–7 月</div><div class="tl-d">开发者注册开放、审核流程跑通、首批第三方上架</div></div><div class="tl-item"><div class="tl-phase">P3 正式运营</div><div class="tl-dur">第 8–12 月</div><div class="tl-d">应用商店正式版、50+ 应用、分成系统、首届开发者大会</div></div></div></div>
+  </section>
 
-  <!-- 目标用户 -->
-  <div class="prd-block">
-    <h2><span class="no">02</span>目标用户</h2>
-    <ul><li>SEG-01, SEG-02（内容消费/办公用户）</li><li>在「在眼镜上刷抖音/微信/导航/轻办公而非仅投屏，生态决定留存」场景中的核心用户</li></ul>
+  <section>
+    
+  <div class="gtm-section">
+    <h2><span class="gno">GTM</span>商业落地策略 · 市场与商业视角</h2>
+    <div class="gtm-pos">「你的常用 App，现在戴在眼前」—— 不做另一个应用商店，而是把用户已在用的 App 搬到眼镜上。</div>
+    <div class="gtm-sub">目标受众与洞察</div><div class="gtm-aud-wrap"><div class="gtm-aud"><div class="ga-group">核心受众：已有 X3 Pro 用户</div><div class="ga-size">5–8 万台存量用户</div><div class="ga-insight">第一批受益者——眼镜突然「变好用很多倍」，会自发传播。</div></div><div class="gtm-aud"><div class="ga-group">开发者群体</div><div class="ga-size">国内个人开发者约 200–300 万，对 AR 新平台感兴趣约 2–3%</div><div class="ga-insight">早期红利强：新平台=新机会=低竞争获客窗口。</div></div><div class="gtm-aud"><div class="ga-group">App 厂商/ISV</div><div class="ga-size">国内中小 App 开发商/ISV 约 5000+ 家</div><div class="ga-insight">对新流量渠道永远饥渴，尤其巨头垄断下长尾 App。</div></div></div>
+    <div class="gtm-sub">渠道与打法</div><div class="gtm-ch-wrap"><div class="gtm-ch"><div class="gc-ch">开发者渠道</div><div class="gc-t">开发者大会（年度）；线上 Tech Talk（月度）；GitHub/掘金内容营销；激励计划宣传</div></div><div class="gtm-ch"><div class="gc-ch">用户渠道</div><div class="gc-t">OTA 推送「您的眼镜支持运行 XX 应用了」；应用商店「编辑推荐」；KOL 评测「XX App 上眼镜体验」</div></div><div class="gtm-ch"><div class="gc-ch">B 端合作</div><div class="gc-t">与企业 ISV 推行业定制方案（物流扫描/录入、医疗查房/记录）</div></div></div>
+    <div class="gtm-sub">定价与变现</div><div class="gtm-pr-wrap"><div class="gtm-pr"><div class="gp-m">用户端</div><div class="gp-p">VM Runtime 免费（随 OTA）；应用商店免费应用为主 + 付费可选</div></div><div class="gtm-pr"><div class="gp-m">开发者端</div><div class="gp-p">前两年免入驻费+免分成；第三年起 15% 分成（远低于 30%）</div></div><div class="gtm-pr"><div class="gp-m">企业端</div><div class="gp-p">企业部署版 ¥9999/年（私有应用商店/MDM/专属技术支持）</div></div></div>
+    <div class="gtm-sub">市场规模（TAM / SAM / SOM）</div>
+    <table class="risk"><thead><tr><th>层级</th><th>细分市场</th><th>规模</th><th>说明</th></tr></thead><tbody><tr><td>TAM</td><td>全球 AR 应用市场规模</td><td class="tam-num">$120 亿</td><td>2027 预估，含应用销售/内购/订阅/SaaS</td></tr><tr><td>SAM</td><td>眼镜端安卓应用市场</td><td class="tam-num">$22 亿</td><td>AR 应用中可在眼镜端运行的子集</td></tr><tr><td>SOM</td><td>雷鸟可获</td><td class="tam-num">$2.0 亿</td><td>假设雷鸟占国内 AR 眼镜应用市场主要份额</td></tr></tbody></table>
+    <div class="gtm-sub">落地节奏与 KPI</div><div class="ms-wrap"><div class="ms-item"><div class="ms-t">Q3</div><div class="ms-a">开发者预览版 + SDK 文档站上线</div><div class="ms-k">KPI：注册开发者 ≥ 100, SDK 下载 ≥ 500</div></div><div class="ms-item"><div class="ms-t">Q4</div><div class="ms-a">应用商店 beta + 首批 20 款应用</div><div class="ms-k">KPI：Beta 用户 ≥ 2000, 应用均分 ≥ 3.8/5</div></div><div class="ms-item"><div class="ms-t">次年 Q1</div><div class="ms-a">正式版 + 分成系统 + GMV 目标</div><div class="ms-k">KPI：GMV ¥100 万+, 付费应用 ≥ 10 款</div></div><div class="ms-item"><div class="ms-t">次年 Q2</div><div class="ms-a">首届开发者大会 + 生态白皮书</div><div class="ms-k">KPI：参会开发者 ≥ 500, 媒体曝光 ≥ 1000 万</div></div></div>
   </div>
+  </section>
 
-  <!-- 使用场景 -->
-  <div class="prd-block">
-    <h2><span class="no">03</span>使用场景</h2>
-    <ul><li>在眼镜上刷抖音/微信/导航/轻办公而非仅投屏，生态决定留存</li></ul>
-  </div>
-
-  <!-- 方案 -->
-  <div class="prd-block">
-    <h2><span class="no">04</span>产品方案</h2>
-    <ul><li>把 RayNeo VM 从投屏升级为开放应用商店+空间计算 SDK，承接手机生态迁移，做空间计算内容平台；该平台填补 Rokid 已先发但雷鸟基础弱的竞品缺口（E008），并复用手机应用商店跨行业路径（E001）</li></ul>
-  </div>
-
-  <!-- 指标 -->
-  <div class="prd-block">
-    <h2><span class="no">05</span>核心指标</h2>
-    <div class="metrics"><div class="metric"><div class="mk">北极星</div><div class="mv">目标客群渗透率 ≥ 5%（发布后 12 个月）</div></div><div class="metric"><div class="mk">留存</div><div class="mv">月活跃留存 ≥ 30%</div></div><div class="metric"><div class="mk">NPS</div><div class="mv">≥ 35</div></div></div>
-  </div>
-
-  <!-- 风险 -->
-  <div class="prd-block">
-    <h2><span class="no">06</span>风险与对策</h2>
-    <table class="risk"><thead><tr><th>风险项</th><th>概率</th><th>影响</th><th>对策</th></tr></thead><tbody><tr><td>工程可行性</td><td>中</td><td>中</td><td>先做软硬分离验证，再整机量产</td></tr><tr><td>供应链</td><td>中</td><td>高</td><td>关键器件双备份</td></tr><tr><td>竞品跟进</td><td>中</td><td>中</td><td>专利+快速迭代</td></tr></tbody></table>
-  </div>
-
-  <!-- 排期 -->
-  <div class="prd-block">
-    <h2><span class="no">07</span>排期</h2>
-    <ul><li>0-3 月：立项与可行性验证</li><li>3-6 月：原型开发与用户内测</li><li>6-12 月：量产与渠道铺货</li></ul>
-  </div>
-
-  <!-- 证据覆盖 -->
-  <div class="prd-block">
-    <h2><span class="no">08</span>证据覆盖</h2>
-    <div class="evcover">
-      <div class="lab">支撑证据（点击跳转证据链二级页查看详情）</div>
-      <div class="nums">E003 · E014 · E013 · E012 · E001 · E008</div>
-    </div>
-    <a class="backprd" href="evidence-strategic.html">查看 strategic 维度全量证据 →</a>
-  </div>
-
-  <div class="pill-nav">
-    <a href="prd-ID-001.html">长时无绳续航模组</a><a href="prd-ID-002.html">AI 第一视角拍摄 + 实时翻译</a><a href="prd-ID-003.html">轻量化全天佩戴</a><a href="prd-ID-005.html">波导电致变色防窥</a>
-    <a href="index.html">← 返回白皮书</a>
-  </div>
-</section>
-<footer class="footer wrap">
-  <p>数据来源：雷鸟创新 RayNeo 官方参数与产品资料、洛图科技 / Counterpoint / IDC 行业报告、什么值得买 / 观察者网 / 知乎 / 搜狐社区核验、XREAL / Rokid / Meta Ray-Ban 竞品公开动作。证据链 E001–E017 详见各卡片来源标注与独立 PRD 页。</p>
-  <p style="margin-top:10px">本白皮书为产品机会推导文档，供产品与战略决策参考，非产品发布页。</p>
-</footer>
+  <nav class="pill-nav">
+    <a href="prd-ID-002.html">查看 ID-002 需求文档 →</a><a href="prd-ID-001.html">查看 ID-001 需求文档 →</a><a href="prd-ID-003.html">查看 ID-003 需求文档 →</a><a href="prd-ID-005.html">查看 ID-005 需求文档 →</a>
+  </nav>
+</main>
+<footer class="footer"><div class="container"><p>雷鸟创新 RayNeo · AR 智能眼镜产品机会白皮书 · 需求文档由产品机会挖掘框架自动生成</p></div></footer>
 </body>
 </html>

@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>AI 第一视角拍摄 + 实时翻译 · 需求文档 · 雷鸟创新 RayNeo · AR 智能眼镜产品机会白皮书</title>
 <style>
+
 :root{
   --paper:#FFFFFF; --surface:#F5F5F7; --surface-2:#FBFBFD;
   --ink:#1D1D1F; --ink-mid:#515154; --ink-lo:#86868B; --ink-faint:#A1A1A6;
@@ -49,6 +50,7 @@ p{color:var(--ink-mid)}
 .hero .meta .item .v{font-size:17px;font-weight:500;margin-top:4px;color:var(--ink)}
 .hero-figure{border-radius:var(--r-lg);overflow:hidden;background:var(--surface);aspect-ratio:4/4.6;box-shadow:var(--shadow);position:relative;display:flex;align-items:center;justify-content:center}
 .hero-figure svg{width:78%;height:78%}
+.hero-img{width:100%;height:100%;object-fit:cover;object-position:center 30%;display:block}
 .fw{margin-top:var(--s6);display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s3);align-items:stretch}
 .fw .cell{background:var(--surface);border:1px solid var(--line-soft);border-radius:var(--r-sm);padding:var(--s3);text-align:center}
 .fw .cell .ico{width:100%;aspect-ratio:16/9;border-radius:var(--r-xs);overflow:hidden;background:var(--paper);margin-bottom:12px;display:flex;align-items:center;justify-content:center}
@@ -105,13 +107,19 @@ p{color:var(--ink-mid)}
 .gtm-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--s5)}
 .gcard{background:var(--paper);border:1px solid var(--line-soft);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow);transition:transform .45s var(--ease),box-shadow .45s var(--ease),border-color .45s var(--ease);display:flex;flex-direction:column}
 .gcard:hover{transform:translateY(-6px);box-shadow:var(--shadow-hi);border-color:var(--signal-line)}
-.gcard .gfig{aspect-ratio:16/9;overflow:hidden;background:var(--surface);position:relative;display:flex;align-items:center;justify-content:center}
-.gcard .gfig svg{width:38%;height:38%}
-.gcard .gbody{padding:var(--s4);flex:1}
-.gcard .gbody .gtag{font-family:var(--font-mono);font-size:11px;color:var(--signal);letter-spacing:.06em}
-.gcard .gbody h3{font-size:19px;margin-top:7px;line-height:1.2}
+.gcard .gbody{padding:var(--s4) var(--s4) 0;flex:1}
+.gcard .gbody .gtag{font-family:var(--font-mono);font-size:11px;color:#C2811A;letter-spacing:.06em;font-weight:600}
+.gcard .gbody h3{font-size:20px;margin-top:7px;line-height:1.2}
 .gcard .gbody .glead{margin-top:9px;font-size:14.5px;color:var(--ink-mid);line-height:1.5}
-.gcard .gfoot{display:flex;justify-content:flex-end;align-items:center;padding:0 var(--s4) var(--s4)}
+.gcard .gbody .glead .gpersp{display:inline-block;font-family:var(--font-mono);font-size:10px;color:#fff;background:#C2811A;border-radius:4px;padding:2px 7px;margin-right:7px;vertical-align:middle;letter-spacing:.04em}
+.gcard .gbody .grow{display:grid;grid-template-columns:52px 1fr;gap:10px;margin-top:11px;align-items:start}
+.gcard .gbody .glab{font-family:var(--font-mono);font-size:11.5px;color:var(--ink-lo);padding-top:1px}
+.gcard .gbody .gtxt{font-size:13.5px;color:var(--ink-mid);line-height:1.5}
+.gcard .gbody .gch-wrap{display:flex;flex-wrap:wrap;gap:6px}
+.gcard .gbody .gch{font-size:12px;background:var(--surface-2);border:1px solid var(--line-soft);border-radius:999px;padding:3px 10px;color:var(--ink-mid);white-space:nowrap}
+.gcard .gbody .gscale .gtam{display:inline-block;font-size:12.5px;background:rgba(194,129,26,.08);border:1px solid rgba(194,129,26,.25);border-radius:8px;padding:4px 9px;margin:0 6px 6px 0;color:var(--ink)}
+.gcard .gbody .gscale .gtam b{color:#C2811A;font-family:var(--font-mono)}
+.gcard .gfoot{display:flex;justify-content:flex-end;align-items:center;padding:var(--s4)}
 /* —— 证据链一级维度卡（点击跳转二级页） —— */
 .dimnav{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--s4);margin-top:var(--s5)}
 .dimcard{display:flex;flex-direction:column;background:var(--paper);border:1px solid var(--line-soft);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow);transition:transform .45s var(--ease),box-shadow .45s var(--ease),border-color .45s var(--ease);text-decoration:none}
@@ -172,8 +180,7 @@ p{color:var(--ink-mid)}
   *{transition:none!important;animation:none!important}
   .reveal{opacity:1;transform:none}
 }
-</style>
-<style>
+
 .doc-hero{padding:64px 0 40px}
 .doc-hero .eyebrow{color:var(--signal)}
 .doc-hero h1{font-family:var(--font-display);font-size:clamp(30px,4.4vw,46px);font-weight:600;letter-spacing:-.02em;margin:14px 0 10px;color:var(--ink)}
@@ -183,7 +190,7 @@ p{color:var(--ink-mid)}
 .figure{margin:34px 0;background:linear-gradient(160deg,#10182A,#0B1120);border:1px solid rgba(139,184,238,.18);border-radius:var(--r-lg);padding:18px;box-shadow:0 20px 50px rgba(10,18,34,.35)}
 .figsvg{width:100%;height:auto;display:block;border-radius:12px}
 .figcap{margin-top:14px;font-size:12.5px;color:#9FB0CC;text-align:center;font-family:var(--font-mono);letter-spacing:.02em}
-.nav-back{display:inline-flex;align-items:center;gap:7px;font-size:14px;font-weight:600;color:var(--signal);background:rgba(11,124,242,.10);border:1px solid var(--signal-line);padding:8px 16px;border-radius:999px;transition:background .25s,border-color .25s}
+.nav-back{display:inline-flex;align-items:center;gap:7px;font-size:14px;font-weight:600;color:var(--signal);background:rgba(11,124,242,.10);border:1px solid var(--signal-line);padding:8px 16px;border-radius:999px;transition:.25s}
 .nav-back:hover{background:rgba(11,124,242,.18);border-color:var(--signal)}
 .nav-back .bk{font-size:16px;line-height:1}
 .prd-block{background:var(--paper);border:1px solid var(--line-soft);border-radius:var(--r-lg);padding:30px 34px;margin:22px 0;box-shadow:var(--shadow)}
@@ -191,19 +198,64 @@ p{color:var(--ink-mid)}
 .prd-block h2 .no{font-family:var(--font-mono);font-size:14px;color:var(--signal);background:rgba(11,124,242,.1);border:1px solid var(--signal-line);border-radius:8px;padding:3px 10px}
 .prd-block ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:11px}
 .prd-block li{font-size:15.5px;color:var(--ink-mid);line-height:1.65}
+.prd-block li strong{color:var(--ink)}
 .prd-block .decision{font-size:16px;line-height:1.7;color:var(--ink);background:var(--surface-2);border-left:4px solid var(--signal);padding:16px 20px;border-radius:0 10px 10px 0}
-.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.metrics{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px}
 .metric{background:var(--surface-2);border:1px solid var(--line-soft);border-radius:12px;padding:18px}
 .metric .mk{font-size:12.5px;color:var(--ink-lo);font-family:var(--font-mono);margin-bottom:8px}
 .metric .mv{font-size:15px;color:var(--ink);font-weight:600;line-height:1.45}
-table.risk{width:100%;border-collapse:collapse;font-size:14px}
+table.risk{width:100%;border-collapse:collapse;font-size:14px;margin-top:6px}
 table.risk th,table.risk td{border:1px solid var(--line-soft);padding:11px 14px;text-align:left}
 table.risk th{background:var(--surface-2);color:var(--ink);font-weight:600;font-family:var(--font-mono);font-size:12.5px}
 table.risk td{color:var(--ink-mid)}
-.evcover{background:rgba(11,124,242,.06);border:1px solid var(--signal-line);border-radius:12px;padding:18px 22px;margin-top:8px}
-.evcover .lab{font-family:var(--font-mono);font-size:12px;color:var(--signal);margin-bottom:8px}
-.evcover .nums{font-size:16px;color:var(--ink);font-weight:600;letter-spacing:.04em}
-.backprd{display:inline-flex;align-items:center;gap:7px;margin-top:30px;font-weight:600;color:var(--signal);text-decoration:none;font-size:15px}
+.timeline{display:flex;flex-direction:column;gap:12px;margin-top:6px}
+.tl-item{display:grid;grid-template-columns:1.3fr .8fr 2fr;gap:14px;align-items:start;padding:14px 18px;background:var(--surface-2);border:1px solid var(--line-soft);border-radius:12px}
+.tl-phase{font-weight:600;color:var(--ink)}
+.tl-dur{font-family:var(--font-mono);font-size:13px;color:var(--signal)}
+.tl-d{font-size:14px;color:var(--ink-mid)}
+.sc-item{background:var(--surface-2);border:1px solid var(--line-soft);border-radius:12px;padding:18px 20px;margin-bottom:14px}
+.sc-name{font-weight:600;font-size:16px;color:var(--ink);margin-bottom:12px}
+.sc-row{display:grid;grid-template-columns:90px 1fr;gap:12px;margin-bottom:8px;align-items:start}
+.sc-lab{font-family:var(--font-mono);font-size:12px;color:var(--ink-lo);padding-top:2px}
+.sc-lab.pain{color:#D6655A}.sc-lab.good{color:#28AA6E}
+.sc-val{font-size:14.5px;color:var(--ink-mid);line-height:1.6}
+.vl-section{background:linear-gradient(135deg,#f8fafc,#f0f4f8);border:1px solid var(--line-soft);border-radius:var(--r-lg);padding:32px 36px;margin:24px 0}
+.vl-section > .vl-title{font-family:var(--font-display);font-size:25px;font-weight:600;color:var(--ink);margin:0 0 8px;display:flex;align-items:center;gap:12px}
+.vl-section > .vl-title .vno{font-family:var(--font-mono);font-size:14px;color:#fff;background:var(--signal);border-radius:8px;padding:4px 11px}
+.vl-section > .vl-desc{font-size:14.5px;color:var(--ink-mid);margin:0 0 22px;line-height:1.6}
+.vl-step{margin-bottom:26px;padding-bottom:22px;border-bottom:1px solid var(--line-soft)}
+.vl-step:last-child{margin-bottom:0;padding-bottom:0;border-bottom:none}
+.vl-step .stitle{font-family:var(--font-display);font-size:18px;font-weight:600;color:var(--ink);margin-bottom:10px;display:flex;align-items:center;gap:10px}
+.vl-step .stitle .snum{font-family:var(--font-mono);font-size:12px;background:var(--signal);color:#fff;width:24px;height:24px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
+.vl-step .sclaim{font-size:15.5px;color:var(--ink);line-height:1.65;margin-bottom:12px;padding-left:34px}
+.vl-evlist{margin:0 0 0 34px;padding:0;list-style:none;display:flex;flex-direction:column;gap:8px}
+.vl-evlist li{font-size:14px;color:var(--ink-mid);line-height:1.55;display:flex;gap:8px;align-items:flex-start}
+.vl-evlist li .evtag{font-family:var(--font-mono);font-size:11.5px;color:#fff;background:var(--signal);padding:2px 8px;border-radius:4px;flex-shrink:0;height:fit-content}
+.vl-evlist li .evref{font-family:var(--font-mono);font-size:11.5px;color:var(--ink-lo);flex-shrink:0;height:fit-content}
+.vl-conclusion{font-size:14.5px;color:var(--ink);line-height:1.6;background:var(--paper);border-left:3px solid #28AA6E;padding:12px 16px;margin:8px 0 0 34px;border-radius:0 8px 8px 0}
+.gtm-section{background:var(--paper);border:1px solid var(--line-soft);border-radius:var(--r-lg);padding:32px 36px;margin:24px 0;box-shadow:var(--shadow)}
+.gtm-section h2{font-family:var(--font-display);font-size:23px;font-weight:600;color:var(--ink);margin:0 0 16px;display:flex;align-items:center;gap:12px}
+.gtm-section h2 .gno{font-family:var(--font-mono);font-size:14px;color:#D69614;background:rgba(214,150,20,.10);border:1px solid rgba(214,150,20,.3);border-radius:8px;padding:3px 10px}
+.gtm-pos{font-size:16px;line-height:1.65;color:var(--ink);background:rgba(214,150,20,.06);border-left:4px solid #D69614;padding:16px 20px;border-radius:0 10px 10px 0;margin-bottom:8px}
+.gtm-sub{font-size:16px;font-weight:600;color:var(--ink);margin:22px 0 12px}
+.gtm-aud-wrap{display:flex;flex-direction:column;gap:12px}
+.gtm-aud{background:var(--surface-2);border:1px solid var(--line-soft);border-radius:12px;padding:16px 20px}
+.ga-group{font-weight:600;color:var(--ink);font-size:15.5px}
+.ga-size{font-family:var(--font-mono);font-size:13px;color:var(--signal);margin:5px 0}
+.ga-insight{font-size:14px;color:var(--ink-mid);line-height:1.55}
+.gtm-ch-wrap,.gtm-pr-wrap{display:flex;flex-direction:column;gap:10px}
+.gtm-ch{display:grid;grid-template-columns:1.2fr 2fr;gap:14px;background:var(--surface-2);border:1px solid var(--line-soft);border-radius:12px;padding:14px 18px}
+.gc-ch{font-weight:600;color:var(--ink)}
+.gc-t{font-size:14px;color:var(--ink-mid);line-height:1.55}
+.gtm-pr{display:grid;grid-template-columns:1.2fr 2fr;gap:14px;background:var(--surface-2);border:1px solid var(--line-soft);border-radius:12px;padding:14px 18px}
+.gp-m{font-weight:600;color:var(--ink)}
+.gp-p{font-size:14px;color:var(--ink-mid);line-height:1.55}
+table.risk .tam-num{font-family:var(--font-mono);font-weight:600;color:var(--ink)}
+.ms-wrap{display:flex;flex-direction:column;gap:12px}
+.ms-item{display:grid;grid-template-columns:70px 1fr;gap:14px;background:var(--surface-2);border:1px solid var(--line-soft);border-radius:12px;padding:14px 18px}
+.ms-t{font-family:var(--font-mono);font-weight:600;color:#D69614}
+.ms-a{font-size:14.5px;color:var(--ink)}
+.ms-k{font-size:13px;color:var(--ink-lo);margin-top:4px}
 .pill-nav{display:flex;gap:9px;flex-wrap:wrap;margin:34px 0 0;padding-top:22px;border-top:1px solid var(--line-soft)}
 .pill-nav a{font-size:13px;padding:7px 14px;border-radius:999px;border:1px solid var(--line-soft);background:var(--paper);color:var(--ink-mid);text-decoration:none;transition:.25s}
 .pill-nav a:hover{border-color:var(--signal);color:var(--signal)}
@@ -213,122 +265,59 @@ table.risk td{color:var(--ink-mid)}
 <nav class="nav" id="nav">
   <div class="nav-inner">
     <div class="brand"><span class="dot"></span>雷鸟 RayNeo · 产品机会白皮书</div>
-    <div class="nav-links"><a class="nav-back" href="index.html"><span class="bk">←</span> 返回白皮书</a></div>
+    <div class="nav-links"><a class="nav-back" href="index.html"><span class="bk">&larr;</span> 返回白皮书</a></div>
   </div>
 </nav>
-<header class="hero doc-hero">
-  <div class="wrap">
-    <span class="eyebrow">PRD · 产品需求文档 · ID-002</span>
+<main class="container">
+  <section class="doc-hero">
+    <div class="eyebrow">TOP5 产品需求 · 需求文档</div>
     <h1>AI 第一视角拍摄 + 实时翻译</h1>
     <div class="tagrow">
       <span class="doc-tag">AI 拍摄 · 交互</span>
-      <span class="doc-tag">一级维度：competitor</span>
-      <span class="doc-tag score">综合分 91.2 / 100</span>
+      <span class="doc-tag score">综合分 91.2</span>
+      <span class="doc-tag">需求编号 ID-002</span>
     </div>
-  </div>
-</header>
-<section class="section wrap">
-  <!-- 主实物图 -->
-  <div class="figure">
-    <svg viewBox="0 0 480 280" xmlns="http://www.w3.org/2000/svg" class="figsvg">
-    <defs>
-      <linearGradient id="bg2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#15233B"/><stop offset="1" stop-color="#0B1422"/></linearGradient>
-      <linearGradient id="lens2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2A3D5E"/><stop offset="1" stop-color="#0B1C38"/></linearGradient>
-    </defs>
-    <rect width="480" height="280" rx="18" fill="url(#bg2)"/>
-    <ellipse cx="240" cy="252" rx="150" ry="15" fill="#000" opacity="0.35"/>
-    <!-- 眼镜第一视角 -->
-    <g>
-      <rect x="146" y="92" width="78" height="52" rx="16" fill="url(#lens2)" stroke="#8FB8EE" stroke-width="1.5"/>
-      <rect x="256" y="92" width="78" height="52" rx="16" fill="url(#lens2)" stroke="#8FB8EE" stroke-width="1.5"/>
-      <path d="M224 116 h32" stroke="#9BB4D6" stroke-width="4" stroke-linecap="round"/>
-      <circle cx="185" cy="118" r="7" fill="#0B7CF2"/>
-      <circle cx="185" cy="118" r="12" fill="none" stroke="#0B7CF2" stroke-width="1.5" opacity="0.5"/>
-    </g>
-    <!-- 取景窗 -->
-    <g>
-      <rect x="60" y="178" width="70" height="48" rx="9" fill="#0E1B30" stroke="#0B7CF2" stroke-width="2"/>
-      <path d="M70 188 h50 M70 202 h34" stroke="#3A6EA5" stroke-width="2" opacity="0.7"/>
-      <text x="95" y="240" text-anchor="middle" font-family="monospace" font-size="11" fill="#5BA8FF">REC · 第一视角</text>
-    </g>
-    <!-- 实时翻译字幕条 -->
-    <g>
-      <rect x="178" y="184" width="240" height="44" rx="12" fill="#fff"/>
-      <rect x="178" y="184" width="6" height="44" rx="3" fill="#0B7CF2"/>
-      <text x="320" y="206" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#1A2B4A" font-weight="600">前方路口左转 200 米</text>
-      <text x="320" y="222" text-anchor="middle" font-family="monospace" font-size="11.5" fill="#5A6B85">Turn left at the junction, 200m</text>
-    </g>
-    <text x="240" y="268" text-anchor="middle" font-family="monospace" font-size="12.5" fill="#AEBED8" letter-spacing="1">AI 第一视角拍摄 + 同声传译字幕</text>
-  </svg>
-    <div class="figcap">图 1 · AI 第一视角拍摄 + 实时翻译功能示意（自绘实物线稿）</div>
-  </div>
+  </section>
+  <div class="figure"><svg viewBox="0 0 480 280" class="figsvg"><defs><linearGradient id="bg2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#15233B"/><stop offset="1" stop-color="#0B1422"/></linearGradient><linearGradient id="lens2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2A3D5E"/><stop offset="1" stop-color="#0B1C38"/></linearGradient></defs><rect width="480" height="280" rx="18" fill="url(#bg2)"/><ellipse cx="240" cy="252" rx="150" ry="15" fill="#000" opacity="0.35"/><g><rect x="146" y="92" width="78" height="52" rx="16" fill="url(#lens2)" stroke="#8FB8EE" stroke-width="1.5"/><rect x="256" y="92" width="78" height="52" rx="16" fill="url(#lens2)" stroke="#8FB8EE" stroke-width="1.5"/><path d="M224 116 h32" stroke="#9BB4D6" stroke-width="4" stroke-linecap="round"/><circle cx="185" cy="118" r="7" fill="#0B7CF2"/><circle cx="185" cy="118" r="12" fill="none" stroke="#0B7CF2" stroke-width="1.5" opacity="0.5"/></g><g><rect x="60" y="178" width="70" height="48" rx="9" fill="#0E1B30" stroke="#0B7CF2" stroke-width="2"/><path d="M70 188 h50 M70 202 h34" stroke="#3A6EA5" stroke-width="2" opacity="0.7"/><text x="95" y="240" text-anchor="middle" font-family="monospace" font-size="11" fill="#5BA8FF">REC</text></g><g><rect x="178" y="184" width="240" height="44" rx="12" fill="#fff"/><rect x="178" y="184" width="6" height="44" rx="3" fill="#0B7CF2"/><text x="320" y="206" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#1A2B4A" font-weight="600">前方路口左转 200 米</text><text x="320" y="222" text-anchor="middle" font-family="monospace" font-size="11.5" fill="#5A6B85">Turn left at the junction, 200m</text></g><text x="240" y="268" text-anchor="middle" font-family="monospace" font-size="12.5" fill="#AEBED8" letter-spacing="1">AI 第一视角拍摄 + 同声传译字幕</text></svg><div class="figcap">AI 第一视角拍摄 + 实时翻译 · 产品形态示意</div></div>
 
-  <!-- 决策结论 -->
-  <div class="prd-block">
-    <h2><span class="no">00</span>立项决策</h2>
-    <div class="decision">【建议立项】AI 眼镜是增长最快方向（E003/E014），拍摄眼镜从零破 51.7 万台（E013），第一视角+翻译需求上行。综合分 91.2/100。</div>
-  </div>
+  <section class="vl-section">
+    <div class="vl-title"><span class="vno">V</span>需求验证逻辑</div>
+    <p class="vl-desc">为什么这个需求成立？下列四个维度交叉验证，每一环均有可追溯证据支撑，形成完整逻辑闭环。</p>
+    <div class="vl-step"><div class="stitle"><span class="snum">1</span>市场需求验证</div><div class="sclaim">AI 眼镜是 AR 行业增长最快的细分方向，三份独立报告交叉确认高增速。</div><ul class="vl-evlist"><li><span class="evref">行业报告</span><span>Counterpoint 预测 2025 全球 AR 出货同比 +42%，AI 眼镜为增长极</span></li><li><span class="evref">行业报告</span><span>IDC 数据 2025 全球智能眼镜 1280 万台 +26%，AI 眼镜驱动</span></li><li><span class="evref">行业报告</span><span>洛图科技 2025 中国智能眼镜 145.4 万台 +211%，赛道整体上行</span></li></ul><div class="vl-conclusion">三份独立行业报告交叉确认 AI 眼镜/智能眼镜为高增速赛道，非单一来源假设。</div></div><div class="vl-step"><div class="stitle"><span class="snum">2</span>竞品路径验证</div><div class="sclaim">Meta Ray-Ban 已用 700 万副销量证明「AI 拍摄眼镜」可规模化；雷鸟 V3 已布局但能力弱于竞品。</div><ul class="vl-evlist"><li><span class="evref">竞品数据</span><span>Meta Ray-Ban 累计超 700 万副，验证拍摄眼镜路径可规模化</span></li><li><span class="evref">竞品数据</span><span>雷鸟 V3 Slim 已布局 AI 拍摄但弱于 Meta，能力需补齐</span></li></ul><div class="vl-conclusion">竞品已教育市场，用户心智已建立。雷鸟不是从零创造需求，而是补齐已验证路径上的能力缺口。</div></div><div class="vl-step"><div class="stitle"><span class="snum">3</span>用户痛点验证</div><div class="sclaim">旅行、跨国会议场景中需解放双手记录 + 跨语言沟通，现有手机方案体验差。</div><ul class="vl-evlist"><li><span class="evref">用户声音</span><span>社区用户反馈：手机拍摄需手持、第一视角体验差（用户声音汇总）</span></li><li><span class="evref">场景推导</span><span>跨语言沟通靠手机逐句翻译延迟高、不自然（场景推导）</span></li></ul><div class="vl-conclusion">痛点真实且高频；需注意直接用户原声证据可进一步补充，当前更多来自场景推演与竞品对标。</div></div><div class="vl-step"><div class="stitle"><span class="snum">4</span>技术可行性验证</div><div class="sclaim">X3 Pro 已具备骁龙 AR1 + 光波导显示基础，拍摄模块 + 翻译引擎为增量开发。</div><ul class="vl-evlist"><li><span class="evref">官方参数</span><span>官方参数确认 X3 Pro 骁龙 AR1 + 全彩波导平台</span></li><li><span class="evref">竞品数据</span><span>雷鸟 V3 已实现基础 AI 拍摄（清晰度待提升）</span></li></ul><div class="vl-conclusion">技术底座已就绪，增量开发风险可控。关键瓶颈在拍摄稳定性（防抖）和翻译实时性（端侧 vs 云端）。</div></div>
+  </section>
 
-  <!-- 背景 -->
-  <div class="prd-block">
-    <h2><span class="no">01</span>背景与问题</h2>
-    <ul><li>雷鸟 V3 已做 AI 拍摄眼镜但清晰度与实时交互弱（E011），用户想要 Meta Ray-Ban 级「拍得到+译得出」体验（E009）却缺位</li><li>Meta Ray-Ban 700 万副验证路径（E009），雷鸟 V3 已布局但弱（E011）→ 升级缺口明确，竞品已教育市场</li><li>AI 眼镜是增长最快方向（E003/E014），拍摄眼镜从零破 51.7 万台（E013），第一视角+翻译需求上行</li></ul>
-  </div>
+  <section>
+    <div class="vl-title" style="font-family:var(--font-display);font-size:25px;font-weight:600;color:var(--ink);margin:34px 0 4px;display:flex;align-items:center;gap:12px"><span class="vno" style="font-family:var(--font-mono);font-size:14px;color:#fff;background:var(--signal);border-radius:8px;padding:4px 11px">PRD</span>产品需求文档</div>
+    <p style="font-size:14.5px;color:var(--ink-mid);margin:0 0 8px;line-height:1.6"><strong>视角：产品岗</strong> —— 回答「做什么、为什么做、怎么做、做到什么程度」。</p>
+    
+  <div class="prd-block"><h2><span class="no">1</span>立项决策</h2><div class="decision">【建议立项】AI 眼镜赛道经三份独立行业报告交叉验证为高增速方向（全球 AR 出货 +42%、智能眼镜 +26%、中国智能眼镜 +211%）；Meta Ray-Ban 以 700 万副销量验证「拍摄+AI」路径可规模化；雷鸟 V3 已布局但能力弱于竞品，升级缺口明确。综合分 91.2/100。</div></div>
+  <div class="prd-block"><h2><span class="no">2</span>项目背景</h2><ul><li>AR 眼镜行业正处于从「显示终端」向「AI 交互终端」转型的关键节点。三家独立行业报告（洛图科技、Counterpoint、IDC）均指向同一结论：AI 眼镜是增长最快细分，智能眼镜品类整体上行。</li><li>Meta Ray-Ban 自 2023 年发布以来累计销量突破 700 万副，以「时尚外观 + AI 拍摄 + 语音交互」组合打开消费级市场，证明「拍摄眼镜」可被大众接受并规模化。</li><li>雷鸟 V3 Slim 已跟进 AI 拍摄功能，但评测反馈显示拍摄清晰度不及 Meta、实时翻译延迟较高、第一视角稳定性不足。这不是「从零建设」问题，而是「在已有基础上升级补齐」的工程问题。</li><li>用户场景层面：出境自由行、跨境商务会议、留学生活——共同特征是「双手被占用 + 需要视觉记录 + 跨语言沟通」。现有方案（手持手机拍摄 + 手机翻译 App）存在体验断层：视角不自然、操作打断流程、翻译延迟破坏对话节奏。</li></ul></div>
+  <div class="prd-block"><h2><span class="no">3</span>目标用户</h2><ul><li><strong>出境自由行用户</strong> —— 年龄 25–40，年均出国 2–4 次，重视旅行记录与当地信息获取，愿为新奇体验付费。</li><li><strong>跨境商务人士</strong> —— 频繁参加国际会议/展会，需即时记录演示内容 + 同声传译辅助，时间敏感度高。</li><li><strong>留学生与外籍工作者</strong> —— 日常跨语言环境生活，对实时翻译有刚需，社交分享意愿强。</li><li><strong>科技早期采用者</strong> —— 关注 AR/AI 前沿产品，乐于尝新并在社交媒体分享，是种子用户群体。</li></ul></div>
+  <div class="prd-block"><h2><span class="no">4</span>使用场景</h2><div class="sc-item"><div class="sc-name">出境自由行 · 街头探索</div><div class="sc-row"><span class="sc-lab">流程</span><span class="sc-val">佩戴眼镜步行游览 → 第一视角自动录制街景/美食/地标 → 看到路牌/菜单 → 眼镜实时翻译字幕浮于视野 → 录制素材自动同步手机相册</span></div><div class="sc-row"><span class="sc-lab pain">现状痛点</span><span class="sc-val">一手拿手机拍视频、一手查翻译 App，手忙脚乱且视角受限；突发有趣场景来不及掏手机</span></div><div class="sc-row"><span class="sc-lab good">需求价值</span><span class="sc-val">全程自然行走眼镜默默记录；外文信息即时理解；回家素材已在相册可直接剪辑分享</span></div></div><div class="sc-item"><div class="sc-name">国际商务会议 · 演示记录</div><div class="sc-row"><span class="sc-lab">流程</span><span class="sc-val">入会开启会议模式 → 第一视角录制演讲 PPT + 同步生成中英双语字幕 → 会后回看带字幕片段 → 关键信息一键提取为纪要</span></div><div class="sc-row"><span class="sc-lab pain">现状痛点</span><span class="sc-val">手机录像挡视线、无法同时记笔记；会后靠回忆整理纪要遗漏率高</span></div><div class="sc-row"><span class="sc-lab good">需求价值</span><span class="sc-val">自然视角完整记录，字幕辅助理解非母语内容；会后高效复盘信息零遗漏</span></div></div></div>
+  <div class="prd-block"><h2><span class="no">5</span>产品方案</h2><ul><li>拍摄模块升级：基于 X3 Pro 现有摄像头模组，引入多帧合成防抖算法 + 广角畸变校正，目标 1080P/30fps 稳定第一视角画面。触发支持语音指令（「开始录制」）、触控框手势、连续拍摄模式（类行车记录仪）。</li><li>实时翻译引擎：端云混合——常用语种（中/英/日/韩）端侧推理保证低延迟（&lt;500ms）；小语种走云端 API 保证准确率。呈现为悬浮字幕条（位置/透明度可调），支持双向翻译。</li><li>隐私保护设计：录制状态通过 LED 指示灯明确提示周围人员（合规要求）；素材默认本地存储，云端同步需用户主动授权；支持「模糊路人面部」选项（GDPR 友好）。</li><li>与 X3 Pro 集成：作为系统级 OTA 升级推送，不改变硬件形态。拍摄入口整合到现有快捷中心，翻译整合到已有 AI 助手交互中。</li></ul></div>
+  <div class="prd-block"><h2><span class="no">6</span>核心指标</h2><div class="metrics"><div class="metric"><div class="mk">北极星指标</div><div class="mv">日活用户人均拍摄次数 ≥ 3 次（发布后 6 个月）</div></div><div class="metric"><div class="mk">翻译使用深度</div><div class="mv">日活用户翻译调用时长 ≥ 20 分钟/人天</div></div><div class="metric"><div class="mk">留存率</div><div class="mv">次月留存 ≥ 30%（D7→D30）</div></div><div class="metric"><div class="mk">NPS</div><div class="mv">≥ 35（目标客群问卷）</div></div><div class="metric"><div class="mk">拍摄质量</div><div class="mv">用户评分 ≥ 4.0/5（稳定性 + 清晰度）</div></div></div></div>
+  <div class="prd-block"><h2><span class="no">7</span>风险与对策</h2><table class="risk"><thead><tr><th>风险</th><th>概率</th><th>影响</th><th>对策</th></tr></thead><tbody><tr><td>拍摄功耗加剧续航压力</td><td>高</td><td>高</td><td>拍摄模式自动降亮 + 单段 ≤15 分钟；配合外挂电池模组（ID-001）联合优化</td></tr><tr><td>嘈杂环境翻译准确率下降</td><td>中</td><td>中</td><td>降噪定向收音 + 上下文语义校正；fallback 显示原文 + 置信度提示</td></tr><tr><td>隐私法规差异（欧盟 GDPR 等）</td><td>中</td><td>高</td><td>数据分区存储；提供「完全离线模式」；隐私设计嵌入产品而非事后补救</td></tr><tr><td>竞品 Meta 持续迭代拉开差距</td><td>中</td><td>中</td><td>差异化定位：Meta 主打时尚社交，雷鸟主打实用工具（翻译+导航+效率）</td></tr></tbody></table></div>
+  <div class="prd-block"><h2><span class="no">8</span>排期规划</h2><div class="timeline"><div class="tl-item"><div class="tl-phase">P0 立项与架构设计</div><div class="tl-dur">第 1–2 月</div><div class="tl-d">技术方案评审完成、翻译引擎选型确定、隐私合规框架搭建</div></div><div class="tl-item"><div class="tl-phase">P1 核心功能开发</div><div class="tl-dur">第 3–5 月</div><div class="tl-d">拍摄防抖算法上线、端侧翻译引擎集成、字幕 UI 交付</div></div><div class="tl-item"><div class="tl-phase">P2 内测与灰度</div><div class="tl-dur">第 6–7 月</div><div class="tl-d">500 人内测圈、NPS 基线收集、功耗数据达标</div></div><div class="tl-item"><div class="tl-phase">P3 全量发布与运营</div><div class="tl-dur">第 8–12 月</div><div class="tl-d">OTA 全量推送、联合旅游局内容战役、出海独立站上线</div></div></div></div>
+  </section>
 
-  <!-- 目标用户 -->
-  <div class="prd-block">
-    <h2><span class="no">02</span>目标用户</h2>
-    <ul><li>SEG-02, SEG-04（旅行/商务用户，AI 早期采用者）</li><li>在「出国旅行/会议/探店时用眼镜第一视角记录并即时翻译字幕，解放双手」场景中的核心用户</li></ul>
+  <section>
+    
+  <div class="gtm-section">
+    <h2><span class="gno">GTM</span>商业落地策略 · 市场与商业视角</h2>
+    <div class="gtm-pos">「解放双手的 AI 翻译相机」—— 不是替代手机，而是填补「双手占用时无法使用手机」的场景空白。</div>
+    <div class="gtm-sub">目标受众与洞察</div><div class="gtm-aud-wrap"><div class="gtm-aud"><div class="ga-group">核心受众：出境自由行人群</div><div class="ga-size">中国年出境人次约 1.5 亿，自由行占比 ~35% 即 ~5250 万人</div><div class="ga-insight">这群人是翻译 App 重度用户，同时对旅行记录有强需求，已习惯为旅行体验付费。</div></div><div class="gtm-aud"><div class="ga-group">高价值受众：跨境商务人士</div><div class="ga-size">中国每年参加国际展会/会议专业人士约 800–1000 万人</div><div class="ga-insight">时间成本极高，愿为效率工具付费；企业采购可作员工福利或差旅标配。</div></div><div class="gtm-aud"><div class="ga-group">长尾受众：留学生与外籍工作者</div><div class="ga-size">中国在海外留学生约 150 万 + 外籍来华约 200 万人</div><div class="ga-insight">日常跨语言刚需，社交传播力强（朋友圈/小红书种草）。</div></div></div>
+    <div class="gtm-sub">渠道与打法</div><div class="gtm-ch-wrap"><div class="gtm-ch"><div class="gc-ch">线上主渠道：天猫/京东旗舰店</div><div class="gc-t">产品页强化「出境实测」视频；搜索覆盖「翻译眼镜」「出国神器」；直播展示实时翻译效果</div></div><div class="gtm-ch"><div class="gc-ch">内容种草：抖音/小红书/B站</div><div class="gc-t">KOL 方向：(1)旅行博主「无手持拍摄挑战」(2)留学博主「上课实时翻译测试」(3)科技博主拆解测评；标签 #出国必备 #黑科技翻译</div></div><div class="gtm-ch"><div class="gc-ch">线下体验：机场/免税店</div><div class="gc-t">重点国际机场体验台；免税店「退税+购机」套餐；与旅行社联动打包推荐</div></div><div class="gtm-ch"><div class="gc-ch">出海独立站</div><div class="gc-t">面向海外华人及外籍；SEO 覆盖「AI translation glasses」；Google/Facebook 精准投放</div></div></div>
+    <div class="gtm-sub">定价与变现</div><div class="gtm-pr-wrap"><div class="gtm-pr"><div class="gp-m">硬件随 X3 Pro 系列标配</div><div class="gp-p">不单独加价，作为 OTA 功能免费推送（拉高主机销量）</div></div><div class="gtm-pr"><div class="gp-m">翻译订阅服务</div><div class="gp-p">基础版免费（中日英韩离线 + 每月 30h 云端）；Pro 版 ¥29/月（无限云端 + 小语种 + 会议模式 + 高清导出）</div></div><div class="gtm-pr"><div class="gp-m">套装组合</div><div class="gp-p">X3 Pro + 外挂电池 + 翻译 Pro 年卡 = ¥5499（比单买省 ¥600）</div></div></div>
+    <div class="gtm-sub">市场规模（TAM / SAM / SOM）</div>
+    <table class="risk"><thead><tr><th>层级</th><th>细分市场</th><th>规模</th><th>说明</th></tr></thead><tbody><tr><td>TAM</td><td>全球 AI 可穿戴摄像设备</td><td class="tam-num">$420 亿</td><td>2027 年预估，含智能眼镜/AR 眼镜/运动相机</td></tr><tr><td>SAM</td><td>带翻译功能的 AI 眼镜</td><td class="tam-num">$96 亿</td><td>AI 眼镜子集中有翻译功能的细分</td></tr><tr><td>SOM</td><td>雷鸟可获市场份额</td><td class="tam-num">$4.2 亿</td><td>假设 SAM 渗透率 10% 中雷鸟占 44%（国内第一）</td></tr></tbody></table>
+    <div class="gtm-sub">落地节奏与 KPI</div><div class="ms-wrap"><div class="ms-item"><div class="ms-t">Q3</div><div class="ms-a">OTA 推送实时翻译公测版（限 1000 名内测用户）</div><div class="ms-k">KPI：内测 NPS ≥ 30, 翻译满意度 ≥ 3.8/5</div></div><div class="ms-item"><div class="ms-t">Q4</div><div class="ms-a">全量 OTA 发布 + 双十一 Campaign + 抖音头部 KOL 种草</div><div class="ms-k">KPI：双十一销量 ≥ 3000 台, 翻译激活率 ≥ 60%</div></div><div class="ms-item"><div class="ms-t">次年 Q1</div><div class="ms-a">出海独立站上线 + 海外 KOL 测评投放</div><div class="ms-k">KPI：海外订单占比 15%, 订阅付费转化 ≥ 8%</div></div><div class="ms-item"><div class="ms-t">次年 Q2</div><div class="ms-a">Pro 订阅制上线 + 企业版（会议记录 SaaS）探索</div><div class="ms-k">KPI：Pro 付费用户 ≥ 2000, 企业试用 ≥ 50 家</div></div></div>
   </div>
+  </section>
 
-  <!-- 使用场景 -->
-  <div class="prd-block">
-    <h2><span class="no">03</span>使用场景</h2>
-    <ul><li>出国旅行/会议/探店时用眼镜第一视角记录并即时翻译字幕，解放双手</li></ul>
-  </div>
-
-  <!-- 方案 -->
-  <div class="prd-block">
-    <h2><span class="no">04</span>产品方案</h2>
-    <ul><li>在 X3 Pro 光波导基础上补齐第一视角拍摄稳定性 + 同声传译字幕，承接已验证的 AI 眼镜路径（竞品缺口 E009 已教育市场），拍摄素材本地+云端双备份</li></ul>
-  </div>
-
-  <!-- 指标 -->
-  <div class="prd-block">
-    <h2><span class="no">05</span>核心指标</h2>
-    <div class="metrics"><div class="metric"><div class="mk">北极星</div><div class="mv">目标客群渗透率 ≥ 5%（发布后 12 个月）</div></div><div class="metric"><div class="mk">留存</div><div class="mv">月活跃留存 ≥ 30%</div></div><div class="metric"><div class="mk">NPS</div><div class="mv">≥ 35</div></div></div>
-  </div>
-
-  <!-- 风险 -->
-  <div class="prd-block">
-    <h2><span class="no">06</span>风险与对策</h2>
-    <table class="risk"><thead><tr><th>风险项</th><th>概率</th><th>影响</th><th>对策</th></tr></thead><tbody><tr><td>工程可行性</td><td>中</td><td>中</td><td>先做软硬分离验证，再整机量产</td></tr><tr><td>供应链</td><td>中</td><td>高</td><td>关键器件双备份</td></tr><tr><td>竞品跟进</td><td>中</td><td>中</td><td>专利+快速迭代</td></tr></tbody></table>
-  </div>
-
-  <!-- 排期 -->
-  <div class="prd-block">
-    <h2><span class="no">07</span>排期</h2>
-    <ul><li>0-3 月：立项与可行性验证</li><li>3-6 月：原型开发与用户内测</li><li>6-12 月：量产与渠道铺货</li></ul>
-  </div>
-
-  <!-- 证据覆盖 -->
-  <div class="prd-block">
-    <h2><span class="no">08</span>证据覆盖</h2>
-    <div class="evcover">
-      <div class="lab">支撑证据（点击跳转证据链二级页查看详情）</div>
-      <div class="nums">E003 · E014 · E013 · E011 · E009</div>
-    </div>
-    <a class="backprd" href="evidence-competitor.html">查看 competitor 维度全量证据 →</a>
-  </div>
-
-  <div class="pill-nav">
-    <a href="prd-ID-001.html">长时无绳续航模组</a><a href="prd-ID-003.html">轻量化全天佩戴</a><a href="prd-ID-005.html">波导电致变色防窥</a><a href="prd-ID-006.html">RayNeo VM 开放应用生态</a>
-    <a href="index.html">← 返回白皮书</a>
-  </div>
-</section>
-<footer class="footer wrap">
-  <p>数据来源：雷鸟创新 RayNeo 官方参数与产品资料、洛图科技 / Counterpoint / IDC 行业报告、什么值得买 / 观察者网 / 知乎 / 搜狐社区核验、XREAL / Rokid / Meta Ray-Ban 竞品公开动作。证据链 E001–E017 详见各卡片来源标注与独立 PRD 页。</p>
-  <p style="margin-top:10px">本白皮书为产品机会推导文档，供产品与战略决策参考，非产品发布页。</p>
-</footer>
+  <nav class="pill-nav">
+    <a href="prd-ID-001.html">查看 ID-001 需求文档 →</a><a href="prd-ID-006.html">查看 ID-006 需求文档 →</a><a href="prd-ID-003.html">查看 ID-003 需求文档 →</a><a href="prd-ID-005.html">查看 ID-005 需求文档 →</a>
+  </nav>
+</main>
+<footer class="footer"><div class="container"><p>雷鸟创新 RayNeo · AR 智能眼镜产品机会白皮书 · 需求文档由产品机会挖掘框架自动生成</p></div></footer>
 </body>
 </html>

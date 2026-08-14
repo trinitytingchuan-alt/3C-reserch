@@ -3,8 +3,9 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>轻量化全天佩戴 · 需求文档 · 雷鸟创新 RayNeo · AR 智能眼镜产品机会白皮书</title>
+<title>轻量化舒适佩戴（铰链 / 磁吸 / 材质） · 需求文档 · 雷鸟创新 RayNeo · AR 智能眼镜产品机会白皮书</title>
 <style>
+
 :root{
   --paper:#FFFFFF; --surface:#F5F5F7; --surface-2:#FBFBFD;
   --ink:#1D1D1F; --ink-mid:#515154; --ink-lo:#86868B; --ink-faint:#A1A1A6;
@@ -49,6 +50,7 @@ p{color:var(--ink-mid)}
 .hero .meta .item .v{font-size:17px;font-weight:500;margin-top:4px;color:var(--ink)}
 .hero-figure{border-radius:var(--r-lg);overflow:hidden;background:var(--surface);aspect-ratio:4/4.6;box-shadow:var(--shadow);position:relative;display:flex;align-items:center;justify-content:center}
 .hero-figure svg{width:78%;height:78%}
+.hero-img{width:100%;height:100%;object-fit:cover;object-position:center 30%;display:block}
 .fw{margin-top:var(--s6);display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s3);align-items:stretch}
 .fw .cell{background:var(--surface);border:1px solid var(--line-soft);border-radius:var(--r-sm);padding:var(--s3);text-align:center}
 .fw .cell .ico{width:100%;aspect-ratio:16/9;border-radius:var(--r-xs);overflow:hidden;background:var(--paper);margin-bottom:12px;display:flex;align-items:center;justify-content:center}
@@ -105,13 +107,19 @@ p{color:var(--ink-mid)}
 .gtm-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--s5)}
 .gcard{background:var(--paper);border:1px solid var(--line-soft);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow);transition:transform .45s var(--ease),box-shadow .45s var(--ease),border-color .45s var(--ease);display:flex;flex-direction:column}
 .gcard:hover{transform:translateY(-6px);box-shadow:var(--shadow-hi);border-color:var(--signal-line)}
-.gcard .gfig{aspect-ratio:16/9;overflow:hidden;background:var(--surface);position:relative;display:flex;align-items:center;justify-content:center}
-.gcard .gfig svg{width:38%;height:38%}
-.gcard .gbody{padding:var(--s4);flex:1}
-.gcard .gbody .gtag{font-family:var(--font-mono);font-size:11px;color:var(--signal);letter-spacing:.06em}
-.gcard .gbody h3{font-size:19px;margin-top:7px;line-height:1.2}
+.gcard .gbody{padding:var(--s4) var(--s4) 0;flex:1}
+.gcard .gbody .gtag{font-family:var(--font-mono);font-size:11px;color:#C2811A;letter-spacing:.06em;font-weight:600}
+.gcard .gbody h3{font-size:20px;margin-top:7px;line-height:1.2}
 .gcard .gbody .glead{margin-top:9px;font-size:14.5px;color:var(--ink-mid);line-height:1.5}
-.gcard .gfoot{display:flex;justify-content:flex-end;align-items:center;padding:0 var(--s4) var(--s4)}
+.gcard .gbody .glead .gpersp{display:inline-block;font-family:var(--font-mono);font-size:10px;color:#fff;background:#C2811A;border-radius:4px;padding:2px 7px;margin-right:7px;vertical-align:middle;letter-spacing:.04em}
+.gcard .gbody .grow{display:grid;grid-template-columns:52px 1fr;gap:10px;margin-top:11px;align-items:start}
+.gcard .gbody .glab{font-family:var(--font-mono);font-size:11.5px;color:var(--ink-lo);padding-top:1px}
+.gcard .gbody .gtxt{font-size:13.5px;color:var(--ink-mid);line-height:1.5}
+.gcard .gbody .gch-wrap{display:flex;flex-wrap:wrap;gap:6px}
+.gcard .gbody .gch{font-size:12px;background:var(--surface-2);border:1px solid var(--line-soft);border-radius:999px;padding:3px 10px;color:var(--ink-mid);white-space:nowrap}
+.gcard .gbody .gscale .gtam{display:inline-block;font-size:12.5px;background:rgba(194,129,26,.08);border:1px solid rgba(194,129,26,.25);border-radius:8px;padding:4px 9px;margin:0 6px 6px 0;color:var(--ink)}
+.gcard .gbody .gscale .gtam b{color:#C2811A;font-family:var(--font-mono)}
+.gcard .gfoot{display:flex;justify-content:flex-end;align-items:center;padding:var(--s4)}
 /* —— 证据链一级维度卡（点击跳转二级页） —— */
 .dimnav{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--s4);margin-top:var(--s5)}
 .dimcard{display:flex;flex-direction:column;background:var(--paper);border:1px solid var(--line-soft);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow);transition:transform .45s var(--ease),box-shadow .45s var(--ease),border-color .45s var(--ease);text-decoration:none}
@@ -172,8 +180,7 @@ p{color:var(--ink-mid)}
   *{transition:none!important;animation:none!important}
   .reveal{opacity:1;transform:none}
 }
-</style>
-<style>
+
 .doc-hero{padding:64px 0 40px}
 .doc-hero .eyebrow{color:var(--signal)}
 .doc-hero h1{font-family:var(--font-display);font-size:clamp(30px,4.4vw,46px);font-weight:600;letter-spacing:-.02em;margin:14px 0 10px;color:var(--ink)}
@@ -183,7 +190,7 @@ p{color:var(--ink-mid)}
 .figure{margin:34px 0;background:linear-gradient(160deg,#10182A,#0B1120);border:1px solid rgba(139,184,238,.18);border-radius:var(--r-lg);padding:18px;box-shadow:0 20px 50px rgba(10,18,34,.35)}
 .figsvg{width:100%;height:auto;display:block;border-radius:12px}
 .figcap{margin-top:14px;font-size:12.5px;color:#9FB0CC;text-align:center;font-family:var(--font-mono);letter-spacing:.02em}
-.nav-back{display:inline-flex;align-items:center;gap:7px;font-size:14px;font-weight:600;color:var(--signal);background:rgba(11,124,242,.10);border:1px solid var(--signal-line);padding:8px 16px;border-radius:999px;transition:background .25s,border-color .25s}
+.nav-back{display:inline-flex;align-items:center;gap:7px;font-size:14px;font-weight:600;color:var(--signal);background:rgba(11,124,242,.10);border:1px solid var(--signal-line);padding:8px 16px;border-radius:999px;transition:.25s}
 .nav-back:hover{background:rgba(11,124,242,.18);border-color:var(--signal)}
 .nav-back .bk{font-size:16px;line-height:1}
 .prd-block{background:var(--paper);border:1px solid var(--line-soft);border-radius:var(--r-lg);padding:30px 34px;margin:22px 0;box-shadow:var(--shadow)}
@@ -191,19 +198,64 @@ p{color:var(--ink-mid)}
 .prd-block h2 .no{font-family:var(--font-mono);font-size:14px;color:var(--signal);background:rgba(11,124,242,.1);border:1px solid var(--signal-line);border-radius:8px;padding:3px 10px}
 .prd-block ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:11px}
 .prd-block li{font-size:15.5px;color:var(--ink-mid);line-height:1.65}
+.prd-block li strong{color:var(--ink)}
 .prd-block .decision{font-size:16px;line-height:1.7;color:var(--ink);background:var(--surface-2);border-left:4px solid var(--signal);padding:16px 20px;border-radius:0 10px 10px 0}
-.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.metrics{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px}
 .metric{background:var(--surface-2);border:1px solid var(--line-soft);border-radius:12px;padding:18px}
 .metric .mk{font-size:12.5px;color:var(--ink-lo);font-family:var(--font-mono);margin-bottom:8px}
 .metric .mv{font-size:15px;color:var(--ink);font-weight:600;line-height:1.45}
-table.risk{width:100%;border-collapse:collapse;font-size:14px}
+table.risk{width:100%;border-collapse:collapse;font-size:14px;margin-top:6px}
 table.risk th,table.risk td{border:1px solid var(--line-soft);padding:11px 14px;text-align:left}
 table.risk th{background:var(--surface-2);color:var(--ink);font-weight:600;font-family:var(--font-mono);font-size:12.5px}
 table.risk td{color:var(--ink-mid)}
-.evcover{background:rgba(11,124,242,.06);border:1px solid var(--signal-line);border-radius:12px;padding:18px 22px;margin-top:8px}
-.evcover .lab{font-family:var(--font-mono);font-size:12px;color:var(--signal);margin-bottom:8px}
-.evcover .nums{font-size:16px;color:var(--ink);font-weight:600;letter-spacing:.04em}
-.backprd{display:inline-flex;align-items:center;gap:7px;margin-top:30px;font-weight:600;color:var(--signal);text-decoration:none;font-size:15px}
+.timeline{display:flex;flex-direction:column;gap:12px;margin-top:6px}
+.tl-item{display:grid;grid-template-columns:1.3fr .8fr 2fr;gap:14px;align-items:start;padding:14px 18px;background:var(--surface-2);border:1px solid var(--line-soft);border-radius:12px}
+.tl-phase{font-weight:600;color:var(--ink)}
+.tl-dur{font-family:var(--font-mono);font-size:13px;color:var(--signal)}
+.tl-d{font-size:14px;color:var(--ink-mid)}
+.sc-item{background:var(--surface-2);border:1px solid var(--line-soft);border-radius:12px;padding:18px 20px;margin-bottom:14px}
+.sc-name{font-weight:600;font-size:16px;color:var(--ink);margin-bottom:12px}
+.sc-row{display:grid;grid-template-columns:90px 1fr;gap:12px;margin-bottom:8px;align-items:start}
+.sc-lab{font-family:var(--font-mono);font-size:12px;color:var(--ink-lo);padding-top:2px}
+.sc-lab.pain{color:#D6655A}.sc-lab.good{color:#28AA6E}
+.sc-val{font-size:14.5px;color:var(--ink-mid);line-height:1.6}
+.vl-section{background:linear-gradient(135deg,#f8fafc,#f0f4f8);border:1px solid var(--line-soft);border-radius:var(--r-lg);padding:32px 36px;margin:24px 0}
+.vl-section > .vl-title{font-family:var(--font-display);font-size:25px;font-weight:600;color:var(--ink);margin:0 0 8px;display:flex;align-items:center;gap:12px}
+.vl-section > .vl-title .vno{font-family:var(--font-mono);font-size:14px;color:#fff;background:var(--signal);border-radius:8px;padding:4px 11px}
+.vl-section > .vl-desc{font-size:14.5px;color:var(--ink-mid);margin:0 0 22px;line-height:1.6}
+.vl-step{margin-bottom:26px;padding-bottom:22px;border-bottom:1px solid var(--line-soft)}
+.vl-step:last-child{margin-bottom:0;padding-bottom:0;border-bottom:none}
+.vl-step .stitle{font-family:var(--font-display);font-size:18px;font-weight:600;color:var(--ink);margin-bottom:10px;display:flex;align-items:center;gap:10px}
+.vl-step .stitle .snum{font-family:var(--font-mono);font-size:12px;background:var(--signal);color:#fff;width:24px;height:24px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
+.vl-step .sclaim{font-size:15.5px;color:var(--ink);line-height:1.65;margin-bottom:12px;padding-left:34px}
+.vl-evlist{margin:0 0 0 34px;padding:0;list-style:none;display:flex;flex-direction:column;gap:8px}
+.vl-evlist li{font-size:14px;color:var(--ink-mid);line-height:1.55;display:flex;gap:8px;align-items:flex-start}
+.vl-evlist li .evtag{font-family:var(--font-mono);font-size:11.5px;color:#fff;background:var(--signal);padding:2px 8px;border-radius:4px;flex-shrink:0;height:fit-content}
+.vl-evlist li .evref{font-family:var(--font-mono);font-size:11.5px;color:var(--ink-lo);flex-shrink:0;height:fit-content}
+.vl-conclusion{font-size:14.5px;color:var(--ink);line-height:1.6;background:var(--paper);border-left:3px solid #28AA6E;padding:12px 16px;margin:8px 0 0 34px;border-radius:0 8px 8px 0}
+.gtm-section{background:var(--paper);border:1px solid var(--line-soft);border-radius:var(--r-lg);padding:32px 36px;margin:24px 0;box-shadow:var(--shadow)}
+.gtm-section h2{font-family:var(--font-display);font-size:23px;font-weight:600;color:var(--ink);margin:0 0 16px;display:flex;align-items:center;gap:12px}
+.gtm-section h2 .gno{font-family:var(--font-mono);font-size:14px;color:#D69614;background:rgba(214,150,20,.10);border:1px solid rgba(214,150,20,.3);border-radius:8px;padding:3px 10px}
+.gtm-pos{font-size:16px;line-height:1.65;color:var(--ink);background:rgba(214,150,20,.06);border-left:4px solid #D69614;padding:16px 20px;border-radius:0 10px 10px 0;margin-bottom:8px}
+.gtm-sub{font-size:16px;font-weight:600;color:var(--ink);margin:22px 0 12px}
+.gtm-aud-wrap{display:flex;flex-direction:column;gap:12px}
+.gtm-aud{background:var(--surface-2);border:1px solid var(--line-soft);border-radius:12px;padding:16px 20px}
+.ga-group{font-weight:600;color:var(--ink);font-size:15.5px}
+.ga-size{font-family:var(--font-mono);font-size:13px;color:var(--signal);margin:5px 0}
+.ga-insight{font-size:14px;color:var(--ink-mid);line-height:1.55}
+.gtm-ch-wrap,.gtm-pr-wrap{display:flex;flex-direction:column;gap:10px}
+.gtm-ch{display:grid;grid-template-columns:1.2fr 2fr;gap:14px;background:var(--surface-2);border:1px solid var(--line-soft);border-radius:12px;padding:14px 18px}
+.gc-ch{font-weight:600;color:var(--ink)}
+.gc-t{font-size:14px;color:var(--ink-mid);line-height:1.55}
+.gtm-pr{display:grid;grid-template-columns:1.2fr 2fr;gap:14px;background:var(--surface-2);border:1px solid var(--line-soft);border-radius:12px;padding:14px 18px}
+.gp-m{font-weight:600;color:var(--ink)}
+.gp-p{font-size:14px;color:var(--ink-mid);line-height:1.55}
+table.risk .tam-num{font-family:var(--font-mono);font-weight:600;color:var(--ink)}
+.ms-wrap{display:flex;flex-direction:column;gap:12px}
+.ms-item{display:grid;grid-template-columns:70px 1fr;gap:14px;background:var(--surface-2);border:1px solid var(--line-soft);border-radius:12px;padding:14px 18px}
+.ms-t{font-family:var(--font-mono);font-weight:600;color:#D69614}
+.ms-a{font-size:14.5px;color:var(--ink)}
+.ms-k{font-size:13px;color:var(--ink-lo);margin-top:4px}
 .pill-nav{display:flex;gap:9px;flex-wrap:wrap;margin:34px 0 0;padding-top:22px;border-top:1px solid var(--line-soft)}
 .pill-nav a{font-size:13px;padding:7px 14px;border-radius:999px;border:1px solid var(--line-soft);background:var(--paper);color:var(--ink-mid);text-decoration:none;transition:.25s}
 .pill-nav a:hover{border-color:var(--signal);color:var(--signal)}
@@ -213,115 +265,59 @@ table.risk td{color:var(--ink-mid)}
 <nav class="nav" id="nav">
   <div class="nav-inner">
     <div class="brand"><span class="dot"></span>雷鸟 RayNeo · 产品机会白皮书</div>
-    <div class="nav-links"><a class="nav-back" href="index.html"><span class="bk">←</span> 返回白皮书</a></div>
+    <div class="nav-links"><a class="nav-back" href="index.html"><span class="bk">&larr;</span> 返回白皮书</a></div>
   </div>
 </nav>
-<header class="hero doc-hero">
-  <div class="wrap">
-    <span class="eyebrow">PRD · 产品需求文档 · ID-003</span>
-    <h1>轻量化全天佩戴</h1>
+<main class="container">
+  <section class="doc-hero">
+    <div class="eyebrow">TOP5 产品需求 · 需求文档</div>
+    <h1>轻量化舒适佩戴（铰链 / 磁吸 / 材质）</h1>
     <div class="tagrow">
-      <span class="doc-tag">佩戴 · 舒适</span>
-      <span class="doc-tag">一级维度：user</span>
-      <span class="doc-tag score">综合分 90.5 / 100</span>
+      <span class="doc-tag">硬件 · 佩戴</span>
+      <span class="doc-tag score">综合分 90.5</span>
+      <span class="doc-tag">需求编号 ID-003</span>
     </div>
-  </div>
-</header>
-<section class="section wrap">
-  <!-- 主实物图 -->
-  <div class="figure">
-    <svg viewBox="0 0 480 280" xmlns="http://www.w3.org/2000/svg" class="figsvg">
-    <defs>
-      <linearGradient id="bg3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1A2436"/><stop offset="1" stop-color="#0D1320"/></linearGradient>
-      <linearGradient id="fr3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4A566E"/><stop offset="1" stop-color="#222C3E"/></linearGradient>
-    </defs>
-    <rect width="480" height="280" rx="18" fill="url(#bg3)"/>
-    <ellipse cx="240" cy="248" rx="140" ry="14" fill="#000" opacity="0.3"/>
-    <!-- 轻量眼镜特写 -->
-    <g>
-      <rect x="150" y="98" width="76" height="50" rx="18" fill="url(#fr3)" stroke="#7E8DA8" stroke-width="1.5"/>
-      <rect x="254" y="98" width="76" height="50" rx="18" fill="url(#fr3)" stroke="#7E8DA8" stroke-width="1.5"/>
-      <path d="M226 120 h28" stroke="#9AA8C0" stroke-width="5" stroke-linecap="round"/>
-      <circle cx="150" cy="120" r="9" fill="#0B7CF2"/>
-      <circle cx="330" cy="120" r="9" fill="#0B7CF2"/>
-      <rect x="158" y="104" width="20" height="8" rx="4" fill="#fff" opacity="0.5"/>
-    </g>
-    <!-- 重量标签 -->
-    <g>
-      <rect x="196" y="172" width="88" height="34" rx="17" fill="rgba(11,124,242,0.16)" stroke="#0B7CF2" stroke-width="1.4"/>
-      <text x="240" y="194" text-anchor="middle" font-family="monospace" font-size="15" fill="#5BA8FF" font-weight="600">≈ 60g 级</text>
-    </g>
-    <text x="240" y="262" text-anchor="middle" font-family="monospace" font-size="12.5" fill="#AEBED8" letter-spacing="1">钛合金骨架 + 前后配重 · 全天无感佩戴</text>
-  </svg>
-    <div class="figcap">图 1 · 轻量化全天佩戴功能示意（自绘实物线稿）</div>
-  </div>
+  </section>
+  <div class="figure"><svg viewBox="0 0 480 280" class="figsvg"><defs><linearGradient id="bg4" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#182238"/><stop offset="1" stop-color="#0C121A"/></linearGradient></defs><rect width="480" height="280" rx="18" fill="url(#bg4)"/><ellipse cx="240" cy="255" rx="140" ry="12" fill="#000" opacity="0.3"/><g><rect x="146" y="84" width="76" height="50" rx="16" fill="#1E3048" stroke="#6A9BD0" stroke-width="1.8"/><rect x="258" y="84" width="76" height="50" rx="16" fill="#1E3048" stroke="#6A9BD0" stroke-width="1.8"/><path d="M222 108 h36" stroke="#6A9BD0" stroke-width="3.5" stroke-linecap="round"/><circle cx="184" cy="109" r="5" fill="#0B7CF2" opacity="0.6"/></g><g transform="translate(160,154)"><rect x="0" y="0" width="26" height="46" rx="8" fill="#2A4A6A" stroke="#0B7CF2" stroke-width="1.5"/><line x1="13" y1="10" x2="13" y2="36" stroke="#0B7CF2" stroke-width="2" stroke-dasharray="2 2"/><text x="13" y="58" text-anchor="middle" font-family="monospace" font-size="9" fill="#5BA8FF">钛合金铰链</text></g><g transform="translate(210,154)"><rect x="0" y="16" width="50" height="14" rx="7" fill="#1A3A5C" stroke="#28AA6E" stroke-width="1.5"/><circle cx="10" cy="23" r="3" fill="#28AA6E"/><circle cx="25" cy="23" r="3" fill="#28AA6E"/><circle cx="40" cy="23" r="3" fill="#28AA6E"/><text x="25" y="44" text-anchor="middle" font-family="monospace" font-size="9" fill="#5BA8FF">隐藏式磁吸</text></g><g transform="translate(278,154)"><rect x="0" y="4" width="56" height="38" rx="10" fill="#1E3048" stroke="#D69614" stroke-width="1.5"/><text x="28" y="28" text-anchor="middle" font-family="monospace" font-size="14" fill="#D69614" font-weight="600">Mg-Li</text><text x="28" y="54" text-anchor="middle" font-family="monospace" font-size="9" fill="#5BA8FF">镁锂合金</text></g><text x="240" y="266" text-anchor="middle" font-family="monospace" font-size="12.5" fill="#AEBED8" letter-spacing="1">轻量化舒适佩戴 · 铰链+磁吸+材质</text></svg><div class="figcap">轻量化舒适佩戴（铰链 / 磁吸 / 材质） · 产品形态示意</div></div>
 
-  <!-- 决策结论 -->
-  <div class="prd-block">
-    <h2><span class="no">00</span>立项决策</h2>
-    <div class="decision">【建议立项】消费级 AR 趋势要求日常化佩戴（E003），长时使用放大舒适度问题（E013），佩戴成转化门槛。综合分 90.5/100。</div>
-  </div>
+  <section class="vl-section">
+    <div class="vl-title"><span class="vno">V</span>需求验证逻辑</div>
+    <p class="vl-desc">为什么这个需求成立？下列四个维度交叉验证，每一环均有可追溯证据支撑，形成完整逻辑闭环。</p>
+    <div class="vl-step"><div class="stitle"><span class="snum">1</span>用户痛点验证</div><div class="sclaim">第一代产品铰链松脱、磁吸夹发、发热问题是真实且高频的用户反馈。</div><ul class="vl-evlist"><li><span class="evref">用户社区</span><span>什么值得买用户反馈：第一代铰链松/磁吸夹发/Air 发热</span></li></ul><div class="vl-conclusion">结构可靠性和佩戴舒适性是用户最直观体验维度，直接影响退货率和口碑。</div></div><div class="vl-step"><div class="stitle"><span class="snum">2</span>市场渗透逻辑</div><div class="sclaim">AR 眼镜要从「尝鲜玩具」变「日常穿戴」，佩戴舒适度是前置门槛——用户不会每天戴不舒服的东西。</div><ul class="vl-evlist"><li><span class="evref">行业类比</span><span>智能手表发展史：Apple Watch 从一代笨重到 Series 轻薄，佩戴舒适度是渗透率提升关键推动力（行业类比）</span></li></ul><div class="vl-conclusion">轻量化不是「锦上添花」，而是决定产品能否进入「日常佩戴」赛道的门槛级需求。</div></div><div class="vl-step"><div class="stitle"><span class="snum">3</span>技术路径验证</div><div class="sclaim">铰链重构、新型磁吸、轻量材料（钛合金/碳纤维/Mg-Li）均为成熟工程方案。</div><ul class="vl-evlist"><li><span class="evref">供应链调研</span><span>光学眼镜行业已有大量钛合金/β钛铰链方案（供应链调研）</span></li><li><span class="evref">行业先例</span><span>TWS 耳机磁吸充电方案已验证小型磁吸结构可靠性（行业先例）</span></li></ul><div class="vl-conclusion">无不可逾越技术障碍，关键是工程选型和成本平衡。</div></div>
+  </section>
 
-  <!-- 背景 -->
-  <div class="prd-block">
-    <h2><span class="no">01</span>背景与问题</h2>
-    <ul><li>用户吐槽第一代铰链过松、磁吸夹头发，Air 系列发热集中（E006），舒适度与重量直接影响复购</li><li>XREAL 拼 57° 光学轻量化（E007），雷鸟佩戴缺陷待补（E006）→ 竞品已把佩戴当战场，缺口明确</li><li>消费级 AR 趋势要求日常化佩戴（E003），长时使用放大舒适度问题（E013），佩戴成转化门槛</li></ul>
-  </div>
+  <section>
+    <div class="vl-title" style="font-family:var(--font-display);font-size:25px;font-weight:600;color:var(--ink);margin:34px 0 4px;display:flex;align-items:center;gap:12px"><span class="vno" style="font-family:var(--font-mono);font-size:14px;color:#fff;background:var(--signal);border-radius:8px;padding:4px 11px">PRD</span>产品需求文档</div>
+    <p style="font-size:14.5px;color:var(--ink-mid);margin:0 0 8px;line-height:1.6"><strong>视角：产品岗</strong> —— 回答「做什么、为什么做、怎么做、做到什么程度」。</p>
+    
+  <div class="prd-block"><h2><span class="no">1</span>立项决策</h2><div class="decision">【建议立项】佩戴舒适度是 AR 眼镜从「尝鲜」走向「日常」的前置门槛；用户反馈的结构性问题（铰链/磁吸/发热）均有成熟工程解决方案；轻量化直接关联退货率和口碑传播。综合分 90.5/100。</div></div>
+  <div class="prd-block"><h2><span class="no">2</span>项目背景</h2><ul><li>回顾可穿戴设备发展史，每个品类都经历「功能优先→体验优先」转折。智能手表从初代 50g+ 笨重进化到今天 32–38g 轻薄，才真正进入「每天佩戴」主流。AR 眼镜正处在类似转折点。</li><li>雷鸟第一代产品佩戴相关反馈集中三方面：铰链使用一段时间松动导致下滑、鼻托压迫感增强；磁吸线缆/夹持结构夹头发或意外脱落；Air 系列连续使用 1h 以上明显发热，影响夏季佩戴意愿。</li><li>这些问题共同指向根源：第一代工程设计优先「把功能塞进去」，对「长时间佩戴人体工学」投入不足。对目标「日常佩戴」的产品，这是必须补齐的功课。</li><li>好消息是有成熟工程解法：光学眼镜几十年铰链积累（钛合金阻尼铰链、无螺丝铰链）、TWS 小型磁吸经验、新材料镁锂合金/碳纤维应用，都为 AR 轻量化提供技术货架。</li></ul></div>
+  <div class="prd-block"><h2><span class="no">3</span>目标用户</h2><ul><li><strong>全天办公族</strong> —— 每天佩戴 &gt;6h 的脑力工作者，对重量和压迫感极度敏感。</li><li><strong>近视用户</strong> —— 本身已戴矫正眼镜，叠加 AR 后总重量和鼻梁压力翻倍。</li><li><strong>女性用户</strong> —— 对美观度和舒适度要求更高，平均头围更小需针对性人体工学优化。</li><li><strong>户外运动爱好者</strong> —— 跑步/骑行/徒步场景中佩戴，对稳固性和透气性有额外要求。</li></ul></div>
+  <div class="prd-block"><h2><span class="no">4</span>使用场景</h2><div class="sc-item"><div class="sc-name">8 小时办公日</div><div class="sc-row"><span class="sc-lab">流程</span><span class="sc-val">早 9 点戴镜工作 → 视频会议 2h → 处理邮件 3h → 午休摘下 → 下午 3h → 通勤 1h</span></div><div class="sc-row"><span class="sc-lab pain">现状痛点</span><span class="sc-val">下午鼻梁压痕、耳后红印；铰链松动频繁扶正；夏天午后发热明显</span></div><div class="sc-row"><span class="sc-lab good">需求价值</span><span class="sc-val">整日佩戴几乎无感；新型铰链稳定贴合；散热控制温升</span></div></div><div class="sc-item"><div class="sc-name">女性用户日常佩戴</div><div class="sc-row"><span class="sc-lab">流程</span><span class="sc-val">化妆后佩戴出门 → 与普通眼镜叠戴/替换 → 发型不受影响 → 造型协调</span></div><div class="sc-row"><span class="sc-lab pain">现状痛点</span><span class="sc-val">磁吸夹乱发型；男性化粗犷外观不适合审美；重量致妆花/压痕</span></div><div class="sc-row"><span class="sc-lab good">需求价值</span><span class="sc-val">隐藏式磁吸不接触头发；多配色纤细款；总重 &lt;45g</span></div></div></div>
+  <div class="prd-block"><h2><span class="no">5</span>产品方案</h2><ul><li>铰链重构：钛合金精密阻尼铰链（参照 Silhouette/Lindberg 无螺丝设计），稳定开合阻尼 + 10 万次寿命。铰链轴径缩至 1.2mm（传统 2–3mm），降低视觉厚重感。</li><li>磁吸升级：从「外露磁吸夹」改「隐藏式磁吸触点」——内嵌镜腿末端，近场感应自动吸附，完全不接触头发和皮肤。吸附力 200–400gf 可调。</li><li>材料升级：镜框主体从铝合金升 Mg-Li 镁锂合金（密度 1.35，比铝轻 30%）或碳纤维复合（密度 1.55，比强度更高）。目标整机 ≤45g（当前约 50–55g）。</li><li>热管理：引入均热板或石墨片散热，SoC 热量均匀分布到整个镜框而非局部热点。目标连续 2h 镜框表面温度 ≤38°C。</li></ul></div>
+  <div class="prd-block"><h2><span class="no">6</span>核心指标</h2><div class="metrics"><div class="metric"><div class="mk">北极星指标</div><div class="mv">日均佩戴时长 ≥ 4 小时（目标客群追踪）</div></div><div class="metric"><div class="mk">舒适度 NPS</div><div class="mv">佩戴舒适度维度 ≥ 40</div></div><div class="metric"><div class="mk">退货率</div><div class="mv">因佩戴不适退货率 ≤ 5%</div></div><div class="metric"><div class="mk">可靠性</div><div class="mv">铰链寿命 ≥ 10 万次；磁吸连接成功率 ≥ 99.5%</div></div><div class="metric"><div class="mk">重量</div><div class="mv">整机 ≤45g（含电池和所有组件）</div></div></div></div>
+  <div class="prd-block"><h2><span class="no">7</span>风险与对策</h2><table class="risk"><thead><tr><th>风险</th><th>概率</th><th>影响</th><th>对策</th></tr></thead><tbody><tr><td>新材料成本上升致售价过高</td><td>高</td><td>中</td><td>Mg-Li 比 Al 贵 40–60% 但用量小（镜框 15–20g），绝对成本增 ¥30–50，规模效应摊薄</td></tr><tr><td>轻量化与结构强度矛盾</td><td>中</td><td>高</td><td>CAE 仿真优化；关键受力部保留高强度材料；跌落标准从严（1.5m 六面）</td></tr><tr><td>铰链阻尼一致性（量产偏差）</td><td>中</td><td>低</td><td>精密制造管控（Cpk ≥ 1.33）；出厂 100% 阻尼手感检测</td></tr></tbody></table></div>
+  <div class="prd-block"><h2><span class="no">8</span>排期规划</h2><div class="timeline"><div class="tl-item"><div class="tl-phase">P0 材料选型与结构设计</div><div class="tl-dur">第 1–2 月</div><div class="tl-d">材料供应商锁定、铰链方案定型、ID 三轮迭代</div></div><div class="tl-item"><div class="tl-phase">P1 手板制作与人体验证</div><div class="tl-dur">第 3–4 月</div><div class="tl-d">3 轮手板、50 人佩戴测试、重量/强度/热数据</div></div><div class="tl-item"><div class="tl-phase">P2 工程验证与模具开发</div><div class="tl-dur">第 5–7 月</div><div class="tl-d">EVT/DVT 各 200 台、模具 T0-T2、认证测试</div></div><div class="tl-item"><div class="tl-phase">P3 量产爬坡</div><div class="tl-dur">第 8–12 月</div><div class="tl-d">新一代主机发布、月产 1 万台、全渠道铺货</div></div></div></div>
+  </section>
 
-  <!-- 目标用户 -->
-  <div class="prd-block">
-    <h2><span class="no">02</span>目标用户</h2>
-    <ul><li>SEG-01, SEG-03（全天佩戴用户）</li><li>在「全天办公/观影/步行导航中长时间佩戴，要求如普通眼镜般无感」场景中的核心用户</li></ul>
+  <section>
+    
+  <div class="gtm-section">
+    <h2><span class="gno">GTM</span>商业落地策略 · 市场与商业视角</h2>
+    <div class="gtm-pos">「轻到你忘记还戴着它」—— 把 AR 眼镜从「科技单品」重新定义为「日常穿戴」。</div>
+    <div class="gtm-sub">目标受众与洞察</div><div class="gtm-aud-wrap"><div class="gtm-aud"><div class="ga-group">核心受众：对重量敏感的用户</div><div class="ga-size">AR 眼镜潜在购买者中约 60% 表示「重量是首要考虑因素」</div><div class="ga-insight">这部分不是不需要 AR，而是被当前重量/舒适度劝退。</div></div><div class="gtm-aud"><div class="ga-group">女性用户群体</div><div class="ga-size">AR 眼镜购买人群中女性占比目前 &lt;20%，潜力巨大</div><div class="ga-insight">女性对舒适度和美观度要求显著高，是增量市场关键。</div></div><div class="gtm-aud"><div class="ga-group">近视人群</div><div class="ga-size">中国近视人口约 7 亿，潜在 AR 用户约 3000–5000 万</div><div class="ga-insight">需同时戴两副眼镜，对总重量和鼻梁压力极敏感。</div></div></div>
+    <div class="gtm-sub">渠道与打法</div><div class="gtm-ch-wrap"><div class="gtm-ch"><div class="gc-ch">线上：京东/天猫 + 小红书</div><div class="gc-t">产品页突出「比上一代轻 X 克」「全天无感」；小红书「素人 8h 佩戴实录」；直播「重量盲测对比」</div></div><div class="gtm-ch"><div class="gc-ch">线下：眼镜零售店联营</div><div class="gc-t">与传统眼镜店（宝岛/爱尔/连锁）设 AR 体验区；借专业验光/调整服务解决佩戴适配</div></div><div class="gtm-ch"><div class="gc-ch">时尚渠道</div><div class="gc-t">联名款（时尚品牌/设计师限定配色）；时尚杂志/穿搭博主评测；线下 Pop-up 快闪店</div></div></div>
+    <div class="gtm-sub">定价与变现</div><div class="gtm-pr-wrap"><div class="gtm-pr"><div class="gp-m">新一代轻量主机</div><div class="gp-p">¥4999 起（含轻量结构，比上代同配置 +¥500）</div></div><div class="gtm-pr"><div class="gp-m">时尚联名款</div><div class="gp-p">¥5499（限量配色 + 定制收纳盒）</div></div><div class="gtm-pr"><div class="gp-m">近视适配套装</div><div class="gp-p">主机 + 定制近视镜片 = ¥5299（镜片免费适配一次）</div></div></div>
+    <div class="gtm-sub">市场规模（TAM / SAM / SOM）</div>
+    <table class="risk"><thead><tr><th>层级</th><th>细分市场</th><th>规模</th><th>说明</th></tr></thead><tbody><tr><td>TAM</td><td>全球日常佩戴 AR 眼镜市场</td><td class="tam-num">$260 亿</td><td>2027 预估，面向日常佩戴场景</td></tr><tr><td>SAM</td><td>舒适佩戴/轻量化 AR 眼镜</td><td class="tam-num">$70 亿</td><td>以佩戴舒适度为核心选购因素的子集</td></tr><tr><td>SOM</td><td>雷鸟可获</td><td class="tam-num">$3.5 亿</td><td>假设雷鸟在轻量化细分取得领先</td></tr></tbody></table>
+    <div class="gtm-sub">落地节奏与 KPI</div><div class="ms-wrap"><div class="ms-item"><div class="ms-t">Q4</div><div class="ms-a">新一代轻量主机发布会 + 预售</div><div class="ms-k">KPI：预售量 ≥ 2000 台, 媒体曝光 ≥ 5000 万</div></div><div class="ms-item"><div class="ms-t">次年 Q1</div><div class="ms-a">时尚联名款首发 + 小红书种草</div><div class="ms-k">KPI：联名款首销售罄, 小红书笔记 ≥ 1000 篇</div></div><div class="ms-item"><div class="ms-t">次年 Q2</div><div class="ms-a">近视镜片适配计划全国推广</div><div class="ms-k">KPI：合作眼镜门店 ≥ 500 家, 近视适配率 ≥ 25%</div></div><div class="ms-item"><div class="ms-t">次年 Q3</div><div class="ms-a">二代进一步轻量化（&lt;40g）研发启动</div><div class="ms-k">KPI：新材料原型机交付</div></div></div>
   </div>
+  </section>
 
-  <!-- 使用场景 -->
-  <div class="prd-block">
-    <h2><span class="no">03</span>使用场景</h2>
-    <ul><li>全天办公/观影/步行导航中长时间佩戴，要求如普通眼镜般无感</li></ul>
-  </div>
-
-  <!-- 方案 -->
-  <div class="prd-block">
-    <h2><span class="no">04</span>产品方案</h2>
-    <ul><li>重构铰链与前后配重，把主体重量压到 60g 级并改善散热，提升全天佩戴舒适，避免夹头发磁吸结构；该工程对标 XREAL 已拼轻量化的竞品缺口（E007）</li></ul>
-  </div>
-
-  <!-- 指标 -->
-  <div class="prd-block">
-    <h2><span class="no">05</span>核心指标</h2>
-    <div class="metrics"><div class="metric"><div class="mk">北极星</div><div class="mv">目标客群渗透率 ≥ 5%（发布后 12 个月）</div></div><div class="metric"><div class="mk">留存</div><div class="mv">月活跃留存 ≥ 30%</div></div><div class="metric"><div class="mk">NPS</div><div class="mv">≥ 35</div></div></div>
-  </div>
-
-  <!-- 风险 -->
-  <div class="prd-block">
-    <h2><span class="no">06</span>风险与对策</h2>
-    <table class="risk"><thead><tr><th>风险项</th><th>概率</th><th>影响</th><th>对策</th></tr></thead><tbody><tr><td>工程可行性</td><td>中</td><td>中</td><td>先做软硬分离验证，再整机量产</td></tr><tr><td>供应链</td><td>中</td><td>高</td><td>关键器件双备份</td></tr><tr><td>竞品跟进</td><td>中</td><td>中</td><td>专利+快速迭代</td></tr></tbody></table>
-  </div>
-
-  <!-- 排期 -->
-  <div class="prd-block">
-    <h2><span class="no">07</span>排期</h2>
-    <ul><li>0-3 月：立项与可行性验证</li><li>3-6 月：原型开发与用户内测</li><li>6-12 月：量产与渠道铺货</li></ul>
-  </div>
-
-  <!-- 证据覆盖 -->
-  <div class="prd-block">
-    <h2><span class="no">08</span>证据覆盖</h2>
-    <div class="evcover">
-      <div class="lab">支撑证据（点击跳转证据链二级页查看详情）</div>
-      <div class="nums">E003 · E013 · E006 · E007</div>
-    </div>
-    <a class="backprd" href="evidence-user.html">查看 user 维度全量证据 →</a>
-  </div>
-
-  <div class="pill-nav">
-    <a href="prd-ID-001.html">长时无绳续航模组</a><a href="prd-ID-002.html">AI 第一视角拍摄 + 实时翻译</a><a href="prd-ID-005.html">波导电致变色防窥</a><a href="prd-ID-006.html">RayNeo VM 开放应用生态</a>
-    <a href="index.html">← 返回白皮书</a>
-  </div>
-</section>
-<footer class="footer wrap">
-  <p>数据来源：雷鸟创新 RayNeo 官方参数与产品资料、洛图科技 / Counterpoint / IDC 行业报告、什么值得买 / 观察者网 / 知乎 / 搜狐社区核验、XREAL / Rokid / Meta Ray-Ban 竞品公开动作。证据链 E001–E017 详见各卡片来源标注与独立 PRD 页。</p>
-  <p style="margin-top:10px">本白皮书为产品机会推导文档，供产品与战略决策参考，非产品发布页。</p>
-</footer>
+  <nav class="pill-nav">
+    <a href="prd-ID-002.html">查看 ID-002 需求文档 →</a><a href="prd-ID-001.html">查看 ID-001 需求文档 →</a><a href="prd-ID-006.html">查看 ID-006 需求文档 →</a><a href="prd-ID-005.html">查看 ID-005 需求文档 →</a>
+  </nav>
+</main>
+<footer class="footer"><div class="container"><p>雷鸟创新 RayNeo · AR 智能眼镜产品机会白皮书 · 需求文档由产品机会挖掘框架自动生成</p></div></footer>
 </body>
 </html>

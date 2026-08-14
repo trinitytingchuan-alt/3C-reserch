@@ -3,8 +3,9 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>波导电致变色防窥 · 需求文档 · 雷鸟创新 RayNeo · AR 智能眼镜产品机会白皮书</title>
+<title>电致变色 / 隐私智能镜片 · 需求文档 · 雷鸟创新 RayNeo · AR 智能眼镜产品机会白皮书</title>
 <style>
+
 :root{
   --paper:#FFFFFF; --surface:#F5F5F7; --surface-2:#FBFBFD;
   --ink:#1D1D1F; --ink-mid:#515154; --ink-lo:#86868B; --ink-faint:#A1A1A6;
@@ -49,6 +50,7 @@ p{color:var(--ink-mid)}
 .hero .meta .item .v{font-size:17px;font-weight:500;margin-top:4px;color:var(--ink)}
 .hero-figure{border-radius:var(--r-lg);overflow:hidden;background:var(--surface);aspect-ratio:4/4.6;box-shadow:var(--shadow);position:relative;display:flex;align-items:center;justify-content:center}
 .hero-figure svg{width:78%;height:78%}
+.hero-img{width:100%;height:100%;object-fit:cover;object-position:center 30%;display:block}
 .fw{margin-top:var(--s6);display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s3);align-items:stretch}
 .fw .cell{background:var(--surface);border:1px solid var(--line-soft);border-radius:var(--r-sm);padding:var(--s3);text-align:center}
 .fw .cell .ico{width:100%;aspect-ratio:16/9;border-radius:var(--r-xs);overflow:hidden;background:var(--paper);margin-bottom:12px;display:flex;align-items:center;justify-content:center}
@@ -105,13 +107,19 @@ p{color:var(--ink-mid)}
 .gtm-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--s5)}
 .gcard{background:var(--paper);border:1px solid var(--line-soft);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow);transition:transform .45s var(--ease),box-shadow .45s var(--ease),border-color .45s var(--ease);display:flex;flex-direction:column}
 .gcard:hover{transform:translateY(-6px);box-shadow:var(--shadow-hi);border-color:var(--signal-line)}
-.gcard .gfig{aspect-ratio:16/9;overflow:hidden;background:var(--surface);position:relative;display:flex;align-items:center;justify-content:center}
-.gcard .gfig svg{width:38%;height:38%}
-.gcard .gbody{padding:var(--s4);flex:1}
-.gcard .gbody .gtag{font-family:var(--font-mono);font-size:11px;color:var(--signal);letter-spacing:.06em}
-.gcard .gbody h3{font-size:19px;margin-top:7px;line-height:1.2}
+.gcard .gbody{padding:var(--s4) var(--s4) 0;flex:1}
+.gcard .gbody .gtag{font-family:var(--font-mono);font-size:11px;color:#C2811A;letter-spacing:.06em;font-weight:600}
+.gcard .gbody h3{font-size:20px;margin-top:7px;line-height:1.2}
 .gcard .gbody .glead{margin-top:9px;font-size:14.5px;color:var(--ink-mid);line-height:1.5}
-.gcard .gfoot{display:flex;justify-content:flex-end;align-items:center;padding:0 var(--s4) var(--s4)}
+.gcard .gbody .glead .gpersp{display:inline-block;font-family:var(--font-mono);font-size:10px;color:#fff;background:#C2811A;border-radius:4px;padding:2px 7px;margin-right:7px;vertical-align:middle;letter-spacing:.04em}
+.gcard .gbody .grow{display:grid;grid-template-columns:52px 1fr;gap:10px;margin-top:11px;align-items:start}
+.gcard .gbody .glab{font-family:var(--font-mono);font-size:11.5px;color:var(--ink-lo);padding-top:1px}
+.gcard .gbody .gtxt{font-size:13.5px;color:var(--ink-mid);line-height:1.5}
+.gcard .gbody .gch-wrap{display:flex;flex-wrap:wrap;gap:6px}
+.gcard .gbody .gch{font-size:12px;background:var(--surface-2);border:1px solid var(--line-soft);border-radius:999px;padding:3px 10px;color:var(--ink-mid);white-space:nowrap}
+.gcard .gbody .gscale .gtam{display:inline-block;font-size:12.5px;background:rgba(194,129,26,.08);border:1px solid rgba(194,129,26,.25);border-radius:8px;padding:4px 9px;margin:0 6px 6px 0;color:var(--ink)}
+.gcard .gbody .gscale .gtam b{color:#C2811A;font-family:var(--font-mono)}
+.gcard .gfoot{display:flex;justify-content:flex-end;align-items:center;padding:var(--s4)}
 /* —— 证据链一级维度卡（点击跳转二级页） —— */
 .dimnav{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--s4);margin-top:var(--s5)}
 .dimcard{display:flex;flex-direction:column;background:var(--paper);border:1px solid var(--line-soft);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow);transition:transform .45s var(--ease),box-shadow .45s var(--ease),border-color .45s var(--ease);text-decoration:none}
@@ -172,8 +180,7 @@ p{color:var(--ink-mid)}
   *{transition:none!important;animation:none!important}
   .reveal{opacity:1;transform:none}
 }
-</style>
-<style>
+
 .doc-hero{padding:64px 0 40px}
 .doc-hero .eyebrow{color:var(--signal)}
 .doc-hero h1{font-family:var(--font-display);font-size:clamp(30px,4.4vw,46px);font-weight:600;letter-spacing:-.02em;margin:14px 0 10px;color:var(--ink)}
@@ -183,7 +190,7 @@ p{color:var(--ink-mid)}
 .figure{margin:34px 0;background:linear-gradient(160deg,#10182A,#0B1120);border:1px solid rgba(139,184,238,.18);border-radius:var(--r-lg);padding:18px;box-shadow:0 20px 50px rgba(10,18,34,.35)}
 .figsvg{width:100%;height:auto;display:block;border-radius:12px}
 .figcap{margin-top:14px;font-size:12.5px;color:#9FB0CC;text-align:center;font-family:var(--font-mono);letter-spacing:.02em}
-.nav-back{display:inline-flex;align-items:center;gap:7px;font-size:14px;font-weight:600;color:var(--signal);background:rgba(11,124,242,.10);border:1px solid var(--signal-line);padding:8px 16px;border-radius:999px;transition:background .25s,border-color .25s}
+.nav-back{display:inline-flex;align-items:center;gap:7px;font-size:14px;font-weight:600;color:var(--signal);background:rgba(11,124,242,.10);border:1px solid var(--signal-line);padding:8px 16px;border-radius:999px;transition:.25s}
 .nav-back:hover{background:rgba(11,124,242,.18);border-color:var(--signal)}
 .nav-back .bk{font-size:16px;line-height:1}
 .prd-block{background:var(--paper);border:1px solid var(--line-soft);border-radius:var(--r-lg);padding:30px 34px;margin:22px 0;box-shadow:var(--shadow)}
@@ -191,19 +198,64 @@ p{color:var(--ink-mid)}
 .prd-block h2 .no{font-family:var(--font-mono);font-size:14px;color:var(--signal);background:rgba(11,124,242,.1);border:1px solid var(--signal-line);border-radius:8px;padding:3px 10px}
 .prd-block ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:11px}
 .prd-block li{font-size:15.5px;color:var(--ink-mid);line-height:1.65}
+.prd-block li strong{color:var(--ink)}
 .prd-block .decision{font-size:16px;line-height:1.7;color:var(--ink);background:var(--surface-2);border-left:4px solid var(--signal);padding:16px 20px;border-radius:0 10px 10px 0}
-.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.metrics{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px}
 .metric{background:var(--surface-2);border:1px solid var(--line-soft);border-radius:12px;padding:18px}
 .metric .mk{font-size:12.5px;color:var(--ink-lo);font-family:var(--font-mono);margin-bottom:8px}
 .metric .mv{font-size:15px;color:var(--ink);font-weight:600;line-height:1.45}
-table.risk{width:100%;border-collapse:collapse;font-size:14px}
+table.risk{width:100%;border-collapse:collapse;font-size:14px;margin-top:6px}
 table.risk th,table.risk td{border:1px solid var(--line-soft);padding:11px 14px;text-align:left}
 table.risk th{background:var(--surface-2);color:var(--ink);font-weight:600;font-family:var(--font-mono);font-size:12.5px}
 table.risk td{color:var(--ink-mid)}
-.evcover{background:rgba(11,124,242,.06);border:1px solid var(--signal-line);border-radius:12px;padding:18px 22px;margin-top:8px}
-.evcover .lab{font-family:var(--font-mono);font-size:12px;color:var(--signal);margin-bottom:8px}
-.evcover .nums{font-size:16px;color:var(--ink);font-weight:600;letter-spacing:.04em}
-.backprd{display:inline-flex;align-items:center;gap:7px;margin-top:30px;font-weight:600;color:var(--signal);text-decoration:none;font-size:15px}
+.timeline{display:flex;flex-direction:column;gap:12px;margin-top:6px}
+.tl-item{display:grid;grid-template-columns:1.3fr .8fr 2fr;gap:14px;align-items:start;padding:14px 18px;background:var(--surface-2);border:1px solid var(--line-soft);border-radius:12px}
+.tl-phase{font-weight:600;color:var(--ink)}
+.tl-dur{font-family:var(--font-mono);font-size:13px;color:var(--signal)}
+.tl-d{font-size:14px;color:var(--ink-mid)}
+.sc-item{background:var(--surface-2);border:1px solid var(--line-soft);border-radius:12px;padding:18px 20px;margin-bottom:14px}
+.sc-name{font-weight:600;font-size:16px;color:var(--ink);margin-bottom:12px}
+.sc-row{display:grid;grid-template-columns:90px 1fr;gap:12px;margin-bottom:8px;align-items:start}
+.sc-lab{font-family:var(--font-mono);font-size:12px;color:var(--ink-lo);padding-top:2px}
+.sc-lab.pain{color:#D6655A}.sc-lab.good{color:#28AA6E}
+.sc-val{font-size:14.5px;color:var(--ink-mid);line-height:1.6}
+.vl-section{background:linear-gradient(135deg,#f8fafc,#f0f4f8);border:1px solid var(--line-soft);border-radius:var(--r-lg);padding:32px 36px;margin:24px 0}
+.vl-section > .vl-title{font-family:var(--font-display);font-size:25px;font-weight:600;color:var(--ink);margin:0 0 8px;display:flex;align-items:center;gap:12px}
+.vl-section > .vl-title .vno{font-family:var(--font-mono);font-size:14px;color:#fff;background:var(--signal);border-radius:8px;padding:4px 11px}
+.vl-section > .vl-desc{font-size:14.5px;color:var(--ink-mid);margin:0 0 22px;line-height:1.6}
+.vl-step{margin-bottom:26px;padding-bottom:22px;border-bottom:1px solid var(--line-soft)}
+.vl-step:last-child{margin-bottom:0;padding-bottom:0;border-bottom:none}
+.vl-step .stitle{font-family:var(--font-display);font-size:18px;font-weight:600;color:var(--ink);margin-bottom:10px;display:flex;align-items:center;gap:10px}
+.vl-step .stitle .snum{font-family:var(--font-mono);font-size:12px;background:var(--signal);color:#fff;width:24px;height:24px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
+.vl-step .sclaim{font-size:15.5px;color:var(--ink);line-height:1.65;margin-bottom:12px;padding-left:34px}
+.vl-evlist{margin:0 0 0 34px;padding:0;list-style:none;display:flex;flex-direction:column;gap:8px}
+.vl-evlist li{font-size:14px;color:var(--ink-mid);line-height:1.55;display:flex;gap:8px;align-items:flex-start}
+.vl-evlist li .evtag{font-family:var(--font-mono);font-size:11.5px;color:#fff;background:var(--signal);padding:2px 8px;border-radius:4px;flex-shrink:0;height:fit-content}
+.vl-evlist li .evref{font-family:var(--font-mono);font-size:11.5px;color:var(--ink-lo);flex-shrink:0;height:fit-content}
+.vl-conclusion{font-size:14.5px;color:var(--ink);line-height:1.6;background:var(--paper);border-left:3px solid #28AA6E;padding:12px 16px;margin:8px 0 0 34px;border-radius:0 8px 8px 0}
+.gtm-section{background:var(--paper);border:1px solid var(--line-soft);border-radius:var(--r-lg);padding:32px 36px;margin:24px 0;box-shadow:var(--shadow)}
+.gtm-section h2{font-family:var(--font-display);font-size:23px;font-weight:600;color:var(--ink);margin:0 0 16px;display:flex;align-items:center;gap:12px}
+.gtm-section h2 .gno{font-family:var(--font-mono);font-size:14px;color:#D69614;background:rgba(214,150,20,.10);border:1px solid rgba(214,150,20,.3);border-radius:8px;padding:3px 10px}
+.gtm-pos{font-size:16px;line-height:1.65;color:var(--ink);background:rgba(214,150,20,.06);border-left:4px solid #D69614;padding:16px 20px;border-radius:0 10px 10px 0;margin-bottom:8px}
+.gtm-sub{font-size:16px;font-weight:600;color:var(--ink);margin:22px 0 12px}
+.gtm-aud-wrap{display:flex;flex-direction:column;gap:12px}
+.gtm-aud{background:var(--surface-2);border:1px solid var(--line-soft);border-radius:12px;padding:16px 20px}
+.ga-group{font-weight:600;color:var(--ink);font-size:15.5px}
+.ga-size{font-family:var(--font-mono);font-size:13px;color:var(--signal);margin:5px 0}
+.ga-insight{font-size:14px;color:var(--ink-mid);line-height:1.55}
+.gtm-ch-wrap,.gtm-pr-wrap{display:flex;flex-direction:column;gap:10px}
+.gtm-ch{display:grid;grid-template-columns:1.2fr 2fr;gap:14px;background:var(--surface-2);border:1px solid var(--line-soft);border-radius:12px;padding:14px 18px}
+.gc-ch{font-weight:600;color:var(--ink)}
+.gc-t{font-size:14px;color:var(--ink-mid);line-height:1.55}
+.gtm-pr{display:grid;grid-template-columns:1.2fr 2fr;gap:14px;background:var(--surface-2);border:1px solid var(--line-soft);border-radius:12px;padding:14px 18px}
+.gp-m{font-weight:600;color:var(--ink)}
+.gp-p{font-size:14px;color:var(--ink-mid);line-height:1.55}
+table.risk .tam-num{font-family:var(--font-mono);font-weight:600;color:var(--ink)}
+.ms-wrap{display:flex;flex-direction:column;gap:12px}
+.ms-item{display:grid;grid-template-columns:70px 1fr;gap:14px;background:var(--surface-2);border:1px solid var(--line-soft);border-radius:12px;padding:14px 18px}
+.ms-t{font-family:var(--font-mono);font-weight:600;color:#D69614}
+.ms-a{font-size:14.5px;color:var(--ink)}
+.ms-k{font-size:13px;color:var(--ink-lo);margin-top:4px}
 .pill-nav{display:flex;gap:9px;flex-wrap:wrap;margin:34px 0 0;padding-top:22px;border-top:1px solid var(--line-soft)}
 .pill-nav a{font-size:13px;padding:7px 14px;border-radius:999px;border:1px solid var(--line-soft);background:var(--paper);color:var(--ink-mid);text-decoration:none;transition:.25s}
 .pill-nav a:hover{border-color:var(--signal);color:var(--signal)}
@@ -213,116 +265,59 @@ table.risk td{color:var(--ink-mid)}
 <nav class="nav" id="nav">
   <div class="nav-inner">
     <div class="brand"><span class="dot"></span>雷鸟 RayNeo · 产品机会白皮书</div>
-    <div class="nav-links"><a class="nav-back" href="index.html"><span class="bk">←</span> 返回白皮书</a></div>
+    <div class="nav-links"><a class="nav-back" href="index.html"><span class="bk">&larr;</span> 返回白皮书</a></div>
   </div>
 </nav>
-<header class="hero doc-hero">
-  <div class="wrap">
-    <span class="eyebrow">PRD · 产品需求文档 · ID-005</span>
-    <h1>波导电致变色防窥</h1>
+<main class="container">
+  <section class="doc-hero">
+    <div class="eyebrow">TOP5 产品需求 · 需求文档</div>
+    <h1>电致变色 / 隐私智能镜片</h1>
     <div class="tagrow">
-      <span class="doc-tag">光学 · 隐私</span>
-      <span class="doc-tag">一级维度：competitor</span>
-      <span class="doc-tag score">综合分 90.3 / 100</span>
+      <span class="doc-tag">硬件 · 光学</span>
+      <span class="doc-tag score">综合分 90.3</span>
+      <span class="doc-tag">需求编号 ID-005</span>
     </div>
-  </div>
-</header>
-<section class="section wrap">
-  <!-- 主实物图 -->
-  <div class="figure">
-    <svg viewBox="0 0 480 280" xmlns="http://www.w3.org/2000/svg" class="figsvg">
-    <defs>
-      <linearGradient id="bg5" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#13263F"/><stop offset="1" stop-color="#0A1322"/></linearGradient>
-      <linearGradient id="lit" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#BFE0FF"/><stop offset="1" stop-color="#7FB4EF"/></linearGradient>
-      <linearGradient id="dark" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2A3550"/><stop offset="1" stop-color="#161E30"/></linearGradient>
-    </defs>
-    <rect width="480" height="280" rx="18" fill="url(#bg5)"/>
-    <ellipse cx="240" cy="250" rx="150" ry="14" fill="#000" opacity="0.3"/>
-    <!-- 左：户外强光（亮镜片） -->
-    <g>
-      <rect x="70" y="86" width="120" height="56" rx="18" fill="url(#lit)" stroke="#9FC8F5" stroke-width="1.5"/>
-      <circle cx="130" cy="114" r="13" fill="#FFE08A" opacity="0.85"/>
-      <text x="130" y="170" text-anchor="middle" font-family="monospace" font-size="11.5" fill="#AEBED8">户外强光 · 通透可读</text>
-    </g>
-    <!-- 右：室内防窥（暗镜片） -->
-    <g>
-      <rect x="290" y="86" width="120" height="56" rx="18" fill="url(#dark)" stroke="#5A6B85" stroke-width="1.5"/>
-      <circle cx="350" cy="114" r="13" fill="#0B7CF2" opacity="0.5"/>
-      <text x="350" y="170" text-anchor="middle" font-family="monospace" font-size="11.5" fill="#AEBED8">室内防窥 · 一键变暗</text>
-    </g>
-    <!-- 电致变色切换 -->
-    <g stroke="#5BA8FF" stroke-width="3" stroke-linecap="round"><path d="M200 114 h80"/><path d="M268 104 l16 10 -16 10"/></g>
-    <text x="240" y="262" text-anchor="middle" font-family="monospace" font-size="12.5" fill="#AEBED8" letter-spacing="1">波导电致变色 · 透光率可调 + 防窥</text>
-  </svg>
-    <div class="figcap">图 1 · 波导电致变色防窥功能示意（自绘实物线稿）</div>
-  </div>
+  </section>
+  <div class="figure"><svg viewBox="0 0 480 280" class="figsvg"><defs><linearGradient id="bg5" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#161E2E"/><stop offset="1" stop-color="#0B1018"/></linearGradient><linearGradient id="ecd" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1A2D4A"/><stop offset="1" stop-color="#0A1628"/></linearGradient><linearGradient id="ecl" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3A5A7A"/><stop offset="1" stop-color="#1A3050"/></linearGradient><radialGradient id="sun" cx="50%" cy="30%"><stop offset="0" stop-color="#F5A623" stop-opacity="0.3"/><stop offset="1" stop-color="#F5A623" stop-opacity="0"/></radialGradient></defs><rect width="480" height="280" rx="18" fill="url(#bg5)"/><ellipse cx="380" cy="60" rx="80" ry="60" fill="url(#sun)"/><ellipse cx="240" cy="255" rx="140" ry="12" fill="#000" opacity="0.3"/><g><rect x="144" y="86" width="78" height="52" rx="16" fill="url(#ecd)" stroke="#0B7CF2" stroke-width="1.5"/><rect x="258" y="86" width="78" height="52" rx="16" fill="url(#ecl)" stroke="#5A82A8" stroke-width="1.5" stroke-dasharray="3 2"/><path d="M222 110 h36" stroke="#6A9BD0" stroke-width="3.5" stroke-linecap="round"/></g><g transform="translate(130,158)"><rect x="0" y="0" width="220" height="64" rx="12" fill="#0B1120" stroke="#0B7CF2" stroke-width="1"/><rect x="12" y="12" width="60" height="18" rx="6" fill="#0B7CF2" opacity="0.15"/><rect x="12" y="38" width="196" height="6" rx="3" fill="#fff" opacity="0.06"/><text x="110" y="56" text-anchor="middle" font-family="monospace" font-size="10" fill="#5BA8FF">透光率 12% · 户外强光模式</text></g><text x="240" y="266" text-anchor="middle" font-family="monospace" font-size="12.5" fill="#AEBED8" letter-spacing="1">电致变色智能镜片 · 一键变暗+防窥</text></svg><div class="figcap">电致变色 / 隐私智能镜片 · 产品形态示意</div></div>
 
-  <!-- 决策结论 -->
-  <div class="prd-block">
-    <h2><span class="no">00</span>立项决策</h2>
-    <div class="decision">【建议立项】AR 光学升级是增长主线（E003/E014），户外/出行场景增长（E013）放大波导可读性需求。综合分 90.3/100。</div>
-  </div>
+  <section class="vl-section">
+    <div class="vl-title"><span class="vno">V</span>需求验证逻辑</div>
+    <p class="vl-desc">为什么这个需求成立？下列四个维度交叉验证，每一环均有可追溯证据支撑，形成完整逻辑闭环。</p>
+    <div class="vl-step"><div class="stitle"><span class="snum">1</span>竞品验证</div><div class="sclaim">XREAL One Pro 已搭载自研电致变色并被市场接受，雷鸟在该能力上落后。</div><ul class="vl-evlist"><li><span class="evref">竞品数据</span><span>XREAL One Pro 自研 X1 芯片 + 电致变色，雷鸟相对滞后</span></li></ul><div class="vl-conclusion">竞品已验证电致变色产品可行性，雷鸟属「补齐短板」而非「冒险创新」。</div></div><div class="vl-step"><div class="stitle"><span class="snum">2</span>用户痛点验证</div><div class="sclaim">户外强光下 AR 眼镜可读性差，室内公共场合屏幕内容易被旁人窥见。</div><ul class="vl-evlist"><li><span class="evref">用户评测</span><span>观察者网评测：Air 3 性价比下画质/亮度局限，可读性短板</span></li></ul><div class="vl-conclusion">光学可读性是双刃剑——太亮刺眼、太暗看不清、太透明泄露隐私。电致变色是动态调节最优解。</div></div><div class="vl-step"><div class="stitle"><span class="snum">3</span>场景频次分析</div><div class="sclaim">户外（强光）+ 公共场合（隐私）是 AR 眼镜的高频使用场景组合。</div><ul class="vl-evlist"><li><span class="evref">场景分析</span><span>AR 核心使用场景中约 40% 涉及户外或半户外环境（场景分析）</span></li></ul><div class="vl-conclusion">电致变色不是低频炫技，而是覆盖近半使用场景的基础能力。</div></div>
+  </section>
 
-  <!-- 背景 -->
-  <div class="prd-block">
-    <h2><span class="no">01</span>背景与问题</h2>
-    <ul><li>X3 Pro 全彩波导户外强光下可读性受限且无一键变暗/防窥；竞品 XREAL 已做电致变色（E007），雷鸟缺位</li><li>XREAL One Pro 已用电致变色（E007）且被接受，雷鸟光学可读性短板与一键变暗缺口明确</li><li>AR 光学升级是增长主线（E003/E014），户外/出行场景增长（E013）放大波导可读性需求</li></ul>
-  </div>
+  <section>
+    <div class="vl-title" style="font-family:var(--font-display);font-size:25px;font-weight:600;color:var(--ink);margin:34px 0 4px;display:flex;align-items:center;gap:12px"><span class="vno" style="font-family:var(--font-mono);font-size:14px;color:#fff;background:var(--signal);border-radius:8px;padding:4px 11px">PRD</span>产品需求文档</div>
+    <p style="font-size:14.5px;color:var(--ink-mid);margin:0 0 8px;line-height:1.6"><strong>视角：产品岗</strong> —— 回答「做什么、为什么做、怎么做、做到什么程度」。</p>
+    
+  <div class="prd-block"><h2><span class="no">1</span>立项决策</h2><div class="decision">【建议立项】XREAL One Pro 已验证电致变色产品可行性；用户在户外强可读性和公共场合隐私防窥方面存在明确痛点；该能力覆盖近半使用场景。综合分 90.3/100。</div></div>
+  <div class="prd-block"><h2><span class="no">2</span>项目背景</h2><ul><li>AR 眼镜光学系统面临固有矛盾：亮环境看清屏幕需高亮度；暗环境高亮度又刺眼；公共场合高亮度意味着旁边人也能看到你在看什么。传统固定色调（墨镜模式）只能在「亮/暗」二选一，无法应对复杂光线和隐私环境。</li><li>电致变色（Electrochromic）提供优雅解法：对镜片施加不同电压，透光率在 5%–65% 连续可调。用户可按环境光线一键调节，或设自动模式由光线传感器控制。</li><li>XREAL One Pro 是行业首个在消费级 AR 眼镜搭载电致变色的产品。其自研 X1 芯片集成变色控制逻辑，用户反馈积极。这证明：(1)技术达消费级成熟度;(2)用户认可价值;(3)成本可控。</li><li>观察者网等评测也指出雷鸟 Air 3 可读性局限：户外强光下内容偏淡、对比度不足；地铁/咖啡厅镜片反射让旁人隐约看到内容。这些电致变色可直接解决。</li></ul></div>
+  <div class="prd-block"><h2><span class="no">3</span>目标用户</h2><ul><li><strong>户外活动爱好者</strong> —— 驾驶、骑行、徒步、滑雪等户外场景，对强光适应性有刚需。</li><li><strong>通勤族</strong> —— 每日往返室内外（办公室↔地铁↔户外），频繁经历光线变化。</li><li><strong>隐私敏感用户</strong> —— 公共场合用眼镜处理敏感信息（邮件/消息/文档）的用户。</li><li><strong>驾驶人群</strong> —— 开车时用 AR 导航/信息显示，需应对隧道出入口光线剧变。</li></ul></div>
+  <div class="prd-block"><h2><span class="no">4</span>使用场景</h2><div class="sc-item"><div class="sc-name">周末户外 Citywalk</div><div class="sc-row"><span class="sc-lab">流程</span><span class="sc-val">晴天户外步行 → 镜片自动变深（透光~15%）→ 进咖啡馆渐变浅（~50%）→ 看屏清晰 → 出店回阳光下再次变深</span></div><div class="sc-row"><span class="sc-lab pain">现状痛点</span><span class="sc-val">户外看不清（透光太高）；进屋太亮刺眼（透光太低）</span></div><div class="sc-row"><span class="sc-lab good">需求价值</span><span class="sc-val">全场景自适应，无需手动换镜片或调亮度</span></div></div><div class="sc-item"><div class="sc-name">地铁上处理工作</div><div class="sc-row"><span class="sc-lab">流程</span><span class="sc-val">车厢查工作邮件/IM → 启动隐私模式（镜片外侧全不透） → 旁边乘客看不到 → 到站走出 → 镜片恢复</span></div><div class="sc-row"><span class="sc-lab pain">现状痛点</span><span class="sc-val">担心旁人看到敏感内容；用手遮挡不自然</span></div><div class="sc-row"><span class="sc-lab good">需求价值</span><span class="sc-val">一键隐私保护，从容在公共场合使用</span></div></div></div>
+  <div class="prd-block"><h2><span class="no">5</span>产品方案</h2><ul><li>电致变色镜片模组：固态电致变色材料（非液体，免泄漏），集成在镜片基底与 AR 显示层之间。透光率 5%–65%，响应 &lt;1.5s，循环寿命 &gt;50 万次。</li><li>三种模式：(1)自动——光线传感器 + AI 场景识别自动调节;(2)手动——触控框/语音/App 三档（浅/中/深）;(3)隐私——手动触发，外侧完全不透明（透光 &lt;3%），内侧正常显示。</li><li>与 X3 Pro 集成：作为下一代镜片选配（标准固定 + 升级电致变色 +¥599），或下一代全系标配（视降本进度）。</li><li>功耗控制：仅切换状态耗功率（~50mW×1.5s），稳态近零。对整机续航影响 &lt;2%。</li></ul></div>
+  <div class="prd-block"><h2><span class="no">6</span>核心指标</h2><div class="metrics"><div class="metric"><div class="mk">北极星指标</div><div class="mv">电致变色日均触发率 ≥ 40%（主动或自动）</div></div><div class="metric"><div class="mk">户外可读性</div><div class="mv">户外强光(&gt;80klux)下屏幕可读性评分 ≥ 4.5/5</div></div><div class="metric"><div class="mk">隐私满意度</div><div class="mv">隐私模式使用率 ≥ 25%（公共场合用户）</div></div><div class="metric"><div class="mk">选配升级率</div><div class="mv">若作选配，升级购买率 ≥ 35%</div></div><div class="metric"><div class="mk">可靠性</div><div class="mv">响应 &lt;1.5s；循环 &gt;50 万次；故障率 &lt;1%</div></div></div></div>
+  <div class="prd-block"><h2><span class="no">7</span>风险与对策</h2><table class="risk"><thead><tr><th>风险</th><th>概率</th><th>影响</th><th>对策</th></tr></thead><tbody><tr><td>电致变色镜片成本过高（单价可能普通 5–8 倍）</td><td>高</td><td>高</td><td>作选配升级（+¥599）非全系标配，降门槛；规模效应降本（量产后降 40–50%）</td></tr><tr><td>响应不够快（进出隧道光变快于变色）</td><td>低</td><td>中</td><td>LCD 亮度联动补偿；GPS 检测接近隧道提前变色</td></tr><tr><td>用户感知价值不足</td><td>中</td><td>高</td><td>开箱引导窗边/室内切换体验；UI 价值可视化「今日为您节省 X 次手动调节」</td></tr></tbody></table></div>
+  <div class="prd-block"><h2><span class="no">8</span>排期规划</h2><div class="timeline"><div class="tl-item"><div class="tl-phase">P0 镜片模组选型与样品</div><div class="tl-dur">第 1–2 月</div><div class="tl-d">供应商筛选（2–3 家）、样品参数测试、成本核算</div></div><div class="tl-item"><div class="tl-phase">P1 集成设计与工程验证</div><div class="tl-dur">第 3–4 月</div><div class="tl-d">镜框集成设计、EVT 50 台、环境可靠性测试</div></div><div class="tl-item"><div class="tl-phase">P2 用户体验优化与 DVT</div><div class="tl-dur">第 5 月</div><div class="tl-d">三档模式 UI、自动算法调优、DVT 200 台</div></div><div class="tl-item"><div class="tl-phase">P3 上市</div><div class="tl-dur">第 6–8 月</div><div class="tl-d">量产镜片到位、选配 SKU、户外场景 Campaign</div></div></div></div>
+  </section>
 
-  <!-- 目标用户 -->
-  <div class="prd-block">
-    <h2><span class="no">02</span>目标用户</h2>
-    <ul><li>SEG-01, SEG-04（户外/通勤/商务用户）</li><li>在「室内外切换/公共场合防窥看私信与导航，户外强光下要可读」场景中的核心用户</li></ul>
+  <section>
+    
+  <div class="gtm-section">
+    <h2><span class="gno">GTM</span>商业落地策略 · 市场与商业视角</h2>
+    <div class="gtm-pos">「一副眼镜适应所有光线」—— 从「特定光线才能用」升级到「随时随地舒服地用」。</div>
+    <div class="gtm-sub">目标受众与洞察</div><div class="gtm-aud-wrap"><div class="gtm-aud"><div class="ga-group">核心受众：户外+通勤复合场景用户</div><div class="ga-size">AR 用户中约 60% 有户外/半户外需求</div><div class="ga-insight">对「户外看不清屏幕」抱怨最多，最易转化升级购买。</div></div><div class="gtm-aud"><div class="ga-group">驾驶人群</div><div class="ga-size">中国驾驶人约 5 亿，AR 导航潜在 500–1000 万</div><div class="ga-insight">驾驶对光线适应性要求极高（隧道/车库/夜间会车），电致变色刚需。</div></div><div class="gtm-aud"><div class="ga-group">隐私敏感人群（商务/金融/法律）</div><div class="ga-size">职业人群中注重信息隐私约 30–40%</div><div class="ga-insight">「隐私模式」是强情感驱动力购买理由。</div></div></div>
+    <div class="gtm-sub">渠道与打法</div><div class="gtm-ch-wrap"><div class="gtm-ch"><div class="gc-ch">官网 + 京东</div><div class="gc-t">对比页：固定 vs 电致变色实拍（户外/室内/隐私三场景）；评价置顶「换了变色镜片体验完全不同」</div></div><div class="gtm-ch"><div class="gc-ch">汽车后市场合作</div><div class="gc-t">与汽车用品电商/4S 店「智能驾驶伴侣」套餐（AR 眼镜+变色镜片+车载支架）；车友会评测</div></div><div class="gtm-ch"><div class="gc-ch">户外社群</div><div class="gc-t">与户外品牌跨界联名；户外装备评测媒体深度评测；徒步/骑行 KOC 种草</div></div></div>
+    <div class="gtm-sub">定价与变现</div><div class="gtm-pr-wrap"><div class="gtm-pr"><div class="gp-m">标准版（固定透光率镜片）</div><div class="gp-p">含在主机售价中不额外收费</div></div><div class="gtm-pr"><div class="gp-m">升级版（电致变色镜片）</div><div class="gp-p">+¥599 选配</div></div><div class="gtm-pr"><div class="gp-m">隐私版（电致变色 + 增强防窥涂层）</div><div class="gp-p">+¥799</div></div></div>
+    <div class="gtm-sub">市场规模（TAM / SAM / SOM）</div>
+    <table class="risk"><thead><tr><th>层级</th><th>细分市场</th><th>规模</th><th>说明</th></tr></thead><tbody><tr><td>TAM</td><td>全球智能镜片市场</td><td class="tam-num">$36 亿</td><td>含电致变色/偏光/防蓝光等</td></tr><tr><td>SAM</td><td>电致变色镜片（AR/智能眼镜用）</td><td class="tam-num">$9 亿</td><td>功能性镜片中电致变色细分</td></tr><tr><td>SOM</td><td>雷鸟可获</td><td class="tam-num">$0.8 亿</td><td>假设雷鸟在电致变色 AR 镜片细分领先</td></tr></tbody></table>
+    <div class="gtm-sub">落地节奏与 KPI</div><div class="ms-wrap"><div class="ms-item"><div class="ms-t">Q3</div><div class="ms-a">镜片模组量产 + 选配 SKU 上架</div><div class="ms-k">KPI：升级购买率 ≥ 25%, 电致变色 SKU 占总销量 ≥ 20%</div></div><div class="ms-item"><div class="ms-t">Q4</div><div class="ms-a">户外 Campaign + 驾驶场景合作</div><div class="ms-k">KPI：户外用户 NPS ≥ 40, 汽车渠道销量 ≥ 500 件</div></div><div class="ms-item"><div class="ms-t">次年 Q1</div><div class="ms-a">隐私版上市 + 商务渠道推广</div><div class="ms-k">KPI：隐私版购买率 ≥ 15%, 商务用户占比提至 20%</div></div><div class="ms-item"><div class="ms-t">次年 Q2</div><div class="ms-a">全系标配评估（成本降至可接受）</div><div class="ms-k">KPI：单镜片成本降至 &lt;$15</div></div></div>
   </div>
+  </section>
 
-  <!-- 使用场景 -->
-  <div class="prd-block">
-    <h2><span class="no">03</span>使用场景</h2>
-    <ul><li>室内外切换/公共场合防窥看私信与导航，户外强光下要可读</li></ul>
-  </div>
-
-  <!-- 方案 -->
-  <div class="prd-block">
-    <h2><span class="no">04</span>产品方案</h2>
-    <ul><li>在波导模组集成电致变色层，一键调节透光率并防窥，补齐光学隐私短板，户外可读室内防窥；该方案填补 XREAL 已验证但雷鸟缺位的竞品缺口（E007）</li></ul>
-  </div>
-
-  <!-- 指标 -->
-  <div class="prd-block">
-    <h2><span class="no">05</span>核心指标</h2>
-    <div class="metrics"><div class="metric"><div class="mk">北极星</div><div class="mv">目标客群渗透率 ≥ 5%（发布后 12 个月）</div></div><div class="metric"><div class="mk">留存</div><div class="mv">月活跃留存 ≥ 30%</div></div><div class="metric"><div class="mk">NPS</div><div class="mv">≥ 35</div></div></div>
-  </div>
-
-  <!-- 风险 -->
-  <div class="prd-block">
-    <h2><span class="no">06</span>风险与对策</h2>
-    <table class="risk"><thead><tr><th>风险项</th><th>概率</th><th>影响</th><th>对策</th></tr></thead><tbody><tr><td>工程可行性</td><td>中</td><td>中</td><td>先做软硬分离验证，再整机量产</td></tr><tr><td>供应链</td><td>中</td><td>高</td><td>关键器件双备份</td></tr><tr><td>竞品跟进</td><td>中</td><td>中</td><td>专利+快速迭代</td></tr></tbody></table>
-  </div>
-
-  <!-- 排期 -->
-  <div class="prd-block">
-    <h2><span class="no">07</span>排期</h2>
-    <ul><li>0-3 月：立项与可行性验证</li><li>3-6 月：原型开发与用户内测</li><li>6-12 月：量产与渠道铺货</li></ul>
-  </div>
-
-  <!-- 证据覆盖 -->
-  <div class="prd-block">
-    <h2><span class="no">08</span>证据覆盖</h2>
-    <div class="evcover">
-      <div class="lab">支撑证据（点击跳转证据链二级页查看详情）</div>
-      <div class="nums">E003 · E014 · E013 · E007</div>
-    </div>
-    <a class="backprd" href="evidence-competitor.html">查看 competitor 维度全量证据 →</a>
-  </div>
-
-  <div class="pill-nav">
-    <a href="prd-ID-001.html">长时无绳续航模组</a><a href="prd-ID-002.html">AI 第一视角拍摄 + 实时翻译</a><a href="prd-ID-003.html">轻量化全天佩戴</a><a href="prd-ID-006.html">RayNeo VM 开放应用生态</a>
-    <a href="index.html">← 返回白皮书</a>
-  </div>
-</section>
-<footer class="footer wrap">
-  <p>数据来源：雷鸟创新 RayNeo 官方参数与产品资料、洛图科技 / Counterpoint / IDC 行业报告、什么值得买 / 观察者网 / 知乎 / 搜狐社区核验、XREAL / Rokid / Meta Ray-Ban 竞品公开动作。证据链 E001–E017 详见各卡片来源标注与独立 PRD 页。</p>
-  <p style="margin-top:10px">本白皮书为产品机会推导文档，供产品与战略决策参考，非产品发布页。</p>
-</footer>
+  <nav class="pill-nav">
+    <a href="prd-ID-002.html">查看 ID-002 需求文档 →</a><a href="prd-ID-001.html">查看 ID-001 需求文档 →</a><a href="prd-ID-006.html">查看 ID-006 需求文档 →</a><a href="prd-ID-003.html">查看 ID-003 需求文档 →</a>
+  </nav>
+</main>
+<footer class="footer"><div class="container"><p>雷鸟创新 RayNeo · AR 智能眼镜产品机会白皮书 · 需求文档由产品机会挖掘框架自动生成</p></div></footer>
 </body>
 </html>
