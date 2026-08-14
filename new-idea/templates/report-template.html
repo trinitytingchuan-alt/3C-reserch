@@ -1037,6 +1037,21 @@ main { position: relative; z-index: 1; }
 .modal-gtm .g-cell { padding: var(--space-3); border-radius: var(--r-md); border: 1px solid var(--line); background: rgba(16,24,38,0.5); }
 .modal-gtm .g-cell .gk { font-size: 11px; color: var(--text-lo); margin-bottom: var(--space-1); font-family: var(--font-mono); }
 .modal-gtm .g-cell .gv { font-size: 12.5px; color: var(--text-mid); }
+/* GTM 大厂级策略详情 */
+.modal-block .mb-sub { font-size: 12px; color: var(--text-lo); margin-bottom: var(--space-3); font-family: var(--font-mono); }
+.gtm-sec { margin-top: var(--space-3); padding: var(--space-3); border-radius: var(--r-md); border: 1px solid var(--line); background: rgba(16,24,38,0.4); }
+.gtm-sec-head { font-family: var(--font-mono); font-size: 11.5px; color: var(--amber); letter-spacing: 1px; margin-bottom: var(--space-2); }
+.gtm-sec-body { font-size: 13px; color: var(--text-mid); line-height: 1.75; }
+.gtm-row { display: flex; gap: var(--space-2); padding: 4px 0; border-top: 1px dashed var(--line); font-size: 12.5px; }
+.gtm-row:first-of-type { border-top: none; }
+.gtm-row-k { min-width: 120px; color: var(--cyan); font-weight: 600; flex-shrink: 0; }
+.gtm-row-v { color: var(--text-mid); line-height: 1.6; }
+.gtm-risk { display: grid; grid-template-columns: 88px 40px 40px 1fr; gap: var(--space-2); padding: 5px 0; border-top: 1px dashed var(--line); font-size: 12.5px; align-items: start; }
+.gtm-risk:first-of-type { border-top: none; }
+.gtm-risk-k { color: var(--cyan); font-weight: 600; }
+.gtm-risk-p { color: var(--amber); font-family: var(--font-mono); font-size: 11px; text-align: center; }
+.gtm-risk-i { color: var(--violet); font-family: var(--font-mono); font-size: 11px; text-align: center; }
+.gtm-risk-m { color: var(--text-mid); line-height: 1.6; }
 
 /* ============================================================
    第四章 · PRD 折叠面板
@@ -3259,14 +3274,52 @@ function openModal(id) {
       <p style="margin-top:6px;"><b style="color: var(--violet);">TAM 估算：</b>${esc(idea.tamEstimate)}</p>
     </div>
     <div class="modal-block">
-      <div class="mb-label">GTM 六要素</div>
-      <div class="modal-gtm">
-        <div class="g-cell"><div class="gk">人群</div><div class="gv">${esc(g.audience)}</div></div>
-        <div class="g-cell"><div class="gk">渠道</div><div class="gv">${esc(g.channel)}</div></div>
-        <div class="g-cell"><div class="gk">定价</div><div class="gv">${esc(g.pricing)}</div></div>
-        <div class="g-cell"><div class="gk">切入</div><div class="gv">${esc(g.entry)}</div></div>
-        <div class="g-cell"><div class="gk">北极星</div><div class="gv">${esc(g.northStar)}</div></div>
-        <div class="g-cell"><div class="gk">首批 100 用户</div><div class="gv">${esc(g.first100)}</div></div>
+      <div class="mb-label">GTM 策略 · Go-To-Market</div>
+      <div class="mb-sub">北极星：${esc(g.northStar)}</div>
+
+      <div class="gtm-sec">
+        <div class="gtm-sec-head">01 · 目标市场 TAM/SAM/SOM</div>
+        <div class="gtm-sec-body">${esc(g.tamSamSom)}</div>
+      </div>
+
+      <div class="gtm-sec">
+        <div class="gtm-sec-head">02 · 理想客户画像 ICP</div>
+        <div class="gtm-sec-body"><b style="color:var(--cyan)">目标人群：</b>${esc(g.audience)}<br><b style="color:var(--amber)">切入场景：</b>${esc(g.entry)}</div>
+      </div>
+
+      <div class="gtm-sec">
+        <div class="gtm-sec-head">03 · 定价与打包 Pricing</div>
+        <div class="gtm-sec-body"><b style="color:var(--cyan)">定价：</b>${esc(g.pricing)}<br><b style="color:var(--violet)">竞品锚点：</b>${esc(g.anchor)}</div>
+      </div>
+
+      <div class="gtm-sec">
+        <div class="gtm-sec-head">04 · 渠道策略 Channels</div>
+        <div class="gtm-sec-body">${(g.channels || []).map(c => `<div class="gtm-row"><span class="gtm-row-k">${esc(c.k)}</span><span class="gtm-row-v">${esc(c.v)}</span></div>`).join('')}</div>
+      </div>
+
+      <div class="gtm-sec">
+        <div class="gtm-sec-head">05 · 发布节奏 Launch Cadence</div>
+        <div class="gtm-sec-body">${(g.launchCadence || []).map(c => `<div class="gtm-row"><span class="gtm-row-k" style="min-width:88px">${esc(c.phase)}</span><span class="gtm-row-v">${esc(c.todo)}</span></div>`).join('')}</div>
+      </div>
+
+      <div class="gtm-sec">
+        <div class="gtm-sec-head">06 · 销售与营销协同 Smarketing</div>
+        <div class="gtm-sec-body">${esc(g.smarketing)}</div>
+      </div>
+
+      <div class="gtm-sec">
+        <div class="gtm-sec-head">07 · 核心指标 Metrics</div>
+        <div class="gtm-sec-body">${(g.metrics || []).map(m => `<div class="gtm-row"><span class="gtm-row-k">${esc(m.k)}</span><span class="gtm-row-v">${esc(m.v)}</span></div>`).join('')}</div>
+      </div>
+
+      <div class="gtm-sec">
+        <div class="gtm-sec-head">08 · 风险与对策 Risks</div>
+        <div class="gtm-sec-body">${(g.risks || []).map(r => `<div class="gtm-risk"><span class="gtm-risk-k">${esc(r[0])}</span><span class="gtm-risk-p">${esc(r[1])}</span><span class="gtm-risk-i">${esc(r[2])}</span><span class="gtm-risk-m">${esc(r[3])}</span></div>`).join('')}</div>
+      </div>
+
+      <div class="gtm-sec" style="margin-top:10px">
+        <div class="gtm-sec-head">首批 100 用户</div>
+        <div class="gtm-sec-body">${esc(g.first100)}</div>
       </div>
     </div>
     <div class="modal-block">
