@@ -3,9 +3,9 @@
   "stages": {
     "demand": "done",
     "evidence": "done",
-    "gtm": "pending",
-    "report": "pending"
+    "gtm": "done",
+    "report": "done"
   },
   "updatedAt": "2026-08-14",
-  "notes": "分模块逐步产出状态机：demand(TOP5需求)→evidence(证据核验)→gtm(GTM策略)→report(完整报告)。demand/evidence 已完成待用户验证；gtm 未产出，需用户确认需求后再执行 --stage gtm。"
+  "notes": "分模块逐步产出状态机：demand(TOP5需求)→evidence(证据核验)→gtm(GTM策略)→report(完整报告)。demand/evidence/gtm 均已完成，待执行 --stage report 产出完整报告。"
 }
