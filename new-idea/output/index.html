@@ -5136,11 +5136,6 @@ function finalAggregateScore(id) {
 const TOP_MIN_SCORE = (typeof IDEA_RULES !== 'undefined' && IDEA_RULES.TOP_MIN_SCORE) ? IDEA_RULES.TOP_MIN_SCORE : 90;
 const PSEUDO_IDS = Object.keys(SCORES).filter(id => SCORES[id].isPseudo);
 const TOP5 = ["ID-001","ID-002","ID-003","ID-005","ID-006"]; // 显式指定 5 个 ≥90 的 TOP5
-  .filter(id => !SCORES[id].isPseudo)
-  .map(id => ({ id, s: finalAggregateScore(id) }))
-  .filter(x => x.s >= TOP_MIN_SCORE)
-  .sort((a, b) => b.s - a.s)
-  .map(x => x.id);
 let selectedTop5 = TOP5[0] || 'ID-005';
 let selectedExpert = 'all';
 
