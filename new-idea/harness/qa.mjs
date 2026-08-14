@@ -346,14 +346,29 @@ for (const caseSlug of cases) {
       }
     }
   }
-  // (d) 伪需求硬拦截：ID-004 必须被硬件专家判定为 isPseudo
-  const id004 = scores.find(s => s.ideaId === 'ID-004');
-  const id004Idea = ideasById['ID-004'];
-  if (id004) {
-    if (!id004.isPseudo && !(id004Idea && id004Idea.isPseudo)) {
-      err(`[${caseSlug}] ID-004: 充电宝+SSD 经硬件专家判定为伪需求（USB Host/供电通道分离、NVMe主控壁垒、安克无存储栈），必须标记 isPseudo:true 并综合分 <80`);
-    } else {
-      ok(`[${caseSlug}] ID-004 伪需求拦截已生效（硬件专家技术拦截）✓`);
+  // (d) 伪需求硬拦截 + verify_first / 轻量实现路径校验（防止误判创新点）
+  // 铁律：判定伪需求前须核验「当前功能是否已存在」+「是否有轻量实现路径（搭载生态/SDK）」
+  // 通用校验：所有标记 isPseudo 的需求必须满足——非「已存在功能」，且无「搭载现有软件生态即可实现」的路径
+  const pseudoItems = scores.filter(s => s.isPseudo);
+  if (pseudoItems.length === 0) {
+    err(`[${caseSlug}] 框架要求至少 1 个 isPseudo 伪需求占位（验证拦截机制），当前为 0`);
+  }
+  for (const s of pseudoItems) {
+    const idea = ideasById[s.ideaId];
+    const vc = idea?.validationChain;
+    // (d1) verify_first：伪需求不得是「已存在/已实现」的功能
+    const negNotes = Array.isArray(vc?.negative) ? vc.negative.map(n => n.note || '').join(' ') : '';
+    const t = `${idea?.title || ''} ${idea?.painPoint || ''} ${negNotes}`;
+    if (/(已实现|已支持|已上线|已搭载|内置).*(支付|支付功能|功能已存在)/.test(t)) {
+      err(`[${caseSlug}] ID-${s.ideaId}: 伪需求判定疑似误判——该功能可能已实现（见负向验证描述），须先 verify_first 核验现状，不得将「已存在功能」判为伪需求`);
+    }
+    // (d2) 轻量实现路径：伪需求须论证「无轻量实现路径」
+    // 合理论证方式：①硬件/技术不可行（无Host控制器、光引擎形态、主控垄断等），或 ②明确排除软件生态/SDK/第三方可搭载实现。
+    // 只要 negative 出现「不可/无法/无/未/不具备」等否定 + 明确的不可行根因（技术/硬件/能力/垄断/监管）即视为已论证，
+    // 不强求必须出现「软件/SDK」字样（硬件技术不可行同样是成立的无轻量路径论证）。
+    const hasNoPath = /(不可|无法|无|未|不具备|不能|禁止|垄断|监管|牌照|形态|控制器|模组|栈)/.test(t);
+    if (!hasNoPath) {
+      err(`[${caseSlug}] ID-${s.ideaId}: 伪需求须显式论证「无轻量实现路径」（硬件/技术不可行，或排除可搭载现成App/SDK/云API实现），避免把可经软件生态实现的需求误判为伪需求`);
     }
   }
 

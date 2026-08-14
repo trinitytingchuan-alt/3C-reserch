@@ -81,6 +81,16 @@ export const IDEA_RULES = {
   GTM_FIELDS_REQUIRED: ['audience', 'channel', 'pricing', 'entry', 'northStar', 'first100'],
   PRD_SECTIONS_REQUIRED: ['background', 'users', 'scenarios', 'solution', 'metrics', 'risks', 'timeline'],
 
+  // ========== 伪需求判定铁律（verify_first + 轻量实现路径，防止误判创新点） ==========
+  // 判定某功能为「伪需求/不可行」前，必须先核验两件事：
+  //   1) verify_first：该功能当前是否【已存在/已被实现】——若已实现，则是「升级/补全」而非「创新」，更不得当伪需求；
+  //   2) light_impl_path：即便公司无自研能力，是否可【搭载现有软件生态/第三方SDK/开源组件】轻量实现——
+  //      若可（如眼镜装支付宝App、调用云API、接外部SDK），则必须转为「真实需求/创新点」，不得判伪需求。
+  // 结论：只有【当前确未实现】且【无任何轻量实现路径】的，才允许标记 isPseudo。
+  VERIFY_FIRST_REQUIRED: true,
+  PSEUDO_JUDGE_STEPS: ['verify_current_feature_exists', 'check_light_impl_path'],
+  GTM_DIFF_REQUIRED: true,              // GTM 核心数据虽公司级共享，但必须落到各 idea 差异化打法，不得整段复用
+
   // ========== AI 黑话禁止列表（qa.mjs 扫描） ==========
   FORBIDDEN_PATTERNS: [
     /底座/g, /赋能/g, /抓手/g, /组合拳/g, /飞轮/g,

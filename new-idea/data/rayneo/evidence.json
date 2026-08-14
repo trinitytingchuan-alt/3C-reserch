@@ -14,5 +14,6 @@
   { "id": "E013", "source": "洛图科技·2025 中国智能眼镜 145.4 万台 +211%", "tier": 1, "level": "L2", "date": "2026-03-02", "url": "https://so.html5.qq.com/page/real/search_news?docid=70000021_64369a5578801952", "dim": "market", "isTrend": true, "summary": "2025 年中国智能眼镜销量 145.4 万台同比 +211%，AR/音频/拍摄三细分齐增，拍摄眼镜从零突破 51.7 万台，赛道整体上行" },
   { "id": "E014", "source": "网易·IDC 2025 全球智能眼镜 1280 万台 +26%", "tier": 1, "level": "L2", "date": "2025", "url": "https://www.163.com/dy/article/JTDTIMIJ051191D6.html", "dim": "market", "isTrend": true, "summary": "IDC 预计 2025 年全球智能眼镜出货 1280 万台（+26%），中国 275 万台（+107%），空间计算与 AI 眼镜成明确增长极" },
   { "id": "E015", "source": "观察者网·雷鸟 Air 3 高性价比下的致命缺陷", "tier": 2, "level": "L3", "date": "2024-11-26", "url": "https://user.guancha.cn/main/content?id=1338763", "dim": "user", "summary": "雷鸟 Air 3 以 1699 元亲民价走量，但用户指出画质/分辨率信息不明确、BirdBath 方案亮度与清晰度局限，性价比与体验存在张力" },
-  { "id": "E016", "source": "知乎·雷鸟 V4 新功能长期使用率仅 6%", "tier": 2, "level": "L3", "date": "2026-05-28", "url": "https://zhuanlan.zhihu.com/p/2043388489065042838", "dim": "user", "summary": "用户指出雷鸟新功能长期使用率仅 6%，多数用户仍只问天气/股票/新闻，AI 功能留存低，印证「有功能无粘性」痛点" }
-]
+    { "id": "E016", "source": "知乎·雷鸟 V4 新功能长期使用率仅 6%", "tier": 2, "level": "L3", "date": "2026-05-28", "url": "https://zhuanlan.zhihu.com/p/2043388489065042838", "dim": "user", "summary": "用户指出雷鸟新功能长期使用率仅 6%，多数用户仍只问天气/股票/新闻，AI 功能留存低，印证「有功能无粘性」痛点" },
+    { "id": "E017", "source": "IT之家·雷鸟 X3 Pro 上线支付宝「看一下支付」", "tier": 0, "level": "L1", "date": "2025-08-14", "url": "https://www.ithome.com/0/875/324.htm", "dim": "strategic", "summary": "2025-08-14 雷鸟创新与蚂蚁集团战略合作，雷鸟 X3 Pro 成全球首个支持支付宝「碰一下」的 AI 眼镜——无需双手、看一眼即可支付，通过搭载现有支付生态实现，验证「软件生态轻量实现路径」（非自研支付牌照/识别模组）" }
+  ]
