@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NEW IDEA · 产品机会雷达 — Anker 安克创新（整站框架 + 第一章）</title>
-<meta name="description" content="NEW IDEA 产品机会挖掘框架 · 安克创新首例 · 深色高科技数据面板">
+<title>NEW IDEA · 产品机会雷达 — {{COMPANY_DISPLAY}}</title>
+<meta name="description" content="NEW IDEA 产品机会挖掘框架 · {{COMPANY_DISPLAY}} 产品机会报告 · 深色高科技数据面板">
 <style>
 /* ============================================================
    NEW IDEA 设计系统声明 (专业网页设计规范)
@@ -1406,7 +1406,7 @@ footer .f-brand { font-family: var(--font-display); color: var(--text-mid); marg
   </div>
   <div class="topbar-right">
     <span class="status-pill"><span class="live-dot"></span> COMPLETE · 全六章</span>
-    <span>2026-08-12</span>
+    <span id="topbarDate"></span>
   </div>
 </header>
 
@@ -1451,16 +1451,16 @@ footer .f-brand { font-family: var(--font-display); color: var(--text-mid); marg
   <div class="section-head reveal">
     <div>
       <div class="section-index">CHAPTER 01 / OVERVIEW</div>
-      <h1>安克创新 · 产品机会雷达</h1>
-      <p class="sub">以系统化市场扫描与多维专业评估，发现安克产品线外的真实机会。</p>
+      <h1>{{COMPANY_DISPLAY}} · 产品机会雷达</h1>
+      <p class="sub">以系统化市场扫描与多维专业评估，发现 {{COMPANY_DISPLAY}} 产品线外的真实机会。</p>
     </div>
-    <div class="head-tag">数据窗口 <b>2025-08 ~ 2026-08</b></div>
+    <div class="head-tag">数据窗口 <b id="dataWindowLabel"></b></div>
   </div>
 
   <!-- Hero -->
   <div class="hero">
     <div class="reveal">
-      <span class="hero-badge">◈ 首个演示案例 · Anker Innovations</span>
+      <span class="hero-badge">◈ 产品机会挖掘框架 · {{COMPANY_DISPLAY}}</span>
       <h1>把"市场发声"变成<br><span class="grad">可信的产品机会</span></h1>
 <p class="hero-sub">灵感只需"看"：看趋势、看场景、看人群、看痛点。本报告系统化完成市场扫描 → 需求候选 → 专业评估 → 排序优选的完整闭环，并以证据链证明每个机会的真实性与增长潜力。</p>
     </div>
@@ -1540,14 +1540,7 @@ footer .f-brand { font-family: var(--font-display); color: var(--text-mid); marg
   <div class="section-block" style="margin-top: var(--space-7);">
     <div class="section-index reveal">SNAPSHOT / 案例速览</div>
     <h2 style="font-family: var(--font-display); font-size: 24px; margin-bottom: var(--space-5);" class="reveal">本案例核心数字</h2>
-    <div class="hero-meta reveal" style="margin-bottom: var(--space-5);">
-      <div class="meta-item"><div class="v">2亿+</div><div class="k">安克全球用户</div></div>
-      <div class="meta-item"><div class="v">154亿</div><div class="k">充电储能营收(¥)</div></div>
-      <div class="meta-item"><div class="v">8条</div><div class="k">候选需求 IDEA</div></div>
-      <div class="meta-item"><div class="v">5条</div><div class="k">TOP5（评分 &gt;90）</div></div>
-      <div class="meta-item"><div class="v">16条</div><div class="k">证据链 E##</div></div>
-      <div class="meta-item"><div class="v">7条</div><div class="k">三级核验 V##</div></div>
-    </div>
+    <div class="hero-meta reveal" id="snapshotMeta" style="margin-bottom: var(--space-5);"></div>
     <div class="verify-note reveal">
       <span><b>阅读路径</b>：01 看结构 → 02 看结论（TOP5）→ 03 看全量 → 04 看 PRD → 05 看怎么上市 → 06 验证证据 → 07 研究方法</span>
     </div>
@@ -1757,7 +1750,7 @@ footer .f-brand { font-family: var(--font-display); color: var(--text-mid); marg
   <!-- 四步法 -->
   <div class="section-block">
     <div class="section-index reveal">METHOD / 四步法</div>
-    <h2 style="font-family: var(--font-display); font-size: 24px; margin-bottom: var(--space-5);" class="reveal">安克创新四步法 · 大胆幻想 · 小心求证</h2>
+    <h2 style="font-family: var(--font-display); font-size: 24px; margin-bottom: var(--space-5);" class="reveal">{{COMPANY_DISPLAY}}四步法 · 大胆幻想 · 小心求证</h2>
     <div class="timeline-grid">
       <div class="timeline-step reveal">
         <div class="step-no">STEP 01</div>
@@ -2107,7 +2100,7 @@ footer .f-brand { font-family: var(--font-display); color: var(--text-mid); marg
 
 <footer>
   <div class="f-brand">NEW IDEA · 产品机会挖掘与需求验证框架</div>
-  Anker 安克创新首例 · data/anker 全量数据 · 质量保障校验通过 · 2026-08-12
+  {{COMPANY_DISPLAY}}产品机会报告 · 质量保障校验通过 · 数据隔离自模板
 </footer>
 
 <div class="page-hint"><kbd>←</kbd> <kbd>→</kbd> 键盘翻章 · 点左侧导航跳转</div>
@@ -2149,11 +2142,30 @@ const REPORT_STAGE = {
     "demand": "done",
     "evidence": "done",
     "gtm": "done",
-    "report": "pending"
+    "report": "done"
   },
   "updatedAt": "2026-08-14",
   "notes": "分模块逐步产出状态机：demand(TOP5需求)→evidence(证据核验)→gtm(GTM策略)→report(完整报告)。demand/evidence/gtm 均已完成，待执行 --stage report 产出完整报告。"
 };
+const COMPANY_META = {"slug":"rayneo","displayName":"雷鸟创新","generatedAt":"2026-08-14","dataWindowLabel":"","snapshot":[{"v":"29%","k":"全球AR份额(第一)"},{"v":"8999元","k":"X3 Pro定价"},{"v":"25国","k":"Amazon在售"},{"v":"7条","k":"候选需求 IDEA"},{"v":"5条","k":"TOP5（评分 >90）"},{"v":"17条","k":"证据链 E##"},{"v":"7条","k":"三级核验 V##"}]};
+const COMPANY_DISPLAY = (COMPANY_META && COMPANY_META.displayName) || '公司';
+// 标题/抬头动态化：消除模板硬编码公司名，实现跨公司数据隔离
+function applyCompanyMeta() {
+  const fill = (s) => String(s).replace(/\{\{COMPANY_DISPLAY\}\}/g, COMPANY_DISPLAY).replace(/Anker|安克创新|安克/g, COMPANY_DISPLAY);
+  document.title = fill(document.title);
+  // 动态填充固定模块里的动态字段（生成时间、数据窗口）
+  const dEl = document.getElementById('topbarDate');
+  if (dEl) dEl.textContent = (COMPANY_META && COMPANY_META.generatedAt) || '';
+  const wEl = document.getElementById('dataWindowLabel');
+  if (wEl) wEl.textContent = (DATA_WINDOW && DATA_WINDOW.label) || '';
+  // 兜底：整文档文本节点替换（含 {{COMPANY_DISPLAY}} 与旧硬编码）
+  const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null);
+  const nodes = [];
+  while (walker.nextNode()) nodes.push(walker.currentNode);
+  nodes.forEach(n => {
+    if (/\{\{COMPANY_DISPLAY\}\}|安克|Anker/.test(n.nodeValue)) n.nodeValue = fill(n.nodeValue);
+  });
+}
 const EVIDENCE = [{"id":"E001","source":"IT之家·雷鸟 X3 Pro 全彩波导一体式 AR 眼镜发布","tier":0,"level":"L1","date":"2025-05-27","url":"https://www.ithome.com/0/856/414.htm","dim":"market","summary":"雷鸟 X3 Pro 采用双目全彩 Micro-LED 衍射光波导、搭载骁龙 AR1 平台，三麦克风+背靠背四扬声器，支持语音翻译/同声传译，到手价 7649 元起，被《时代》评为年度最佳发明","trend":false},{"id":"E002","source":"洛图科技 RUNTO·2025 中国 AR 眼镜销量","tier":1,"level":"L2","date":"2026-03","url":"https://so.html5.qq.com/page/real/search_news?docid=70000021_75969a78cc903852","dim":"market","summary":"2025 年中国 AR 眼镜销量从 2024 年 26.7 万台跃升至 48.9 万台，增幅 83.2%；雷鸟居第一，但 XREAL 份额从约 25% 降至 20%，Rokid 升至 15% 成黑马","trend":true},{"id":"E003","source":"Counterpoint Research·2025 AR 眼镜出货量","tier":1,"level":"L2","date":"2025-05-06","url":"https://www.toutiao.com/article/7501222093284065826/","dim":"market","summary":"2025 年全球 AR 眼镜出货量预计大幅增长 42%（远超 VR 的 2.5%），2026 年 AR 显示屏出货有望再增 38%，为增长最快细分","trend":true},{"id":"E004","source":"财新·雷鸟创新完成超 10 亿融资","tier":0,"level":"L1","date":"2026-01-05","url":"https://m.caixin.com/m/2026-01-05/102400391.html","dim":"market","summary":"雷鸟创新完成新一轮超 10 亿元融资，由中国移动链长基金与中信金石（茅台金石等）领投，中国联通旗下基金跟投，资方背书消费级 AR 主线","trend":false},{"id":"E005","source":"什么值得买·雷鸟 X3 Pro 续航短板 876+ 用户观点 PK","tier":2,"level":"L3","date":"2025","url":"https://post.smzdm.com/p/a6z3zveo/","dim":"user","summary":"雷鸟 X3 Pro 用户大规模讨论续航短板是否动摇核心体验，光波导全彩+骁龙 AR1 高功耗下续航成为高频原生痛点","trend":false},{"id":"E006","source":"什么值得买·从雷鸟第一代眼镜开始吐槽","tier":2,"level":"L3","date":"2025-10-29","url":"https://post.smzdm.com/zz/p/akodg6e4/","dim":"user","summary":"用户反馈雷鸟第一代 AR 眼镜铰链过松、磁吸接口夹头发；Air 系列存在色彩断层、发热集中等佩戴与体验缺陷","trend":false},{"id":"E007","source":"XREAL 官网·One Pro 自研 X1 空间计算芯片","tier":1,"level":"L2","date":"2025","url":"https://www.xreal.com/cn/one-pro","dim":"competitor","summary":"竞品 XREAL One Pro 搭载自研 X1 空间计算芯片与 57° FOV X Prism 光学引擎，在显示与空间计算上建立差异化壁垒——雷鸟在独立空间计算芯片上相对滞后","trend":false},{"id":"E008","source":"腾讯新闻·Rokid 2025 销量占比飙至 15%","tier":1,"level":"L2","date":"2026","url":"https://news.qq.com/rain/a/20260105A02BHD00","dim":"competitor","summary":"Rokid 2025 年销量占比飙升至 15%（黑马），在消费级 AR 与 AR Studio 内容生态上加速追赶，挤压雷鸟份额","trend":false},{"id":"E009","source":"什么值得买·Meta Ray-Ban AI 眼镜累计超 700 万副","tier":1,"level":"L2","date":"2025","url":"https://post.smzdm.com/p/a035mv8r/","dim":"competitor","summary":"跨行业参考：Meta Ray-Ban AI 眼镜 2025 年累计销量破 700 万副，第一视角拍摄+AI 语音助手+实时翻译验证「AI 拍摄眼镜」路径可规模化","trend":false},{"id":"E010","source":"百度百科·雷鸟 X2 全球首款消费级真 AR","tier":0,"level":"L1","date":"2023-10","url":"https://baike.baidu.com/item/%E9%9B%B7%E9%B8%9F%202X%20Pro/65725191","dim":"strategic","summary":"雷鸟 2023-10 发布全球首款消费级真 AR 眼镜雷鸟 X2（双目全彩 MicroLED+光波导），确立光波导全彩技术标杆与品牌技术心智","trend":false,"evergreen":true},{"id":"E011","source":"PChome·雷鸟发布 V3 Slim AI 拍摄眼镜","tier":1,"level":"L2","date":"2025-05-28","url":"https://article.pchome.net/content-2186522.html","dim":"competitor","summary":"雷鸟已布局 AI 拍摄眼镜（V3 Slim），但拍摄清晰度、第一视角稳定性与 AI 实时交互弱于 Meta Ray-Ban，能力需补齐","trend":false},{"id":"E012","source":"搜狐·智能眼镜卖得越火用户骂得越凶","tier":2,"level":"L3","date":"2025-12-02","url":"https://www.sohu.com/a/960478640_122483470","dim":"user","summary":"用户吐槽智能眼镜续航焦虑（标称 10h 实测不足 4h）、功能逊手机、创新输手环，反映核心体验短板","trend":false},{"id":"E013","source":"洛图科技·2025 中国智能眼镜 145.4 万台 +211%","tier":1,"level":"L2","date":"2026-03-02","url":"https://so.html5.qq.com/page/real/search_news?docid=70000021_64369a5578801952","dim":"market","summary":"2025 年中国智能眼镜销量 145.4 万台同比 +211%，AR/音频/拍摄三细分齐增，拍摄眼镜从零突破 51.7 万台，赛道整体上行","trend":true},{"id":"E014","source":"网易·IDC 2025 全球智能眼镜 1280 万台 +26%","tier":1,"level":"L2","date":"2025","url":"https://www.163.com/dy/article/JTDTIMIJ051191D6.html","dim":"market","summary":"IDC 预计 2025 年全球智能眼镜出货 1280 万台（+26%），中国 275 万台（+107%），空间计算与 AI 眼镜成明确增长极","trend":true},{"id":"E015","source":"观察者网·雷鸟 Air 3 高性价比下的致命缺陷","tier":2,"level":"L3","date":"2024-11-26","url":"https://user.guancha.cn/main/content?id=1338763","dim":"user","summary":"雷鸟 Air 3 以 1699 元亲民价走量，但用户指出画质/分辨率信息不明确、BirdBath 方案亮度与清晰度局限，性价比与体验存在张力","trend":false},{"id":"E016","source":"知乎·雷鸟 V4 新功能长期使用率仅 6%","tier":2,"level":"L3","date":"2026-05-28","url":"https://zhuanlan.zhihu.com/p/2043388489065042838","dim":"user","summary":"用户指出雷鸟新功能长期使用率仅 6%，多数用户仍只问天气/股票/新闻，AI 功能留存低，印证「有功能无粘性」痛点","trend":false},{"id":"E017","source":"IT之家·雷鸟 X3 Pro 上线支付宝「看一下支付」","tier":0,"level":"L1","date":"2025-08-14","url":"https://www.ithome.com/0/875/324.htm","dim":"strategic","summary":"2025-08-14 雷鸟创新与蚂蚁集团战略合作，雷鸟 X3 Pro 成全球首个支持支付宝「碰一下」的 AI 眼镜——无需双手、看一眼即可支付，通过搭载现有支付生态实现，验证「软件生态轻量实现路径」（非自研支付牌照/识别模组）","trend":false}];;
 
 const GTMS = {"ID-001":{"audience":"雷鸟 X 系列重度观影/导航用户、通勤差旅户外人群","channel":"雷鸟官方商城 + 京东/天猫旗舰店 + B站测评","pricing":"颈挂模组 ¥499 单独售 / 套装优惠","entry":"随 X3 Pro 购机捆绑首发，扫码激活赠延保","anchor":"全彩无绳续航翻倍，重度场景不掉链","northStar":"X3 Pro 存量用户颈挂模组渗透率 ≥ 15%（发布后 6 个月）","first100":"雷鸟社区 100 名重度差旅用户内测，真实续航数据回收","tamSamSom":"TAM：中国 AR 眼镜 48.9 万台（E002）× 长时佩戴占比过半 ≈ 25 万潜在外挂供电需求；SAM：雷鸟存量 X 系列用户约 12 万；SOM：首发 6 个月目标 1.8 万套（渗透率 15%）","channels":[{"type":"自有电商","detail":"雷鸟商城 + 京东/天猫旗舰店，购机捆绑 + 复购配件"},{"type":"内容种草","detail":"B站/抖音科技测评、差旅/户外 KOL 实测续航对比"},{"type":"线下体验","detail":"雷鸟线下体验店真机佩戴 + 续航展演"},{"type":"海外","detail":"Amazon 25 国上架，主打 travel/commute 长续航场景"}],"launchCadence":[{"phase":"预热期 (M0-M1)","action":"社区招募 100 名内测、发布续航痛点白皮书（E005/E012 数据）"},{"phase":"首发期 (M2)","action":"X3 Pro 购机捆绑首发，¥499 单售 + 套装优惠，赠延保"},{"phase":"放量期 (M3-M6)","action":"Amazon 25 国上线、KOL 实测对比铺量、复购配件促销"}],"smarketing":"以「重度用一天不掉链」为核心信息，用 E005（876 人续航 PK）与 E012（实测不足 4h）做对比素材，差旅/户外场景短视频矩阵投放","metrics":[{"k":"模组渗透率","target":"6 个月 ≥ 15%"},{"k":"复购配件占比","target":"购机用户 20% 加购"},{"k":"NPS 续航维度","target":"≥ 45"}],"risks":[{"r":"用户嫌额外佩戴物破坏无绳感","mit":"磁吸快拆 + 轻量化 <60g，主打「不戴也能用」"},{"r":"竞品机身电池升级挤压","mit":"强调分离供电不增主体重量，差异化形态"}]},"ID-002":{"audience":"旅行/商务用户、AI 早期采用者","channel":"雷鸟官网 + 小红书/抖音种草 + 海外众筹","pricing":"X3 Pro 拍摄版溢价 ¥800","entry":"V3 用户以旧换新优先推送","anchor":"拍得到 + 译得出 + 显字幕，出行解放双手","northStar":"AI 拍摄翻译功能月活渗透率 ≥ 25%（发布后 6 个月）","first100":"100 名出境游/商务用户封闭测试，同声传译准确率回收","tamSamSom":"TAM：Meta Ray-Ban 累计 700 万副（E009）验证全球 AI 拍摄眼镜可规模化，国内对应百万级；SAM：雷鸟国内份额第一（E002）约 40 万存量用户；SOM：首发 6 个月目标 8 万激活用户","channels":[{"type":"内容种草","detail":"小红书/抖音出境游、商务会议场景 KOL 实测拍+译"},{"type":"海外众筹","detail":"Kickstarter/Indiegogo 首发，借 Meta 已教育市场势能"},{"type":"自有电商","detail":"雷鸟商城 + 京东/天猫旗舰店拍摄版专属页"},{"type":"跨界联名","detail":"与翻译/旅行 App 联名推场景礼包"}],"launchCadence":[{"phase":"预热期 (M0-M1)","action":"出境游 KOL 实测「拍+译」短视频矩阵，讲 Meta 已验证路径（E009）"},{"phase":"首发期 (M2)","action":"X3 Pro 拍摄版溢价 ¥800 上线，V3 用户以旧换新优先推送"},{"phase":"放量期 (M3-M6)","action":"海外众筹解锁多语言包、联名旅行 App 推场景礼包"}],"smarketing":"核心信息「眼镜比你手机更懂出国」——用 E009（Meta 700 万副路径）与 E012（用户要功能不逊手机）做对比，强调光波导可显字幕的差异化","metrics":[{"k":"功能月活渗透率","target":"6 个月 ≥ 25%"},{"k":"拍摄素材分享率","target":"≥ 30%"},{"k":"翻译准确率","target":"≥ 95%"}],"risks":[{"r":"拍摄清晰度逊手机遭吐槽","mit":"第一视角解放双手 + 本地云端双备份，主打「随手记录」非「替代手机」"},{"r":"续航限制拍摄时长","mit":"与 ID-001 颈挂模组协同打包"}]},"ID-003":{"audience":"全天佩戴用户、办公/观影人群","channel":"雷鸟线下体验店 + 京东自营","pricing":"新款轻量版溢价 ¥300","entry":"换购抵扣第一代铰链缺陷机型","anchor":"真 AR 也能全天无感戴","northStar":"轻量化新款占 X 系列销量 ≥ 40%（发布后 6 个月）","first100":"100 名员工/极客全天佩戴实测重量与发热数据回收","tamSamSom":"TAM：中国 AR 48.9 万台（E002）且增 83%，全天佩戴用户占比高；SAM：雷鸟存量约 12 万需换代的舒适敏感用户；SOM：首发 6 个月目标轻量版出货 4.8 万台（占系列 40%）","channels":[{"type":"线下体验","detail":"雷鸟体验店「戴一天对比」真机试戴 + 重量秤展示"},{"type":"自有电商","detail":"京东自营 + 雷鸟商城换购专区，旧机抵扣"},{"type":"内容种草","detail":"B站/知乎人体工学测评、办公/观影全天佩戴 vlog"},{"type":"企业合作","detail":"与办公/设计人群社群合作体验日"}],"launchCadence":[{"phase":"预热期 (M0-M1)","action":"公开征集第一代铰链痛点（E006）并承诺重构，发工程白皮书"},{"phase":"首发期 (M2)","action":"轻量版溢价 ¥300 上线，旧机换购抵扣，体验店对比试戴"},{"phase":"放量期 (M3-M6)","action":"办公/观影场景 vlog 铺量，企业体验日扩圈"}],"smarketing":"核心信息「像普通眼镜一样戴一天」——用 E006（铰链松/夹发/发热）与 E012（用户要轻如普通眼镜）做痛点对比，对标 XREAL 轻量化战场（E007）","metrics":[{"k":"轻量版销量占比","target":"6 个月 ≥ 40%"},{"k":"佩戴 NPS","target":"≥ 50"},{"k":"换购转化率","target":"旧机用户 25% 换购"}],"risks":[{"r":"减重牺牲显示性能","mit":"配重重构非砍光学，保全彩波导规格"},{"r":"旧用户信任修复慢","mit":"透明工程沟通 + 旧机高抵扣换购"}]},"ID-005":{"audience":"户外/通勤/商务用户","channel":"雷鸟官网 + 极客测评","pricing":"电致变色版溢价 ¥600","entry":"X3 Pro 高配版标配","anchor":"一键变暗 + 防窥，户外可读室内私密","northStar":"电致变色版占 X3 Pro 高配销量 ≥ 35%（发布后 6 个月）","first100":"100 名户外/商务用户强光与公共场景实测可读性回收","tamSamSom":"TAM：雷鸟份额第一（E002）存量用户，户外/通勤/商务场景占比高；SAM：需光学隐私的 X3 Pro 用户约 8 万；SOM：首发 6 个月目标高配版出货 2.8 万台（占比 35%）","channels":[{"type":"极客测评","detail":"B站/中关村在线强光对比实测，对标 XREAL 已变色（E007）"},{"type":"自有电商","detail":"雷鸟商城 + 京东高配版专属页，一键变暗演示"},{"type":"商务场景","detail":"与商务差旅社群合作防窥场景体验"},{"type":"线下体验","detail":"体验店室内外光强切换 demo"}],"launchCadence":[{"phase":"预热期 (M0-M1)","action":"发布户外可读性痛点（E001）与 XREAL 已变色对比（E007），讲雷鸟「显示+隐私」双模式"},{"phase":"首发期 (M2)","action":"X3 Pro 高配版标配电致变色，溢价 ¥600 单独选装"},{"phase":"放量期 (M3-M6)","action":"商务防窥场景铺量，体验店光强切换 demo 扩圈"}],"smarketing":"核心信息「户外看得清、室内不被窥」——用 E001（X3 Pro 户外可读受限）与 E012（用户要私密）做对比，强调比单变色竞品多信息层","metrics":[{"k":"高配版变色渗透率","target":"6 个月 ≥ 35%"},{"k":"户外可读性 NPS","target":"≥ 48"},{"k":"选装转化率","target":"高配用户 30% 选装"}],"risks":[{"r":"变色增重量影响佩戴","mit":"薄膜集成不加重主体，与 ID-003 轻量化协同"},{"r":"用户感知弱不愿溢价","mit":"体验店光强切换 demo 直观感知价值"}]},"ID-006":{"audience":"内容消费/办公用户","channel":"雷鸟开发者社区 + 应用商店","pricing":"开发者分成 + 基础免费","entry":"RayNeo VM 开放 SDK 公测","anchor":"眼镜上能装 App，空间计算内容平台","northStar":"RayNeo VM 应用商店上架应用数 ≥ 500、月活生态用户 ≥ 30%（发布后 12 个月）","first100":"100 名开发者内测 SDK，共建首批轻应用","tamSamSom":"TAM：雷鸟份额第一（E002）存量用户 + 手机安卓应用商店可迁移生态（E001），潜在开发者生态庞大；SAM：内容/办公需求用户约 10 万；SOM：12 个月目标上架 500 应用、生态月活 3 万","channels":[{"type":"开发者社区","detail":"RayNeo 开发者社区 + 开放 SDK 公测，黑客松激励"},{"type":"应用商店","detail":"RayNeo VM 应用商店，基础免费 + 开发者分成"},{"type":"内容种草","detail":"抖音/小红书「眼镜装 App」场景演示"},{"type":"跨界合作","detail":"与抖音/微信轻应用对接，借手机生态迁移"}],"launchCadence":[{"phase":"预热期 (M0-M2)","action":"开发者 SDK 公测 + 黑客松，讲 Rokid 内容追赶（E008）与雷鸟基础（E001）"},{"phase":"首发期 (M3)","action":"RayNeo VM 应用商店上线，基础免费 + 分成，首批轻应用上架"},{"phase":"放量期 (M4-M12)","action":"对接手机轻应用生态、空间计算 SDK 扩圈，目标 500 应用"}],"smarketing":"核心信息「你的眼镜能装 App 了」——用 E016（用户要粘性生态）与 E012（要能装 App）做对比，强调真 AR 光波导（E010）空间内容优于投屏","metrics":[{"k":"上架应用数","target":"12 个月 ≥ 500"},{"k":"生态月活占比","target":"≥ 30%"},{"k":"开发者留存","target":"≥ 60%"}],"risks":[{"r":"开发者投入意愿低","mit":"分成激励 + 黑客松奖金 + 雷鸟用户基数背书（E002）"},{"r":"生态被 Rokid 先发压制","mit":"借真 AR 显示优势做空间计算差异化内容"}]},"ID-004":{"audience":"（伪需求）外拍创作者小众","channel":"（无）","pricing":"（无）","entry":"（不进入 TOP5）","anchor":"—","northStar":"目标客群渗透率 ≥ 5%（发布后 12 个月）","first100":"雷鸟社区/粉丝群 100 人内测","tamSamSom":"","channels":[],"launchCadence":[],"smarketing":"","metrics":[],"risks":[]},"ID-007":{"audience":"（观察池）居家健身用户","channel":"（观察）","pricing":"（观察）","entry":"（暂不推进）","anchor":"—","northStar":"目标客群渗透率 ≥ 5%（发布后 12 个月）","first100":"雷鸟社区/粉丝群 100 人内测","tamSamSom":"","channels":[],"launchCadence":[],"smarketing":"","metrics":[],"risks":[]}};;
@@ -2328,6 +2340,13 @@ const DIM_LABEL = { market: '市场维度', competitor: '竞争者维度', user:
 const DERIVATION = {"ID-001":{"market":[{"ev":"E002","claim":"AR 观影与出行场景增长（E002/E013）放大长时佩戴需求","logic":"AR 观影与出行场景增长（E002/E013）放大长时佩戴需求，续航短板被放大","cross":["E013"]},{"ev":"E003","claim":"AR 赛道整体上行（E003/E014）","logic":"AR 赛道整体上行（E003/E014），续航体验是规模化的共性门槛","cross":["E014"]}],"competitor":[{"ev":"E007","claim":"XREAL/Meta 均靠机身方案未做外挂无绳续航（E007/E009）","logic":"XREAL/Meta 均靠机身方案未做外挂无绳续航（E007/E009），证明缺口形态空白","cross":["E009"]}],"user":[{"ev":"E005","claim":"用户在通勤差旅户外场景吐槽续航焦虑（E005 876人PK、E012 实测不足4h）","logic":"用户在通勤差旅户外场景吐槽续航焦虑（E005 876人PK、E012 实测不足4h），是真实高频痛点","cross":["E012"]}],"strategic":[{"ev":"E012","claim":"运动相机/头显均配外挂电池","logic":"运动相机/头显均配外挂电池，颈挂式供电路径在消费电子可复用","cross":[]},{"ev":"E001","claim":"X3 Pro 骁龙 AR1 高功耗（E001）使外挂供电工程可行","logic":"X3 Pro 骁龙 AR1 高功耗（E001）使外挂供电工程可行；第一代铰链经验（E006）可复用磁吸结构","cross":["E006"]}]},"ID-002":{"market":[{"ev":"E013","claim":"拍摄眼镜从零破 51.7 万台（E013）","logic":"拍摄眼镜从零破 51.7 万台（E013），AI 拍摄+翻译是明确上升需求","cross":[]},{"ev":"E003","claim":"AI 眼镜是赛道增长最快方向（E003/E014）","logic":"AI 眼镜是赛道增长最快方向（E003/E014）","cross":["E014"]}],"competitor":[{"ev":"E009","claim":"Meta Ray-Ban 700万副验证路径（E009）","logic":"Meta Ray-Ban 700万副验证路径（E009），雷鸟 V3 已布局但弱（E011）→ 升级缺口明确","cross":["E011"]}],"user":[{"ev":"E012","claim":"用户在旅行会议场景吐槽眼镜功能逊手机、要实用 AI（E012/E016）","logic":"用户在旅行会议场景吐槽眼镜功能逊手机、要实用 AI（E012/E016），是第一视角拍摄翻译的真实痛点","cross":["E016"]}],"strategic":[{"ev":"E009","claim":"运动相机第一视角+手机实时翻译均已成熟","logic":"运动相机第一视角+手机实时翻译均已成熟，路径可迁移到 AR 眼镜","cross":[]},{"ev":"E001","claim":"X3 Pro 三麦克风+四扬声器（E001）支撑收音翻译","logic":"X3 Pro 三麦克风+四扬声器（E001）支撑收音翻译；V3 拍摄模组（E011）可复用升级","cross":["E011"]}]},"ID-003":{"market":[{"ev":"E003","claim":"消费级 AR 趋势要求日常化佩戴（E003）","logic":"消费级 AR 趋势要求日常化佩戴（E003），长时使用放大舒适度问题（E013）","cross":["E013"]},{"ev":"E003","claim":"AR 增长最快细分（E003/E014）","logic":"AR 增长最快细分（E003/E014），佩戴是消费级转化关键","cross":["E014"]}],"competitor":[{"ev":"E007","claim":"XREAL 拼 57° 光学轻量化（E007）","logic":"XREAL 拼 57° 光学轻量化（E007），雷鸟佩戴缺陷待补（E006）→ 竞品已把佩戴当战场","cross":["E006"]}],"user":[{"ev":"E006","claim":"用户在全天佩戴场景吐槽铰链松/夹发/发热（E06）与要轻如普通眼镜（E012）","logic":"用户在全天佩戴场景吐槽铰链松/夹发/发热（E06）与要轻如普通眼镜（E012），是真实痛点","cross":["E012"]}],"strategic":[{"ev":"E006","claim":"普通近视镜/运动眼镜人体工学已成熟","logic":"普通近视镜/运动眼镜人体工学已成熟，可迁移到 AR 配重","cross":[]},{"ev":"E001","claim":"X3 Pro 重量与发热有优化空间（E001）","logic":"X3 Pro 重量与发热有优化空间（E001）；光波导全彩天然偏重（E010）需工程减重","cross":["E010"]}]},"ID-005":{"market":[{"ev":"E013","claim":"户外/出行场景增长（E013）放大波导可读性需求","logic":"户外/出行场景增长（E013）放大波导可读性需求","cross":[]},{"ev":"E003","claim":"AR 光学升级是增长主线（E003/E014）","logic":"AR 光学升级是增长主线（E003/E014）","cross":["E014"]}],"competitor":[{"ev":"E007","claim":"XREAL One Pro 已用电致变色（E007）且被市场接受 → 雷鸟缺位即明确缺口","logic":"XREAL One Pro 已用电致变色（E007）且被市场接受 → 雷鸟缺位即明确缺口","cross":[]}],"user":[{"ev":"E012","claim":"用户在户外公共场景吐槽要私密不被窥（E012）与户外可读（E001）","logic":"用户在户外公共场景吐槽要私密不被窥（E012）与户外可读（E001），是真实痛点","cross":["E001"]}],"strategic":[{"ev":"E007","claim":"汽车/相机电致变色滤镜已成熟","logic":"汽车/相机电致变色滤镜已成熟，路径可迁移到眼镜镜片","cross":[]},{"ev":"E001","claim":"X3 Pro 户外可读性受限（E001）","logic":"X3 Pro 户外可读性受限（E001）；光波导全彩对比度挑战（E010）可借电致变色缓解","cross":["E010"]}]},"ID-006":{"market":[{"ev":"E013","claim":"内容消费场景增长（E013）","logic":"内容消费场景增长（E013），用户要眼镜不逊手机（E012），是真实留存痛点","cross":["E012"]},{"ev":"E003","claim":"空间计算是增长方向（E003/E014）","logic":"空间计算是增长方向（E003/E014）","cross":["E014"]}],"competitor":[{"ev":"E008","claim":"Rokid 内容生态追赶（E008）、雷鸟 RayNeo VM 已具备但弱（E001）→ 升级缺口明确","logic":"Rokid 内容生态追赶（E008）、雷鸟 RayNeo VM 已具备但弱（E001）→ 升级缺口明确","cross":["E001"]}],"user":[{"ev":"E016","claim":"用户在长期使用场景吐槽功能留存低、要实用粘性痛点（E16）","logic":"用户在长期使用场景吐槽功能留存低、要实用粘性痛点（E16），要能装 App（E12），是真实需求","cross":["E012"]}],"strategic":[{"ev":"E001","claim":"手机安卓应用商店/小程序生态路径可迁移到 AR 轻应用","logic":"手机安卓应用商店/小程序生态路径可迁移到 AR 轻应用","cross":[]},{"ev":"E001","claim":"X3 Pro RayNeo AR VM 已具备（E001）","logic":"X3 Pro RayNeo AR VM 已具备（E001）；光波导全彩（E010）可承载空间应用","cross":["E010"]}]},"ID-004":{"market":[{"ev":"E009","claim":"Meta Ray-Ban（E009）验证可穿戴入口但仅平面交互","logic":"Meta Ray-Ban（E009）验证可穿戴入口但仅平面交互，无裸眼 3D 空间计算对应市场规模信号，消费级轻量 AR 主流为二维显示","cross":[]},{"ev":"E012","claim":"消费级 AR 主流仍为二维光波导显示","logic":"消费级 AR 主流仍为二维光波导显示，裸眼 3D 光场未量产成熟","cross":[]}],"competitor":[{"ev":"E007","claim":"XREAL（E007）用自研空间计算芯片做显示增强","logic":"XREAL（E007）用自研空间计算芯片做显示增强，但未做裸眼3D光场；竞品不做不等于雷鸟能做——裸眼3D需专用光引擎+深度传感硬件","cross":[]}],"user":[{"ev":"E012","claim":"用户吐槽智能眼镜功能逊手机（E012）、呼吁轻量佩戴（E001）","logic":"用户吐槽智能眼镜功能逊手机（E012）、呼吁轻量佩戴（E001），未提裸眼3D刚需，属科幻想象","cross":["E001"]}],"strategic":[{"ev":"E007","claim":"跨行业无可迁移的裸眼 3D 光引擎（XREAL 芯片为增强显示非裸眼3D）","logic":"跨行业无可迁移的裸眼 3D 光引擎（XREAL 芯片为增强显示非裸眼3D），路径不成立","cross":[]},{"ev":"E001","claim":"二维全彩 MicroLED 光波导（E001/E010）无法输出裸眼 3D 光场","logic":"二维全彩 MicroLED 光波导（E001/E010）无法输出裸眼 3D 光场；轻量镜架无 ToF/SLAM 深度相机与 6DoF 追踪；无现成 SDK 可软件化替代——与可搭载支付宝App的支付（E016）本质不同","cross":["E010"]}]},"ID-007":{"market":[{"ev":"E013","claim":"内容场景增长含健身想象但证据弱","logic":"内容场景增长含健身想象但证据弱","cross":[]},{"ev":"E003","claim":"AR 交互增长想象但无硬数据","logic":"AR 交互增长想象但无硬数据","cross":[]}],"competitor":[{"ev":"E007","claim":"竞品均未做 AR 健身","logic":"竞品均未做 AR 健身，缺口未验证","cross":[]}],"user":[{"ev":"E012","claim":"用户在居家场景提多功能但未明确健身痛点需求","logic":"用户在居家场景提多功能但未明确健身痛点需求，属弱信号","cross":["E006"]}],"strategic":[{"ev":"E012","claim":"健身环/体感游戏路径可参考但迁移未验证","logic":"健身环/体感游戏路径可参考但迁移未验证","cross":[]},{"ev":"E001","claim":"X3 Pro 可承载体感但无传感（E01/E06）","logic":"X3 Pro 可承载体感但无传感（E01/E06）","cross":["E006"]}]}};;
 
 /* TOP5 平铺渲染：紧凑核心卡 + 点击展开二级详情（含证据推导对应） */
+function renderSnapshotMeta() {
+  const el = document.getElementById('snapshotMeta');
+  if (!el) return;
+  const snap = (COMPANY_META && COMPANY_META.snapshot) || [];
+  el.innerHTML = snap.map(s => `<div class="meta-item"><div class="v">${esc(s.v)}</div><div class="k">${esc(s.k)}</div></div>`).join('');
+}
+
 function renderTop5Flat() {
   const trendCount = id => SCORES[id].evidenceIds.filter(eid => EVIDENCE.find(e => e.id === eid)?.trend).length;
   const tierCount = id => new Set(SCORES[id].evidenceIds.map(eid => EVIDENCE.find(e => e.id === eid)?.tier).filter(t => t !== undefined)).size;
@@ -3284,7 +3303,7 @@ function renderDataSource() {
   const rows = ds.channels.map(c => `
     <div class="vcell-row" style="display:grid; grid-template-columns: 150px 1fr 1fr; gap: var(--space-4); padding: var(--space-4); border-radius: var(--r-md); border: 1px solid var(--line); background: rgba(11,16,28,0.5);">
       <div style="font-weight:600; color: var(--cyan); align-self:center;">${esc(c.role)}</div>
-      <div><div style="font-size:11px; color:var(--text-lo); margin-bottom:6px;">海外渠道（安克定向）</div>${c.overseas.map(s => `<div class="src-chip">${esc(s)}</div>`).join('')}</div>
+      <div><div style="font-size:11px; color:var(--text-lo); margin-bottom:6px;">海外渠道（{{COMPANY_DISPLAY}}定向）</div>${c.overseas.map(s => `<div class="src-chip">${esc(s)}</div>`).join('')}</div>
       <div><div style="font-size:11px; color:var(--text-lo); margin-bottom:6px;">国内渠道（备选对照）</div>${c.domestic.map(s => `<div class="src-chip">${esc(s)}</div>`).join('')}</div>
     </div>`).join('');
   document.getElementById('dataSourcePanel').innerHTML = `
@@ -3354,6 +3373,7 @@ function renderValidationLoop() {
 function initRemaining() {
   // —— 首屏同步渲染（轻量、首屏可见）——
   renderTop5Flat();
+  renderSnapshotMeta();
   updateNavSpy();
 
   // —— 分块惰性渲染注册表：sectionId → 渲染函数（进入视口才执行一次）——
@@ -3439,7 +3459,10 @@ function bindListFilters() {
     });
   });
 }
-document.addEventListener('DOMContentLoaded', initRemaining);
+document.addEventListener('DOMContentLoaded', function () {
+  applyCompanyMeta();
+  initRemaining();
+});
 </script>
 
 </body>

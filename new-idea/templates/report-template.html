@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NEW IDEA · 产品机会雷达 — Anker 安克创新（整站框架 + 第一章）</title>
-<meta name="description" content="NEW IDEA 产品机会挖掘框架 · 安克创新首例 · 深色高科技数据面板">
+<title>NEW IDEA · 产品机会雷达 — {{COMPANY_DISPLAY}}</title>
+<meta name="description" content="NEW IDEA 产品机会挖掘框架 · {{COMPANY_DISPLAY}} 产品机会报告 · 深色高科技数据面板">
 <style>
 /* ============================================================
    NEW IDEA 设计系统声明 (专业网页设计规范)
@@ -1406,7 +1406,7 @@ footer .f-brand { font-family: var(--font-display); color: var(--text-mid); marg
   </div>
   <div class="topbar-right">
     <span class="status-pill"><span class="live-dot"></span> COMPLETE · 全六章</span>
-    <span>2026-08-12</span>
+    <span id="topbarDate"></span>
   </div>
 </header>
 
@@ -1451,16 +1451,16 @@ footer .f-brand { font-family: var(--font-display); color: var(--text-mid); marg
   <div class="section-head reveal">
     <div>
       <div class="section-index">CHAPTER 01 / OVERVIEW</div>
-      <h1>安克创新 · 产品机会雷达</h1>
-      <p class="sub">以系统化市场扫描与多维专业评估，发现安克产品线外的真实机会。</p>
+      <h1>{{COMPANY_DISPLAY}} · 产品机会雷达</h1>
+      <p class="sub">以系统化市场扫描与多维专业评估，发现 {{COMPANY_DISPLAY}} 产品线外的真实机会。</p>
     </div>
-    <div class="head-tag">数据窗口 <b>2025-08 ~ 2026-08</b></div>
+    <div class="head-tag">数据窗口 <b id="dataWindowLabel"></b></div>
   </div>
 
   <!-- Hero -->
   <div class="hero">
     <div class="reveal">
-      <span class="hero-badge">◈ 首个演示案例 · Anker Innovations</span>
+      <span class="hero-badge">◈ 产品机会挖掘框架 · {{COMPANY_DISPLAY}}</span>
       <h1>把"市场发声"变成<br><span class="grad">可信的产品机会</span></h1>
 <p class="hero-sub">灵感只需"看"：看趋势、看场景、看人群、看痛点。本报告系统化完成市场扫描 → 需求候选 → 专业评估 → 排序优选的完整闭环，并以证据链证明每个机会的真实性与增长潜力。</p>
     </div>
@@ -1540,14 +1540,7 @@ footer .f-brand { font-family: var(--font-display); color: var(--text-mid); marg
   <div class="section-block" style="margin-top: var(--space-7);">
     <div class="section-index reveal">SNAPSHOT / 案例速览</div>
     <h2 style="font-family: var(--font-display); font-size: 24px; margin-bottom: var(--space-5);" class="reveal">本案例核心数字</h2>
-    <div class="hero-meta reveal" style="margin-bottom: var(--space-5);">
-      <div class="meta-item"><div class="v">2亿+</div><div class="k">安克全球用户</div></div>
-      <div class="meta-item"><div class="v">154亿</div><div class="k">充电储能营收(¥)</div></div>
-      <div class="meta-item"><div class="v">8条</div><div class="k">候选需求 IDEA</div></div>
-      <div class="meta-item"><div class="v">5条</div><div class="k">TOP5（评分 &gt;90）</div></div>
-      <div class="meta-item"><div class="v">16条</div><div class="k">证据链 E##</div></div>
-      <div class="meta-item"><div class="v">7条</div><div class="k">三级核验 V##</div></div>
-    </div>
+    <div class="hero-meta reveal" id="snapshotMeta" style="margin-bottom: var(--space-5);"></div>
     <div class="verify-note reveal">
       <span><b>阅读路径</b>：01 看结构 → 02 看结论（TOP5）→ 03 看全量 → 04 看 PRD → 05 看怎么上市 → 06 验证证据 → 07 研究方法</span>
     </div>
@@ -1757,7 +1750,7 @@ footer .f-brand { font-family: var(--font-display); color: var(--text-mid); marg
   <!-- 四步法 -->
   <div class="section-block">
     <div class="section-index reveal">METHOD / 四步法</div>
-    <h2 style="font-family: var(--font-display); font-size: 24px; margin-bottom: var(--space-5);" class="reveal">安克创新四步法 · 大胆幻想 · 小心求证</h2>
+    <h2 style="font-family: var(--font-display); font-size: 24px; margin-bottom: var(--space-5);" class="reveal">{{COMPANY_DISPLAY}}四步法 · 大胆幻想 · 小心求证</h2>
     <div class="timeline-grid">
       <div class="timeline-step reveal">
         <div class="step-no">STEP 01</div>
@@ -2107,7 +2100,7 @@ footer .f-brand { font-family: var(--font-display); color: var(--text-mid); marg
 
 <footer>
   <div class="f-brand">NEW IDEA · 产品机会挖掘与需求验证框架</div>
-  Anker 安克创新首例 · data/anker 全量数据 · 质量保障校验通过 · 2026-08-12
+  {{COMPANY_DISPLAY}}产品机会报告 · 质量保障校验通过 · 数据隔离自模板
 </footer>
 
 <div class="page-hint"><kbd>←</kbd> <kbd>→</kbd> 键盘翻章 · 点左侧导航跳转</div>
@@ -2144,6 +2137,25 @@ const SCORES = __DATA_SCORES__;;
 const DATA_WINDOW = { start: '2025-08-01', end: '2026-08-31', label: '2025-08 ~ 2026-08（一年内）' };
 // 分模块产出状态（由 build 注入，控制模块可见性：未 done 的模块显示"待确认"占位，不渲染真实数据）
 const REPORT_STAGE = __STAGE__;
+const COMPANY_META = __COMPANY_META__;
+const COMPANY_DISPLAY = (COMPANY_META && COMPANY_META.displayName) || '公司';
+// 标题/抬头动态化：消除模板硬编码公司名，实现跨公司数据隔离
+function applyCompanyMeta() {
+  const fill = (s) => String(s).replace(/\{\{COMPANY_DISPLAY\}\}/g, COMPANY_DISPLAY).replace(/Anker|安克创新|安克/g, COMPANY_DISPLAY);
+  document.title = fill(document.title);
+  // 动态填充固定模块里的动态字段（生成时间、数据窗口）
+  const dEl = document.getElementById('topbarDate');
+  if (dEl) dEl.textContent = (COMPANY_META && COMPANY_META.generatedAt) || '';
+  const wEl = document.getElementById('dataWindowLabel');
+  if (wEl) wEl.textContent = (DATA_WINDOW && DATA_WINDOW.label) || '';
+  // 兜底：整文档文本节点替换（含 {{COMPANY_DISPLAY}} 与旧硬编码）
+  const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null);
+  const nodes = [];
+  while (walker.nextNode()) nodes.push(walker.currentNode);
+  nodes.forEach(n => {
+    if (/\{\{COMPANY_DISPLAY\}\}|安克|Anker/.test(n.nodeValue)) n.nodeValue = fill(n.nodeValue);
+  });
+}
 const EVIDENCE = __DATA_EVIDENCE__;;
 
 const GTMS = __DATA_GTMS__;;
@@ -2318,6 +2330,13 @@ const DIM_LABEL = { market: '市场维度', competitor: '竞争者维度', user:
 const DERIVATION = __DATA_DERIVATION__;;
 
 /* TOP5 平铺渲染：紧凑核心卡 + 点击展开二级详情（含证据推导对应） */
+function renderSnapshotMeta() {
+  const el = document.getElementById('snapshotMeta');
+  if (!el) return;
+  const snap = (COMPANY_META && COMPANY_META.snapshot) || [];
+  el.innerHTML = snap.map(s => `<div class="meta-item"><div class="v">${esc(s.v)}</div><div class="k">${esc(s.k)}</div></div>`).join('');
+}
+
 function renderTop5Flat() {
   const trendCount = id => SCORES[id].evidenceIds.filter(eid => EVIDENCE.find(e => e.id === eid)?.trend).length;
   const tierCount = id => new Set(SCORES[id].evidenceIds.map(eid => EVIDENCE.find(e => e.id === eid)?.tier).filter(t => t !== undefined)).size;
@@ -3274,7 +3293,7 @@ function renderDataSource() {
   const rows = ds.channels.map(c => `
     <div class="vcell-row" style="display:grid; grid-template-columns: 150px 1fr 1fr; gap: var(--space-4); padding: var(--space-4); border-radius: var(--r-md); border: 1px solid var(--line); background: rgba(11,16,28,0.5);">
       <div style="font-weight:600; color: var(--cyan); align-self:center;">${esc(c.role)}</div>
-      <div><div style="font-size:11px; color:var(--text-lo); margin-bottom:6px;">海外渠道（安克定向）</div>${c.overseas.map(s => `<div class="src-chip">${esc(s)}</div>`).join('')}</div>
+      <div><div style="font-size:11px; color:var(--text-lo); margin-bottom:6px;">海外渠道（{{COMPANY_DISPLAY}}定向）</div>${c.overseas.map(s => `<div class="src-chip">${esc(s)}</div>`).join('')}</div>
       <div><div style="font-size:11px; color:var(--text-lo); margin-bottom:6px;">国内渠道（备选对照）</div>${c.domestic.map(s => `<div class="src-chip">${esc(s)}</div>`).join('')}</div>
     </div>`).join('');
   document.getElementById('dataSourcePanel').innerHTML = `
@@ -3344,6 +3363,7 @@ function renderValidationLoop() {
 function initRemaining() {
   // —— 首屏同步渲染（轻量、首屏可见）——
   renderTop5Flat();
+  renderSnapshotMeta();
   updateNavSpy();
 
   // —— 分块惰性渲染注册表：sectionId → 渲染函数（进入视口才执行一次）——
@@ -3429,7 +3449,10 @@ function bindListFilters() {
     });
   });
 }
-document.addEventListener('DOMContentLoaded', initRemaining);
+document.addEventListener('DOMContentLoaded', function () {
+  applyCompanyMeta();
+  initRemaining();
+});
 </script>
 
 </body>

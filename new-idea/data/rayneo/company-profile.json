@@ -15,7 +15,12 @@
     "trendSignalChannels": [],
     "crossIndustryRefChannels": [],
     "language": "en",
-    "note": "鎸夋牳蹇冨缇ゅ湴鐞嗕綅缃畾鍚戦厤缃噰闆嗘笭閬擄細娴峰涓轰富鈫扐mazon/Reddit/Trustpilot/Google Trends锛涘浗鍐呬负涓烩啋浜笢/鐭ヤ箮/灏忕孩涔?鐧惧害鎸囨暟銆傝瑙?docs/data-source-strategy.md"
+    "note": "按核心客群地理定位制定风向采集渠道：海外为主→Amazon/Reddit/Trustpilot/Google Trends；国内为次→京东/知乎/小红书/百度指数。详见 docs/data-source-strategy.md"
   },
-  "notes": "锛堥噰闆嗚嚜锛氬畼缃?骞存姤/鎷涜偂涔︼紝椤婚檮鐪熷疄閾炬帴涓庢棩鏈燂級"
+  "notes": "（采集自：官网/年报/招股书，均附真实链接与日期）",
+  "snapshot": [
+    { "v": "29%", "k": "全球AR份额(第一)" },
+    { "v": "8999元", "k": "X3 Pro定价" },
+    { "v": "25国", "k": "Amazon在售" }
+  ]
 }

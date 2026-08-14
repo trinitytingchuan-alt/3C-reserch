@@ -297,6 +297,36 @@ const templateHtml = readFileSync(templatePath, 'utf-8');
 const stageJson = existsSync(stageFile) ? readFileSync(stageFile, 'utf-8') : JSON.stringify({ stages: { demand: 'done', gtm: 'done', evidence: 'done', report: 'done' } });
 let outputHtml = replacePlaceholders(templateHtml, blocks);
 outputHtml = outputHtml.split('__STAGE__').join(stageJson.trim());
+// 注入公司元信息（消除标题/快照硬编码，实现跨公司数据隔离）
+const COMPANY_META = {
+  slug: company,
+  displayName: profile?.displayName || company,
+  generatedAt: new Date().toISOString().slice(0, 10),
+  dataWindowLabel: (profile && profile.dataWindow) || '',
+  // 案例速览快照：公司专属项来自 profile.snapshot，框架通用项由数据自动计算
+  snapshot: (() => {
+    const profileSnap = Array.isArray(profile?.snapshot) ? profile.snapshot : [];
+    const ideasCount = Array.isArray(IDEAS) ? IDEAS.length : 0;
+    const top5 = Array.isArray(scores) ? scores.filter(s => (s.finalScore ?? s.finalAggregateScore ?? s.aggregateScore) >= 90).length : 0;
+    const evCount = Array.isArray(EVIDENCE) ? EVIDENCE.length : 0;
+    const vCount = Array.isArray(VERIFICATIONS) ? VERIFICATIONS.length : 0;
+    const autoSnap = [
+      { v: String(ideasCount) + '条', k: '候选需求 IDEA' },
+      { v: String(top5) + '条', k: 'TOP5（评分 >90）' },
+      { v: String(evCount) + '条', k: '证据链 E##' },
+      { v: String(vCount) + '条', k: '三级核验 V##' },
+    ];
+    // 公司专属在前，框架通用在后；去重（若 profile 已含同名项则后者覆盖）
+    const merged = [...profileSnap];
+    autoSnap.forEach(a => { if (!merged.some(m => m.k === a.k)) merged.push(a); });
+    return merged;
+  })(),
+};
+if (!outputHtml.includes('__COMPANY_META__')) {
+  console.warn('⚠️  模板未声明 __COMPANY_META__ 占位符，标题将回退为硬编码');
+} else {
+  outputHtml = outputHtml.split('__COMPANY_META__').join(JSON.stringify(COMPANY_META));
+}
 writeFileSync(outputPath, outputHtml, 'utf-8');
 
 console.log(`\n✅ 构建完成`);
