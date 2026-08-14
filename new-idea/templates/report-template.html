@@ -963,6 +963,9 @@ main { position: relative; z-index: 1; }
   transition: all var(--dur-base) var(--ease-out);
 }
 .gtm-card-item:hover { border-color: var(--cyan); box-shadow: var(--shadow-glow); }
+.gtm-card-click { cursor: pointer; }
+.gtm-click-hint { margin-top: var(--space-3); font-size: 12px; color: var(--text-lo); text-align: right; opacity: 0.75; transition: opacity var(--dur-base); }
+.gtm-card-click:hover .gtm-click-hint { opacity: 1; color: var(--cyan); }
 .gtm-item-head { display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-4); }
 .gtm-item-head .g-rank { font-family: var(--font-display); font-size: 20px; font-weight: 700; color: var(--amber); }
 .gtm-item-head h3 { font-family: var(--font-display); font-size: 17px; }
@@ -3448,26 +3451,33 @@ function renderGtmCards() {
     const idea = IDEAS.find(x => x.id === id);
     const g = GTMS[id];
     const sc = SCORES[id];
-    return `<div class="gtm-card-item">
+    return `<div class="gtm-card-item gtm-card-click" data-gtm="${esc(id)}">
       <div class="gtm-item-head">
         <span class="g-rank">#0${i + 1}</span>
         <div>
-          <h3>${esc(idea.eng)} · GTM 策略</h3>
-          <div style="font-size:12px; color: var(--text-lo); font-family: var(--font-mono);">${esc(idea.title)} · ${PATH_LABEL[idea.path]}</div>
+          <h3>${esc(idea.title)}</h3>
+          <div style="font-size:12px; color: var(--text-lo); font-family: var(--font-mono);">${esc(idea.eng)} · ${PATH_LABEL[idea.path]} · GTM 策略</div>
         </div>
         <div class="g-score">${finalAggregateScore(id).toFixed(1)}</div>
       </div>
       <div class="gtm-diff">
-        <b>GTM 差异化定位：</b>${esc(idea.differentiation)}
+        <b>GTM 差异化定位：</b>${esc(idea.differentiation || '—')}
       </div>
       <div class="gtm-six">
-        ${GTM_KEYS.map(k => `<div class="gs-cell">
-          <div class="gs-k">${k.label}</div>
-          <div class="gs-v">${esc(g[k.key])}</div>
-        </div>`).join('')}
+        <div class="gs-cell"><div class="gs-k">目标人群</div><div class="gs-v">${esc(g.audience || '—')}</div></div>
+        <div class="gs-cell"><div class="gs-k">渠道</div><div class="gs-v">${esc(g.channel || '—')}</div></div>
+        <div class="gs-cell"><div class="gs-k">定价</div><div class="gs-v">${esc(g.pricing || '—')}</div></div>
+        <div class="gs-cell"><div class="gs-k">切入</div><div class="gs-v">${esc(g.entry || '—')}</div></div>
       </div>
+      <div class="gtm-click-hint">点击查看完整 GTM 策略 →</div>
     </div>`;
   }).join('');
+  // 绑定 GTM 卡片点击 → 打开详情弹层（与 TOP5 一致）
+  document.querySelectorAll('#gtmCards .gtm-card-click').forEach(card => {
+    card.addEventListener('click', () => {
+      openModal(card.dataset.gtm);
+    });
+  });
 }
 
 function parseYmd(s) {
