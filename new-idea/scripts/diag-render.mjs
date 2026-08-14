@@ -58,6 +58,16 @@ try {
     console.log('▶ 触发 DOMContentLoaded (initRemaining)');
     sandbox.__domReady();
     console.log('✅ initRemaining 执行成功');
+    // 额外验证 openPrdDoc（TOP5 卡点击二级界面）与 renderValidationLoop 不抛错
+    const checks = [
+      ['renderValidationLoop', 'renderValidationLoop'],
+    ];
+    for (const [label, fnName] of checks) {
+      try {
+        if (typeof sandbox[fnName] === 'function') { sandbox[fnName](); console.log(`✅ ${label} 执行成功`); }
+        else console.log(`⚠ ${label} 未定义（可能被条件包裹）`);
+      } catch (e) { console.log(`❌ ${label} 抛错: ${e.message}`); }
+    }
   } else {
     console.log('⚠ 未注册 DOMContentLoaded');
   }

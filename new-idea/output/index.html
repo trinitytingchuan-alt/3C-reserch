@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>雷鸟创新 RayNeo · 产品机会挖掘报告</title>
-<meta name="description" content="NEW IDEA 产品机会挖掘框架 · 雷鸟创新 RayNeo 首例 · 深色高科技数据面板">
+<title>雷鸟创新 · 产品机会挖掘报告</title>
+<meta name="description" content="NEW IDEA 产品机会挖掘框架 · 雷鸟创新 RayNeo · 深色高科技数据面板">
 <style>
 /* ============================================================
    NEW IDEA 设计系统声明 (专业网页设计规范)
@@ -1652,7 +1652,7 @@ footer .f-brand { font-family: var(--font-display); color: var(--text-mid); marg
   <!-- 证据链总表（可筛选） -->
   <div class="section-block">
     <div class="section-index reveal">EVIDENCE / 证据总表（可筛选二级视图）</div>
-    <h2 style="font-family: var(--font-display); font-size: 24px; margin-bottom: var(--space-4);" class="reveal">E001-E026 · E## 数据源三级分层 · 每条可溯源</h2>
+    <h2 style="font-family: var(--font-display); font-size: 24px; margin-bottom: var(--space-4);" class="reveal">E001-E016 · E## 数据源三级分层 · 每条可溯源</h2>
     <div class="ev-summary reveal" id="evSummary"></div>
     <div class="ev-filters reveal" id="evFilters">
       <div class="evf-group">
@@ -2120,1394 +2120,102 @@ const IDEAS = [
   {
     "id": "ID-001",
     "title": "全天候续航外挂电池模组（颈挂/磁吸）",
-    "discoveryPath": "scene-pain",
+    "eng": "",
+    "path": "scene-pain",
     "category": "佩戴续航体验",
     "scene": "通勤/差旅/户外长时间使用 AR 眼镜观影与导航，无绳沉浸但电量焦虑",
-    "targetSegment": "SEG-01, SEG-03（重度观影/导航用户，雷鸟存量 X 系列用户）",
     "painPoint": "全彩光波导+骁龙 AR1 高功耗下续航不足，用户高频吐槽「重度用半天就没电」（E005/E012），出门必须带充电宝破坏无绳沉浸感",
     "solution": "把外挂大电池做进颈挂/磁吸轻量模组，主体保持无绳，续航翻倍且不影响佩戴；该模组填补 XREAL/Meta 未解的无绳续航缺口（竞品缺口 E007/E009），并复用跨行业运动相机外挂供电路径",
-    "competitorSignal": "XREAL/Meta 均未解决无绳长续航（E007/E009），雷鸟若做颈挂磁吸模组即开辟差异化形态，竞品缺口明确",
     "differentiation": "不是加大机身电池，而是用颈挂分离供电保留无绳体验；与雷鸟光波导全彩技术心智互补而非冲突",
-    "evidenceIds": [
-      "E005",
-      "E012",
-      "E001",
-      "E002",
-      "E013",
-      "E015",
-      "E010",
-      "E003",
-      "E014",
-      "E006",
-      "E004"
-    ],
-    "verificationIds": [
-      "V001",
-      "V002"
-    ],
+    "competitorSignal": "XREAL/Meta 均未解决无绳长续航（E007/E009），雷鸟若做颈挂磁吸模组即开辟差异化形态，竞品缺口明确",
     "trendSignal": "AR 观影/导航长时使用场景增长（E002/E013），续航成高频原生痛点，市场体量随品类增长持续放大",
-    "tamEstimate": "中国 AR 眼镜 48.9 万台（E002）且年增 83%，长时佩戴用户天然需外挂供电，潜在装机覆盖过半存量用户",
-    "validationChain": {
-      "marketVoice": {
-        "evidenceIds": [
-          "E002",
-          "E013"
-        ],
-        "logic": "AR 观影与出行场景增长（E002/E013）放大长时佩戴需求，续航短板被放大",
-        "chainLink": "长时场景增长(E013) → 续航成门槛 → 竞品未解无绳续航(E007)留下形态空白 → 用户吐槽(E005)直证痛点",
-        "relevance": [
-          "A",
-          "A"
-        ]
-      },
-      "competitorValidation": {
-        "evidenceIds": [
-          "E007",
-          "E009"
-        ],
-        "logic": "XREAL/Meta 均靠机身方案未做外挂无绳续航（E007/E009），证明缺口形态空白",
-        "chainLink": "竞品续航缺位(E007/E009) → 雷鸟可定义颈挂模组新形态 → 用户续航焦虑(E005)支撑需求真实",
-        "relevance": [
-          "S",
-          "S"
-        ]
-      },
-      "industryValidation": {
-        "evidenceIds": [
-          "E003",
-          "E014"
-        ],
-        "logic": "AR 赛道整体上行（E003/E014），续航体验是规模化的共性门槛",
-        "chainLink": "行业增长(E003/E014) → 体验门槛变共性 → 续航模组成标配潜力 → 用户吐槽(E012)印证",
-        "relevance": [
-          "S",
-          "S"
-        ]
-      },
-      "crossIndustryRef": {
-        "evidenceIds": [
-          "E012"
-        ],
-        "logic": "运动相机/头显均配外挂电池，颈挂式供电路径在消费电子可复用",
-        "chainLink": "跨行业外挂电池已验证(E012) → 路径可迁移到 AR 眼镜 → 雷鸟技术心智(E010)兼容",
-        "relevance": [
-          "A"
-        ]
-      },
-      "userVoice": {
-        "evidenceIds": [
-          "E005",
-          "E012"
-        ],
-        "logic": "用户在通勤差旅户外场景吐槽续航焦虑（E005 876人PK、E012 实测不足4h），是真实高频痛点",
-        "chainLink": "用户原生续航痛点(E005/E012) → 竞品未解(E007) → 行业增长放大(E013) → 雷鸟可定义缺口形态",
-        "relevance": [
-          "S",
-          "S"
-        ]
-      },
-      "hardware": {
-        "evidenceIds": [
-          "E001",
-          "E006"
-        ],
-        "logic": "X3 Pro 骁龙 AR1 高功耗（E001）使外挂供电工程可行；第一代铰链经验（E006）可复用磁吸结构"
-      },
-      "positive": [
-        {
-          "ev": "E005",
-          "note": "正向·雷鸟 X3 Pro 续航 876 人 PK，痛点被反复验证"
-        },
-        {
-          "ev": "E012",
-          "note": "正向·用户吐槽标称10h实测不足4h，续航焦虑核心"
-        },
-        {
-          "ev": "E001",
-          "note": "正向·骁龙AR1+全彩波导高功耗，续航天然受限"
-        },
-        {
-          "ev": "E013",
-          "note": "正向·AR观影场景增长放大续航问题"
-        },
-        {
-          "ev": "E002",
-          "note": "正向·雷鸟销量第一但口碑受续航拖累"
-        },
-        {
-          "ev": "E015",
-          "note": "正向·BirdBath用户也带备用电源"
-        },
-        {
-          "ev": "E010",
-          "note": "正向·雷鸟技术心智在光波导，外挂不冲突"
-        },
-        {
-          "ev": "E003",
-          "note": "正向·AR增长最快细分，长时场景变多"
-        },
-        {
-          "ev": "E014",
-          "note": "正向·中国智能眼镜+107%增长，续航共性短板"
-        },
-        {
-          "ev": "E006",
-          "note": "正向·用户要轻量同时不要牺牲时长"
-        },
-        {
-          "ev": "E004",
-          "note": "正向·资本看好但体验短板影响复购"
-        }
-      ],
-      "negative": [
-        {
-          "ev": "E007",
-          "note": "负向·XREAL靠芯片优化功耗非外挂电池"
-        },
-        {
-          "ev": "E009",
-          "note": "负向·Meta轻量续航短用户仍接受"
-        },
-        {
-          "ev": "E011",
-          "note": "负向·雷鸟V3走轻量路线电池非卖点"
-        },
-        {
-          "ev": "E008",
-          "note": "负向·Rokid用内容对冲硬件短板"
-        },
-        {
-          "ev": "E016",
-          "note": "负向·用户更在意功能粘性"
-        },
-        {
-          "ev": "E015",
-          "note": "负向·低价机型容忍度略高"
-        },
-        {
-          "ev": "E013",
-          "note": "负向·轻量场景不敏感"
-        },
-        {
-          "ev": "E002",
-          "note": "负向·份额第一说明续航未致命"
-        },
-        {
-          "ev": "E006",
-          "note": "负向·铰链发热比续航先被吐槽"
-        },
-        {
-          "ev": "E014",
-          "note": "负向·增长不依赖续航"
-        },
-        {
-          "ev": "E004",
-          "note": "负向·资本更看AR主线"
-        }
-      ]
-    },
-    "dataSourceSummary": {
-      "total": 11,
-      "sTier": 4,
-      "aTier": 4,
-      "bTier": 3,
-      "sourceTypes": [
-        "官方参数",
-        "行业报告",
-        "用户声音",
-        "竞品产品",
-        "融资新闻"
-      ]
-    }
+    "tamEstimate": "中国 AR 眼镜 48.9 万台（E002）且年增 83%，长时佩戴用户天然需外挂供电，潜在装机覆盖过半存量用户"
   },
   {
     "id": "ID-002",
     "title": "AI 第一视角拍摄 + 实时翻译助手",
-    "discoveryPath": "competitor-gap",
+    "eng": "",
+    "path": "competitor-gap",
     "category": "AI 场景能力",
     "scene": "出国旅行/会议/探店时用眼镜第一视角记录并即时翻译字幕，解放双手",
-    "targetSegment": "SEG-02, SEG-04（旅行/商务用户，AI 早期采用者）",
     "painPoint": "雷鸟 V3 已做 AI 拍摄眼镜但清晰度与实时交互弱（E011），用户想要 Meta Ray-Ban 级「拍得到+译得出」体验（E009）却缺位",
     "solution": "在 X3 Pro 光波导基础上补齐第一视角拍摄稳定性 + 同声传译字幕，承接已验证的 AI 眼镜路径（竞品缺口 E009 已教育市场），拍摄素材本地+云端双备份",
-    "competitorSignal": "Meta Ray-Ban 700 万副验证路径（E009），雷鸟 V3 已布局但弱（E011）→ 升级缺口明确，竞品已教育市场",
     "differentiation": "雷鸟有光波导全彩显示可叠加字幕，比 Meta 无屏方案多一层实时信息呈现，差异化在「拍+显+译」一体",
-    "evidenceIds": [
-      "E009",
-      "E011",
-      "E001",
-      "E010",
-      "E013",
-      "E016",
-      "E012",
-      "E003",
-      "E002",
-      "E004",
-      "E014"
-    ],
-    "verificationIds": [
-      "V001",
-      "V003"
-    ],
+    "competitorSignal": "Meta Ray-Ban 700 万副验证路径（E009），雷鸟 V3 已布局但弱（E011）→ 升级缺口明确，竞品已教育市场",
     "trendSignal": "AI 眼镜是增长最快方向（E003/E014），拍摄眼镜从零破 51.7 万台（E013），第一视角+翻译需求上行",
-    "tamEstimate": "Meta Ray-Ban 累计 700 万副（E009）证明 AI 拍摄眼镜全球可规模化，雷鸟国内份额第一（E002）有用户基数承接",
-    "validationChain": {
-      "marketVoice": {
-        "evidenceIds": [
-          "E013"
-        ],
-        "logic": "拍摄眼镜从零破 51.7 万台（E013），AI 拍摄+翻译是明确上升需求",
-        "chainLink": "拍摄眼镜增长(E013) → 第一视角+翻译需求上行 → 雷鸟已布局但弱(E011) → 用户要实用AI(E016)",
-        "relevance": [
-          "S"
-        ]
-      },
-      "competitorValidation": {
-        "evidenceIds": [
-          "E009",
-          "E011"
-        ],
-        "logic": "Meta Ray-Ban 700万副验证路径（E009），雷鸟 V3 已布局但弱（E011）→ 升级缺口明确",
-        "chainLink": "竞品验证路径(E009) → 雷鸟能力弱(E011) → 补强即填缺口 → 用户吐槽功能逊手机(E012)",
-        "relevance": [
-          "S",
-          "S"
-        ]
-      },
-      "industryValidation": {
-        "evidenceIds": [
-          "E003",
-          "E014"
-        ],
-        "logic": "AI 眼镜是赛道增长最快方向（E003/E014）",
-        "chainLink": "行业AI化(E003/E014) → 拍摄翻译成标配 → 需求上行 → 雷鸟技术心智(E010)可承载",
-        "relevance": [
-          "S",
-          "S"
-        ]
-      },
-      "crossIndustryRef": {
-        "evidenceIds": [
-          "E009"
-        ],
-        "logic": "运动相机第一视角+手机实时翻译均已成熟，路径可迁移到 AR 眼镜",
-        "chainLink": "跨行业第一视角拍摄/翻译已验证(E009) → 迁移到眼镜 → 雷鸟光波导可显字幕(E001)",
-        "relevance": [
-          "S"
-        ]
-      },
-      "userVoice": {
-        "evidenceIds": [
-          "E012",
-          "E016"
-        ],
-        "logic": "用户在旅行会议场景吐槽眼镜功能逊手机、要实用 AI（E012/E016），是第一视角拍摄翻译的真实痛点",
-        "chainLink": "用户要实用AI(E012/E016) → 竞品已验证(E009) → 雷鸟弱(E011) → 行业增长(E013)放大",
-        "relevance": [
-          "S",
-          "S"
-        ]
-      },
-      "hardware": {
-        "evidenceIds": [
-          "E001",
-          "E011"
-        ],
-        "logic": "X3 Pro 三麦克风+四扬声器（E001）支撑收音翻译；V3 拍摄模组（E011）可复用升级"
-      },
-      "positive": [
-        {
-          "ev": "E009",
-          "note": "正向·Meta Ray-Ban 700万副验证路径"
-        },
-        {
-          "ev": "E011",
-          "note": "正向·雷鸟已发V3 Slim可复用"
-        },
-        {
-          "ev": "E001",
-          "note": "正向·X3 Pro支持语音翻译/同声传译"
-        },
-        {
-          "ev": "E013",
-          "note": "正向·拍摄眼镜破51.7万台赛道验证"
-        },
-        {
-          "ev": "E012",
-          "note": "正向·用户要功能不逊手机"
-        },
-        {
-          "ev": "E010",
-          "note": "正向·光波导可载字幕"
-        },
-        {
-          "ev": "E016",
-          "note": "正向·用户要实用AI"
-        },
-        {
-          "ev": "E003",
-          "note": "正向·AI眼镜增长最快"
-        },
-        {
-          "ev": "E002",
-          "note": "正向·雷鸟份额第一承接"
-        },
-        {
-          "ev": "E004",
-          "note": "正向·资方看好AI+AR"
-        },
-        {
-          "ev": "E014",
-          "note": "正向·中国智能眼镜高增长"
-        }
-      ],
-      "negative": [
-        {
-          "ev": "E007",
-          "note": "负向·XREAL聚焦显示非拍摄"
-        },
-        {
-          "ev": "E008",
-          "note": "负向·Rokid侧重内容"
-        },
-        {
-          "ev": "E015",
-          "note": "负向·BirdBath无拍摄模组"
-        },
-        {
-          "ev": "E006",
-          "note": "负向·第一代铰链牵资源"
-        },
-        {
-          "ev": "E014",
-          "note": "负向·增长非全靠拍摄"
-        },
-        {
-          "ev": "E005",
-          "note": "负向·续航限拍摄时长"
-        },
-        {
-          "ev": "E010",
-          "note": "负向·心智在光波导非拍摄"
-        },
-        {
-          "ev": "E002",
-          "note": "负向·份额不代拍摄强"
-        },
-        {
-          "ev": "E012",
-          "note": "负向·部分用户要极简"
-        },
-        {
-          "ev": "E013",
-          "note": "负向·拍摄仍小众"
-        },
-        {
-          "ev": "E016",
-          "note": "负向·留存低需强粘性"
-        }
-      ]
-    },
-    "dataSourceSummary": {
-      "total": 11,
-      "sTier": 4,
-      "aTier": 4,
-      "bTier": 3,
-      "sourceTypes": [
-        "竞品验证",
-        "官方参数",
-        "行业报告",
-        "用户声音",
-        "融资新闻"
-      ]
-    }
+    "tamEstimate": "Meta Ray-Ban 累计 700 万副（E009）证明 AI 拍摄眼镜全球可规模化，雷鸟国内份额第一（E002）有用户基数承接"
   },
   {
     "id": "ID-003",
     "title": "轻量化舒适佩戴（铰链/配重重构）",
-    "discoveryPath": "scene-pain",
+    "eng": "",
+    "path": "scene-pain",
     "category": "人体工学佩戴",
     "scene": "全天办公/观影/步行导航中长时间佩戴，要求如普通眼镜般无感",
-    "targetSegment": "SEG-01, SEG-03（全天佩戴用户）",
     "painPoint": "用户吐槽第一代铰链过松、磁吸夹头发，Air 系列发热集中（E006），舒适度与重量直接影响复购",
     "solution": "重构铰链与前后配重，把主体重量压到 60g 级并改善散热，提升全天佩戴舒适，避免夹头发磁吸结构；该工程对标 XREAL 已拼轻量化的竞品缺口（E007）",
-    "competitorSignal": "XREAL 拼 57° 光学轻量化（E007），雷鸟佩戴缺陷待补（E006）→ 竞品已把佩戴当战场，缺口明确",
     "differentiation": "雷鸟光波导全彩本就偏重，轻量化工程难度更高但做成即建立「真 AR 也能全天戴」壁垒",
-    "evidenceIds": [
-      "E006",
-      "E001",
-      "E010",
-      "E015",
-      "E012",
-      "E005",
-      "E002",
-      "E013",
-      "E003",
-      "E014",
-      "E007"
-    ],
-    "verificationIds": [
-      "V002",
-      "V004"
-    ],
+    "competitorSignal": "XREAL 拼 57° 光学轻量化（E007），雷鸟佩戴缺陷待补（E006）→ 竞品已把佩戴当战场，缺口明确",
     "trendSignal": "消费级 AR 趋势要求日常化佩戴（E003），长时使用放大舒适度问题（E013），佩戴成转化门槛",
-    "tamEstimate": "中国 AR 48.9 万台（E002）且增 83%，全天佩戴用户占比高，舒适工程覆盖几乎全部存量",
-    "validationChain": {
-      "marketVoice": {
-        "evidenceIds": [
-          "E003",
-          "E013"
-        ],
-        "logic": "消费级 AR 趋势要求日常化佩戴（E003），长时使用放大舒适度问题（E013）",
-        "chainLink": "日常化趋势(E003) → 佩戴成门槛 → 竞品拼轻量(E007) → 用户吐槽铰链(E006)",
-        "relevance": [
-          "S",
-          "A"
-        ]
-      },
-      "competitorValidation": {
-        "evidenceIds": [
-          "E007",
-          "E006"
-        ],
-        "logic": "XREAL 拼 57° 光学轻量化（E007），雷鸟佩戴缺陷待补（E006）→ 竞品已把佩戴当战场",
-        "chainLink": "竞品拼佩戴(E007) → 雷鸟缺陷(E006) → 补强即追平 → 用户要轻(E012)",
-        "relevance": [
-          "S",
-          "S"
-        ]
-      },
-      "industryValidation": {
-        "evidenceIds": [
-          "E003",
-          "E014"
-        ],
-        "logic": "AR 增长最快细分（E003/E014），佩戴是消费级转化关键",
-        "chainLink": "行业消费级化(E003/E014) → 佩戴决定转化 → 需求上行 → 雷鸟技术心智(E010)",
-        "relevance": [
-          "S",
-          "S"
-        ]
-      },
-      "crossIndustryRef": {
-        "evidenceIds": [
-          "E006"
-        ],
-        "logic": "普通近视镜/运动眼镜人体工学已成熟，可迁移到 AR 配重",
-        "chainLink": "跨行业佩戴工程已验证(E006) → 迁移到 AR → 雷鸟光波导可减重(E010)",
-        "relevance": [
-          "A"
-        ]
-      },
-      "userVoice": {
-        "evidenceIds": [
-          "E006",
-          "E012"
-        ],
-        "logic": "用户在全天佩戴场景吐槽铰链松/夹发/发热（E06）与要轻如普通眼镜（E012），是真实痛点",
-        "chainLink": "用户原生佩戴痛点(E006/E012) → 竞品拼轻量(E007) → 行业日常化(E003) → 雷鸟可补强",
-        "relevance": [
-          "S",
-          "S"
-        ]
-      },
-      "hardware": {
-        "evidenceIds": [
-          "E001",
-          "E010"
-        ],
-        "logic": "X3 Pro 重量与发热有优化空间（E001）；光波导全彩天然偏重（E010）需工程减重"
-      },
-      "positive": [
-        {
-          "ev": "E006",
-          "note": "正向·用户吐槽铰链松磁吸夹发发热"
-        },
-        {
-          "ev": "E001",
-          "note": "正向·X3 Pro有佩戴优化空间"
-        },
-        {
-          "ev": "E010",
-          "note": "正向·光波导偏重需减重"
-        },
-        {
-          "ev": "E015",
-          "note": "正向·BirdBath用户抱怨压迫"
-        },
-        {
-          "ev": "E012",
-          "note": "正向·用户要轻如普通眼镜"
-        },
-        {
-          "ev": "E005",
-          "note": "正向·续航重量需平衡"
-        },
-        {
-          "ev": "E002",
-          "note": "正向·销量第一口碑受佩戴拖累"
-        },
-        {
-          "ev": "E013",
-          "note": "正向·长时场景放大舒适问题"
-        },
-        {
-          "ev": "E003",
-          "note": "正向·消费级趋势要求日常佩戴"
-        },
-        {
-          "ev": "E007",
-          "note": "正向·竞品拼轻量化佐证战场"
-        },
-        {
-          "ev": "E014",
-          "note": "正向·增长不依赖佩戴但转化依赖"
-        }
-      ],
-      "negative": [
-        {
-          "ev": "E009",
-          "note": "负向·Meta轻但无显示不可比"
-        },
-        {
-          "ev": "E011",
-          "note": "负向·V3已走轻量"
-        },
-        {
-          "ev": "E008",
-          "note": "负向·Rokid佩戴非主打"
-        },
-        {
-          "ev": "E016",
-          "note": "负向·用户更在意功能粘性"
-        },
-        {
-          "ev": "E014",
-          "note": "负向·增长不依赖佩戴"
-        },
-        {
-          "ev": "E004",
-          "note": "负向·资本更看AR主线"
-        },
-        {
-          "ev": "E013",
-          "note": "负向·轻量场景不敏感"
-        },
-        {
-          "ev": "E015",
-          "note": "负向·低价容忍度高"
-        },
-        {
-          "ev": "E002",
-          "note": "负向·份额未致命"
-        },
-        {
-          "ev": "E005",
-          "note": "负向·部分用户更在意续航"
-        },
-        {
-          "ev": "E010",
-          "note": "负向·减重工程难度高"
-        }
-      ]
-    },
-    "dataSourceSummary": {
-      "total": 11,
-      "sTier": 4,
-      "aTier": 4,
-      "bTier": 3,
-      "sourceTypes": [
-        "用户声音",
-        "竞品产品",
-        "官方参数",
-        "行业报告",
-        "融资新闻"
-      ]
-    }
+    "tamEstimate": "中国 AR 48.9 万台（E002）且增 83%，全天佩戴用户占比高，舒适工程覆盖几乎全部存量"
   },
   {
     "id": "ID-005",
     "title": "电致变色 / 隐私智能镜片",
-    "discoveryPath": "competitor-gap",
+    "eng": "",
+    "path": "competitor-gap",
     "category": "光学隐私",
     "scene": "室内外切换/公共场合防窥看私信与导航，户外强光下要可读",
-    "targetSegment": "SEG-01, SEG-04（户外/通勤/商务用户）",
     "painPoint": "X3 Pro 全彩波导户外强光下可读性受限且无一键变暗/防窥；竞品 XREAL 已做电致变色（E007），雷鸟缺位",
     "solution": "在波导模组集成电致变色层，一键调节透光率并防窥，补齐光学隐私短板，户外可读室内防窥；该方案填补 XREAL 已验证但雷鸟缺位的竞品缺口（E007）",
-    "competitorSignal": "XREAL One Pro 已用电致变色（E007）且被接受，雷鸟光学可读性短板与一键变暗缺口明确",
     "differentiation": "雷鸟全彩波导+电致变色可做「显示增强+隐私」双模式，比单变色竞品多信息层价值",
-    "evidenceIds": [
-      "E007",
-      "E001",
-      "E010",
-      "E015",
-      "E002",
-      "E013",
-      "E003",
-      "E014",
-      "E012",
-      "E005",
-      "E008"
-    ],
-    "verificationIds": [
-      "V002",
-      "V005"
-    ],
+    "competitorSignal": "XREAL One Pro 已用电致变色（E007）且被接受，雷鸟光学可读性短板与一键变暗缺口明确",
     "trendSignal": "AR 光学升级是增长主线（E003/E014），户外/出行场景增长（E013）放大波导可读性需求",
-    "tamEstimate": "雷鸟份额第一（E002）有用户基数承接；电致变色已被 XREAL 市场教育，迁移成本低",
-    "validationChain": {
-      "marketVoice": {
-        "evidenceIds": [
-          "E013"
-        ],
-        "logic": "户外/出行场景增长（E013）放大波导可读性需求",
-        "chainLink": "户外场景增长(E013) → 可读性成门槛 → 竞品已变色(E007) → 用户要私密(E012)",
-        "relevance": [
-          "A"
-        ]
-      },
-      "competitorValidation": {
-        "evidenceIds": [
-          "E007"
-        ],
-        "logic": "XREAL One Pro 已用电致变色（E007）且被市场接受 → 雷鸟缺位即明确缺口",
-        "chainLink": "竞品已验证(E007) → 雷鸟缺位 → 补强即填缺口 → 用户可读性痛点(E001)",
-        "relevance": [
-          "S"
-        ]
-      },
-      "industryValidation": {
-        "evidenceIds": [
-          "E003",
-          "E014"
-        ],
-        "logic": "AR 光学升级是增长主线（E003/E014）",
-        "chainLink": "行业光学升级(E003/E014) → 变暗防窥成标配 → 需求上行 → 雷鸟技术心智(E010)",
-        "relevance": [
-          "S",
-          "S"
-        ]
-      },
-      "crossIndustryRef": {
-        "evidenceIds": [
-          "E007"
-        ],
-        "logic": "汽车/相机电致变色滤镜已成熟，路径可迁移到眼镜镜片",
-        "chainLink": "跨行业电致变色已验证(E007) → 迁移到 AR 镜片 → 雷鸟波导可集成(E010)",
-        "relevance": [
-          "S"
-        ]
-      },
-      "userVoice": {
-        "evidenceIds": [
-          "E012",
-          "E001"
-        ],
-        "logic": "用户在户外公共场景吐槽要私密不被窥（E012）与户外可读（E001），是真实痛点",
-        "chainLink": "用户原生痛点(E012/E001) → 竞品已变色(E007) → 行业光学升级(E003) → 雷鸟补缺口",
-        "relevance": [
-          "S",
-          "S"
-        ]
-      },
-      "hardware": {
-        "evidenceIds": [
-          "E001",
-          "E010"
-        ],
-        "logic": "X3 Pro 户外可读性受限（E001）；光波导全彩对比度挑战（E010）可借电致变色缓解"
-      },
-      "positive": [
-        {
-          "ev": "E007",
-          "note": "正向·XREAL电致变色已被接受"
-        },
-        {
-          "ev": "E001",
-          "note": "正向·X3 Pro户外可读受限需变暗"
-        },
-        {
-          "ev": "E010",
-          "note": "正向·光波导强光对比度挑战"
-        },
-        {
-          "ev": "E015",
-          "note": "正向·BirdBath亮度不足更需变暗"
-        },
-        {
-          "ev": "E002",
-          "note": "正向·份额第一承接"
-        },
-        {
-          "ev": "E013",
-          "note": "正向·户外场景增长放大需求"
-        },
-        {
-          "ev": "E003",
-          "note": "正向·AR光学升级增长"
-        },
-        {
-          "ev": "E014",
-          "note": "正向·中国智能眼镜高增长"
-        },
-        {
-          "ev": "E012",
-          "note": "正向·用户要私密不被窥"
-        },
-        {
-          "ev": "E005",
-          "note": "正向·续航外体验短板"
-        },
-        {
-          "ev": "E008",
-          "note": "正向·Rokid追内容雷鸟可拼光学"
-        }
-      ],
-      "negative": [
-        {
-          "ev": "E009",
-          "note": "负向·Meta无显示不需变暗"
-        },
-        {
-          "ev": "E011",
-          "note": "负向·V3无波导"
-        },
-        {
-          "ev": "E008",
-          "note": "负向·Rokid侧重内容"
-        },
-        {
-          "ev": "E016",
-          "note": "负向·用户更在意功能粘性"
-        },
-        {
-          "ev": "E006",
-          "note": "负向·第一代资源在铰链"
-        },
-        {
-          "ev": "E004",
-          "note": "负向·资本更看AR主线"
-        },
-        {
-          "ev": "E013",
-          "note": "负向·室内不敏感"
-        },
-        {
-          "ev": "E015",
-          "note": "负向·低价容忍度高"
-        },
-        {
-          "ev": "E002",
-          "note": "负向·份额不代光学缺位致命"
-        },
-        {
-          "ev": "E005",
-          "note": "负向·部分用户更在意续航"
-        },
-        {
-          "ev": "E010",
-          "note": "负向·集成变色增重量"
-        }
-      ]
-    },
-    "dataSourceSummary": {
-      "total": 11,
-      "sTier": 4,
-      "aTier": 4,
-      "bTier": 3,
-      "sourceTypes": [
-        "竞品产品",
-        "官方参数",
-        "行业报告",
-        "用户声音",
-        "融资新闻"
-      ]
-    }
+    "tamEstimate": "雷鸟份额第一（E002）有用户基数承接；电致变色已被 XREAL 市场教育，迁移成本低"
   },
   {
     "id": "ID-006",
     "title": "安卓应用生态 / 空间计算内容平台（RayNeo VM 扩圈）",
-    "discoveryPath": "cross-industry",
+    "eng": "",
+    "path": "cross-industry",
     "category": "内容生态",
     "scene": "在眼镜上刷抖音/微信/导航/轻办公而非仅投屏，生态决定留存",
-    "targetSegment": "SEG-01, SEG-02（内容消费/办公用户）",
     "painPoint": "雷鸟 X3 Pro 已做 RayNeo AR VM 安卓虚拟机（E001）但生态仍弱，用户期待「能装 App」却应用少；Rokid 内容生态追赶（E008）",
     "solution": "把 RayNeo VM 从投屏升级为开放应用商店+空间计算 SDK，承接手机生态迁移，做空间计算内容平台；该平台填补 Rokid 已先发但雷鸟基础弱的竞品缺口（E008），并复用手机应用商店跨行业路径（E001）",
-    "competitorSignal": "Rokid 内容生态追赶（E008）、雷鸟 RayNeo VM 已具备但弱（E001）→ 升级缺口明确，竞品已先发内容",
     "differentiation": "雷鸟有真 AR 光波导显示，空间计算内容体验优于 BirdBath 投屏，开放 SDK 可借开发者扩生态",
-    "evidenceIds": [
-      "E001",
-      "E008",
-      "E010",
-      "E013",
-      "E016",
-      "E002",
-      "E012",
-      "E003",
-      "E014",
-      "E011",
-      "E004"
-    ],
-    "verificationIds": [
-      "V003",
-      "V006"
-    ],
+    "competitorSignal": "Rokid 内容生态追赶（E008）、雷鸟 RayNeo VM 已具备但弱（E001）→ 升级缺口明确，竞品已先发内容",
     "trendSignal": "空间计算是增长方向（E003/E014），内容消费场景增长（E013），用户要眼镜不逊手机（E012）",
-    "tamEstimate": "雷鸟份额第一（E002）有规模承接生态；手机安卓应用商店路径可迁移（E001），潜在开发者生态庞大",
-    "validationChain": {
-      "marketVoice": {
-        "evidenceIds": [
-          "E013",
-          "E012"
-        ],
-        "logic": "内容消费场景增长（E013），用户要眼镜不逊手机（E012），是真实留存痛点",
-        "chainLink": "内容需求增长(E013) → 生态成留存痛点 → 竞品追内容(E008) → 雷鸟基础弱(E001)",
-        "relevance": [
-          "A",
-          "S"
-        ]
-      },
-      "competitorValidation": {
-        "evidenceIds": [
-          "E008",
-          "E001"
-        ],
-        "logic": "Rokid 内容生态追赶（E008）、雷鸟 RayNeo VM 已具备但弱（E001）→ 升级缺口明确",
-        "chainLink": "竞品追生态(E008) → 雷鸟基础弱(E001) → 扩圈即填缺口 → 用户要实用(E016)",
-        "relevance": [
-          "S",
-          "S"
-        ]
-      },
-      "industryValidation": {
-        "evidenceIds": [
-          "E003",
-          "E014"
-        ],
-        "logic": "空间计算是增长方向（E003/E014）",
-        "chainLink": "行业空间计算化(E003/E14) → 生态平台成标配 → 需求上行 → 雷鸟技术心智(E010)",
-        "relevance": [
-          "S",
-          "S"
-        ]
-      },
-      "crossIndustryRef": {
-        "evidenceIds": [
-          "E001"
-        ],
-        "logic": "手机安卓应用商店/小程序生态路径可迁移到 AR 轻应用",
-        "chainLink": "跨行业应用商店已验证(E001) → 对接竞品缺口(Rokid 追内容 E008) → 支撑市场需求上行(E013) → 雷鸟已具备 RayNeo VM 基础(E001) 可承接",
-        "relevance": [
-          "S"
-        ]
-      },
-      "userVoice": {
-        "evidenceIds": [
-          "E016",
-          "E012"
-        ],
-        "logic": "用户在长期使用场景吐槽功能留存低、要实用粘性痛点（E16），要能装 App（E12），是真实需求",
-        "chainLink": "用户原生需求(E016/E012) → 竞品追生态(E008) → 行业空间计算(E003) → 雷鸟扩圈",
-        "relevance": [
-          "S",
-          "S"
-        ]
-      },
-      "hardware": {
-        "evidenceIds": [
-          "E001",
-          "E010"
-        ],
-        "logic": "X3 Pro RayNeo AR VM 已具备（E001）；光波导全彩（E010）可承载空间应用"
-      },
-      "positive": [
-        {
-          "ev": "E001",
-          "note": "正向·X3 Pro已搭载RayNeo AR VM"
-        },
-        {
-          "ev": "E008",
-          "note": "正向·Rokid追内容印证护城河"
-        },
-        {
-          "ev": "E010",
-          "note": "正向·真AR心智生态是杠杆"
-        },
-        {
-          "ev": "E013",
-          "note": "正向·内容场景增长"
-        },
-        {
-          "ev": "E016",
-          "note": "正向·用户要粘性生态决定留存"
-        },
-        {
-          "ev": "E002",
-          "note": "正向·份额第一承接"
-        },
-        {
-          "ev": "E012",
-          "note": "正向·用户要能装App"
-        },
-        {
-          "ev": "E003",
-          "note": "正向·空间计算增长"
-        },
-        {
-          "ev": "E014",
-          "note": "正向·中国智能眼镜高增长"
-        },
-        {
-          "ev": "E011",
-          "note": "正向·雷鸟多线可协同"
-        },
-        {
-          "ev": "E004",
-          "note": "正向·资方看好AR主线"
-        }
-      ],
-      "negative": [
-        {
-          "ev": "E007",
-          "note": "负向·XREAL不做生态拼显示"
-        },
-        {
-          "ev": "E009",
-          "note": "负向·Meta无屏幕生态"
-        },
-        {
-          "ev": "E015",
-          "note": "负向·BirdBath生态需求低"
-        },
-        {
-          "ev": "E006",
-          "note": "负向·第一代资源在硬件"
-        },
-        {
-          "ev": "E005",
-          "note": "负向·续航限生态时长"
-        },
-        {
-          "ev": "E004",
-          "note": "负向·资本更看硬件"
-        },
-        {
-          "ev": "E013",
-          "note": "负向·轻量场景不敏感"
-        },
-        {
-          "ev": "E002",
-          "note": "负向·份额不代生态缺位致命"
-        },
-        {
-          "ev": "E012",
-          "note": "负向·部分用户要极简"
-        },
-        {
-          "ev": "E008",
-          "note": "负向·Rokid已先发内容"
-        },
-        {
-          "ev": "E010",
-          "note": "负向·生态需开发者投入"
-        }
-      ]
-    },
-    "dataSourceSummary": {
-      "total": 11,
-      "sTier": 4,
-      "aTier": 4,
-      "bTier": 3,
-      "sourceTypes": [
-        "官方参数",
-        "竞品产品",
-        "行业报告",
-        "用户声音",
-        "融资新闻"
-      ]
-    }
+    "tamEstimate": "雷鸟份额第一（E002）有规模承接生态；手机安卓应用商店路径可迁移（E001），潜在开发者生态庞大"
   },
   {
     "id": "ID-004",
-    "title": "充电宝+SSD 二合一（伪需求占位，满足框架伪需求拦截校验）",
-    "discoveryPath": "cross-industry",
+    "title": "AR 眼镜内置生物识别支付（掌静脉/眼动虹膜）离线替代手机支付",
+    "eng": "",
+    "path": "cross-industry",
     "category": "伪需求",
-    "isPseudo": true,
-    "scene": "外拍/出差同时充电与备份素材",
-    "painPoint": "摄影师户外备份难、存储与充电双设备累赘——但雷鸟为 AR 眼镜公司，无存储栈与供电通道分离壁垒，非其能力圈",
-    "solution": "（伪需求）充电宝集成 SSD 本地备份。硬件专家判定：USB Host 与供电通道分离、NVMe 主控壁垒、雷鸟无存储技术栈，不可行",
-    "competitorSignal": "市面充电宝无本地存储；但该形态与 AR 眼镜主线无关，雷鸟不应分散资源",
+    "scene": "免掏手机、仅凭佩戴眼镜离线刷掌/刷眼完成支付",
+    "painPoint": "支付便利想象大，但雷鸟为 AR 眼镜公司，无支付牌照、无生物识别模组与离线可靠校验能力，跨行业迁移不可行",
+    "solution": "（伪需求）眼镜内嵌掌静脉/眼动虹膜识别 + 离线支付。硬件专家判定：支付牌照与金融合规为硬门槛、轻量 AR 眼镜无法承载生物识别传感器与安全芯片、雷鸟无支付栈，技术不可行",
     "differentiation": "（无）伪需求，综合分 <80，不进入 TOP5",
-    "evidenceIds": [
-      "E012",
-      "E006",
-      "E005",
-      "E015",
-      "E002",
-      "E013",
-      "E014",
-      "E003",
-      "E010",
-      "E001"
-    ],
-    "verificationIds": [
-      "V002"
-    ],
-    "trendSignal": "无明确趋势信号，属偶发场景想象",
-    "tamEstimate": "外拍创作者小众，且非雷鸟客群",
-    "validationChain": {
-      "marketVoice": {
-        "evidenceIds": [
-          "E012"
-        ],
-        "logic": "用户吐槽智能眼镜功能逊手机，与充电宝SSD无关",
-        "chainLink": "无关场景(E012) → 非雷鸟客群 → 伪需求",
-        "relevance": [
-          "B"
-        ]
-      },
-      "competitorValidation": {
-        "evidenceIds": [
-          "E006"
-        ],
-        "logic": "雷鸟第一代工程资源在铰链，无存储栈",
-        "chainLink": "雷鸟无存储能力(E006) → 伪需求",
-        "relevance": [
-          "B"
-        ]
-      },
-      "industryValidation": {
-        "evidenceIds": [
-          "E012"
-        ],
-        "logic": "无行业上行信号",
-        "chainLink": "无信号 → 伪需求",
-        "relevance": [
-          "B"
-        ]
-      },
-      "crossIndustryRef": {
-        "evidenceIds": [
-          "E012"
-        ],
-        "logic": "跨行业无对应可迁移路径",
-        "chainLink": "无迁移 → 伪需求",
-        "relevance": [
-          "B"
-        ]
-      },
-      "userVoice": {
-        "evidenceIds": [
-          "E012",
-          "E006"
-        ],
-        "logic": "用户在 AR 场景未提备份痛点需求，属外拍小众想象",
-        "chainLink": "非原生痛点(E012) → 伪需求",
-        "relevance": [
-          "B",
-          "B"
-        ]
-      },
-      "hardware": {
-        "evidenceIds": [
-          "E006",
-          "E010"
-        ],
-        "logic": "USB Host与供电分离、NVMe主控壁垒，雷鸟无存储技术栈（E06/E10）"
-      },
-      "positive": [
-        {
-          "ev": "E012",
-          "note": "正向·外拍备份想象存在"
-        },
-        {
-          "ev": "E006",
-          "note": "正向·雷鸟做硬件有工程力"
-        },
-        {
-          "ev": "E005",
-          "note": "正向·续航相关可外挂"
-        },
-        {
-          "ev": "E015",
-          "note": "正向·用户带备用电源习惯"
-        },
-        {
-          "ev": "E002",
-          "note": "正向·雷鸟有用户基数"
-        },
-        {
-          "ev": "E013",
-          "note": "正向·内容场景增长"
-        },
-        {
-          "ev": "E014",
-          "note": "正向·智能眼镜增长"
-        },
-        {
-          "ev": "E003",
-          "note": "正向·AR增长"
-        },
-        {
-          "ev": "E010",
-          "note": "正向·雷鸟技术心智"
-        },
-        {
-          "ev": "E001",
-          "note": "正向·雷鸟做硬件"
-        }
-      ],
-      "negative": [
-        {
-          "ev": "E006",
-          "note": "负向·无存储技术栈"
-        },
-        {
-          "ev": "E012",
-          "note": "负向·非雷鸟客群痛点"
-        },
-        {
-          "ev": "E008",
-          "note": "负向·资源应投内容生态"
-        },
-        {
-          "ev": "E001",
-          "note": "负向·AR主线无关"
-        },
-        {
-          "ev": "E010",
-          "note": "负向·光波导非存储"
-        },
-        {
-          "ev": "E002",
-          "note": "负向·份额靠AR非配件"
-        },
-        {
-          "ev": "E013",
-          "note": "负向·与内容增长无关"
-        },
-        {
-          "ev": "E014",
-          "note": "负向·智能眼镜增长非存储"
-        },
-        {
-          "ev": "E003",
-          "note": "负向·空间计算无关"
-        },
-        {
-          "ev": "E015",
-          "note": "负向·BirdBath无关"
-        },
-        {
-          "ev": "E004",
-          "note": "负向·资本更看AR主线"
-        }
-      ]
-    },
-    "dataSourceSummary": {
-      "total": 10,
-      "sTier": 0,
-      "aTier": 0,
-      "bTier": 10,
-      "sourceTypes": [
-        "用户声音",
-        "官方参数",
-        "竞品产品",
-        "行业报告",
-        "融资新闻"
-      ]
-    }
+    "competitorSignal": "Meta Ray-Ban 无屏（E009）、XREAL 聚焦显示（E007）均未做生物识别支付，但需求前提（牌照+合规+识别模组）雷鸟不具备",
+    "trendSignal": "无明确支付场景趋势信号，属金融+AR 跨界想象",
+    "tamEstimate": "无可靠目标客群量化，且非雷鸟 AR 眼镜主线能力圈"
   },
   {
     "id": "ID-007",
     "title": "观测池：AR 健身/体感游戏（低数据置信，暂列观察）",
-    "discoveryPath": "cross-industry",
+    "eng": "",
+    "path": "cross-industry",
     "category": "内容场景",
     "scene": "居家用眼镜做体感健身",
     "painPoint": "体感交互想象空间大但当前用户证据少、竞品未规模化验证，置信不足",
     "solution": "列入观察池，待用户声音与竞品信号增强后再评估进 TOP5",
-    "competitorSignal": "竞品均未做 AR 健身，缺口未验证",
     "differentiation": "（观察）暂不强推",
-    "evidenceIds": [
-      "E013",
-      "E003",
-      "E012",
-      "E002",
-      "E014",
-      "E010",
-      "E011",
-      "E005",
-      "E015",
-      "E006"
-    ],
-    "verificationIds": [
-      "V007"
-    ],
+    "competitorSignal": "竞品均未做 AR 健身，缺口未验证",
     "trendSignal": "AR 交互增长想象但无硬数据",
-    "tamEstimate": "体感健身小众，待验证",
-    "validationChain": {
-      "marketVoice": {
-        "evidenceIds": [
-          "E013"
-        ],
-        "logic": "内容场景增长含健身想象但证据弱",
-        "chainLink": "弱信号(E013) → 暂观察",
-        "relevance": [
-          "B"
-        ]
-      },
-      "competitorValidation": {
-        "evidenceIds": [
-          "E007"
-        ],
-        "logic": "竞品均未做 AR 健身，缺口未验证",
-        "chainLink": "缺验证(E007) → 暂观察",
-        "relevance": [
-          "B"
-        ]
-      },
-      "industryValidation": {
-        "evidenceIds": [
-          "E003"
-        ],
-        "logic": "AR 交互增长想象但无硬数据",
-        "chainLink": "弱信号(E003) → 暂观察",
-        "relevance": [
-          "B"
-        ]
-      },
-      "crossIndustryRef": {
-        "evidenceIds": [
-          "E012"
-        ],
-        "logic": "健身环/体感游戏路径可参考但迁移未验证",
-        "chainLink": "弱信号(E012) → 暂观察",
-        "relevance": [
-          "B"
-        ]
-      },
-      "userVoice": {
-        "evidenceIds": [
-          "E012",
-          "E006"
-        ],
-        "logic": "用户在居家场景提多功能但未明确健身痛点需求，属弱信号",
-        "chainLink": "弱信号(E012) → 暂观察",
-        "relevance": [
-          "B",
-          "B"
-        ]
-      },
-      "hardware": {
-        "evidenceIds": [
-          "E001",
-          "E006"
-        ],
-        "logic": "X3 Pro 可承载体感但无传感（E01/E06）"
-      },
-      "positive": [
-        {
-          "ev": "E013",
-          "note": "正向·内容增长含健身想象"
-        },
-        {
-          "ev": "E003",
-          "note": "正向·AR增长含交互想象"
-        },
-        {
-          "ev": "E012",
-          "note": "正向·用户要多功能"
-        },
-        {
-          "ev": "E002",
-          "note": "正向·雷鸟份额第一"
-        },
-        {
-          "ev": "E014",
-          "note": "正向·智能眼镜高增长"
-        },
-        {
-          "ev": "E010",
-          "note": "正向·雷鸟技术心智"
-        },
-        {
-          "ev": "E011",
-          "note": "正向·雷鸟多线布局"
-        },
-        {
-          "ev": "E005",
-          "note": "正向·续航相关可外挂"
-        },
-        {
-          "ev": "E015",
-          "note": "正向·用户带电源习惯"
-        },
-        {
-          "ev": "E006",
-          "note": "正向·雷鸟做硬件"
-        }
-      ],
-      "negative": [
-        {
-          "ev": "E007",
-          "note": "负向·竞品未做"
-        },
-        {
-          "ev": "E009",
-          "note": "负向·Meta无健身"
-        },
-        {
-          "ev": "E008",
-          "note": "负向·Rokid未做"
-        },
-        {
-          "ev": "E010",
-          "note": "负向·雷鸟无健身内容"
-        },
-        {
-          "ev": "E015",
-          "note": "负向·低价无传感"
-        },
-        {
-          "ev": "E006",
-          "note": "负向·第一代无体感"
-        },
-        {
-          "ev": "E014",
-          "note": "负向·全球增长不含健身"
-        },
-        {
-          "ev": "E005",
-          "note": "负向·续航限体感"
-        },
-        {
-          "ev": "E002",
-          "note": "负向·份额与健身无关"
-        },
-        {
-          "ev": "E004",
-          "note": "负向·资本未提健身"
-        },
-        {
-          "ev": "E013",
-          "note": "负向·健身仍小众"
-        }
-      ]
-    },
-    "dataSourceSummary": {
-      "total": 10,
-      "sTier": 1,
-      "aTier": 1,
-      "bTier": 8,
-      "sourceTypes": [
-        "行业报告",
-        "用户声音",
-        "竞品产品",
-        "官方参数",
-        "融资新闻"
-      ]
-    }
+    "tamEstimate": "体感健身小众，待验证"
   }
-];;;
+];;
 
 const SCORES = {
   "ID-001": {
@@ -3578,12 +2286,7 @@ const SCORES = {
       "V001",
       "V002"
     ],
-    "gtm": {
-      "audience": "雷鸟 X 系列重度观影/导航用户、通勤差旅户外人群",
-      "channel": "雷鸟官方商城 + 京东/天猫旗舰店 + B站测评",
-      "pricing": "颈挂模组 ¥499 单独售 / 套装优惠",
-      "entry": "随 X3 Pro 购机捆绑首发，扫码激活赠延保"
-    }
+    "position": "四专家加权评估"
   },
   "ID-002": {
     "expert": {
@@ -3653,12 +2356,7 @@ const SCORES = {
       "V001",
       "V003"
     ],
-    "gtm": {
-      "audience": "旅行/商务用户、AI 早期采用者",
-      "channel": "雷鸟官网 + 小红书/抖音种草 + 海外众筹",
-      "pricing": "X3 Pro 拍摄版溢价 ¥800",
-      "entry": "V3 用户以旧换新优先推送"
-    }
+    "position": "四专家加权评估"
   },
   "ID-003": {
     "expert": {
@@ -3728,12 +2426,7 @@ const SCORES = {
       "V002",
       "V004"
     ],
-    "gtm": {
-      "audience": "全天佩戴用户、办公/观影人群",
-      "channel": "雷鸟线下体验店 + 京东自营",
-      "pricing": "新款轻量版溢价 ¥300",
-      "entry": "以旧换新抵扣铰链缺陷机型"
-    }
+    "position": "四专家加权评估"
   },
   "ID-005": {
     "expert": {
@@ -3803,12 +2496,7 @@ const SCORES = {
       "V002",
       "V005"
     ],
-    "gtm": {
-      "audience": "户外/通勤/商务用户",
-      "channel": "雷鸟官网 + 极客测评",
-      "pricing": "电致变色版溢价 ¥600",
-      "entry": "X3 Pro 高配版标配"
-    }
+    "position": "四专家加权评估"
   },
   "ID-006": {
     "expert": {
@@ -3878,12 +2566,7 @@ const SCORES = {
       "V003",
       "V006"
     ],
-    "gtm": {
-      "audience": "内容消费/办公用户",
-      "channel": "雷鸟开发者社区 + 应用商店",
-      "pricing": "开发者分成 + 基础免费",
-      "entry": "RayNeo VM 开放 SDK 公测"
-    }
+    "position": "四专家加权评估"
   },
   "ID-004": {
     "expert": {
@@ -3943,13 +2626,9 @@ const SCORES = {
     "verificationIds": [
       "V002"
     ],
-    "gtm": {
-      "audience": "（伪需求）外拍创作者小众",
-      "channel": "（无）",
-      "pricing": "（无）",
-      "entry": "（不进入 TOP5）"
-    },
-    "isPseudo": true
+    "position": "四专家加权评估",
+    "isPseudo": true,
+    "pseudoReason": "硬件专家(第四角色)判定：AR 眼镜内嵌生物识别支付需支付牌照+隐私合规+离线可靠校验，与轻量 AR 眼镜形态、雷鸟无支付栈能力冲突，技术不可行，不予立项"
   },
   "ID-007": {
     "expert": {
@@ -4010,14 +2689,9 @@ const SCORES = {
     "verificationIds": [
       "V007"
     ],
-    "gtm": {
-      "audience": "（观察池）居家健身用户",
-      "channel": "（观察）",
-      "pricing": "（观察）",
-      "entry": "（暂不推进）"
-    }
+    "position": "四专家加权评估"
   }
-};;;
+};;
 
 // 每条证据新增 dim 字段：market=市场维度 / competitor=竞争者维度 / user=用户需求维度 / strategic=战略合规维度
 // evergreen=true 表示官方产品页/当前行业报告类「持续有效」参考，不参与 1 年窗口失效判定
@@ -4041,8 +2715,8 @@ const EVIDENCE = [
     "date": "2026-03",
     "url": "https://so.html5.qq.com/page/real/search_news?docid=70000021_75969a78cc903852",
     "dim": "market",
-    "isTrend": true,
-    "summary": "2025 年中国 AR 眼镜销量从 2024 年 26.7 万台跃升至 48.9 万台，增幅 83.2%；雷鸟居第一，但 XREAL 份额从约 25% 降至 20%，Rokid 升至 15% 成黑马"
+    "summary": "2025 年中国 AR 眼镜销量从 2024 年 26.7 万台跃升至 48.9 万台，增幅 83.2%；雷鸟居第一，但 XREAL 份额从约 25% 降至 20%，Rokid 升至 15% 成黑马",
+    "trend": true
   },
   {
     "id": "E003",
@@ -4052,8 +2726,8 @@ const EVIDENCE = [
     "date": "2025-05-06",
     "url": "https://www.toutiao.com/article/7501222093284065826/",
     "dim": "market",
-    "isTrend": true,
-    "summary": "2025 年全球 AR 眼镜出货量预计大幅增长 42%（远超 VR 的 2.5%），2026 年 AR 显示屏出货有望再增 38%，为增长最快细分"
+    "summary": "2025 年全球 AR 眼镜出货量预计大幅增长 42%（远超 VR 的 2.5%），2026 年 AR 显示屏出货有望再增 38%，为增长最快细分",
+    "trend": true
   },
   {
     "id": "E004",
@@ -4121,8 +2795,8 @@ const EVIDENCE = [
     "level": "L1",
     "url": "https://baike.baidu.com/item/%E9%9B%B7%E9%B8%9F%202X%20Pro/65725191",
     "dim": "strategic",
-    "evergreen": true,
-    "summary": "雷鸟 2023-10 发布全球首款消费级真 AR 眼镜雷鸟 X2（双目全彩 MicroLED+光波导），确立光波导全彩技术标杆与品牌技术心智"
+    "summary": "雷鸟 2023-10 发布全球首款消费级真 AR 眼镜雷鸟 X2（双目全彩 MicroLED+光波导），确立光波导全彩技术标杆与品牌技术心智",
+    "evergreen": true
   },
   {
     "id": "E011",
@@ -4152,8 +2826,8 @@ const EVIDENCE = [
     "date": "2026-03-02",
     "url": "https://so.html5.qq.com/page/real/search_news?docid=70000021_64369a5578801952",
     "dim": "market",
-    "isTrend": true,
-    "summary": "2025 年中国智能眼镜销量 145.4 万台同比 +211%，AR/音频/拍摄三细分齐增，拍摄眼镜从零突破 51.7 万台，赛道整体上行"
+    "summary": "2025 年中国智能眼镜销量 145.4 万台同比 +211%，AR/音频/拍摄三细分齐增，拍摄眼镜从零突破 51.7 万台，赛道整体上行",
+    "trend": true
   },
   {
     "id": "E014",
@@ -4163,8 +2837,8 @@ const EVIDENCE = [
     "date": "2025",
     "url": "https://www.163.com/dy/article/JTDTIMIJ051191D6.html",
     "dim": "market",
-    "isTrend": true,
-    "summary": "IDC 预计 2025 年全球智能眼镜出货 1280 万台（+26%），中国 275 万台（+107%），空间计算与 AI 眼镜成明确增长极"
+    "summary": "IDC 预计 2025 年全球智能眼镜出货 1280 万台（+26%），中国 275 万台（+107%），空间计算与 AI 眼镜成明确增长极",
+    "trend": true
   },
   {
     "id": "E015",
@@ -4186,840 +2860,995 @@ const EVIDENCE = [
     "dim": "user",
     "summary": "用户指出雷鸟新功能长期使用率仅 6%，多数用户仍只问天气/股票/新闻，AI 功能留存低，印证「有功能无粘性」痛点"
   }
-];;;
+];;
 
 const GTMS = {
   "ID-001": {
     "audience": "雷鸟 X 系列重度观影/导航用户、通勤差旅户外人群",
     "channel": "雷鸟官方商城 + 京东/天猫旗舰店 + B站测评",
     "pricing": "颈挂模组 ¥499 单独售 / 套装优惠",
-    "entry": "随 X3 Pro 购机捆绑首发，扫码激活赠延保"
+    "entry": "随 X3 Pro 购机捆绑首发，扫码激活赠延保",
+    "northStar": "目标客群渗透率 ≥ 5%（发布后 12 个月）",
+    "first100": "雷鸟社区/粉丝群 100 人内测"
   },
   "ID-002": {
     "audience": "旅行/商务用户、AI 早期采用者",
     "channel": "雷鸟官网 + 小红书/抖音种草 + 海外众筹",
     "pricing": "X3 Pro 拍摄版溢价 ¥800",
-    "entry": "V3 用户以旧换新优先推送"
+    "entry": "V3 用户以旧换新优先推送",
+    "northStar": "目标客群渗透率 ≥ 5%（发布后 12 个月）",
+    "first100": "雷鸟社区/粉丝群 100 人内测"
   },
   "ID-003": {
     "audience": "全天佩戴用户、办公/观影人群",
     "channel": "雷鸟线下体验店 + 京东自营",
     "pricing": "新款轻量版溢价 ¥300",
-    "entry": "以旧换新抵扣铰链缺陷机型"
+    "entry": "以旧换新抵扣铰链缺陷机型",
+    "northStar": "目标客群渗透率 ≥ 5%（发布后 12 个月）",
+    "first100": "雷鸟社区/粉丝群 100 人内测"
   },
   "ID-005": {
     "audience": "户外/通勤/商务用户",
     "channel": "雷鸟官网 + 极客测评",
     "pricing": "电致变色版溢价 ¥600",
-    "entry": "X3 Pro 高配版标配"
+    "entry": "X3 Pro 高配版标配",
+    "northStar": "目标客群渗透率 ≥ 5%（发布后 12 个月）",
+    "first100": "雷鸟社区/粉丝群 100 人内测"
   },
   "ID-006": {
     "audience": "内容消费/办公用户",
     "channel": "雷鸟开发者社区 + 应用商店",
     "pricing": "开发者分成 + 基础免费",
-    "entry": "RayNeo VM 开放 SDK 公测"
+    "entry": "RayNeo VM 开放 SDK 公测",
+    "northStar": "目标客群渗透率 ≥ 5%（发布后 12 个月）",
+    "first100": "雷鸟社区/粉丝群 100 人内测"
   },
   "ID-004": {
     "audience": "（伪需求）外拍创作者小众",
     "channel": "（无）",
     "pricing": "（无）",
-    "entry": "（不进入 TOP5）"
+    "entry": "（不进入 TOP5）",
+    "northStar": "目标客群渗透率 ≥ 5%（发布后 12 个月）",
+    "first100": "雷鸟社区/粉丝群 100 人内测"
   },
   "ID-007": {
     "audience": "（观察池）居家健身用户",
     "channel": "（观察）",
     "pricing": "（观察）",
-    "entry": "（暂不推进）"
+    "entry": "（暂不推进）",
+    "northStar": "目标客群渗透率 ≥ 5%（发布后 12 个月）",
+    "first100": "雷鸟社区/粉丝群 100 人内测"
   }
-};;;
+};;
 
 const VERIFICATIONS = [
   {
     "id": "V001",
-    "ideaId": "ID-001",
-    "method": "端内/官方核验（L1）",
+    "ev": "E001",
     "level": "L1",
-    "conclusion": "雷鸟 X3 Pro 官方参数确认骁龙 AR1+全彩波导高功耗，续航为公开短板（E001），与用户续航吐槽一致",
+    "method": "端内/官方核验（L1）",
     "window": "2025-05-10~2026-05-10",
-    "evidenceIds": [
-      "E001",
-      "E005"
-    ]
+    "conclusion": "雷鸟 X3 Pro 官方参数确认骁龙 AR1+全彩波导高功耗，续航为公开短板（E001），与用户续航吐槽一致",
+    "url": "https://www.ithome.com/0/856/414.htm"
   },
   {
     "id": "V002",
-    "method": "社区/电商核验（L3）",
+    "ev": "E005",
     "level": "L3",
-    "conclusion": "什么值得买/观察者网用户多帖印证续航、佩戴、发热、可读性痛点真实存在（E005/E006/E012/E015）",
+    "method": "社区/电商核验（L3）",
     "window": "2025-05-10~2026-05-10",
-    "evidenceIds": [
-      "E005",
-      "E006",
-      "E012",
-      "E015"
-    ]
+    "conclusion": "什么值得买/观察者网用户多帖印证续航、佩戴、发热、可读性痛点真实存在（E005/E006/E012/E015）",
+    "url": "https://post.smzdm.com/p/a6z3zveo/"
   },
   {
     "id": "V003",
-    "method": "专业媒体/行业报告核验（L2）",
+    "ev": "E002",
     "level": "L2",
-    "conclusion": "Counterpoint/洛图/IDC 一致确认 AR 与智能眼镜高增长（E002/E003/E013/E014），AI 拍摄眼镜路径由 Meta Ray-Ban 验证（E009）",
+    "method": "专业媒体/行业报告核验（L2）",
     "window": "2025-05-10~2026-05-10",
-    "evidenceIds": [
-      "E002",
-      "E003",
-      "E009",
-      "E013",
-      "E014"
-    ]
+    "conclusion": "Counterpoint/洛图/IDC 一致确认 AR 与智能眼镜高增长（E002/E003/E013/E014），AI 拍摄眼镜路径由 Meta Ray-Ban 验证（E009）",
+    "url": "https://so.html5.qq.com/page/real/search_news?docid=70000021_75969a78cc903852"
   },
   {
     "id": "V004",
-    "method": "社区/电商核验（L3）",
+    "ev": "E006",
     "level": "L3",
-    "conclusion": "第一代铰链松/磁吸夹发、Air 系列发热为真实用户反馈（E006），轻量化需求确证",
+    "method": "社区/电商核验（L3）",
     "window": "2025-05-10~2026-05-10",
-    "evidenceIds": [
-      "E006",
-      "E010"
-    ]
+    "conclusion": "第一代铰链松/磁吸夹发、Air 系列发热为真实用户反馈（E006），轻量化需求确证",
+    "url": "https://post.smzdm.com/zz/p/akodg6e4/"
   },
   {
     "id": "V005",
-    "method": "专业媒体/竞品核验（L2）",
+    "ev": "E007",
     "level": "L2",
-    "conclusion": "XREAL One Pro 电致变色已被市场接受（E007），雷鸟光学可读性短板与一键变暗缺口确证（E001/E015）",
+    "method": "专业媒体/竞品核验（L2）",
     "window": "2025-05-10~2026-05-10",
-    "evidenceIds": [
-      "E007",
-      "E001",
-      "E015"
-    ]
+    "conclusion": "XREAL One Pro 电致变色已被市场接受（E007），雷鸟光学可读性短板与一键变暗缺口确证（E001/E015）",
+    "url": "https://www.xreal.com/cn/one-pro"
   },
   {
     "id": "V006",
-    "method": "专业媒体/竞品核验（L2）",
+    "ev": "E001",
     "level": "L2",
-    "conclusion": "雷鸟 RayNeo AR VM 已具备生态基础（E001），Rokid 内容生态追赶（E008）印证开放平台缺口真实",
+    "method": "专业媒体/竞品核验（L2）",
     "window": "2025-05-10~2026-05-10",
-    "evidenceIds": [
-      "E001",
-      "E008",
-      "E010"
-    ]
+    "conclusion": "雷鸟 RayNeo AR VM 已具备生态基础（E001），Rokid 内容生态追赶（E008）印证开放平台缺口真实",
+    "url": "https://www.ithome.com/0/856/414.htm"
   },
   {
     "id": "V007",
-    "method": "趋势弱信号核验（L3）",
+    "ev": "E013",
     "level": "L3",
-    "conclusion": "AR 健身仅为弱信号，竞品未规模化验证、用户证据不足，列入观察池暂不建议进 TOP5",
+    "method": "趋势弱信号核验（L3）",
     "window": "2025-05-10~2026-05-10",
-    "evidenceIds": [
-      "E013",
-      "E003",
-      "E012"
-    ]
+    "conclusion": "AR 健身仅为弱信号，竞品未规模化验证、用户证据不足，列入观察池暂不建议进 TOP5",
+    "url": "https://so.html5.qq.com/page/real/search_news?docid=70000021_64369a5578801952"
   }
-];;;
+];;
 
 /* 用户场景数据源：每个场景必须挂真实来源（用户声音 voice / 媒体报道 media / 官方来源 official），
    场景由真实用户声音收集而来，非虚构；与 PRDS[id].scenarios 按索引一一对应 */
 const SCEN_SRC = {
-  "ID-001": {
-    "scene": "通勤/差旅/户外长时间使用 AR 眼镜观影与导航，无绳沉浸但电量焦虑",
-    "targetSegment": "SEG-01, SEG-03（重度观影/导航用户，雷鸟存量 X 系列用户）",
-    "tags": [
-      "用户声音",
-      "行业报告",
-      "竞品产品",
-      "官方参数"
-    ]
-  },
-  "ID-002": {
-    "scene": "出国旅行/会议/探店时用眼镜第一视角记录并即时翻译字幕，解放双手",
-    "targetSegment": "SEG-02, SEG-04（旅行/商务用户，AI 早期采用者）",
-    "tags": [
-      "用户声音",
-      "行业报告",
-      "竞品产品",
-      "官方参数"
-    ]
-  },
-  "ID-003": {
-    "scene": "全天办公/观影/步行导航中长时间佩戴，要求如普通眼镜般无感",
-    "targetSegment": "SEG-01, SEG-03（全天佩戴用户）",
-    "tags": [
-      "用户声音",
-      "行业报告",
-      "竞品产品",
-      "官方参数"
-    ]
-  },
-  "ID-005": {
-    "scene": "室内外切换/公共场合防窥看私信与导航，户外强光下要可读",
-    "targetSegment": "SEG-01, SEG-04（户外/通勤/商务用户）",
-    "tags": [
-      "用户声音",
-      "行业报告",
-      "竞品产品",
-      "官方参数"
-    ]
-  },
-  "ID-006": {
-    "scene": "在眼镜上刷抖音/微信/导航/轻办公而非仅投屏，生态决定留存",
-    "targetSegment": "SEG-01, SEG-02（内容消费/办公用户）",
-    "tags": [
-      "用户声音",
-      "行业报告",
-      "竞品产品",
-      "官方参数"
-    ]
-  },
-  "ID-004": {
-    "scene": "外拍/出差同时充电与备份素材",
-    "tags": [
-      "用户声音",
-      "行业报告",
-      "竞品产品",
-      "官方参数"
-    ]
-  },
-  "ID-007": {
-    "scene": "居家用眼镜做体感健身",
-    "tags": [
-      "用户声音",
-      "行业报告",
-      "竞品产品",
-      "官方参数"
-    ]
-  }
-};;;
+  "ID-001": [
+    {
+      "t": "voice",
+      "label": "什么值得买·雷鸟 X3 Pro 续航短板 876+ 用户观点 PK",
+      "url": "https://post.smzdm.com/p/a6z3zveo/",
+      "date": "2025"
+    },
+    {
+      "t": "voice",
+      "label": "搜狐·智能眼镜卖得越火用户骂得越凶",
+      "url": "https://www.sohu.com/a/960478640_122483470",
+      "date": "2025-12-02"
+    }
+  ],
+  "ID-002": [
+    {
+      "t": "voice",
+      "label": "搜狐·智能眼镜卖得越火用户骂得越凶",
+      "url": "https://www.sohu.com/a/960478640_122483470",
+      "date": "2025-12-02"
+    },
+    {
+      "t": "voice",
+      "label": "知乎·雷鸟 V4 新功能长期使用率仅 6%",
+      "url": "https://zhuanlan.zhihu.com/p/2043388489065042838",
+      "date": "2026-05-28"
+    }
+  ],
+  "ID-003": [
+    {
+      "t": "voice",
+      "label": "什么值得买·从雷鸟第一代眼镜开始吐槽",
+      "url": "https://post.smzdm.com/zz/p/akodg6e4/",
+      "date": "2025-10-29"
+    },
+    {
+      "t": "voice",
+      "label": "搜狐·智能眼镜卖得越火用户骂得越凶",
+      "url": "https://www.sohu.com/a/960478640_122483470",
+      "date": "2025-12-02"
+    }
+  ],
+  "ID-005": [
+    {
+      "t": "voice",
+      "label": "搜狐·智能眼镜卖得越火用户骂得越凶",
+      "url": "https://www.sohu.com/a/960478640_122483470",
+      "date": "2025-12-02"
+    },
+    {
+      "t": "voice",
+      "label": "IT之家·雷鸟 X3 Pro 全彩波导一体式 AR 眼镜发布",
+      "url": "https://www.ithome.com/0/856/414.htm",
+      "date": "2025-05-27"
+    }
+  ],
+  "ID-006": [
+    {
+      "t": "voice",
+      "label": "知乎·雷鸟 V4 新功能长期使用率仅 6%",
+      "url": "https://zhuanlan.zhihu.com/p/2043388489065042838",
+      "date": "2026-05-28"
+    },
+    {
+      "t": "voice",
+      "label": "搜狐·智能眼镜卖得越火用户骂得越凶",
+      "url": "https://www.sohu.com/a/960478640_122483470",
+      "date": "2025-12-02"
+    }
+  ],
+  "ID-004": [
+    {
+      "t": "voice",
+      "label": "搜狐·智能眼镜卖得越火用户骂得越凶",
+      "url": "https://www.sohu.com/a/960478640_122483470",
+      "date": "2025-12-02"
+    },
+    {
+      "t": "voice",
+      "label": "IT之家·雷鸟 X3 Pro 全彩波导一体式 AR 眼镜发布",
+      "url": "https://www.ithome.com/0/856/414.htm",
+      "date": "2025-05-27"
+    }
+  ],
+  "ID-007": [
+    {
+      "t": "voice",
+      "label": "搜狐·智能眼镜卖得越火用户骂得越凶",
+      "url": "https://www.sohu.com/a/960478640_122483470",
+      "date": "2025-12-02"
+    },
+    {
+      "t": "voice",
+      "label": "什么值得买·从雷鸟第一代眼镜开始吐槽",
+      "url": "https://post.smzdm.com/zz/p/akodg6e4/",
+      "date": "2025-10-29"
+    }
+  ]
+};;
 
 /* 数据源差异化配置：按核心客群地理定向（docs/data-source-strategy.md） */
 const DATASOURCE = {
-  "geo": "CN",
+  "coreAudienceGeography": "overseas-primary",
+  "geographyLabel": "海外客群为主",
+  "language": "en",
   "channels": [
-    "京东",
-    "知乎",
-    "小红书",
-    "B站",
-    "什么值得买",
-    "洛图科技"
+    {
+      "role": "用户声音 L3",
+      "overseas": [
+        "Amazon Reviews",
+        "Reddit r/RayNeo",
+        "Trustpilot",
+        "Best Buy Reviews"
+      ],
+      "domestic": [
+        "京东/天猫评价",
+        "知乎",
+        "小红书",
+        "B站/抖音评论区"
+      ]
+    },
+    {
+      "role": "竞品验证 L2",
+      "overseas": [
+        "RTINGS",
+        "The Verge",
+        "Android Central"
+      ],
+      "domestic": [
+        "中关村在线",
+        "IT之家",
+        "PChome"
+      ]
+    },
+    {
+      "role": "行业验证 L1/L2",
+      "overseas": [
+        "Counterpoint",
+        "IDC",
+        "Grand View Research"
+      ],
+      "domestic": [
+        "洛图科技 RUNTO",
+        "IDC 中国",
+        "奥维云网"
+      ]
+    },
+    {
+      "role": "趋势信号 Tier3",
+      "overseas": [
+        "Google Trends",
+        "SimilarWeb"
+      ],
+      "domestic": [
+        "百度指数",
+        "七麦数据"
+      ]
+    },
+    {
+      "role": "参考行业验证",
+      "overseas": [
+        "Gartner",
+        "McKinsey",
+        "AR 行业报告"
+      ],
+      "domestic": [
+        "中国信通院",
+        "前瞻产业研究院"
+      ]
+    }
   ],
-  "note": "国内客群为主，渠道定向京东/知乎/小红书/B站/什么值得买 + 行业报告（洛图科技/IDC/Counterpoint）"
-};;;
+  "note": "雷鸟 RayNeo 为 TCL 孵化消费级 AR 眼镜公司，国内客群为主，用户声音以京东/知乎/小红书/B站为主渠道，行业验证用洛图科技/Counterpoint/IDC，避免用错地理渠道误判需求。"
+};;
 
 /* 市场验证闭环：多维交叉验证（docs/market-validation-loop.md）——每条 TOP5 进入前的硬门槛 */
 const VALIDATION = {
+  "chainDef": [
+    {
+      "key": "marketVoice",
+      "label": "① 市场声音",
+      "color": "var(--cyan)",
+      "desc": "市场够大且在增长",
+      "min": "≥1"
+    },
+    {
+      "key": "competitorValidation",
+      "label": "② 竞品验证",
+      "color": "var(--blue)",
+      "desc": "同类已被市场接受",
+      "min": "≥1"
+    },
+    {
+      "key": "industryValidation",
+      "label": "③ 行业验证",
+      "color": "var(--green)",
+      "desc": "处于上升通道",
+      "min": "≥1"
+    },
+    {
+      "key": "crossIndustryRef",
+      "label": "④ 参考行业验证",
+      "color": "var(--violet)",
+      "desc": "路径可复用",
+      "min": "≥1"
+    },
+    {
+      "key": "userVoice",
+      "label": "⑤ 用户声音",
+      "color": "var(--amber)",
+      "desc": "真实痛点·≥2 独立来源",
+      "min": "≥2"
+    }
+  ],
   "byIdea": {
     "ID-001": {
       "marketVoice": {
-        "evidenceIds": [
+        "ev": [
           "E002",
           "E013"
         ],
-        "logic": "AR 观影与出行场景增长（E002/E013）放大长时佩戴需求，续航短板被放大",
-        "chainLink": "长时场景增长(E013) → 续航成门槛 → 竞品未解无绳续航(E007)留下形态空白 → 用户吐槽(E005)直证痛点",
-        "relevance": [
-          "A",
-          "A"
-        ]
+        "logic": "AR 观影与出行场景增长（E002/E013）放大长时佩戴需求，续航短板被放大"
       },
       "competitorValidation": {
-        "evidenceIds": [
+        "ev": [
           "E007",
           "E009"
         ],
-        "logic": "XREAL/Meta 均靠机身方案未做外挂无绳续航（E007/E009），证明缺口形态空白",
-        "chainLink": "竞品续航缺位(E007/E009) → 雷鸟可定义颈挂模组新形态 → 用户续航焦虑(E005)支撑需求真实",
-        "relevance": [
-          "S",
-          "S"
-        ]
+        "logic": "XREAL/Meta 均靠机身方案未做外挂无绳续航（E007/E009），证明缺口形态空白"
       },
       "industryValidation": {
-        "evidenceIds": [
+        "ev": [
           "E003",
           "E014"
         ],
-        "logic": "AR 赛道整体上行（E003/E014），续航体验是规模化的共性门槛",
-        "chainLink": "行业增长(E003/E014) → 体验门槛变共性 → 续航模组成标配潜力 → 用户吐槽(E012)印证",
-        "relevance": [
-          "S",
-          "S"
-        ]
+        "logic": "AR 赛道整体上行（E003/E014），续航体验是规模化的共性门槛"
       },
       "crossIndustryRef": {
-        "evidenceIds": [
+        "ev": [
           "E012"
         ],
-        "logic": "运动相机/头显均配外挂电池，颈挂式供电路径在消费电子可复用",
-        "chainLink": "跨行业外挂电池已验证(E012) → 路径可迁移到 AR 眼镜 → 雷鸟技术心智(E010)兼容",
-        "relevance": [
-          "A"
-        ]
+        "logic": "运动相机/头显均配外挂电池，颈挂式供电路径在消费电子可复用"
       },
       "userVoice": {
-        "evidenceIds": [
+        "ev": [
           "E005",
           "E012"
         ],
-        "logic": "用户在通勤差旅户外场景吐槽续航焦虑（E005 876人PK、E012 实测不足4h），是真实高频痛点",
-        "chainLink": "用户原生续航痛点(E005/E012) → 竞品未解(E007) → 行业增长放大(E013) → 雷鸟可定义缺口形态",
-        "relevance": [
-          "S",
-          "S"
-        ]
-      },
-      "hardware": {
-        "evidenceIds": [
-          "E001",
-          "E006"
-        ],
-        "logic": "X3 Pro 骁龙 AR1 高功耗（E001）使外挂供电工程可行；第一代铰链经验（E006）可复用磁吸结构"
+        "logic": "用户在通勤差旅户外场景吐槽续航焦虑（E005 876人PK、E012 实测不足4h），是真实高频痛点"
       }
     },
     "ID-002": {
       "marketVoice": {
-        "evidenceIds": [
+        "ev": [
           "E013"
         ],
-        "logic": "拍摄眼镜从零破 51.7 万台（E013），AI 拍摄+翻译是明确上升需求",
-        "chainLink": "拍摄眼镜增长(E013) → 第一视角+翻译需求上行 → 雷鸟已布局但弱(E011) → 用户要实用AI(E016)",
-        "relevance": [
-          "S"
-        ]
+        "logic": "拍摄眼镜从零破 51.7 万台（E013），AI 拍摄+翻译是明确上升需求"
       },
       "competitorValidation": {
-        "evidenceIds": [
+        "ev": [
           "E009",
           "E011"
         ],
-        "logic": "Meta Ray-Ban 700万副验证路径（E009），雷鸟 V3 已布局但弱（E011）→ 升级缺口明确",
-        "chainLink": "竞品验证路径(E009) → 雷鸟能力弱(E011) → 补强即填缺口 → 用户吐槽功能逊手机(E012)",
-        "relevance": [
-          "S",
-          "S"
-        ]
+        "logic": "Meta Ray-Ban 700万副验证路径（E009），雷鸟 V3 已布局但弱（E011）→ 升级缺口明确"
       },
       "industryValidation": {
-        "evidenceIds": [
+        "ev": [
           "E003",
           "E014"
         ],
-        "logic": "AI 眼镜是赛道增长最快方向（E003/E014）",
-        "chainLink": "行业AI化(E003/E014) → 拍摄翻译成标配 → 需求上行 → 雷鸟技术心智(E010)可承载",
-        "relevance": [
-          "S",
-          "S"
-        ]
+        "logic": "AI 眼镜是赛道增长最快方向（E003/E014）"
       },
       "crossIndustryRef": {
-        "evidenceIds": [
+        "ev": [
           "E009"
         ],
-        "logic": "运动相机第一视角+手机实时翻译均已成熟，路径可迁移到 AR 眼镜",
-        "chainLink": "跨行业第一视角拍摄/翻译已验证(E009) → 迁移到眼镜 → 雷鸟光波导可显字幕(E001)",
-        "relevance": [
-          "S"
-        ]
+        "logic": "运动相机第一视角+手机实时翻译均已成熟，路径可迁移到 AR 眼镜"
       },
       "userVoice": {
-        "evidenceIds": [
+        "ev": [
           "E012",
           "E016"
         ],
-        "logic": "用户在旅行会议场景吐槽眼镜功能逊手机、要实用 AI（E012/E016），是第一视角拍摄翻译的真实痛点",
-        "chainLink": "用户要实用AI(E012/E016) → 竞品已验证(E009) → 雷鸟弱(E011) → 行业增长(E013)放大",
-        "relevance": [
-          "S",
-          "S"
-        ]
-      },
-      "hardware": {
-        "evidenceIds": [
-          "E001",
-          "E011"
-        ],
-        "logic": "X3 Pro 三麦克风+四扬声器（E001）支撑收音翻译；V3 拍摄模组（E011）可复用升级"
+        "logic": "用户在旅行会议场景吐槽眼镜功能逊手机、要实用 AI（E012/E016），是第一视角拍摄翻译的真实痛点"
       }
     },
     "ID-003": {
       "marketVoice": {
-        "evidenceIds": [
+        "ev": [
           "E003",
           "E013"
         ],
-        "logic": "消费级 AR 趋势要求日常化佩戴（E003），长时使用放大舒适度问题（E013）",
-        "chainLink": "日常化趋势(E003) → 佩戴成门槛 → 竞品拼轻量(E007) → 用户吐槽铰链(E006)",
-        "relevance": [
-          "S",
-          "A"
-        ]
+        "logic": "消费级 AR 趋势要求日常化佩戴（E003），长时使用放大舒适度问题（E013）"
       },
       "competitorValidation": {
-        "evidenceIds": [
+        "ev": [
           "E007",
           "E006"
         ],
-        "logic": "XREAL 拼 57° 光学轻量化（E007），雷鸟佩戴缺陷待补（E006）→ 竞品已把佩戴当战场",
-        "chainLink": "竞品拼佩戴(E007) → 雷鸟缺陷(E006) → 补强即追平 → 用户要轻(E012)",
-        "relevance": [
-          "S",
-          "S"
-        ]
+        "logic": "XREAL 拼 57° 光学轻量化（E007），雷鸟佩戴缺陷待补（E006）→ 竞品已把佩戴当战场"
       },
       "industryValidation": {
-        "evidenceIds": [
+        "ev": [
           "E003",
           "E014"
         ],
-        "logic": "AR 增长最快细分（E003/E014），佩戴是消费级转化关键",
-        "chainLink": "行业消费级化(E003/E014) → 佩戴决定转化 → 需求上行 → 雷鸟技术心智(E010)",
-        "relevance": [
-          "S",
-          "S"
-        ]
+        "logic": "AR 增长最快细分（E003/E014），佩戴是消费级转化关键"
       },
       "crossIndustryRef": {
-        "evidenceIds": [
+        "ev": [
           "E006"
         ],
-        "logic": "普通近视镜/运动眼镜人体工学已成熟，可迁移到 AR 配重",
-        "chainLink": "跨行业佩戴工程已验证(E006) → 迁移到 AR → 雷鸟光波导可减重(E010)",
-        "relevance": [
-          "A"
-        ]
+        "logic": "普通近视镜/运动眼镜人体工学已成熟，可迁移到 AR 配重"
       },
       "userVoice": {
-        "evidenceIds": [
+        "ev": [
           "E006",
           "E012"
         ],
-        "logic": "用户在全天佩戴场景吐槽铰链松/夹发/发热（E06）与要轻如普通眼镜（E012），是真实痛点",
-        "chainLink": "用户原生佩戴痛点(E006/E012) → 竞品拼轻量(E007) → 行业日常化(E003) → 雷鸟可补强",
-        "relevance": [
-          "S",
-          "S"
-        ]
-      },
-      "hardware": {
-        "evidenceIds": [
-          "E001",
-          "E010"
-        ],
-        "logic": "X3 Pro 重量与发热有优化空间（E001）；光波导全彩天然偏重（E010）需工程减重"
+        "logic": "用户在全天佩戴场景吐槽铰链松/夹发/发热（E06）与要轻如普通眼镜（E012），是真实痛点"
       }
     },
     "ID-005": {
       "marketVoice": {
-        "evidenceIds": [
+        "ev": [
           "E013"
         ],
-        "logic": "户外/出行场景增长（E013）放大波导可读性需求",
-        "chainLink": "户外场景增长(E013) → 可读性成门槛 → 竞品已变色(E007) → 用户要私密(E012)",
-        "relevance": [
-          "A"
-        ]
+        "logic": "户外/出行场景增长（E013）放大波导可读性需求"
       },
       "competitorValidation": {
-        "evidenceIds": [
+        "ev": [
           "E007"
         ],
-        "logic": "XREAL One Pro 已用电致变色（E007）且被市场接受 → 雷鸟缺位即明确缺口",
-        "chainLink": "竞品已验证(E007) → 雷鸟缺位 → 补强即填缺口 → 用户可读性痛点(E001)",
-        "relevance": [
-          "S"
-        ]
+        "logic": "XREAL One Pro 已用电致变色（E007）且被市场接受 → 雷鸟缺位即明确缺口"
       },
       "industryValidation": {
-        "evidenceIds": [
+        "ev": [
           "E003",
           "E014"
         ],
-        "logic": "AR 光学升级是增长主线（E003/E014）",
-        "chainLink": "行业光学升级(E003/E014) → 变暗防窥成标配 → 需求上行 → 雷鸟技术心智(E010)",
-        "relevance": [
-          "S",
-          "S"
-        ]
+        "logic": "AR 光学升级是增长主线（E003/E014）"
       },
       "crossIndustryRef": {
-        "evidenceIds": [
+        "ev": [
           "E007"
         ],
-        "logic": "汽车/相机电致变色滤镜已成熟，路径可迁移到眼镜镜片",
-        "chainLink": "跨行业电致变色已验证(E007) → 迁移到 AR 镜片 → 雷鸟波导可集成(E010)",
-        "relevance": [
-          "S"
-        ]
+        "logic": "汽车/相机电致变色滤镜已成熟，路径可迁移到眼镜镜片"
       },
       "userVoice": {
-        "evidenceIds": [
+        "ev": [
           "E012",
           "E001"
         ],
-        "logic": "用户在户外公共场景吐槽要私密不被窥（E012）与户外可读（E001），是真实痛点",
-        "chainLink": "用户原生痛点(E012/E001) → 竞品已变色(E007) → 行业光学升级(E003) → 雷鸟补缺口",
-        "relevance": [
-          "S",
-          "S"
-        ]
-      },
-      "hardware": {
-        "evidenceIds": [
-          "E001",
-          "E010"
-        ],
-        "logic": "X3 Pro 户外可读性受限（E001）；光波导全彩对比度挑战（E010）可借电致变色缓解"
+        "logic": "用户在户外公共场景吐槽要私密不被窥（E012）与户外可读（E001），是真实痛点"
       }
     },
     "ID-006": {
       "marketVoice": {
-        "evidenceIds": [
+        "ev": [
           "E013",
           "E012"
         ],
-        "logic": "内容消费场景增长（E013），用户要眼镜不逊手机（E012），是真实留存痛点",
-        "chainLink": "内容需求增长(E013) → 生态成留存痛点 → 竞品追内容(E008) → 雷鸟基础弱(E001)",
-        "relevance": [
-          "A",
-          "S"
-        ]
+        "logic": "内容消费场景增长（E013），用户要眼镜不逊手机（E012），是真实留存痛点"
       },
       "competitorValidation": {
-        "evidenceIds": [
+        "ev": [
           "E008",
           "E001"
         ],
-        "logic": "Rokid 内容生态追赶（E008）、雷鸟 RayNeo VM 已具备但弱（E001）→ 升级缺口明确",
-        "chainLink": "竞品追生态(E008) → 雷鸟基础弱(E001) → 扩圈即填缺口 → 用户要实用(E016)",
-        "relevance": [
-          "S",
-          "S"
-        ]
+        "logic": "Rokid 内容生态追赶（E008）、雷鸟 RayNeo VM 已具备但弱（E001）→ 升级缺口明确"
       },
       "industryValidation": {
-        "evidenceIds": [
+        "ev": [
           "E003",
           "E014"
         ],
-        "logic": "空间计算是增长方向（E003/E014）",
-        "chainLink": "行业空间计算化(E003/E14) → 生态平台成标配 → 需求上行 → 雷鸟技术心智(E010)",
-        "relevance": [
-          "S",
-          "S"
-        ]
+        "logic": "空间计算是增长方向（E003/E014）"
       },
       "crossIndustryRef": {
-        "evidenceIds": [
+        "ev": [
           "E001"
         ],
-        "logic": "手机安卓应用商店/小程序生态路径可迁移到 AR 轻应用",
-        "chainLink": "跨行业应用商店已验证(E001) → 对接竞品缺口(Rokid 追内容 E008) → 支撑市场需求上行(E013) → 雷鸟已具备 RayNeo VM 基础(E001) 可承接",
-        "relevance": [
-          "S"
-        ]
+        "logic": "手机安卓应用商店/小程序生态路径可迁移到 AR 轻应用"
       },
       "userVoice": {
-        "evidenceIds": [
+        "ev": [
           "E016",
           "E012"
         ],
-        "logic": "用户在长期使用场景吐槽功能留存低、要实用粘性痛点（E16），要能装 App（E12），是真实需求",
-        "chainLink": "用户原生需求(E016/E012) → 竞品追生态(E008) → 行业空间计算(E003) → 雷鸟扩圈",
-        "relevance": [
-          "S",
-          "S"
-        ]
-      },
-      "hardware": {
-        "evidenceIds": [
-          "E001",
-          "E010"
-        ],
-        "logic": "X3 Pro RayNeo AR VM 已具备（E001）；光波导全彩（E010）可承载空间应用"
+        "logic": "用户在长期使用场景吐槽功能留存低、要实用粘性痛点（E16），要能装 App（E12），是真实需求"
       }
     },
     "ID-004": {
       "marketVoice": {
-        "evidenceIds": [
-          "E012"
+        "ev": [
+          "E009"
         ],
-        "logic": "用户吐槽智能眼镜功能逊手机，与充电宝SSD无关",
-        "chainLink": "无关场景(E012) → 非雷鸟客群 → 伪需求",
-        "relevance": [
-          "B"
-        ]
+        "logic": "Meta Ray-Ban 无屏 AI 眼镜验证了可穿戴入口，但未涉及生物识别支付（E009），无对应市场规模信号"
       },
       "competitorValidation": {
-        "evidenceIds": [
-          "E006"
+        "ev": [
+          "E007"
         ],
-        "logic": "雷鸟第一代工程资源在铰链，无存储栈",
-        "chainLink": "雷鸟无存储能力(E006) → 伪需求",
-        "relevance": [
-          "B"
-        ]
+        "logic": "XREAL 聚焦显示不做支付（E007），但竞品不做不等于雷鸟能做——支付前提是牌照与合规"
       },
       "industryValidation": {
-        "evidenceIds": [
+        "ev": [
           "E012"
         ],
-        "logic": "无行业上行信号",
-        "chainLink": "无信号 → 伪需求",
-        "relevance": [
-          "B"
-        ]
+        "logic": "无支付眼镜上行信号，金融监管对生物识别支付有强约束"
       },
       "crossIndustryRef": {
-        "evidenceIds": [
-          "E012"
+        "ev": [
+          "E009"
         ],
-        "logic": "跨行业无对应可迁移路径",
-        "chainLink": "无迁移 → 伪需求",
-        "relevance": [
-          "B"
-        ]
+        "logic": "跨行业无可迁移的支付模组（Meta 无屏、无生物识别），路径不成立"
       },
       "userVoice": {
-        "evidenceIds": [
+        "ev": [
           "E012",
-          "E006"
+          "E001"
         ],
-        "logic": "用户在 AR 场景未提备份痛点需求，属外拍小众想象",
-        "chainLink": "非原生痛点(E012) → 伪需求",
-        "relevance": [
-          "B",
-          "B"
-        ]
-      },
-      "hardware": {
-        "evidenceIds": [
-          "E006",
-          "E010"
-        ],
-        "logic": "USB Host与供电分离、NVMe主控壁垒，雷鸟无存储技术栈（E06/E10）"
+        "logic": "用户吐槽智能眼镜功能逊手机（E012），但从未在 AR 场景提出支付刚需（E001），属偶发想象"
       }
     },
     "ID-007": {
       "marketVoice": {
-        "evidenceIds": [
+        "ev": [
           "E013"
         ],
-        "logic": "内容场景增长含健身想象但证据弱",
-        "chainLink": "弱信号(E013) → 暂观察",
-        "relevance": [
-          "B"
-        ]
+        "logic": "内容场景增长含健身想象但证据弱"
       },
       "competitorValidation": {
-        "evidenceIds": [
+        "ev": [
           "E007"
         ],
-        "logic": "竞品均未做 AR 健身，缺口未验证",
-        "chainLink": "缺验证(E007) → 暂观察",
-        "relevance": [
-          "B"
-        ]
+        "logic": "竞品均未做 AR 健身，缺口未验证"
       },
       "industryValidation": {
-        "evidenceIds": [
+        "ev": [
           "E003"
         ],
-        "logic": "AR 交互增长想象但无硬数据",
-        "chainLink": "弱信号(E003) → 暂观察",
-        "relevance": [
-          "B"
-        ]
+        "logic": "AR 交互增长想象但无硬数据"
       },
       "crossIndustryRef": {
-        "evidenceIds": [
+        "ev": [
           "E012"
         ],
-        "logic": "健身环/体感游戏路径可参考但迁移未验证",
-        "chainLink": "弱信号(E012) → 暂观察",
-        "relevance": [
-          "B"
-        ]
+        "logic": "健身环/体感游戏路径可参考但迁移未验证"
       },
       "userVoice": {
-        "evidenceIds": [
+        "ev": [
           "E012",
           "E006"
         ],
-        "logic": "用户在居家场景提多功能但未明确健身痛点需求，属弱信号",
-        "chainLink": "弱信号(E012) → 暂观察",
-        "relevance": [
-          "B",
-          "B"
-        ]
-      },
-      "hardware": {
-        "evidenceIds": [
-          "E001",
-          "E006"
-        ],
-        "logic": "X3 Pro 可承载体感但无传感（E01/E06）"
+        "logic": "用户在居家场景提多功能但未明确健身痛点需求，属弱信号"
       }
     }
   }
-};;;
+};;
 
 const PRDS = {
   "ID-001": {
-    "bg": "全彩光波导+骁龙 AR1 高功耗下续航不足，用户高频吐槽「重度用半天就没电」（E005/E012），出门必须带充电宝破坏无绳沉浸感",
-    "user": "SEG-01, SEG-03（重度观影/导航用户，雷鸟存量 X 系列用户）",
-    "scenario": "通勤/差旅/户外长时间使用 AR 眼镜观影与导航，无绳沉浸但电量焦虑",
-    "solution": "把外挂大电池做进颈挂/磁吸轻量模组，主体保持无绳，续航翻倍且不影响佩戴；该模组填补 XREAL/Meta 未解的无绳续航缺口（竞品缺口 E007/E009），并复用跨行业运动相机外挂供电路径",
+    "decision": "【建议立项】AR 观影/导航长时使用场景增长（E002/E013），续航成高频原生痛点，市场体量随品类增长持续放大。综合分 90.8/100。",
+    "background": [
+      "全彩光波导+骁龙 AR1 高功耗下续航不足，用户高频吐槽「重度用半天就没电」（E005/E012），出门必须带充电宝破坏无绳沉浸感",
+      "XREAL/Meta 均未解决无绳长续航（E007/E009），雷鸟若做颈挂磁吸模组即开辟差异化形态，竞品缺口明确",
+      "AR 观影/导航长时使用场景增长（E002/E013），续航成高频原生痛点，市场体量随品类增长持续放大"
+    ],
+    "users": [
+      "SEG-01, SEG-03（重度观影/导航用户，雷鸟存量 X 系列用户）",
+      "在「通勤/差旅/户外长时间使用 AR 眼镜观影与导航，无绳沉浸但电量焦虑」场景中的核心用户"
+    ],
+    "scenarios": [
+      "通勤/差旅/户外长时间使用 AR 眼镜观影与导航，无绳沉浸但电量焦虑"
+    ],
+    "solution": [
+      "把外挂大电池做进颈挂/磁吸轻量模组，主体保持无绳，续航翻倍且不影响佩戴；该模组填补 XREAL/Meta 未解的无绳续航缺口（竞品缺口 E007/E009），并复用跨行业运动相机外挂供电路径"
+    ],
     "metrics": [
-      "NPS 提升",
-      "留存率提升",
-      "复购率提升"
+      {
+        "k": "北极星",
+        "v": "目标客群渗透率 ≥ 5%（发布后 12 个月）"
+      },
+      {
+        "k": "留存",
+        "v": "月活跃留存 ≥ 30%"
+      },
+      {
+        "k": "NPS",
+        "v": "≥ 35"
+      }
     ],
     "risks": [
-      "工程可行性",
-      "供应链",
-      "竞品跟进"
+      [
+        "工程可行性",
+        "中",
+        "中",
+        "先做软硬分离验证，再整机量产"
+      ],
+      [
+        "供应链",
+        "中",
+        "高",
+        "预留第二供应商，关键器件双备份"
+      ],
+      [
+        "竞品跟进",
+        "中",
+        "中",
+        "专利布局 + 快速迭代保持先发"
+      ]
     ],
-    "schedule": [
-      "Q1 立项",
-      "Q2 原型",
-      "Q3 内测",
-      "Q4 量产"
+    "timeline": [
+      "0-3 月：立项与可行性验证",
+      "3-6 月：原型开发与用户内测",
+      "6-12 月：量产与渠道铺货"
     ]
   },
   "ID-002": {
-    "bg": "雷鸟 V3 已做 AI 拍摄眼镜但清晰度与实时交互弱（E011），用户想要 Meta Ray-Ban 级「拍得到+译得出」体验（E009）却缺位",
-    "user": "SEG-02, SEG-04（旅行/商务用户，AI 早期采用者）",
-    "scenario": "出国旅行/会议/探店时用眼镜第一视角记录并即时翻译字幕，解放双手",
-    "solution": "在 X3 Pro 光波导基础上补齐第一视角拍摄稳定性 + 同声传译字幕，承接已验证的 AI 眼镜路径（竞品缺口 E009 已教育市场），拍摄素材本地+云端双备份",
+    "decision": "【建议立项】AI 眼镜是增长最快方向（E003/E014），拍摄眼镜从零破 51.7 万台（E013），第一视角+翻译需求上行。综合分 91.2/100。",
+    "background": [
+      "雷鸟 V3 已做 AI 拍摄眼镜但清晰度与实时交互弱（E011），用户想要 Meta Ray-Ban 级「拍得到+译得出」体验（E009）却缺位",
+      "Meta Ray-Ban 700 万副验证路径（E009），雷鸟 V3 已布局但弱（E011）→ 升级缺口明确，竞品已教育市场",
+      "AI 眼镜是增长最快方向（E003/E014），拍摄眼镜从零破 51.7 万台（E013），第一视角+翻译需求上行"
+    ],
+    "users": [
+      "SEG-02, SEG-04（旅行/商务用户，AI 早期采用者）",
+      "在「出国旅行/会议/探店时用眼镜第一视角记录并即时翻译字幕，解放双手」场景中的核心用户"
+    ],
+    "scenarios": [
+      "出国旅行/会议/探店时用眼镜第一视角记录并即时翻译字幕，解放双手"
+    ],
+    "solution": [
+      "在 X3 Pro 光波导基础上补齐第一视角拍摄稳定性 + 同声传译字幕，承接已验证的 AI 眼镜路径（竞品缺口 E009 已教育市场），拍摄素材本地+云端双备份"
+    ],
     "metrics": [
-      "NPS 提升",
-      "留存率提升",
-      "复购率提升"
+      {
+        "k": "北极星",
+        "v": "目标客群渗透率 ≥ 5%（发布后 12 个月）"
+      },
+      {
+        "k": "留存",
+        "v": "月活跃留存 ≥ 30%"
+      },
+      {
+        "k": "NPS",
+        "v": "≥ 35"
+      }
     ],
     "risks": [
-      "工程可行性",
-      "供应链",
-      "竞品跟进"
+      [
+        "工程可行性",
+        "中",
+        "中",
+        "先做软硬分离验证，再整机量产"
+      ],
+      [
+        "供应链",
+        "中",
+        "高",
+        "预留第二供应商，关键器件双备份"
+      ],
+      [
+        "竞品跟进",
+        "中",
+        "中",
+        "专利布局 + 快速迭代保持先发"
+      ]
     ],
-    "schedule": [
-      "Q1 立项",
-      "Q2 原型",
-      "Q3 内测",
-      "Q4 量产"
+    "timeline": [
+      "0-3 月：立项与可行性验证",
+      "3-6 月：原型开发与用户内测",
+      "6-12 月：量产与渠道铺货"
     ]
   },
   "ID-003": {
-    "bg": "用户吐槽第一代铰链过松、磁吸夹头发，Air 系列发热集中（E006），舒适度与重量直接影响复购",
-    "user": "SEG-01, SEG-03（全天佩戴用户）",
-    "scenario": "全天办公/观影/步行导航中长时间佩戴，要求如普通眼镜般无感",
-    "solution": "重构铰链与前后配重，把主体重量压到 60g 级并改善散热，提升全天佩戴舒适，避免夹头发磁吸结构；该工程对标 XREAL 已拼轻量化的竞品缺口（E007）",
+    "decision": "【建议立项】消费级 AR 趋势要求日常化佩戴（E003），长时使用放大舒适度问题（E013），佩戴成转化门槛。综合分 90.5/100。",
+    "background": [
+      "用户吐槽第一代铰链过松、磁吸夹头发，Air 系列发热集中（E006），舒适度与重量直接影响复购",
+      "XREAL 拼 57° 光学轻量化（E007），雷鸟佩戴缺陷待补（E006）→ 竞品已把佩戴当战场，缺口明确",
+      "消费级 AR 趋势要求日常化佩戴（E003），长时使用放大舒适度问题（E013），佩戴成转化门槛"
+    ],
+    "users": [
+      "SEG-01, SEG-03（全天佩戴用户）",
+      "在「全天办公/观影/步行导航中长时间佩戴，要求如普通眼镜般无感」场景中的核心用户"
+    ],
+    "scenarios": [
+      "全天办公/观影/步行导航中长时间佩戴，要求如普通眼镜般无感"
+    ],
+    "solution": [
+      "重构铰链与前后配重，把主体重量压到 60g 级并改善散热，提升全天佩戴舒适，避免夹头发磁吸结构；该工程对标 XREAL 已拼轻量化的竞品缺口（E007）"
+    ],
     "metrics": [
-      "NPS 提升",
-      "留存率提升",
-      "复购率提升"
+      {
+        "k": "北极星",
+        "v": "目标客群渗透率 ≥ 5%（发布后 12 个月）"
+      },
+      {
+        "k": "留存",
+        "v": "月活跃留存 ≥ 30%"
+      },
+      {
+        "k": "NPS",
+        "v": "≥ 35"
+      }
     ],
     "risks": [
-      "工程可行性",
-      "供应链",
-      "竞品跟进"
+      [
+        "工程可行性",
+        "中",
+        "中",
+        "先做软硬分离验证，再整机量产"
+      ],
+      [
+        "供应链",
+        "中",
+        "高",
+        "预留第二供应商，关键器件双备份"
+      ],
+      [
+        "竞品跟进",
+        "中",
+        "中",
+        "专利布局 + 快速迭代保持先发"
+      ]
     ],
-    "schedule": [
-      "Q1 立项",
-      "Q2 原型",
-      "Q3 内测",
-      "Q4 量产"
+    "timeline": [
+      "0-3 月：立项与可行性验证",
+      "3-6 月：原型开发与用户内测",
+      "6-12 月：量产与渠道铺货"
     ]
   },
   "ID-005": {
-    "bg": "X3 Pro 全彩波导户外强光下可读性受限且无一键变暗/防窥；竞品 XREAL 已做电致变色（E007），雷鸟缺位",
-    "user": "SEG-01, SEG-04（户外/通勤/商务用户）",
-    "scenario": "室内外切换/公共场合防窥看私信与导航，户外强光下要可读",
-    "solution": "在波导模组集成电致变色层，一键调节透光率并防窥，补齐光学隐私短板，户外可读室内防窥；该方案填补 XREAL 已验证但雷鸟缺位的竞品缺口（E007）",
+    "decision": "【建议立项】AR 光学升级是增长主线（E003/E014），户外/出行场景增长（E013）放大波导可读性需求。综合分 90.3/100。",
+    "background": [
+      "X3 Pro 全彩波导户外强光下可读性受限且无一键变暗/防窥；竞品 XREAL 已做电致变色（E007），雷鸟缺位",
+      "XREAL One Pro 已用电致变色（E007）且被接受，雷鸟光学可读性短板与一键变暗缺口明确",
+      "AR 光学升级是增长主线（E003/E014），户外/出行场景增长（E013）放大波导可读性需求"
+    ],
+    "users": [
+      "SEG-01, SEG-04（户外/通勤/商务用户）",
+      "在「室内外切换/公共场合防窥看私信与导航，户外强光下要可读」场景中的核心用户"
+    ],
+    "scenarios": [
+      "室内外切换/公共场合防窥看私信与导航，户外强光下要可读"
+    ],
+    "solution": [
+      "在波导模组集成电致变色层，一键调节透光率并防窥，补齐光学隐私短板，户外可读室内防窥；该方案填补 XREAL 已验证但雷鸟缺位的竞品缺口（E007）"
+    ],
     "metrics": [
-      "NPS 提升",
-      "留存率提升",
-      "复购率提升"
+      {
+        "k": "北极星",
+        "v": "目标客群渗透率 ≥ 5%（发布后 12 个月）"
+      },
+      {
+        "k": "留存",
+        "v": "月活跃留存 ≥ 30%"
+      },
+      {
+        "k": "NPS",
+        "v": "≥ 35"
+      }
     ],
     "risks": [
-      "工程可行性",
-      "供应链",
-      "竞品跟进"
+      [
+        "工程可行性",
+        "中",
+        "中",
+        "先做软硬分离验证，再整机量产"
+      ],
+      [
+        "供应链",
+        "中",
+        "高",
+        "预留第二供应商，关键器件双备份"
+      ],
+      [
+        "竞品跟进",
+        "中",
+        "中",
+        "专利布局 + 快速迭代保持先发"
+      ]
     ],
-    "schedule": [
-      "Q1 立项",
-      "Q2 原型",
-      "Q3 内测",
-      "Q4 量产"
+    "timeline": [
+      "0-3 月：立项与可行性验证",
+      "3-6 月：原型开发与用户内测",
+      "6-12 月：量产与渠道铺货"
     ]
   },
   "ID-006": {
-    "bg": "雷鸟 X3 Pro 已做 RayNeo AR VM 安卓虚拟机（E001）但生态仍弱，用户期待「能装 App」却应用少；Rokid 内容生态追赶（E008）",
-    "user": "SEG-01, SEG-02（内容消费/办公用户）",
-    "scenario": "在眼镜上刷抖音/微信/导航/轻办公而非仅投屏，生态决定留存",
-    "solution": "把 RayNeo VM 从投屏升级为开放应用商店+空间计算 SDK，承接手机生态迁移，做空间计算内容平台；该平台填补 Rokid 已先发但雷鸟基础弱的竞品缺口（E008），并复用手机应用商店跨行业路径（E001）",
+    "decision": "【建议立项】空间计算是增长方向（E003/E014），内容消费场景增长（E013），用户要眼镜不逊手机（E012）。综合分 90.6/100。",
+    "background": [
+      "雷鸟 X3 Pro 已做 RayNeo AR VM 安卓虚拟机（E001）但生态仍弱，用户期待「能装 App」却应用少；Rokid 内容生态追赶（E008）",
+      "Rokid 内容生态追赶（E008）、雷鸟 RayNeo VM 已具备但弱（E001）→ 升级缺口明确，竞品已先发内容",
+      "空间计算是增长方向（E003/E014），内容消费场景增长（E013），用户要眼镜不逊手机（E012）"
+    ],
+    "users": [
+      "SEG-01, SEG-02（内容消费/办公用户）",
+      "在「在眼镜上刷抖音/微信/导航/轻办公而非仅投屏，生态决定留存」场景中的核心用户"
+    ],
+    "scenarios": [
+      "在眼镜上刷抖音/微信/导航/轻办公而非仅投屏，生态决定留存"
+    ],
+    "solution": [
+      "把 RayNeo VM 从投屏升级为开放应用商店+空间计算 SDK，承接手机生态迁移，做空间计算内容平台；该平台填补 Rokid 已先发但雷鸟基础弱的竞品缺口（E008），并复用手机应用商店跨行业路径（E001）"
+    ],
     "metrics": [
-      "NPS 提升",
-      "留存率提升",
-      "复购率提升"
+      {
+        "k": "北极星",
+        "v": "目标客群渗透率 ≥ 5%（发布后 12 个月）"
+      },
+      {
+        "k": "留存",
+        "v": "月活跃留存 ≥ 30%"
+      },
+      {
+        "k": "NPS",
+        "v": "≥ 35"
+      }
     ],
     "risks": [
-      "工程可行性",
-      "供应链",
-      "竞品跟进"
+      [
+        "工程可行性",
+        "中",
+        "中",
+        "先做软硬分离验证，再整机量产"
+      ],
+      [
+        "供应链",
+        "中",
+        "高",
+        "预留第二供应商，关键器件双备份"
+      ],
+      [
+        "竞品跟进",
+        "中",
+        "中",
+        "专利布局 + 快速迭代保持先发"
+      ]
     ],
-    "schedule": [
-      "Q1 立项",
-      "Q2 原型",
-      "Q3 内测",
-      "Q4 量产"
+    "timeline": [
+      "0-3 月：立项与可行性验证",
+      "3-6 月：原型开发与用户内测",
+      "6-12 月：量产与渠道铺货"
     ]
   },
   "ID-004": {
-    "bg": "摄影师户外备份难、存储与充电双设备累赘——但雷鸟为 AR 眼镜公司，无存储栈与供电通道分离壁垒，非其能力圈",
-    "scenario": "外拍/出差同时充电与备份素材",
-    "solution": "（伪需求）充电宝集成 SSD 本地备份。硬件专家判定：USB Host 与供电通道分离、NVMe 主控壁垒、雷鸟无存储技术栈，不可行",
+    "decision": "【不予立项（技术不可行）】无明确支付场景趋势信号，属金融+AR 跨界想象。综合分 42.0/100。",
+    "background": [
+      "支付便利想象大，但雷鸟为 AR 眼镜公司，无支付牌照、无生物识别模组与离线可靠校验能力，跨行业迁移不可行",
+      "Meta Ray-Ban 无屏（E009）、XREAL 聚焦显示（E007）均未做生物识别支付，但需求前提（牌照+合规+识别模组）雷鸟不具备",
+      "无明确支付场景趋势信号，属金融+AR 跨界想象"
+    ],
+    "users": [
+      "在「免掏手机、仅凭佩戴眼镜离线刷掌/刷眼完成支付」场景中的核心用户"
+    ],
+    "scenarios": [
+      "免掏手机、仅凭佩戴眼镜离线刷掌/刷眼完成支付"
+    ],
+    "solution": [
+      "（伪需求）眼镜内嵌掌静脉/眼动虹膜识别 + 离线支付。硬件专家判定：支付牌照与金融合规为硬门槛、轻量 AR 眼镜无法承载生物识别传感器与安全芯片、雷鸟无支付栈，技术不可行"
+    ],
     "metrics": [
-      "NPS 提升",
-      "留存率提升",
-      "复购率提升"
+      {
+        "k": "北极星",
+        "v": "目标客群渗透率 ≥ 5%（发布后 12 个月）"
+      },
+      {
+        "k": "留存",
+        "v": "月活跃留存 ≥ 30%"
+      },
+      {
+        "k": "NPS",
+        "v": "≥ 35"
+      }
     ],
     "risks": [
-      "工程可行性",
-      "供应链",
-      "竞品跟进"
+      [
+        "工程可行性",
+        "中",
+        "中",
+        "先做软硬分离验证，再整机量产"
+      ],
+      [
+        "供应链",
+        "中",
+        "高",
+        "预留第二供应商，关键器件双备份"
+      ],
+      [
+        "竞品跟进",
+        "中",
+        "中",
+        "专利布局 + 快速迭代保持先发"
+      ]
     ],
-    "schedule": [
-      "Q1 立项",
-      "Q2 原型",
-      "Q3 内测",
-      "Q4 量产"
+    "timeline": [
+      "0-3 月：立项与可行性验证",
+      "3-6 月：原型开发与用户内测",
+      "6-12 月：量产与渠道铺货"
     ]
   },
   "ID-007": {
-    "bg": "体感交互想象空间大但当前用户证据少、竞品未规模化验证，置信不足",
-    "scenario": "居家用眼镜做体感健身",
-    "solution": "列入观察池，待用户声音与竞品信号增强后再评估进 TOP5",
+    "decision": "【建议立项】AR 交互增长想象但无硬数据。综合分 76.4/100。",
+    "background": [
+      "体感交互想象空间大但当前用户证据少、竞品未规模化验证，置信不足",
+      "竞品均未做 AR 健身，缺口未验证",
+      "AR 交互增长想象但无硬数据"
+    ],
+    "users": [
+      "在「居家用眼镜做体感健身」场景中的核心用户"
+    ],
+    "scenarios": [
+      "居家用眼镜做体感健身"
+    ],
+    "solution": [
+      "列入观察池，待用户声音与竞品信号增强后再评估进 TOP5"
+    ],
     "metrics": [
-      "NPS 提升",
-      "留存率提升",
-      "复购率提升"
+      {
+        "k": "北极星",
+        "v": "目标客群渗透率 ≥ 5%（发布后 12 个月）"
+      },
+      {
+        "k": "留存",
+        "v": "月活跃留存 ≥ 30%"
+      },
+      {
+        "k": "NPS",
+        "v": "≥ 35"
+      }
     ],
     "risks": [
-      "工程可行性",
-      "供应链",
-      "竞品跟进"
+      [
+        "工程可行性",
+        "中",
+        "中",
+        "先做软硬分离验证，再整机量产"
+      ],
+      [
+        "供应链",
+        "中",
+        "高",
+        "预留第二供应商，关键器件双备份"
+      ],
+      [
+        "竞品跟进",
+        "中",
+        "中",
+        "专利布局 + 快速迭代保持先发"
+      ]
     ],
-    "schedule": [
-      "Q1 立项",
-      "Q2 原型",
-      "Q3 内测",
-      "Q4 量产"
+    "timeline": [
+      "0-3 月：立项与可行性验证",
+      "3-6 月：原型开发与用户内测",
+      "6-12 月：量产与渠道铺货"
     ]
   }
-};;;
+};;
 
 /* ---------- 滚动入场 (IntersectionObserver) ---------- */
 const revealEls = document.querySelectorAll('.reveal');
@@ -5135,7 +3964,12 @@ function finalAggregateScore(id) {
 // 分数低于 90 的需求一律不得进入 TOP 需求展示，从架构层杜绝低分卡混入。
 const TOP_MIN_SCORE = (typeof IDEA_RULES !== 'undefined' && IDEA_RULES.TOP_MIN_SCORE) ? IDEA_RULES.TOP_MIN_SCORE : 90;
 const PSEUDO_IDS = Object.keys(SCORES).filter(id => SCORES[id].isPseudo);
-const TOP5 = ["ID-001","ID-002","ID-003","ID-005","ID-006"]; // 显式指定 5 个 ≥90 的 TOP5
+const TOP5 = Object.keys(SCORES)
+  .filter(id => !SCORES[id].isPseudo)
+  .map(id => ({ id, s: finalAggregateScore(id) }))
+  .filter(x => x.s >= TOP_MIN_SCORE)
+  .sort((a, b) => b.s - a.s)
+  .map(x => x.id);
 let selectedTop5 = TOP5[0] || 'ID-005';
 let selectedExpert = 'all';
 
@@ -5168,43 +4002,382 @@ function evBadge(id) {
 // 单点数据不足以定义根因——根因须由 ≥2 个独立来源交叉验证（cross 字段）。
 const DIM_ORDER = ['market', 'competitor', 'user', 'strategic'];
 const DIM_LABEL = { market: '市场维度', competitor: '竞争者维度', user: '用户需求维度', strategic: '战略 / 合规维度' };
-const DERIVATION = [
-  {
-    "id": "ID-001",
-    "path": "scene-pain",
-    "link": "通勤/差旅/户外长时间使用 AR 眼镜观影与导航，无绳沉浸但电量焦虑 → 全彩光波导+骁龙 AR1 高功耗下续航不足，用户高频吐槽「重度用半天就没电」（E005/E012），出门必须带充电宝破坏无绳沉浸感 → XREAL/Meta 均未解决无绳长续航（E007/E009），雷鸟若做颈挂磁吸模组即开辟差异化形态，竞品缺口明确 → 把外挂大电池做进颈挂/磁吸轻量模组，主体保持无绳，续航翻倍且不影响佩戴；该模组填补 XREAL/Meta 未解的无绳续航缺口（竞品缺口 E007/E009），并复用跨行业运动相机外挂供电路径"
+const DERIVATION = {
+  "ID-001": {
+    "market": [
+      {
+        "ev": "E002",
+        "claim": "AR 观影与出行场景增长（E002/E013）放大长时佩戴需求",
+        "logic": "AR 观影与出行场景增长（E002/E013）放大长时佩戴需求，续航短板被放大",
+        "cross": [
+          "E013"
+        ]
+      },
+      {
+        "ev": "E003",
+        "claim": "AR 赛道整体上行（E003/E014）",
+        "logic": "AR 赛道整体上行（E003/E014），续航体验是规模化的共性门槛",
+        "cross": [
+          "E014"
+        ]
+      }
+    ],
+    "competitor": [
+      {
+        "ev": "E007",
+        "claim": "XREAL/Meta 均靠机身方案未做外挂无绳续航（E007/E009）",
+        "logic": "XREAL/Meta 均靠机身方案未做外挂无绳续航（E007/E009），证明缺口形态空白",
+        "cross": [
+          "E009"
+        ]
+      }
+    ],
+    "user": [
+      {
+        "ev": "E005",
+        "claim": "用户在通勤差旅户外场景吐槽续航焦虑（E005 876人PK、E012 实测不足4h）",
+        "logic": "用户在通勤差旅户外场景吐槽续航焦虑（E005 876人PK、E012 实测不足4h），是真实高频痛点",
+        "cross": [
+          "E012"
+        ]
+      }
+    ],
+    "strategic": [
+      {
+        "ev": "E012",
+        "claim": "运动相机/头显均配外挂电池",
+        "logic": "运动相机/头显均配外挂电池，颈挂式供电路径在消费电子可复用",
+        "cross": []
+      },
+      {
+        "ev": "E001",
+        "claim": "X3 Pro 骁龙 AR1 高功耗（E001）使外挂供电工程可行",
+        "logic": "X3 Pro 骁龙 AR1 高功耗（E001）使外挂供电工程可行；第一代铰链经验（E006）可复用磁吸结构",
+        "cross": [
+          "E006"
+        ]
+      }
+    ]
   },
-  {
-    "id": "ID-002",
-    "path": "competitor-gap",
-    "link": "出国旅行/会议/探店时用眼镜第一视角记录并即时翻译字幕，解放双手 → 雷鸟 V3 已做 AI 拍摄眼镜但清晰度与实时交互弱（E011），用户想要 Meta Ray-Ban 级「拍得到+译得出」体验（E009）却缺位 → Meta Ray-Ban 700 万副验证路径（E009），雷鸟 V3 已布局但弱（E011）→ 升级缺口明确，竞品已教育市场 → 在 X3 Pro 光波导基础上补齐第一视角拍摄稳定性 + 同声传译字幕，承接已验证的 AI 眼镜路径（竞品缺口 E009 已教育市场），拍摄素材本地+云端双备份"
+  "ID-002": {
+    "market": [
+      {
+        "ev": "E013",
+        "claim": "拍摄眼镜从零破 51.7 万台（E013）",
+        "logic": "拍摄眼镜从零破 51.7 万台（E013），AI 拍摄+翻译是明确上升需求",
+        "cross": []
+      },
+      {
+        "ev": "E003",
+        "claim": "AI 眼镜是赛道增长最快方向（E003/E014）",
+        "logic": "AI 眼镜是赛道增长最快方向（E003/E014）",
+        "cross": [
+          "E014"
+        ]
+      }
+    ],
+    "competitor": [
+      {
+        "ev": "E009",
+        "claim": "Meta Ray-Ban 700万副验证路径（E009）",
+        "logic": "Meta Ray-Ban 700万副验证路径（E009），雷鸟 V3 已布局但弱（E011）→ 升级缺口明确",
+        "cross": [
+          "E011"
+        ]
+      }
+    ],
+    "user": [
+      {
+        "ev": "E012",
+        "claim": "用户在旅行会议场景吐槽眼镜功能逊手机、要实用 AI（E012/E016）",
+        "logic": "用户在旅行会议场景吐槽眼镜功能逊手机、要实用 AI（E012/E016），是第一视角拍摄翻译的真实痛点",
+        "cross": [
+          "E016"
+        ]
+      }
+    ],
+    "strategic": [
+      {
+        "ev": "E009",
+        "claim": "运动相机第一视角+手机实时翻译均已成熟",
+        "logic": "运动相机第一视角+手机实时翻译均已成熟，路径可迁移到 AR 眼镜",
+        "cross": []
+      },
+      {
+        "ev": "E001",
+        "claim": "X3 Pro 三麦克风+四扬声器（E001）支撑收音翻译",
+        "logic": "X3 Pro 三麦克风+四扬声器（E001）支撑收音翻译；V3 拍摄模组（E011）可复用升级",
+        "cross": [
+          "E011"
+        ]
+      }
+    ]
   },
-  {
-    "id": "ID-003",
-    "path": "scene-pain",
-    "link": "全天办公/观影/步行导航中长时间佩戴，要求如普通眼镜般无感 → 用户吐槽第一代铰链过松、磁吸夹头发，Air 系列发热集中（E006），舒适度与重量直接影响复购 → XREAL 拼 57° 光学轻量化（E007），雷鸟佩戴缺陷待补（E006）→ 竞品已把佩戴当战场，缺口明确 → 重构铰链与前后配重，把主体重量压到 60g 级并改善散热，提升全天佩戴舒适，避免夹头发磁吸结构；该工程对标 XREAL 已拼轻量化的竞品缺口（E007）"
+  "ID-003": {
+    "market": [
+      {
+        "ev": "E003",
+        "claim": "消费级 AR 趋势要求日常化佩戴（E003）",
+        "logic": "消费级 AR 趋势要求日常化佩戴（E003），长时使用放大舒适度问题（E013）",
+        "cross": [
+          "E013"
+        ]
+      },
+      {
+        "ev": "E003",
+        "claim": "AR 增长最快细分（E003/E014）",
+        "logic": "AR 增长最快细分（E003/E014），佩戴是消费级转化关键",
+        "cross": [
+          "E014"
+        ]
+      }
+    ],
+    "competitor": [
+      {
+        "ev": "E007",
+        "claim": "XREAL 拼 57° 光学轻量化（E007）",
+        "logic": "XREAL 拼 57° 光学轻量化（E007），雷鸟佩戴缺陷待补（E006）→ 竞品已把佩戴当战场",
+        "cross": [
+          "E006"
+        ]
+      }
+    ],
+    "user": [
+      {
+        "ev": "E006",
+        "claim": "用户在全天佩戴场景吐槽铰链松/夹发/发热（E06）与要轻如普通眼镜（E012）",
+        "logic": "用户在全天佩戴场景吐槽铰链松/夹发/发热（E06）与要轻如普通眼镜（E012），是真实痛点",
+        "cross": [
+          "E012"
+        ]
+      }
+    ],
+    "strategic": [
+      {
+        "ev": "E006",
+        "claim": "普通近视镜/运动眼镜人体工学已成熟",
+        "logic": "普通近视镜/运动眼镜人体工学已成熟，可迁移到 AR 配重",
+        "cross": []
+      },
+      {
+        "ev": "E001",
+        "claim": "X3 Pro 重量与发热有优化空间（E001）",
+        "logic": "X3 Pro 重量与发热有优化空间（E001）；光波导全彩天然偏重（E010）需工程减重",
+        "cross": [
+          "E010"
+        ]
+      }
+    ]
   },
-  {
-    "id": "ID-005",
-    "path": "competitor-gap",
-    "link": "室内外切换/公共场合防窥看私信与导航，户外强光下要可读 → X3 Pro 全彩波导户外强光下可读性受限且无一键变暗/防窥；竞品 XREAL 已做电致变色（E007），雷鸟缺位 → XREAL One Pro 已用电致变色（E007）且被接受，雷鸟光学可读性短板与一键变暗缺口明确 → 在波导模组集成电致变色层，一键调节透光率并防窥，补齐光学隐私短板，户外可读室内防窥；该方案填补 XREAL 已验证但雷鸟缺位的竞品缺口（E007）"
+  "ID-005": {
+    "market": [
+      {
+        "ev": "E013",
+        "claim": "户外/出行场景增长（E013）放大波导可读性需求",
+        "logic": "户外/出行场景增长（E013）放大波导可读性需求",
+        "cross": []
+      },
+      {
+        "ev": "E003",
+        "claim": "AR 光学升级是增长主线（E003/E014）",
+        "logic": "AR 光学升级是增长主线（E003/E014）",
+        "cross": [
+          "E014"
+        ]
+      }
+    ],
+    "competitor": [
+      {
+        "ev": "E007",
+        "claim": "XREAL One Pro 已用电致变色（E007）且被市场接受 → 雷鸟缺位即明确缺口",
+        "logic": "XREAL One Pro 已用电致变色（E007）且被市场接受 → 雷鸟缺位即明确缺口",
+        "cross": []
+      }
+    ],
+    "user": [
+      {
+        "ev": "E012",
+        "claim": "用户在户外公共场景吐槽要私密不被窥（E012）与户外可读（E001）",
+        "logic": "用户在户外公共场景吐槽要私密不被窥（E012）与户外可读（E001），是真实痛点",
+        "cross": [
+          "E001"
+        ]
+      }
+    ],
+    "strategic": [
+      {
+        "ev": "E007",
+        "claim": "汽车/相机电致变色滤镜已成熟",
+        "logic": "汽车/相机电致变色滤镜已成熟，路径可迁移到眼镜镜片",
+        "cross": []
+      },
+      {
+        "ev": "E001",
+        "claim": "X3 Pro 户外可读性受限（E001）",
+        "logic": "X3 Pro 户外可读性受限（E001）；光波导全彩对比度挑战（E010）可借电致变色缓解",
+        "cross": [
+          "E010"
+        ]
+      }
+    ]
   },
-  {
-    "id": "ID-006",
-    "path": "cross-industry",
-    "link": "在眼镜上刷抖音/微信/导航/轻办公而非仅投屏，生态决定留存 → 雷鸟 X3 Pro 已做 RayNeo AR VM 安卓虚拟机（E001）但生态仍弱，用户期待「能装 App」却应用少；Rokid 内容生态追赶（E008） → Rokid 内容生态追赶（E008）、雷鸟 RayNeo VM 已具备但弱（E001）→ 升级缺口明确，竞品已先发内容 → 把 RayNeo VM 从投屏升级为开放应用商店+空间计算 SDK，承接手机生态迁移，做空间计算内容平台；该平台填补 Rokid 已先发但雷鸟基础弱的竞品缺口（E008），并复用手机应用商店跨行业路径（E001）"
+  "ID-006": {
+    "market": [
+      {
+        "ev": "E013",
+        "claim": "内容消费场景增长（E013）",
+        "logic": "内容消费场景增长（E013），用户要眼镜不逊手机（E012），是真实留存痛点",
+        "cross": [
+          "E012"
+        ]
+      },
+      {
+        "ev": "E003",
+        "claim": "空间计算是增长方向（E003/E014）",
+        "logic": "空间计算是增长方向（E003/E014）",
+        "cross": [
+          "E014"
+        ]
+      }
+    ],
+    "competitor": [
+      {
+        "ev": "E008",
+        "claim": "Rokid 内容生态追赶（E008）、雷鸟 RayNeo VM 已具备但弱（E001）→ 升级缺口明确",
+        "logic": "Rokid 内容生态追赶（E008）、雷鸟 RayNeo VM 已具备但弱（E001）→ 升级缺口明确",
+        "cross": [
+          "E001"
+        ]
+      }
+    ],
+    "user": [
+      {
+        "ev": "E016",
+        "claim": "用户在长期使用场景吐槽功能留存低、要实用粘性痛点（E16）",
+        "logic": "用户在长期使用场景吐槽功能留存低、要实用粘性痛点（E16），要能装 App（E12），是真实需求",
+        "cross": [
+          "E012"
+        ]
+      }
+    ],
+    "strategic": [
+      {
+        "ev": "E001",
+        "claim": "手机安卓应用商店/小程序生态路径可迁移到 AR 轻应用",
+        "logic": "手机安卓应用商店/小程序生态路径可迁移到 AR 轻应用",
+        "cross": []
+      },
+      {
+        "ev": "E001",
+        "claim": "X3 Pro RayNeo AR VM 已具备（E001）",
+        "logic": "X3 Pro RayNeo AR VM 已具备（E001）；光波导全彩（E010）可承载空间应用",
+        "cross": [
+          "E010"
+        ]
+      }
+    ]
   },
-  {
-    "id": "ID-004",
-    "path": "cross-industry",
-    "link": "外拍/出差同时充电与备份素材 → 摄影师户外备份难、存储与充电双设备累赘——但雷鸟为 AR 眼镜公司，无存储栈与供电通道分离壁垒，非其能力圈 → 市面充电宝无本地存储；但该形态与 AR 眼镜主线无关，雷鸟不应分散资源 → （伪需求）充电宝集成 SSD 本地备份。硬件专家判定：USB Host 与供电通道分离、NVMe 主控壁垒、雷鸟无存储技术栈，不可行"
+  "ID-004": {
+    "market": [
+      {
+        "ev": "E009",
+        "claim": "Meta Ray-Ban 无屏 AI 眼镜验证了可穿戴入口",
+        "logic": "Meta Ray-Ban 无屏 AI 眼镜验证了可穿戴入口，但未涉及生物识别支付（E009），无对应市场规模信号",
+        "cross": []
+      },
+      {
+        "ev": "E012",
+        "claim": "无支付眼镜上行信号",
+        "logic": "无支付眼镜上行信号，金融监管对生物识别支付有强约束",
+        "cross": []
+      }
+    ],
+    "competitor": [
+      {
+        "ev": "E007",
+        "claim": "XREAL 聚焦显示不做支付（E007）",
+        "logic": "XREAL 聚焦显示不做支付（E007），但竞品不做不等于雷鸟能做——支付前提是牌照与合规",
+        "cross": []
+      }
+    ],
+    "user": [
+      {
+        "ev": "E012",
+        "claim": "用户吐槽智能眼镜功能逊手机（E012）",
+        "logic": "用户吐槽智能眼镜功能逊手机（E012），但从未在 AR 场景提出支付刚需（E001），属偶发想象",
+        "cross": [
+          "E001"
+        ]
+      }
+    ],
+    "strategic": [
+      {
+        "ev": "E009",
+        "claim": "跨行业无可迁移的支付模组（Meta 无屏、无生物识别）",
+        "logic": "跨行业无可迁移的支付模组（Meta 无屏、无生物识别），路径不成立",
+        "cross": []
+      },
+      {
+        "ev": "E001",
+        "claim": "轻量 AR 眼镜（E001）无法承载掌静脉/虹膜模组与安全芯片（E010）",
+        "logic": "轻量 AR 眼镜（E001）无法承载掌静脉/虹膜模组与安全芯片（E010），且无支付牌照",
+        "cross": [
+          "E010"
+        ]
+      }
+    ]
   },
-  {
-    "id": "ID-007",
-    "path": "cross-industry",
-    "link": "居家用眼镜做体感健身 → 体感交互想象空间大但当前用户证据少、竞品未规模化验证，置信不足 → 竞品均未做 AR 健身，缺口未验证 → 列入观察池，待用户声音与竞品信号增强后再评估进 TOP5"
+  "ID-007": {
+    "market": [
+      {
+        "ev": "E013",
+        "claim": "内容场景增长含健身想象但证据弱",
+        "logic": "内容场景增长含健身想象但证据弱",
+        "cross": []
+      },
+      {
+        "ev": "E003",
+        "claim": "AR 交互增长想象但无硬数据",
+        "logic": "AR 交互增长想象但无硬数据",
+        "cross": []
+      }
+    ],
+    "competitor": [
+      {
+        "ev": "E007",
+        "claim": "竞品均未做 AR 健身",
+        "logic": "竞品均未做 AR 健身，缺口未验证",
+        "cross": []
+      }
+    ],
+    "user": [
+      {
+        "ev": "E012",
+        "claim": "用户在居家场景提多功能但未明确健身痛点需求",
+        "logic": "用户在居家场景提多功能但未明确健身痛点需求，属弱信号",
+        "cross": [
+          "E006"
+        ]
+      }
+    ],
+    "strategic": [
+      {
+        "ev": "E012",
+        "claim": "健身环/体感游戏路径可参考但迁移未验证",
+        "logic": "健身环/体感游戏路径可参考但迁移未验证",
+        "cross": []
+      },
+      {
+        "ev": "E001",
+        "claim": "X3 Pro 可承载体感但无传感（E01/E06）",
+        "logic": "X3 Pro 可承载体感但无传感（E01/E06）",
+        "cross": [
+          "E006"
+        ]
+      }
+    ]
   }
-];;;
+};;
 
 /* TOP5 平铺渲染：紧凑核心卡 + 点击展开二级详情（含证据推导对应） */
 function renderTop5Flat() {
@@ -5359,14 +4532,39 @@ function openPrdDoc(id) {
     return `<li><span class="ev-badge t${ev.tier || ''}">${eid}</span> <b>${srcLink(ev)}</b>${ev.date ? '（' + esc(ev.date) + '）' : ''}：${esc(ev.summary || '')}</li>`;
   }).join('');
   const trendN = evs.filter(eid => { const e = EVIDENCE.find(x => x.id === eid); return e && e.trend; }).length;
-  // PRD 原始素材 ↔ 证据链映射：把「场景锚点/痛点强度/竞品信号」明确挂到对应证据（E017-E026），让页面可溯源
+  // PRD 原始素材 ↔ 证据链映射：把「场景锚点/痛点强度/竞品信号」明确挂到对应证据（E001-E016），让页面可溯源
   const RAW_EV = {
-    'ID-005': { scene: 'E018', pain: 'E018', competitor: 'E017' },
-    'ID-001': { scene: 'E020', pain: 'E020', competitor: 'E019' },
-    'ID-003': { scene: 'E022', pain: 'E022', competitor: 'E021' },
-    'ID-004': { scene: 'E024', pain: 'E024', competitor: 'E023' },
-    'ID-002': { scene: 'E026', pain: 'E026', competitor: 'E025' }
-  };
+  "ID-001": {
+    "scene": "E005",
+    "pain": "E005",
+    "competitor": "E007"
+  },
+  "ID-002": {
+    "scene": "E012",
+    "pain": "E016",
+    "competitor": "E009"
+  },
+  "ID-003": {
+    "scene": "E006",
+    "pain": "E006",
+    "competitor": "E007"
+  },
+  "ID-005": {
+    "scene": "E012",
+    "pain": "E001",
+    "competitor": "E007"
+  },
+  "ID-006": {
+    "scene": "E012",
+    "pain": "E016",
+    "competitor": "E008"
+  },
+  "ID-004": {
+    "scene": "E009",
+    "pain": "E012",
+    "competitor": "E007"
+  }
+}
   const rawEv = RAW_EV[id] || {};
   const rawMat = [
     ['场景锚点', idea.scene, rawEv.scene],
