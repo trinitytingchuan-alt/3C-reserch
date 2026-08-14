@@ -56,8 +56,9 @@ p{color:var(--ink-mid)}
 .hero-img{width:100%;height:100%;object-fit:cover;object-position:center 30%;display:block}
 .fw{margin-top:var(--s6);display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s3);align-items:stretch}
 .fw .cell{background:var(--surface);border:1px solid var(--line-soft);border-radius:var(--r-sm);padding:var(--s3);text-align:center}
-.fw .cell .ico{width:100%;aspect-ratio:16/9;border-radius:var(--r-xs);overflow:hidden;background:var(--paper);margin-bottom:12px;display:flex;align-items:center;justify-content:center}
-.fw .cell .ico svg{width:46%;height:46%}
+.fw .cell .ico{width:100%;aspect-ratio:16/9;border-radius:var(--r-xs);overflow:hidden;background:var(--surface);margin-bottom:12px;display:flex;align-items:center;justify-content:center;transition:transform .35s var(--ease)}
+.fw .cell .ico img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;transition:transform .5s var(--ease)}
+.fw .cell:hover .ico img{transform:scale(1.06)}
 .fw .cell .t{font-size:14px;font-weight:600;color:var(--ink)}
 .fw .cell .d{font-size:12px;color:var(--ink-lo);margin-top:2px}
 
@@ -74,7 +75,8 @@ p{color:var(--ink-mid)}
 .card .topbar{height:4px;background:var(--line-soft);transition:background .45s var(--ease)}
 .card:hover .topbar{background:linear-gradient(90deg,var(--signal),var(--signal-press))}
 .card .fig{aspect-ratio:16/9;overflow:hidden;background:var(--surface);position:relative;display:flex;align-items:center;justify-content:center}
-.card .fig svg{width:42%;height:42%}
+.card .fig .fig-img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;transition:transform .55s var(--ease)}
+.card:hover .fig .fig-img{transform:scale(1.05)}
 .card .body{padding:var(--s4);flex:1}
 .card .rank{font-family:var(--font-mono);font-size:12px;color:var(--signal);font-weight:500}
 .card .body h3{font-size:21px;margin-top:6px;line-height:1.18}
@@ -109,7 +111,10 @@ p{color:var(--ink-mid)}
 
 .gtm-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--s5)}
 .gcard{background:var(--paper);border:1px solid var(--line-soft);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow);transition:transform .45s var(--ease),box-shadow .45s var(--ease),border-color .45s var(--ease);display:flex;flex-direction:column}
-.gcard:hover{transform:translateY(-6px);box-shadow:var(--shadow-hi);border-color:var(--signal-line)}
+.gcard:hover{transform:translateY(-6px);box-shadow:var(--shadow-hi);border-color:#E8C089}
+.gcard .gfig{aspect-ratio:16/9;overflow:hidden;background:var(--surface);position:relative;display:flex;align-items:center;justify-content:center}
+.gcard .gfig .fig-img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;transition:transform .55s var(--ease)}
+.gcard:hover .gfig .fig-img{transform:scale(1.05)}
 .gcard .gbody{padding:var(--s4) var(--s4) 0;flex:1}
 .gcard .gbody .gtag{font-family:var(--font-mono);font-size:11px;color:#C2811A;letter-spacing:.06em;font-weight:600}
 .gcard .gbody h3{font-size:20px;margin-top:7px;line-height:1.2}
@@ -128,8 +133,8 @@ p{color:var(--ink-mid)}
 .dimcard{display:flex;flex-direction:column;background:var(--paper);border:1px solid var(--line-soft);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow);transition:transform .45s var(--ease),box-shadow .45s var(--ease),border-color .45s var(--ease);text-decoration:none}
 .dimcard:hover{transform:translateY(-6px);box-shadow:var(--shadow-hi);border-color:var(--signal-line)}
 .dimcard .dchead{display:flex;align-items:center;gap:14px;padding:var(--s4) var(--s4) 0}
-.dimcard .dcico{width:46px;height:46px;border-radius:13px;display:flex;align-items:center;justify-content:center;flex:0 0 auto}
-.dimcard .dcico svg{width:26px;height:26px}
+.dimcard .dcico{width:46px;height:46px;border-radius:13px;display:flex;align-items:center;justify-content:center;flex:0 0 auto;overflow:hidden}
+.dimcard .dcico img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}
 .dimcard .dctitle{font-family:var(--font-display);font-size:20px;font-weight:600;color:var(--ink)}
 .dimcard .dcmeta{margin-top:3px;font-size:13px;color:var(--ink-lo)}
 .dimcard .dclist{list-style:none;margin:var(--s3) var(--s4) 0;display:flex;flex-direction:column;gap:11px}
@@ -153,7 +158,8 @@ p{color:var(--ink-mid)}
 .method{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s4);margin-top:var(--s5)}
 .mcell{background:var(--paper);border:1px solid var(--line-soft);border-radius:var(--r-md);overflow:hidden;box-shadow:var(--shadow)}
 .mcell .mfig{aspect-ratio:16/9;overflow:hidden;background:var(--surface);display:flex;align-items:center;justify-content:center}
-.mcell .mfig svg{width:40%;height:40%}
+.mcell .mfig img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;transition:transform .55s var(--ease)}
+.mcell:hover .mfig img{transform:scale(1.05)}
 .mcell .mbody{padding:var(--s3)}
 .mcell .step{font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;color:var(--signal)}
 .mcell .mbody h4{font-size:16px;margin-top:6px}
@@ -218,29 +224,29 @@ p{color:var(--ink-mid)}
   </div>
   <div class="fw reveal">
     <div class="cell">
-      <div class="ico"><svg viewBox="0 0 48 48" fill="none"><path d="M10 16a6 6 0 016-6h16a6 6 0 016 6v16a6 6 0 01-6 6H16a6 6 0 01-6-6V16z" stroke="#0071E3" stroke-width="3"/><path d="M21 19l5 5-5 5M27 19l-5 5 5 5" stroke="#0071E3" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="ico"><img src="assets/ithome_5.jpg" alt="用户声音 - AR1 驱动画面显示" loading="lazy"/></div>
       <div class="t">用户声音</div><div class="d">场景 + 痛点</div>
     </div>
     <div class="cell">
-      <div class="ico"><svg viewBox="0 0 48 48" fill="none"><rect x="9" y="14" width="30" height="22" rx="5" stroke="#0071E3" stroke-width="3"/><path d="M17 25h14M17 31h9" stroke="#0071E3" stroke-width="3" stroke-linecap="round"/><path d="M34 10l-6 4 6 4" stroke="#0071E3" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="ico"><img src="assets/ithome_1.jpg" alt="竞品缺口 - X3 Pro 产品实物" loading="lazy"/></div>
       <div class="t">竞品缺口</div><div class="d">已验证 + 未覆盖</div>
     </div>
     <div class="cell">
-      <div class="ico"><svg viewBox="0 0 48 48" fill="none"><path d="M10 30l8-10 7 8 6-7 7 9" stroke="#0071E3" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M10 38h28" stroke="#0071E3" stroke-width="3" stroke-linecap="round"/></svg></div>
+      <div class="ico"><img src="assets/ithome_9.jpg" alt="行业趋势 - 显示亮度参数" loading="lazy"/></div>
       <div class="t">行业趋势</div><div class="d">上升通道</div>
     </div>
     <div class="cell">
-      <div class="ico"><svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="14" stroke="#0071E3" stroke-width="3"/><path d="M24 14v10l7 4" stroke="#0071E3" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-      <div class="t">证据推导</div><div class="d">E## → 根因</div>
+      <div class="ico"><img src="assets/ithome_4.jpg" alt="证据推导 - 骁龙 AR1 芯片平台" loading="lazy"/></div>
+      <div class="t">证据推导</div><div class="d">多源 → 根因</div>
     </div>
   </div>
 </header>
 
 <section class="section wrap" id="top5">
   <div class="sec-head reveal">
-    <span class="eyebrow">Prioritized Opportunities</span>
+    <span class="eyebrow">Prioritized Opportunities · 产品经理视角</span>
     <h2>TOP5 产品机会</h2>
-    <p class="sub">五条真实需求，按综合分降序排列。每条均通过市场验证闭环（五源强支撑 + 双独立来源 + 跨 Tier 交叉）。点击卡片右下「查看需求文档」进入独立的标准产品需求文档（PRD）页面。</p>
+    <p class="sub">以产品经理的逻辑思维推导五条真实需求：每条均建立「用户场景 → 痛点 → 根因 → 证据」的完整因果链，并通过市场验证闭环（五源强支撑 + 双独立来源 + 跨 Tier 交叉）检验市场敏感度。点击卡片右下「查看需求文档」进入独立的标准产品需求文档（PRD）页面。</p>
     <div class="meta-row">
       <span class="pill">真实 TOP5 <b>5 条</b></span>
       <span class="pill">综合分区间 <b>90.3 – 91.2</b></span>
@@ -275,9 +281,9 @@ p{color:var(--ink-mid)}
 
 <section class="section wrap" id="gtm">
   <div class="sec-head reveal">
-    <span class="eyebrow">Go-To-Market</span>
+    <span class="eyebrow">Go-To-Market · 市场/GTM 视角</span>
     <h2>分需求落地策略</h2>
-    <p class="sub">每个 TOP5 需求对应一套独立 GTM 路径：目标受众、渠道、定价、市场规模与上市节奏。完整策略见各需求 PRD 页「商业落地」章节。</p>
+    <p class="sub">以 GTM 职业核心能力拆解每个 TOP5 的上市路径：精准定位「卖给谁」、打通「怎么卖」的渠道组合、设计「变现」定价、评估「TAM–SAM–SOM」市场规模并排布上市节奏。完整策略见各需求 PRD 页「商业落地」章节。</p>
   </div>
   <div class="gtm-grid" id="gtmgrid"></div>
 </section>
@@ -309,10 +315,10 @@ p{color:var(--ink-mid)}
     <p class="sub">四步闭环：从真实场景锚定，到跨源验证，再到评分排序与落地推演。</p>
   </div>
   <div class="method reveal">
-    <div class="mcell"><div class="mfig"><svg viewBox="0 0 48 48" fill="none"><path d="M24 12a9 9 0 100 18 9 9 0 000-18z" stroke="#0071E3" stroke-width="3"/><path d="M24 6v4M24 38v4M6 24h4M38 24h4" stroke="#0071E3" stroke-width="3" stroke-linecap="round"/></svg></div><div class="mbody"><div class="step">STEP 01</div><h4>场景锚定</h4><p>以真实使用场景 + 用户痛点为入口，禁止无场景的产品优先假设。</p></div></div>
-    <div class="mcell"><div class="mfig"><svg viewBox="0 0 48 48" fill="none"><circle cx="20" cy="20" r="11" stroke="#0071E3" stroke-width="3"/><path d="M28 28l9 9" stroke="#0071E3" stroke-width="3" stroke-linecap="round"/><path d="M16 20h8M20 16v8" stroke="#0071E3" stroke-width="2.5" stroke-linecap="round"/></svg></div><div class="mbody"><div class="step">STEP 02</div><h4>跨源验证</h4><p>用户声音 / 竞品缺口 / 行业趋势三轨交叉，单点来源仅作假设。</p></div></div>
-    <div class="mcell"><div class="mfig"><svg viewBox="0 0 48 48" fill="none"><path d="M10 34V20M19 34V14M28 34V24M37 34V10" stroke="#0071E3" stroke-width="3" stroke-linecap="round"/></svg></div><div class="mbody"><div class="step">STEP 03</div><h4>评分排序</h4><p>10 维 × 四专家加权，≥90 进 TOP5；不足则补强真实证据而非改分。</p></div></div>
-    <div class="mcell"><div class="mfig"><svg viewBox="0 0 48 48" fill="none"><path d="M10 30l7-8 6 6 8-11 7 8" stroke="#0071E3" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><circle cx="37" cy="19" r="4" fill="#0071E3" fill-opacity="0.15" stroke="#0071E3" stroke-width="2.5"/></svg></div><div class="mbody"><div class="step">STEP 04</div><h4>落地推演</h4><p>分需求 GTM 策略 + 二级路径，把机会转为可执行上市计划。</p></div></div>
+    <div class="mcell"><div class="mfig"><img src="assets/ithome_5.jpg" alt="场景锚定 - AR1 驱动画面显示" loading="lazy"/></div><div class="mbody"><div class="step">STEP 01</div><h4>场景锚定</h4><p>以真实使用场景 + 用户痛点为入口，禁止无场景的产品优先假设。</p></div></div>
+    <div class="mcell"><div class="mfig"><img src="assets/ithome_4.jpg" alt="跨源验证 - 骁龙 AR1 芯片平台" loading="lazy"/></div><div class="mbody"><div class="step">STEP 02</div><h4>跨源验证</h4><p>用户声音 / 竞品缺口 / 行业趋势三轨交叉，单点来源仅作假设。</p></div></div>
+    <div class="mcell"><div class="mfig"><img src="assets/ithome_9.jpg" alt="评分排序 - 显示亮度性能" loading="lazy"/></div><div class="mbody"><div class="step">STEP 03</div><h4>评分排序</h4><p>10 维 × 四专家加权，≥90 进 TOP5；不足则补强真实证据而非改分。</p></div></div>
+    <div class="mcell"><div class="mfig"><img src="assets/ithome_1.jpg" alt="落地推演 - X3 Pro 产品实物" loading="lazy"/></div><div class="mbody"><div class="step">STEP 04</div><h4>落地推演</h4><p>分需求 GTM 策略 + 二级路径，把机会转为可执行上市计划。</p></div></div>
   </div>
 </section>
 
@@ -322,13 +328,13 @@ p{color:var(--ink-mid)}
 </footer>
 
 <script>
-// ============ 内联 SVG 图标（与功能强相关，零外部依赖）============
+// ============ 功能实图（每张卡用对应真实产品图，替换线稿）============
 const ICON = {
-  shoot:'<svg viewBox="0 0 48 48" fill="none"><rect x="8" y="16" width="24" height="18" rx="4" stroke="#0071E3" stroke-width="3"/><path d="M32 21l8-4v14l-8-4z" stroke="#0071E3" stroke-width="3" stroke-linejoin="round"/><circle cx="18" cy="25" r="4" stroke="#0071E3" stroke-width="2.5"/><path d="M14 36h14" stroke="#86868B" stroke-width="3" stroke-linecap="round"/></svg>',
-  battery:'<svg viewBox="0 0 48 48" fill="none"><rect x="9" y="16" width="28" height="16" rx="4" stroke="#0071E3" stroke-width="3"/><rect x="37" y="22" width="4" height="4" rx="1" fill="#0071E3"/><path d="M16 24h6M25 21v6" stroke="#0071E3" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>',
-  eco:'<svg viewBox="0 0 48 48" fill="none"><rect x="11" y="9" width="20" height="30" rx="3" stroke="#0071E3" stroke-width="3"/><path d="M16 16h10M16 22h10M16 28h7" stroke="#0071E3" stroke-width="2.5" stroke-linecap="round"/><path d="M34 18c4 2 4 10 0 12" stroke="#0071E3" stroke-width="3" stroke-linecap="round"/></svg>',
-  wear:'<svg viewBox="0 0 48 48" fill="none"><rect x="8" y="19" width="13" height="11" rx="4" stroke="#0071E3" stroke-width="3"/><rect x="27" y="19" width="13" height="11" rx="4" stroke="#0071E3" stroke-width="3"/><path d="M21 24h6" stroke="#0071E3" stroke-width="3"/><path d="M12 30v6M36 30v6" stroke="#86868B" stroke-width="3" stroke-linecap="round"/></svg>',
-  lens:'<svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="14" stroke="#0071E3" stroke-width="3"/><path d="M24 10a14 14 0 010 28" stroke="#0071E3" stroke-width="3" stroke-linecap="round" fill="#0071E3" fill-opacity="0.15"/><circle cx="24" cy="24" r="5" stroke="#0071E3" stroke-width="2.5"/></svg>'
+  shoot:'<img class="fig-img" src="assets/ithome_5.jpg" alt="AI 拍摄画面显示" loading="lazy"/>',
+  battery:'<img class="fig-img" src="assets/ithome_9.jpg" alt="续航 / 显示功耗参数" loading="lazy"/>',
+  eco:'<img class="fig-img" src="assets/ithome_13.jpg" alt="安卓应用生态" loading="lazy"/>',
+  wear:'<img class="fig-img" src="assets/ithome_1.jpg" alt="轻量化产品实物" loading="lazy"/>',
+  lens:'<img class="fig-img" src="assets/ithome_7.jpg" alt="智能镜片特写" loading="lazy"/>'
 };
 const ICN = { "ID-002":"shoot","ID-001":"battery","ID-006":"eco","ID-003":"wear","ID-005":"lens" };
 
@@ -472,6 +478,7 @@ GTM.forEach(d=>{
   const el = document.createElement('div');
   el.className='gcard reveal';
   el.innerHTML = `
+    <div class="gfig">${ICON[d.icon]}</div>
     <div class="gbody">
       <div class="gtag">${d.tag} · 商业落地</div>
       <h3>${d.title}</h3>
@@ -490,10 +497,10 @@ GTM.forEach(d=>{
 // ============ 证据链：按一级维度归类 → 维度卡跳转二级页 ============
 // 一级维度（与 evidence-<dim>.html 二级页对应）
 const DIM_DEF = {
-  market:    { name:'市场与行业',   cls:'dim-m', icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 17l5-5 4 3 6-7"/><path d="M3 21h18"/></svg>', desc:'市场规模、增速、格局与融资背书', reps:3 },
-  competitor: { name:'竞品动态',     cls:'dim-c', icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="12" cy="18" r="2.5"/><path d="M7.5 8L11 16M16.5 8L13 16M8 6h8"/></svg>', desc:'头部竞品功能动作与对标缺口', reps:3 },
-  user:      { name:'用户需求',     cls:'dim-u', icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c0-3.5 3-6 7-6s7 2.5 7 6"/></svg>', desc:'核心场景、痛点与付费意愿', reps:3 },
-  strategic: { name:'战略与合规',   cls:'dim-s', icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg>', desc:'技术护城河、生态与监管约束', reps:2 }
+  market:    { name:'市场与行业',   cls:'dim-m', icon:'<img src="assets/ithome_9.jpg" alt="市场与行业" loading="lazy"/>', desc:'市场规模、增速、格局与融资背书', reps:3 },
+  competitor: { name:'竞品动态',     cls:'dim-c', icon:'<img src="assets/ithome_1.jpg" alt="竞品动态" loading="lazy"/>', desc:'头部竞品功能动作与对标缺口', reps:3 },
+  user:      { name:'用户需求',     cls:'dim-u', icon:'<img src="assets/ithome_5.jpg" alt="用户需求" loading="lazy"/>', desc:'核心场景、痛点与付费意愿', reps:3 },
+  strategic: { name:'战略与合规',   cls:'dim-s', icon:'<img src="assets/ithome_4.jpg" alt="战略与合规" loading="lazy"/>', desc:'技术护城河、生态与监管约束', reps:2 }
 };
 const DIM_MAP = { // EVI 的 dim 标注 → 一级维度（E009 内容为 Meta 竞品动作，特例归入竞品）
   '行业验证':'market', '市场化':'market',
