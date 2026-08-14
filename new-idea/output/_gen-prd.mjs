@@ -3,7 +3,9 @@ import { readFileSync, writeFileSync } from 'node:fs';
 
 const idx = readFileSync('index.html', 'utf8');
 const style = idx.match(/<style>([\s\S]*?)<\/style>/)[1];
-const navHtml = idx.match(/<nav class="nav"[\s\S]*?<\/nav>/)[0];
+const navHtml = idx.match(/<nav class="nav"[\s\S]*?<\/nav>/)[0]
+  .replace(/<div class="nav-links">[\s\S]*?<\/div>/,
+    '<div class="nav-links"><a class="nav-back" href="index.html"><span class="bk">←</span> 返回白皮书</a></div>');
 const footerHtml = idx.match(/<footer class="footer wrap">[\s\S]*?<\/footer>/)[0];
 
 // 抽取历史完整版 f6584e6 的 PRDS 真实数据（大厂 PRD 写法权威来源，已预提取为 UTF-8 JSON）
@@ -20,121 +22,136 @@ const META = {
   'ID-006': { name:'RayNeo VM 开放应用生态', tag:'生态 · 空间计算', dim:'strategic', score:'90.6' }
 };
 
-// 强关联实物 SVG 图（线稿实物图，零失效、与功能强相关）
+// 强关联实物产品渲染图（大疆级：深色高级背景 + 产品渐变质感 + 高光投影，零失效）
 const FIG = {
-  'ID-001': `<svg viewBox="0 0 480 240" fill="none" xmlns="http://www.w3.org/2000/svg" class="figsvg">
-    <rect x="0" y="0" width="480" height="240" rx="16" fill="#F4F7FB"/>
-    <!-- 眼镜主体 -->
-    <g stroke="#1A2B4A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M150 96 h60 q10 -2 18 6 q8 -8 18 -6 h60"/>
-      <rect x="120" y="86" width="52" height="34" rx="10" fill="#fff"/>
-      <rect x="308" y="86" width="52" height="34" rx="10" fill="#fff"/>
-      <rect x="128" y="93" width="36" height="20" rx="5" fill="#0B7CF2" opacity="0.18"/>
-      <rect x="316" y="93" width="36" height="20" rx="5" fill="#0B7CF2" opacity="0.18"/>
-    </g>
-    <!-- 颈挂磁吸电池模组 -->
-    <g stroke="#0B7CF2" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M170 200 q70 34 140 0" fill="none"/>
-      <rect x="150" y="184" width="60" height="26" rx="9" fill="#E8F2FE"/>
-      <rect x="270" y="184" width="60" height="26" rx="9" fill="#E8F2FE"/>
-    </g>
-    <!-- 磁吸连接线 -->
-    <g stroke="#9BB4D6" stroke-width="2.4" stroke-dasharray="4 5">
-      <path d="M180 130 q-8 28 -6 54"/>
-      <path d="M300 130 q8 28 6 54"/>
-    </g>
-    <text x="240" y="232" text-anchor="middle" font-family="monospace" font-size="12" fill="#5A6B85">颈挂磁吸电池 · 主体保持无绳</text>
-  </svg>`,
-  'ID-002': `<svg viewBox="0 0 480 240" fill="none" xmlns="http://www.w3.org/2000/svg" class="figsvg">
-    <rect x="0" y="0" width="480" height="240" rx="16" fill="#F4F7FB"/>
-    <!-- 眼镜第一视角取景框 -->
-    <g stroke="#1A2B4A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M120 100 h70 q10 -2 18 6 q8 -8 18 -6 h70"/>
-      <rect x="92" y="90" width="56" height="36" rx="10" fill="#fff"/>
-      <rect x="332" y="90" width="56" height="36" rx="10" fill="#fff"/>
-      <circle cx="120" cy="108" r="6" fill="#0B7CF2"/>
-    </g>
-    <!-- 取景框视线 -->
-    <g stroke="#0B7CF2" stroke-width="2.4" stroke-dasharray="5 5">
-      <path d="M120 110 l-50 40"/>
-    </g>
-    <rect x="56" y="146" width="64" height="44" rx="8" fill="#E8F2FE" stroke="#0B7CF2" stroke-width="2"/>
-    <text x="88" y="168" text-anchor="middle" font-family="monospace" font-size="11" fill="#0B7CF2">取景</text>
-    <text x="88" y="182" text-anchor="middle" font-family="monospace" font-size="11" fill="#0B7CF2">REC</text>
-    <!-- 实时翻译字幕气泡 -->
+  'ID-001': `<svg viewBox="0 0 480 280" xmlns="http://www.w3.org/2000/svg" class="figsvg">
+    <defs>
+      <linearGradient id="bg1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1C2536"/><stop offset="1" stop-color="#0E1420"/></linearGradient>
+      <linearGradient id="gl1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3A4A66"/><stop offset="1" stop-color="#11233F"/></linearGradient>
+      <linearGradient id="bat" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2E3A52"/><stop offset="1" stop-color="#1A2233"/></linearGradient>
+      <radialGradient id="gl" cx="0.5" cy="0.4" r="0.7"><stop offset="0" stop-color="#5BA8FF" stop-opacity="0.9"/><stop offset="1" stop-color="#0B7CF2" stop-opacity="0.15"/></radialGradient>
+    </defs>
+    <rect width="480" height="280" rx="18" fill="url(#bg1)"/>
+    <ellipse cx="240" cy="250" rx="150" ry="16" fill="#000" opacity="0.35"/>
+    <!-- 眼镜主体：镜片玻璃质感 -->
     <g>
-      <rect x="210" y="150" width="210" height="58" rx="12" fill="#fff" stroke="#1A2B4A" stroke-width="2"/>
-      <path d="M236 150 l-12 0 l12 -14 z" fill="#fff" stroke="#1A2B4A" stroke-width="2"/>
-      <text x="315" y="174" text-anchor="middle" font-family="monospace" font-size="13" fill="#1A2B4A">“前方左转 200 米”</text>
-      <text x="315" y="194" text-anchor="middle" font-family="monospace" font-size="12" fill="#5A6B85">Turn left in 200m</text>
+      <rect x="150" y="96" width="74" height="50" rx="16" fill="url(#gl)" stroke="#8FB8EE" stroke-width="1.5"/>
+      <rect x="256" y="96" width="74" height="50" rx="16" fill="url(#gl)" stroke="#8FB8EE" stroke-width="1.5"/>
+      <path d="M224 116 h32" stroke="#9BB4D6" stroke-width="4" stroke-linecap="round"/>
+      <path d="M150 116 q-22 -4 -34 6" stroke="#9BB4D6" stroke-width="4" fill="none" stroke-linecap="round"/>
+      <path d="M330 116 q22 -4 34 6" stroke="#9BB4D6" stroke-width="4" fill="none" stroke-linecap="round"/>
+      <rect x="156" y="102" width="22" height="10" rx="5" fill="#fff" opacity="0.55"/>
     </g>
-    <text x="240" y="232" text-anchor="middle" font-family="monospace" font-size="12" fill="#5A6B85">第一视角拍摄 + 同声传译字幕</text>
-  </svg>`,
-  'ID-003': `<svg viewBox="0 0 480 240" fill="none" xmlns="http://www.w3.org/2000/svg" class="figsvg">
-    <rect x="0" y="0" width="480" height="240" rx="16" fill="#F4F7FB"/>
-    <!-- 眼镜轻量化剖视 -->
-    <g stroke="#1A2B4A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M150 92 h60 q10 -2 18 6 q8 -8 18 -6 h60"/>
-      <rect x="120" y="82" width="54" height="36" rx="11" fill="#fff"/>
-      <rect x="306" y="82" width="54" height="36" rx="11" fill="#fff"/>
-      <!-- 铰链 -->
-      <circle cx="174" cy="92" r="6" fill="#0B7CF2"/>
-      <circle cx="306" cy="92" r="6" fill="#0B7CF2"/>
-    </g>
-    <!-- 重量标注 -->
-    <g stroke="#0B7CF2" stroke-width="2" stroke-dasharray="4 4">
-      <path d="M120 130 v22"/><path d="M360 130 v22"/>
-    </g>
-    <text x="240" y="160" text-anchor="middle" font-family="monospace" font-size="13" fill="#0B7CF2">≈ 60g 级</text>
-    <!-- 前后配重示意 -->
-    <rect x="120" y="118" width="20" height="10" rx="3" fill="#28AA6E"/>
-    <rect x="340" y="118" width="20" height="10" rx="3" fill="#28AA6E"/>
-    <text x="240" y="200" text-anchor="middle" font-family="monospace" font-size="12" fill="#5A6B85">重构铰链 + 前后配重 · 全天无感佩戴</text>
-    <!-- 散热 -->
-    <g stroke="#D69614" stroke-width="2"><path d="M240 82 v-14"/><path d="M232 70 h16"/></g>
-  </svg>`,
-  'ID-005': `<svg viewBox="0 0 480 240" fill="none" xmlns="http://www.w3.org/2000/svg" class="figsvg">
-    <rect x="0" y="0" width="480" height="240" rx="16" fill="#F4F7FB"/>
-    <!-- 左：户外强光（亮） -->
+    <!-- 颈挂磁吸电池模组（金属质感） -->
     <g>
-      <rect x="60" y="70" width="120" height="80" rx="14" fill="#fff" stroke="#1A2B4A" stroke-width="3"/>
-      <circle cx="120" cy="110" r="22" fill="#FFD45E" opacity="0.5"/>
-      <text x="120" y="178" text-anchor="middle" font-family="monospace" font-size="12" fill="#5A6B85">户外强光 · 可读</text>
+      <path d="M178 196 q62 30 124 0" stroke="#6E7C95" stroke-width="10" fill="none" stroke-linecap="round" opacity="0.6"/>
+      <rect x="150" y="180" width="64" height="34" rx="12" fill="url(#bat)" stroke="#5A6B85" stroke-width="1.2"/>
+      <rect x="266" y="180" width="64" height="34" rx="12" fill="url(#bat)" stroke="#5A6B85" stroke-width="1.2"/>
+      <rect x="158" y="187" width="20" height="6" rx="3" fill="#0B7CF2" opacity="0.8"/>
+      <rect x="274" y="187" width="20" height="6" rx="3" fill="#0B7CF2" opacity="0.8"/>
     </g>
-    <!-- 右：室内防窥（暗） -->
-    <g>
-      <rect x="300" y="70" width="120" height="80" rx="14" fill="#2A3550" stroke="#1A2B4A" stroke-width="3"/>
-      <circle cx="360" cy="110" r="22" fill="#0B7CF2" opacity="0.35"/>
-      <text x="360" y="178" text-anchor="middle" font-family="monospace" font-size="12" fill="#5A6B85">室内防窥 · 变暗</text>
-    </g>
-    <!-- 电致变色切换箭头 -->
-    <g stroke="#0B7CF2" stroke-width="2.6" stroke-linecap="round">
-      <path d="M200 110 h80"/><path d="M268 100 l14 10 -14 10"/>
-    </g>
-    <text x="240" y="210" text-anchor="middle" font-family="monospace" font-size="12" fill="#5A6B85">一键电致变色 · 透光率可调 + 防窥</text>
+    <text x="240" y="266" text-anchor="middle" font-family="monospace" font-size="12.5" fill="#AEBed8" letter-spacing="1">颈挂磁吸电池 · 主体保持无绳轻盈</text>
   </svg>`,
-  'ID-006': `<svg viewBox="0 0 480 240" fill="none" xmlns="http://www.w3.org/2000/svg" class="figsvg">
-    <rect x="0" y="0" width="480" height="240" rx="16" fill="#F4F7FB"/>
-    <!-- 眼镜屏显示 App 网格 -->
-    <g stroke="#1A2B4A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M150 96 h60 q10 -2 18 6 q8 -8 18 -6 h60"/>
-      <rect x="120" y="86" width="54" height="36" rx="11" fill="#fff"/>
-      <rect x="306" y="86" width="54" height="36" rx="11" fill="#fff"/>
-    </g>
-    <rect x="138" y="95" width="18" height="18" rx="4" fill="#0B7CF2" opacity="0.25"/>
-    <rect x="338" y="95" width="18" height="18" rx="4" fill="#28AA6E" opacity="0.25"/>
-    <!-- 悬浮 App 网格 -->
+  'ID-002': `<svg viewBox="0 0 480 280" xmlns="http://www.w3.org/2000/svg" class="figsvg">
+    <defs>
+      <linearGradient id="bg2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#15233B"/><stop offset="1" stop-color="#0B1422"/></linearGradient>
+      <linearGradient id="lens2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2A3D5E"/><stop offset="1" stop-color="#0B1C38"/></linearGradient>
+    </defs>
+    <rect width="480" height="280" rx="18" fill="url(#bg2)"/>
+    <ellipse cx="240" cy="252" rx="150" ry="15" fill="#000" opacity="0.35"/>
+    <!-- 眼镜第一视角 -->
     <g>
-      <rect x="170" y="150" width="42" height="42" rx="10" fill="#fff" stroke="#1A2B4A" stroke-width="2.2"/>
-      <rect x="220" y="150" width="42" height="42" rx="10" fill="#E8F2FE" stroke="#0B7CF2" stroke-width="2.2"/>
-      <rect x="270" y="150" width="42" height="42" rx="10" fill="#fff" stroke="#1A2B4A" stroke-width="2.2"/>
-      <rect x="320" y="150" width="42" height="42" rx="10" fill="#fff" stroke="#1A2B4A" stroke-width="2.2"/>
-      <circle cx="191" cy="171" r="6" fill="#0B7CF2"/>
-      <text x="241" y="176" text-anchor="middle" font-family="monospace" font-size="11" fill="#0B7CF2">VM</text>
-      <circle cx="291" cy="171" r="6" fill="#28AA6E"/>
-      <circle cx="341" cy="171" r="6" fill="#D69614"/>
+      <rect x="146" y="92" width="78" height="52" rx="16" fill="url(#lens2)" stroke="#8FB8EE" stroke-width="1.5"/>
+      <rect x="256" y="92" width="78" height="52" rx="16" fill="url(#lens2)" stroke="#8FB8EE" stroke-width="1.5"/>
+      <path d="M224 116 h32" stroke="#9BB4D6" stroke-width="4" stroke-linecap="round"/>
+      <circle cx="185" cy="118" r="7" fill="#0B7CF2"/>
+      <circle cx="185" cy="118" r="12" fill="none" stroke="#0B7CF2" stroke-width="1.5" opacity="0.5"/>
     </g>
-    <text x="248" y="212" text-anchor="middle" font-family="monospace" font-size="12" fill="#5A6B85">RayNeo VM 开放应用商店 · 空间计算 SDK</text>
+    <!-- 取景窗 -->
+    <g>
+      <rect x="60" y="178" width="70" height="48" rx="9" fill="#0E1B30" stroke="#0B7CF2" stroke-width="2"/>
+      <path d="M70 188 h50 M70 202 h34" stroke="#3A6EA5" stroke-width="2" opacity="0.7"/>
+      <text x="95" y="240" text-anchor="middle" font-family="monospace" font-size="11" fill="#5BA8FF">REC · 第一视角</text>
+    </g>
+    <!-- 实时翻译字幕条 -->
+    <g>
+      <rect x="178" y="184" width="240" height="44" rx="12" fill="#fff"/>
+      <rect x="178" y="184" width="6" height="44" rx="3" fill="#0B7CF2"/>
+      <text x="320" y="206" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#1A2B4A" font-weight="600">前方路口左转 200 米</text>
+      <text x="320" y="222" text-anchor="middle" font-family="monospace" font-size="11.5" fill="#5A6B85">Turn left at the junction, 200m</text>
+    </g>
+    <text x="240" y="268" text-anchor="middle" font-family="monospace" font-size="12.5" fill="#AEBED8" letter-spacing="1">AI 第一视角拍摄 + 同声传译字幕</text>
+  </svg>`,
+  'ID-003': `<svg viewBox="0 0 480 280" xmlns="http://www.w3.org/2000/svg" class="figsvg">
+    <defs>
+      <linearGradient id="bg3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1A2436"/><stop offset="1" stop-color="#0D1320"/></linearGradient>
+      <linearGradient id="fr3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4A566E"/><stop offset="1" stop-color="#222C3E"/></linearGradient>
+    </defs>
+    <rect width="480" height="280" rx="18" fill="url(#bg3)"/>
+    <ellipse cx="240" cy="248" rx="140" ry="14" fill="#000" opacity="0.3"/>
+    <!-- 轻量眼镜特写 -->
+    <g>
+      <rect x="150" y="98" width="76" height="50" rx="18" fill="url(#fr3)" stroke="#7E8DA8" stroke-width="1.5"/>
+      <rect x="254" y="98" width="76" height="50" rx="18" fill="url(#fr3)" stroke="#7E8DA8" stroke-width="1.5"/>
+      <path d="M226 120 h28" stroke="#9AA8C0" stroke-width="5" stroke-linecap="round"/>
+      <circle cx="150" cy="120" r="9" fill="#0B7CF2"/>
+      <circle cx="330" cy="120" r="9" fill="#0B7CF2"/>
+      <rect x="158" y="104" width="20" height="8" rx="4" fill="#fff" opacity="0.5"/>
+    </g>
+    <!-- 重量标签 -->
+    <g>
+      <rect x="196" y="172" width="88" height="34" rx="17" fill="rgba(11,124,242,0.16)" stroke="#0B7CF2" stroke-width="1.4"/>
+      <text x="240" y="194" text-anchor="middle" font-family="monospace" font-size="15" fill="#5BA8FF" font-weight="600">≈ 60g 级</text>
+    </g>
+    <text x="240" y="262" text-anchor="middle" font-family="monospace" font-size="12.5" fill="#AEBED8" letter-spacing="1">钛合金骨架 + 前后配重 · 全天无感佩戴</text>
+  </svg>`,
+  'ID-005': `<svg viewBox="0 0 480 280" xmlns="http://www.w3.org/2000/svg" class="figsvg">
+    <defs>
+      <linearGradient id="bg5" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#13263F"/><stop offset="1" stop-color="#0A1322"/></linearGradient>
+      <linearGradient id="lit" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#BFE0FF"/><stop offset="1" stop-color="#7FB4EF"/></linearGradient>
+      <linearGradient id="dark" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2A3550"/><stop offset="1" stop-color="#161E30"/></linearGradient>
+    </defs>
+    <rect width="480" height="280" rx="18" fill="url(#bg5)"/>
+    <ellipse cx="240" cy="250" rx="150" ry="14" fill="#000" opacity="0.3"/>
+    <!-- 左：户外强光（亮镜片） -->
+    <g>
+      <rect x="70" y="86" width="120" height="56" rx="18" fill="url(#lit)" stroke="#9FC8F5" stroke-width="1.5"/>
+      <circle cx="130" cy="114" r="13" fill="#FFE08A" opacity="0.85"/>
+      <text x="130" y="170" text-anchor="middle" font-family="monospace" font-size="11.5" fill="#AEBED8">户外强光 · 通透可读</text>
+    </g>
+    <!-- 右：室内防窥（暗镜片） -->
+    <g>
+      <rect x="290" y="86" width="120" height="56" rx="18" fill="url(#dark)" stroke="#5A6B85" stroke-width="1.5"/>
+      <circle cx="350" cy="114" r="13" fill="#0B7CF2" opacity="0.5"/>
+      <text x="350" y="170" text-anchor="middle" font-family="monospace" font-size="11.5" fill="#AEBED8">室内防窥 · 一键变暗</text>
+    </g>
+    <!-- 电致变色切换 -->
+    <g stroke="#5BA8FF" stroke-width="3" stroke-linecap="round"><path d="M200 114 h80"/><path d="M268 104 l16 10 -16 10"/></g>
+    <text x="240" y="262" text-anchor="middle" font-family="monospace" font-size="12.5" fill="#AEBED8" letter-spacing="1">波导电致变色 · 透光率可调 + 防窥</text>
+  </svg>`,
+  'ID-006': `<svg viewBox="0 0 480 280" xmlns="http://www.w3.org/2000/svg" class="figsvg">
+    <defs>
+      <linearGradient id="bg6" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#15203A"/><stop offset="1" stop-color="#0B1222"/></linearGradient>
+      <linearGradient id="lens6" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#27406A"/><stop offset="1" stop-color="#0C1E3C"/></linearGradient>
+    </defs>
+    <rect width="480" height="280" rx="18" fill="url(#bg6)"/>
+    <ellipse cx="240" cy="250" rx="150" ry="14" fill="#000" opacity="0.3"/>
+    <!-- 眼镜 -->
+    <g>
+      <rect x="150" y="92" width="74" height="50" rx="16" fill="url(#lens6)" stroke="#8FB8EE" stroke-width="1.5"/>
+      <rect x="256" y="92" width="74" height="50" rx="16" fill="url(#lens6)" stroke="#8FB8EE" stroke-width="1.5"/>
+      <path d="M224 116 h32" stroke="#9BB4D6" stroke-width="4" stroke-linecap="round"/>
+    </g>
+    <!-- 悬浮 App 网格（空间 UI） -->
+    <g>
+      <rect x="170" y="166" width="44" height="44" rx="11" fill="#16243F" stroke="#3A6EA5" stroke-width="1.3"/>
+      <rect x="222" y="166" width="44" height="44" rx="11" fill="#0B7CF2" opacity="0.85"/>
+      <rect x="274" y="166" width="44" height="44" rx="11" fill="#16243F" stroke="#3A6EA5" stroke-width="1.3"/>
+      <rect x="326" y="166" width="44" height="44" rx="11" fill="#16243F" stroke="#3A6EA5" stroke-width="1.3"/>
+      <text x="244" y="193" text-anchor="middle" font-family="monospace" font-size="13" fill="#fff" font-weight="600">VM</text>
+      <circle cx="192" cy="188" r="6" fill="#5BA8FF"/><circle cx="296" cy="188" r="6" fill="#28AA6E"/><circle cx="348" cy="188" r="6" fill="#D69614"/>
+    </g>
+    <text x="240" y="262" text-anchor="middle" font-family="monospace" font-size="12.5" fill="#AEBED8" letter-spacing="1">RayNeo VM 开放应用商店 · 空间计算 SDK</text>
   </svg>`
 };
 
@@ -168,9 +185,12 @@ function buildPrd(id){
 .doc-hero .tagrow{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}
 .doc-tag{font-family:var(--font-mono);font-size:12.5px;padding:6px 13px;border-radius:999px;background:var(--surface-2);border:1px solid var(--line-soft);color:var(--ink-mid)}
 .doc-tag.score{background:rgba(11,124,242,.10);color:var(--signal);border-color:var(--signal-line);font-weight:600}
-.figure{margin:34px 0;background:var(--paper);border:1px solid var(--line-soft);border-radius:var(--r-lg);padding:22px;box-shadow:var(--shadow)}
-.figsvg{width:100%;height:auto;display:block}
-.figcap{margin-top:12px;font-size:13px;color:var(--ink-lo);text-align:center;font-family:var(--font-mono)}
+.figure{margin:34px 0;background:linear-gradient(160deg,#10182A,#0B1120);border:1px solid rgba(139,184,238,.18);border-radius:var(--r-lg);padding:18px;box-shadow:0 20px 50px rgba(10,18,34,.35)}
+.figsvg{width:100%;height:auto;display:block;border-radius:12px}
+.figcap{margin-top:14px;font-size:12.5px;color:#9FB0CC;text-align:center;font-family:var(--font-mono);letter-spacing:.02em}
+.nav-back{display:inline-flex;align-items:center;gap:7px;font-size:14px;font-weight:600;color:var(--signal);background:rgba(11,124,242,.10);border:1px solid var(--signal-line);padding:8px 16px;border-radius:999px;transition:background .25s,border-color .25s}
+.nav-back:hover{background:rgba(11,124,242,.18);border-color:var(--signal)}
+.nav-back .bk{font-size:16px;line-height:1}
 .prd-block{background:var(--paper);border:1px solid var(--line-soft);border-radius:var(--r-lg);padding:30px 34px;margin:22px 0;box-shadow:var(--shadow)}
 .prd-block h2{font-family:var(--font-display);font-size:23px;font-weight:600;color:var(--ink);margin:0 0 16px;display:flex;align-items:center;gap:12px}
 .prd-block h2 .no{font-family:var(--font-mono);font-size:14px;color:var(--signal);background:rgba(11,124,242,.1);border:1px solid var(--signal-line);border-radius:8px;padding:3px 10px}

@@ -180,9 +180,12 @@ p{color:var(--ink-mid)}
 .doc-hero .tagrow{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}
 .doc-tag{font-family:var(--font-mono);font-size:12.5px;padding:6px 13px;border-radius:999px;background:var(--surface-2);border:1px solid var(--line-soft);color:var(--ink-mid)}
 .doc-tag.score{background:rgba(11,124,242,.10);color:var(--signal);border-color:var(--signal-line);font-weight:600}
-.figure{margin:34px 0;background:var(--paper);border:1px solid var(--line-soft);border-radius:var(--r-lg);padding:22px;box-shadow:var(--shadow)}
-.figsvg{width:100%;height:auto;display:block}
-.figcap{margin-top:12px;font-size:13px;color:var(--ink-lo);text-align:center;font-family:var(--font-mono)}
+.figure{margin:34px 0;background:linear-gradient(160deg,#10182A,#0B1120);border:1px solid rgba(139,184,238,.18);border-radius:var(--r-lg);padding:18px;box-shadow:0 20px 50px rgba(10,18,34,.35)}
+.figsvg{width:100%;height:auto;display:block;border-radius:12px}
+.figcap{margin-top:14px;font-size:12.5px;color:#9FB0CC;text-align:center;font-family:var(--font-mono);letter-spacing:.02em}
+.nav-back{display:inline-flex;align-items:center;gap:7px;font-size:14px;font-weight:600;color:var(--signal);background:rgba(11,124,242,.10);border:1px solid var(--signal-line);padding:8px 16px;border-radius:999px;transition:background .25s,border-color .25s}
+.nav-back:hover{background:rgba(11,124,242,.18);border-color:var(--signal)}
+.nav-back .bk{font-size:16px;line-height:1}
 .prd-block{background:var(--paper);border:1px solid var(--line-soft);border-radius:var(--r-lg);padding:30px 34px;margin:22px 0;box-shadow:var(--shadow)}
 .prd-block h2{font-family:var(--font-display);font-size:23px;font-weight:600;color:var(--ink);margin:0 0 16px;display:flex;align-items:center;gap:12px}
 .prd-block h2 .no{font-family:var(--font-mono);font-size:14px;color:var(--signal);background:rgba(11,124,242,.1);border:1px solid var(--signal-line);border-radius:8px;padding:3px 10px}
@@ -210,13 +213,7 @@ table.risk td{color:var(--ink-mid)}
 <nav class="nav" id="nav">
   <div class="nav-inner">
     <div class="brand"><span class="dot"></span>雷鸟 RayNeo · 产品机会白皮书</div>
-    <div class="nav-links">
-      <a href="#top5">TOP5 机会</a>
-      <a href="#flist">功能总览</a>
-      <a href="#gtm">落地策略</a>
-      <a href="#evidence">证据链</a>
-      <a href="#method">方法论</a>
-    </div>
+    <div class="nav-links"><a class="nav-back" href="index.html"><span class="bk">←</span> 返回白皮书</a></div>
   </div>
 </nav>
 <header class="hero doc-hero">
@@ -233,25 +230,29 @@ table.risk td{color:var(--ink-mid)}
 <section class="section wrap">
   <!-- 主实物图 -->
   <div class="figure">
-    <svg viewBox="0 0 480 240" fill="none" xmlns="http://www.w3.org/2000/svg" class="figsvg">
-    <rect x="0" y="0" width="480" height="240" rx="16" fill="#F4F7FB"/>
-    <!-- 左：户外强光（亮） -->
+    <svg viewBox="0 0 480 280" xmlns="http://www.w3.org/2000/svg" class="figsvg">
+    <defs>
+      <linearGradient id="bg5" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#13263F"/><stop offset="1" stop-color="#0A1322"/></linearGradient>
+      <linearGradient id="lit" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#BFE0FF"/><stop offset="1" stop-color="#7FB4EF"/></linearGradient>
+      <linearGradient id="dark" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2A3550"/><stop offset="1" stop-color="#161E30"/></linearGradient>
+    </defs>
+    <rect width="480" height="280" rx="18" fill="url(#bg5)"/>
+    <ellipse cx="240" cy="250" rx="150" ry="14" fill="#000" opacity="0.3"/>
+    <!-- 左：户外强光（亮镜片） -->
     <g>
-      <rect x="60" y="70" width="120" height="80" rx="14" fill="#fff" stroke="#1A2B4A" stroke-width="3"/>
-      <circle cx="120" cy="110" r="22" fill="#FFD45E" opacity="0.5"/>
-      <text x="120" y="178" text-anchor="middle" font-family="monospace" font-size="12" fill="#5A6B85">户外强光 · 可读</text>
+      <rect x="70" y="86" width="120" height="56" rx="18" fill="url(#lit)" stroke="#9FC8F5" stroke-width="1.5"/>
+      <circle cx="130" cy="114" r="13" fill="#FFE08A" opacity="0.85"/>
+      <text x="130" y="170" text-anchor="middle" font-family="monospace" font-size="11.5" fill="#AEBED8">户外强光 · 通透可读</text>
     </g>
-    <!-- 右：室内防窥（暗） -->
+    <!-- 右：室内防窥（暗镜片） -->
     <g>
-      <rect x="300" y="70" width="120" height="80" rx="14" fill="#2A3550" stroke="#1A2B4A" stroke-width="3"/>
-      <circle cx="360" cy="110" r="22" fill="#0B7CF2" opacity="0.35"/>
-      <text x="360" y="178" text-anchor="middle" font-family="monospace" font-size="12" fill="#5A6B85">室内防窥 · 变暗</text>
+      <rect x="290" y="86" width="120" height="56" rx="18" fill="url(#dark)" stroke="#5A6B85" stroke-width="1.5"/>
+      <circle cx="350" cy="114" r="13" fill="#0B7CF2" opacity="0.5"/>
+      <text x="350" y="170" text-anchor="middle" font-family="monospace" font-size="11.5" fill="#AEBED8">室内防窥 · 一键变暗</text>
     </g>
-    <!-- 电致变色切换箭头 -->
-    <g stroke="#0B7CF2" stroke-width="2.6" stroke-linecap="round">
-      <path d="M200 110 h80"/><path d="M268 100 l14 10 -14 10"/>
-    </g>
-    <text x="240" y="210" text-anchor="middle" font-family="monospace" font-size="12" fill="#5A6B85">一键电致变色 · 透光率可调 + 防窥</text>
+    <!-- 电致变色切换 -->
+    <g stroke="#5BA8FF" stroke-width="3" stroke-linecap="round"><path d="M200 114 h80"/><path d="M268 104 l16 10 -16 10"/></g>
+    <text x="240" y="262" text-anchor="middle" font-family="monospace" font-size="12.5" fill="#AEBED8" letter-spacing="1">波导电致变色 · 透光率可调 + 防窥</text>
   </svg>
     <div class="figcap">图 1 · 波导电致变色防窥功能示意（自绘实物线稿）</div>
   </div>

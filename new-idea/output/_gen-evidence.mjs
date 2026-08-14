@@ -5,7 +5,9 @@ const idx = readFileSync('index.html', 'utf8');
 
 // 抽取 <style> 与 <nav> 与 <footer> 结构
 const style = idx.match(/<style>([\s\S]*?)<\/style>/)[1];
-const navHtml = idx.match(/<nav class="nav"[\s\S]*?<\/nav>/)[0];
+const navHtml = idx.match(/<nav class="nav"[\s\S]*?<\/nav>/)[0]
+  .replace(/<div class="nav-links">[\s\S]*?<\/div>/,
+    '<div class="nav-links"><a class="nav-back" href="index.html"><span class="bk">←</span> 返回白皮书</a></div>');
 const footerHtml = idx.match(/<footer class="footer wrap">[\s\S]*?<\/footer>/)[0];
 
 // 抽取 EVI 数据
@@ -66,6 +68,9 @@ function buildPage(dk){
 .dim-pills{display:flex;gap:10px;flex-wrap:wrap;margin-top:40px;padding-top:24px;border-top:1px solid var(--line-soft)}
 .dim-pill{font-size:13px;padding:8px 16px;border-radius:999px;border:1px solid var(--line-soft);background:var(--paper);color:var(--ink-mid);text-decoration:none;transition:.25s}
 .dim-pill:hover{border-color:var(--signal);color:var(--signal)}
+.nav-back{display:inline-flex;align-items:center;gap:7px;font-size:14px;font-weight:600;color:var(--signal);background:rgba(11,124,242,.10);border:1px solid var(--signal-line);padding:8px 16px;border-radius:999px;transition:background .25s,border-color .25s}
+.nav-back:hover{background:rgba(11,124,242,.18);border-color:var(--signal)}
+.nav-back .bk{font-size:16px;line-height:1}
 </style>
 </head>
 <body>
