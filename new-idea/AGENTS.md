@@ -49,10 +49,19 @@
 | 文件 | 作用 |
 |------|------|
 | `rules.mjs` | 契约：TOP5>90/清单>75、伪需求检测、10 维权重、三级核验、证据门槛、市场验证闭环契约 |
-| `qa.mjs` | 闸门：TOP5 硬性 5 个、证据≥3、趋势≥1、Tier≥2、场景路径有效、五维强支撑、无空降方案 |
+| `qa.mjs` | 闸门：TOP5 硬性 5 个、证据≥3、趋势≥1、Tier≥2、场景路径有效、五维强支撑、无空降方案、内联脚本语法解析 |
+| `schema-validate.mjs` | 数据契约结构校验（build 前置）：字段缺失/类型错/幽灵引用，杜绝 schema 与渲染脱节 |
 | `lock.mjs` | SHA-256 基线，防内容漂移 |
-| `build.mjs` | 数据注入模板 + 自动 QA + 幽灵引用双保险 |
+| `build.mjs` | 单一引擎渲染：读 data/<company>/ → schema 校验 → QA → 派生数据 → 注入占位符 → 产出；支持 `--stage` 分步 |
 | `scripts/run-with-recovery.mjs` | 任务超时自动恢复运行器：10s 心跳看门狗，长任务无响应自动 kill+重试(≤3)，checkpoint 续跑 |
+| `scripts/placeholderize.mjs` | 把模板内联数据常量占位化为 `__DATA_*__`（幂等） |
+
+## 分模块产出（前后端分离）
+- **单一渲染引擎** `templates/report-template.html`：只含 CSS+渲染函数+`__DATA_*__`/`__STAGE__` 占位，零产品数据；任何公司 build 都注入这一个引擎（不复制模板）。
+- **数据层独立** `data/<company>/`：ideas/evidence/scores/verification/company-profile/stage.json 每产品独立，不共享。
+- **分步产出**（`stage.json` 状态机）：demand → evidence → gtm → report。后置模块产出前前置必须 done（需求未确认不得产出 GTM）；build `--stage` 参数控制当前产出阶段，未 done 模块渲染"待确认"占位。
+- **GTM 按 idea 差异化**：落地打法（渠道/发布节奏/营销/指标/风险）须落到各需求，不得整段复用。
+- 新项目流程：`data/<company>/` 填 JSON → `--stage demand` 产出需求待验证 → 确认后 `--stage gtm` → `--stage report`。
 
 ## 任务中断自动恢复机制
 长任务（QA/build/inject 等）可能卡死无响应。统一用 recovery runner 包裹执行：

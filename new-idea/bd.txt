@@ -1,8 +1,0 @@
-﻿node : ❌ 分步骤产出拦截：产出「report」前，「gtm」必须已 done（当前 pending）。
-所在位置 行:1 字符: 263
-+ ... /new-idea"; node harness/build.mjs --company rayneo --stage report 2> ...
-+                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    + CategoryInfo          : NotSpecified: (❌ 分步骤产出拦截：产出「re...ne（当前 pending）。:String) [], RemoteException
-    + FullyQualifiedErrorId : NativeCommandError
- 
-   请先确认上一阶段产出，再执行对应 stage。

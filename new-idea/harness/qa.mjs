@@ -307,7 +307,7 @@ for (const caseSlug of cases) {
   // 12.4 报告透出红线扫描（FORBIDDEN_REPORT_TERMS）——按 company 读取对应模板（隔离各公司数据）
   const templateArgIdx = process.argv.indexOf('--company');
   const qaCompany = templateArgIdx > -1 ? process.argv[templateArgIdx + 1] : 'anker';
-  const templatePath = join(BASE, 'templates', `report-template-${qaCompany}.html`);
+  const templatePath = join(BASE, 'templates', 'report-template.html'); // 单一渲染引擎（数据由 build 注入，QA 只扫渲染层红线）
   if (existsSync(templatePath)) {
     const htmlContent = readFileSync(templatePath, 'utf-8');
     let disclosureViolations = 0;
