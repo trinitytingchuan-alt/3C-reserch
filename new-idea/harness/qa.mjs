@@ -403,6 +403,29 @@ console.log(results.join('\n'));
 if (errors > 0) {
   console.error(`\n❌ QA 失败: ${errors} 个错误`);
   process.exit(1);
+}
+
+// 12.5 内联脚本语法可解析性（防止整段脚本语法错误导致界面空白）
+try {
+  const { readFileSync } = await import('fs');
+  const outPath = join(BASE, 'output', 'index.html');
+  if (existsSync(outPath)) {
+    const html = readFileSync(outPath, 'utf-8');
+    const blocks = html.match(/<script>([\s\S]*?)<\/script>/g) || [];
+    const vm = await import('vm');
+    blocks.forEach((b, i) => {
+      const code = b.replace(/^<script>/, '').replace(/<\/script>$/, '');
+      try { new vm.Script(code, { filename: `output-script-${i}.js` }); }
+      catch (e) { err(`output/index.html 第 ${i} 个 <script> 语法错误 -> ${e.message}`); }
+    });
+  }
+} catch (e) {
+  err(`脚本语法解析检查异常: ${e.message}`);
+}
+
+if (errors > 0) {
+  console.error(`\n❌ QA 失败: ${errors} 个错误`);
+  process.exit(1);
 } else {
   console.log(`\n✅ QA 通过: 0 ERROR, ${warnings} WARN`);
   process.exit(0);
