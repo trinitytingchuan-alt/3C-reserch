@@ -2256,6 +2256,8 @@ const SCORES = {
 // 每条证据新增 dim 字段：market=市场维度 / competitor=竞争者维度 / user=用户需求维度 / strategic=战略合规维度
 // evergreen=true 表示官方产品页/当前行业报告类「持续有效」参考，不参与 1 年窗口失效判定
 const DATA_WINDOW = { start: '2025-08-01', end: '2026-08-31', label: '2025-08 ~ 2026-08（一年内）' };
+// 分模块产出状态（由 build 注入，控制模块可见性：未 done 的模块显示"待确认"占位，不渲染真实数据）
+const REPORT_STAGE = __STAGE__;
 const EVIDENCE = [
   { id: 'E001', source: '爱集微·安克创新 2025 年报', tier: 0, level: 'L1', date: '2026-04-21', url: 'https://laoyaoba.com/n/1018302', dim: 'market', summary: '2025 年营收 305.14 亿元（+23.49%），归母净利 25.45 亿（+20.37%），充电储能类收入 154.02 亿占 50.47%' },
   { id: 'E002', source: '新浪财经·安克创新 2025 年报解读', tier: 0, level: 'L1', date: '2026-04-09', url: 'https://baijiahao.baidu.com/s?id=1862004112658152485', dim: 'market', summary: '三大板块齐增：充电储能 +21.59%，GaNPrime 2.0 氮化镓快充技术迭代' },
@@ -3773,12 +3775,26 @@ function initRemaining() {
   updateNavSpy();
 
   // —— 分块惰性渲染注册表：sectionId → 渲染函数（进入视口才执行一次）——
+  // 每个模块渲染前检查 REPORT_STAGE：对应 stage 未 done 则渲染"待确认"占位，不渲染真实数据（分模块产出解耦）
+  const STAGE_KEY = { 'list': 'demand', 'gtm': 'gtm', 'evidence': 'evidence', 'method': 'demand', 'scoring-final': 'demand' };
+  function stageReady(key) {
+    if (!REPORT_STAGE || !REPORT_STAGE.stages) return true; // 无 stage 数据则全部放行（兼容旧产物）
+    return (REPORT_STAGE.stages[key] || 'pending') === 'done';
+  }
+  function renderStagePlaceholder(id, label, hint) {
+    const sec = document.getElementById(id);
+    if (!sec) return;
+    sec.innerHTML = `<div style="padding: var(--space-5); border-radius: var(--r-lg); border: 1px dashed var(--amber); text-align:center; background: rgba(16,24,38,0.3);">
+      <div style="font-size: 16px; font-weight: 600; color: var(--amber); margin-bottom: var(--space-2);">⏳ ${label} · 待确认后产出</div>
+      <div style="font-size: 13px; color: var(--text-mid);">${hint}</div>
+    </div>`;
+  }
   const lazyBlocks = {
-    'list': () => { renderList(); bindListFilters(); },
-    'gtm': () => { renderGtmCards(); },
-    'evidence': () => { renderEvidenceChain(); renderVerTable(); bindEvFilters(); bindEvBadges(); },
-    'method': () => { renderValidationLoop(); renderDataSource(); },
-    'scoring-final': () => { renderScoreTable(); }
+    'list': () => { if (stageReady('demand')) renderList(); else renderStagePlaceholder('list', '需求清单', '请先确认 TOP5 需求，确认后自动生成'); bindListFilters(); },
+    'gtm': () => { if (stageReady('gtm')) renderGtmCards(); else renderStagePlaceholder('gtm', 'GTM 策略', 'GTM 基于已确认需求产出——需求确认后，本模块将显示各需求的差异化 GTM 落地打法'); },
+    'evidence': () => { if (stageReady('evidence')) { renderEvidenceChain(); renderVerTable(); } else renderStagePlaceholder('evidence', '证据核验', '证据链核验完成后展示'); bindEvFilters(); bindEvBadges(); },
+    'method': () => { if (stageReady('demand')) { renderValidationLoop(); renderDataSource(); } else renderStagePlaceholder('method', '推导方法论', '需求确认后展示推导链路'); },
+    'scoring-final': () => { if (stageReady('demand')) renderScoreTable(); else renderStagePlaceholder('scoring-final', '综合评分', '需求确认后展示评分明细'); }
   };
   const rendered = new Set();
   const ioLazy = new IntersectionObserver((entries) => {

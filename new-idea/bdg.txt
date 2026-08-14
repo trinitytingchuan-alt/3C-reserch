@@ -1,0 +1,18 @@
+﻿📦 构建案例: rayneo | 阶段: gtm | stage.json: {"demand":"done","evidence":"done","gtm":"pending","report":"pending"}
+📦 构建案例: rayneo
+   画像: ✓  |  IDEA池: 7条  |  证据: ✓
+   核验: ✓  |  评分: 7条
+
+🔍 运行 Schema 数据契约校验...
+  ⚠ scores.ID-007: 建议 ≥10 条证据支撑
+
+结果: 0 ERROR, 2 WARN
+
+🔍 运行 QA 闸门...
+ERROR: 0  |  WARN: 15
+
+✅ QA 通过: 0 ERROR, 15 WARN
+
+✅ 构建完成
+   输出路径: C:\Users\Administrator\Desktop\zg\NEW IDEA\new-idea\output\index.html (230.2 KB)
+   运行 'node harness/lock.mjs --update' 锁定基线

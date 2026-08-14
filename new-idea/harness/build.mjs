@@ -47,8 +47,15 @@ if (!existsSync(dataDir)) {
 }
 const stageState = loadStage();
 if (stage === 'report') {
-  // report 是默认阶段，若只产出到 gtm/demand 则自动按顺序补全判断——此处仅校验前置已完成
+  // report 阶段要求前置模块(demand/evidence/gtm)全部 done 才产出完整报告；否则拦截，强制先逐模块产出
   assertStage('report', stageState);
+  for (const pre of ['evidence', 'gtm']) {
+    if ((stageState.stages[pre] || 'pending') !== 'done') {
+      console.error(`❌ 分步骤产出拦截：产出「report」前，模块「${pre}」必须已 done（当前 ${stageState.stages[pre]}）。`);
+      console.error(`   请先执行对应 stage（如 --stage gtm）完成该模块后再产出完整报告。`);
+      process.exit(1);
+    }
+  }
 }
 console.log(`📦 构建案例: ${company} | 阶段: ${stage} | stage.json: ${JSON.stringify(stageState.stages)}`);
 
@@ -116,7 +123,10 @@ const outputDir = dirname(outputPath);
 if (!existsSync(outputDir)) mkdirSync(outputDir, { recursive: true });
 
 const templateHtml = readFileSync(templatePath, 'utf-8');
-writeFileSync(outputPath, templateHtml, 'utf-8');
+// 注入分模块产出状态 __STAGE__（控制模块可见性：未 done 模块渲染"待确认"占位）
+const stageJson = existsSync(stageFile) ? readFileSync(stageFile, 'utf-8') : JSON.stringify({ stages: { demand: 'done', gtm: 'done', evidence: 'done', report: 'done' } });
+const outputHtml = templateHtml.split('__STAGE__').join(stageJson.trim());
+writeFileSync(outputPath, outputHtml, 'utf-8');
 
 console.log(`\n✅ 构建完成`);
 console.log(`   输出路径: ${outputPath} (${(templateHtml.length / 1024).toFixed(1)} KB)`);
