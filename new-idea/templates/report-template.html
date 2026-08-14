@@ -1046,6 +1046,14 @@ main { position: relative; z-index: 1; }
 .gtm-row:first-of-type { border-top: none; }
 .gtm-row-k { min-width: 120px; color: var(--cyan); font-weight: 600; flex-shrink: 0; }
 .gtm-row-v { color: var(--text-mid); line-height: 1.6; }
+/* TAM/SAM/SOM 三段式 */
+.tss-row { display: flex; gap: var(--space-3); padding: 8px 0; border-top: 1px dashed var(--line); align-items: flex-start; }
+.tss-row:first-of-type { border-top: none; }
+.tss-k { min-width: 64px; flex-shrink: 0; color: var(--cyan); font-weight: 700; font-family: var(--font-mono); font-size: 13px; display: flex; flex-direction: column; gap: 3px; }
+.tss-tag { font-size: 10px; color: var(--text-lo); font-weight: 400; font-family: var(--font-body); }
+.tss-v { color: var(--text-mid); line-height: 1.7; }
+.tss-som { background: rgba(54,211,153,0.06); border-radius: var(--r-sm); padding: 8px 10px; margin: 0 -10px; }
+.tss-som .tss-k { color: var(--green); }
 .gtm-risk { display: grid; grid-template-columns: 88px 40px 40px 1fr; gap: var(--space-2); padding: 5px 0; border-top: 1px dashed var(--line); font-size: 12.5px; align-items: start; }
 .gtm-risk:first-of-type { border-top: none; }
 .gtm-risk-k { color: var(--cyan); font-weight: 600; }
@@ -2949,8 +2957,12 @@ function openModal(id) {
       <div class="mb-sub">北极星：${esc(g.northStar)}</div>
 
       <div class="gtm-sec">
-        <div class="gtm-sec-head">01 · 目标市场 TAM/SAM/SOM</div>
-        <div class="gtm-sec-body">${esc(g.tamSamSom)}</div>
+        <div class="gtm-sec-head">01 · 目标市场 TAM / SAM / SOM</div>
+        <div class="gtm-sec-body">
+          <div class="tss-row"><span class="tss-k">TAM<span class="tss-tag">总市场</span></span><span class="tss-v">${esc((g.tamSamSom && g.tamSamSom.tam) || g.tamSamSom || '')}</span></div>
+          <div class="tss-row"><span class="tss-k">SAM<span class="tss-tag">可服务</span></span><span class="tss-v">${esc((g.tamSamSom && g.tamSamSom.sam) || '')}</span></div>
+          <div class="tss-row tss-som"><span class="tss-k">SOM<span class="tss-tag">可获取</span></span><span class="tss-v">${esc((g.tamSamSom && g.tamSamSom.som) || '')}</span></div>
+        </div>
       </div>
 
       <div class="gtm-sec">
