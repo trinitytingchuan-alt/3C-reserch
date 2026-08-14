@@ -1052,6 +1052,7 @@ main { position: relative; z-index: 1; }
 .gtm-risk-p { color: var(--amber); font-family: var(--font-mono); font-size: 11px; text-align: center; }
 .gtm-risk-i { color: var(--violet); font-family: var(--font-mono); font-size: 11px; text-align: center; }
 .gtm-risk-m { color: var(--text-mid); line-height: 1.6; }
+.expert-cell-click:hover { border-color: var(--cyan) !important; background: rgba(16,24,38,0.7) !important; }
 
 /* ============================================================
    第四章 · PRD 折叠面板
@@ -4567,12 +4568,13 @@ document.addEventListener('keydown', (e) => {
 /* ============================================================
    第二章 · TOP5 需求 (评分 > 90，硬性 5 个)
    ============================================================ */
-/* 单专家综合分：用全局权重对该专家 10 维分加权求和，归一化到 0-100（用于第八章分专家展示） */
+/* 单专家综合分：用全局权重对该专家 10 维分加权求和，归一化到 0-100（用于第八章分专家展示）
+   注意：专家维度分为 0-10 制（如 marketOpp:9），故 (weighted/totW) 为 0-10 值，须 ×10 得 0-100。 */
 function expertFinalScore(id, expert) {
   const dims = SCORES[id].expert[expert];
   const totW = DIMS.reduce((s, d) => s + d.w, 0);
   const weighted = DIMS.reduce((s, d) => s + dims[d.key] * d.w, 0);
-  return Math.round((weighted / totW) * 100);
+  return Math.round((weighted / totW) * 10);
 }
 
 /* 唯一「加权综合分」真相源：与质量保障规则 computeFinalScore 完全一致口径
@@ -5441,10 +5443,11 @@ function renderScoreTable() {
     const expCells = EXP.map(e => {
       const v = expertFinalScore(id, e.key);
       const c = v >= 90 ? 'var(--green)' : v >= 85 ? 'var(--cyan)' : v >= 80 ? 'var(--amber)' : 'var(--red)';
-      return `<div style="text-align:center; padding: var(--space-2) 0; border-radius: var(--r-md); background: rgba(11,16,28,0.4);">
+      return `<div class="expert-cell-click" data-idea="${esc(id)}" data-expert="${e.key}" title="点击查看 ${e.label} 评分细项"
+        style="cursor:pointer; text-align:center; padding: var(--space-2) 0; border-radius: var(--r-md); background: rgba(11,16,28,0.4); transition: border-color var(--dur-base), background var(--dur-base);">
         <div style="font-size:11px; color:var(--text-lo); margin-bottom:4px;">${e.label}</div>
         <div style="font-family:var(--font-display); font-size:20px; font-weight:700; color:${c};">${v.toFixed(1)}</div>
-        <div style="font-size:10px; color:var(--text-lo);">/ 100</div>
+        <div style="font-size:10px; color:var(--text-lo);">/ 100 · 查看细项</div>
       </div>`;
     }).join('');
     const f = finalAggregateScore(id);
@@ -5488,6 +5491,81 @@ function renderScoreTable() {
     </div>`;
   }).join('') : '';
   el.innerHTML = rows + pseudoBlock;
+  // 专家评分格子点击 → 打开评分细项二级界面
+  document.querySelectorAll('#scoreTablePanel .expert-cell-click').forEach(cell => {
+    cell.addEventListener('click', () => openExpertDetail(cell.dataset.idea, cell.dataset.expert));
+  });
+}
+
+/* 专家评分细项二级界面：展示某专家对某需求的 10 维细项得分 + 各维度判定原因（证据导向） */
+const DIM_MEANING = {
+  marketOpp: { label: '市场机会', desc: '目标市场容量与增速，是否足够大且在上升通道' },
+  pain: { label: '痛点强度', desc: '用户痛点是否高频、强烈、非解决不可' },
+  trend: { label: '趋势契合', desc: '是否踩中行业确定性上行趋势（E## 趋势证据）' },
+  techFeas: { label: '技术可行', desc: '现有工程能力/供应链能否实现，风险多高' },
+  competitiveMoat: { label: '竞争护城河', desc: '相对竞品的差异化壁垒是否难被复制' },
+  unitEcon: { label: '单位经济', desc: '毛利率、BOM成本、规模效应是否成立' },
+  strategicFit: { label: '战略契合', desc: '是否在雷鸟 AR 主线能力圈内、资源聚焦' },
+  uxPotential: { label: '体验潜力', desc: '佩戴/交互/显示体验能否达到愉悦阈值' },
+  execRisk: { label: '执行风险', desc: '供应链、品控、渠道落地风险是否可控' },
+  innovation: { label: '创新度', desc: '是否具备差异化创新与首创亮点' },
+};
+function dimReason(score) {
+  if (score >= 9) return '强支撑：证据链多点验证，确定性高';
+  if (score >= 7) return '较优：有证据支撑，仍存一定不确定性';
+  if (score >= 5) return '一般：信号偏弱或仅单点来源，需补强';
+  return '短板：证据不足或存在明显反证';
+}
+function openExpertDetail(id, expertKey) {
+  const idea = IDEAS.find(i => i.id === id);
+  const dims = SCORES[id].expert[expertKey];
+  const EXP = { product_expert: '产品专家', market_expert: '市场投资专家', user_expert: '用户专家', hardware_expert: '硬件专家' };
+  const v = expertFinalScore(id, expertKey);
+  const vc = (idea.validationChain || {});
+  const focus = EXPERT_SUB_WEIGHTS[expertKey] || {};
+  // 该专家重点维度（权重>1 的）作为细项依据
+  const focusDims = Object.keys(focus).filter(k => focus[k] >= 1.5);
+  const cell = DIMS.map(d => {
+    const s = dims[d.key];
+    const isFocus = focusDims.includes(d.key);
+    return `<div style="display:flex; gap:var(--space-3); align-items:flex-start; padding: var(--space-3) 0; border-top:1px dashed var(--line);">
+      <div style="min-width:96px; font-size:12.5px; font-weight:600; color:${isFocus ? 'var(--cyan)' : 'var(--text-hi)'};">${DIM_MEANING[d.key].label}${isFocus ? ' <span style="color:var(--amber);font-size:10px">[重点]</span>' : ''}</div>
+      <div style="min-width:120px; flex-shrink:0;">
+        <div style="font-family:var(--font-mono); font-size:22px; font-weight:700; color:${s >= 9 ? 'var(--green)' : s >= 7 ? 'var(--cyan)' : s >= 5 ? 'var(--amber)' : 'var(--red)'};">${s}<span style="font-size:11px;color:var(--text-lo)">/10</span></div>
+      </div>
+      <div style="flex:1;">
+        <div style="font-size:11px; color:var(--text-lo); margin-bottom:2px;">${DIM_MEANING[d.key].desc}</div>
+        <div style="font-size:12px; color:var(--text-mid);">${dimReason(s)}</div>
+      </div>
+    </div>`;
+  }).join('');
+  const evidenceList = (SCORES[id].evidenceIds || []).map(eid => {
+    const e = EVIDENCE.find(x => x.id === eid);
+    return e ? `<div class="ev-badge" data-ev="${e.id}">${e.id}</div>` : '';
+  }).join('');
+  document.getElementById('modalContent').innerHTML = `
+    <div class="modal-head">
+      <span class="m-rank">#0${TOP5.indexOf(id) + 1}</span>
+      <div>
+        <h3>${EXP[expertKey] || expertKey} · 评分细项</h3>
+        <div style="font-size:12px; color:var(--text-lo); font-family:var(--font-mono);">${esc(idea.title)} · ${PATH_LABEL[idea.path]}</div>
+      </div>
+      <div style="text-align:right">
+        <div style="font-family:var(--font-display); font-size:28px; font-weight:700; color:${v >= 90 ? 'var(--green)' : v >= 85 ? 'var(--cyan)' : v >= 80 ? 'var(--amber)' : 'var(--red)'};">${v.toFixed(1)}</div>
+        <div style="font-size:11px; color:var(--text-lo);">/ 100 · 综合</div>
+      </div>
+    </div>
+    <div class="modal-block">
+      <div class="mb-label">该专家 10 维细项评分（0-10 制，专家侧重维度标[重点]）</div>
+      ${cell}
+    </div>
+    <div class="modal-block">
+      <div class="mb-label">评分依据 · 证据链</div>
+      <div style="font-size:12.5px; color:var(--text-mid); line-height:1.7; margin-bottom:var(--space-2);">该需求 ${Object.keys(focus).length} 个重点维度对应证据 ${focusDims.join('、') || '—'}；总分由 10 维按全局权重加权归一化到 0-100。</div>
+      <div class="ev-badges">${evidenceList}</div>
+    </div>`;
+  document.getElementById('modalBackdrop').classList.add('open');
+  bindEvBadges();
 }
 
 function bindExpertTabs() {
