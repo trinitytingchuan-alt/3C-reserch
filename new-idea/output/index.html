@@ -34,30 +34,29 @@ p{color:var(--ink-mid)}
 .wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--s5);position:relative;z-index:1}
 .section{padding:var(--s8) 0}
 /* ============ 左侧固定导航栏 ============ */
-:root{--rail-w:264px;--rail-pad:22px}
+:root{--rail-w:212px;--rail-pad:18px}
 .shell{display:flex;min-height:100vh;align-items:flex-start}
-.rail{position:fixed;top:0;left:0;bottom:0;width:var(--rail-w);z-index:60;background:linear-gradient(180deg,#0B1F3A 0%,#0A2A5E 55%,#071A33 100%);color:#EAF2FF;display:flex;flex-direction:column;padding:var(--rail-pad) 0;overflow:hidden}
-.rail::before{content:"";position:absolute;top:-40px;right:-60px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(0,113,227,.5),transparent 70%);filter:blur(8px);pointer-events:none}
-.rail::after{content:"";position:absolute;bottom:-50px;left:-50px;width:190px;height:190px;border-radius:50%;background:radial-gradient(circle,rgba(64,156,255,.32),transparent 70%);filter:blur(10px);pointer-events:none}
-.rail-brand{display:flex;align-items:center;gap:11px;padding:6px var(--rail-pad) 18px;position:relative;z-index:1}
-.rail-brand .logo{width:38px;height:38px;border-radius:11px;background:linear-gradient(135deg,var(--signal),#3E8BFF);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 16px rgba(0,113,227,.5);flex:0 0 auto}
-.rail-brand .logo svg{width:21px;height:21px;color:#fff}
-.rail-brand .rb-t{font-family:var(--font-display);font-weight:600;font-size:15.5px;letter-spacing:-.01em;line-height:1.15}
-.rail-brand .rb-s{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#7FB2F0;margin-top:2px}
-.rail-sec{font-family:var(--font-mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#6E97CF;padding:18px var(--rail-pad) 9px;position:relative;z-index:1}
-.rail-links{display:flex;flex-direction:column;gap:3px;padding:0 12px;position:relative;z-index:1;flex:1}
-.rail-links a{display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:11px;color:#C7D8F0;font-size:14.5px;font-weight:500;position:relative;transition:background .25s var(--ease),color .25s var(--ease)}
-.rail-links a .ri{width:30px;height:30px;border-radius:9px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.06);flex:0 0 auto;transition:background .25s var(--ease)}
-.rail-links a .ri svg{width:16px;height:16px;color:#9FC2F2}
-.rail-links a .idx{margin-left:auto;font-family:var(--font-mono);font-size:11px;color:#6E97CF}
-.rail-links a:hover{background:rgba(255,255,255,.07);color:#fff}
-.rail-links a.active{background:linear-gradient(90deg,rgba(0,113,227,.95),rgba(62,139,255,.7));color:#fff;box-shadow:0 8px 20px rgba(0,113,227,.4)}
-.rail-links a.active .ri{background:rgba(255,255,255,.2)}
-.rail-links a.active .ri svg{color:#fff}
-.rail-links a.active .idx{color:rgba(255,255,255,.85)}
-.rail-prog{position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(180deg,var(--signal),#3E8BFF);transform:scaleY(0);transform-origin:top;transition:transform .15s linear;z-index:2}
-.rail-foot{padding:14px var(--rail-pad) 4px;font-size:11px;color:#6E97CF;font-family:var(--font-mono);letter-spacing:.04em;position:relative;z-index:1;border-top:1px solid rgba(255,255,255,.08);margin-top:8px}
-.rail-foot b{color:#A9CCF7;font-weight:600}
+.rail{position:fixed;top:0;left:0;bottom:0;width:var(--rail-w);z-index:60;background:linear-gradient(180deg,#FCFEFF,#F4F8FD);color:var(--ink);display:flex;flex-direction:column;padding:var(--rail-pad) 0;overflow:hidden;border-right:1px solid var(--line-soft)}
+.rail-brand{display:flex;align-items:center;gap:10px;padding:4px var(--rail-pad) 16px;position:relative;z-index:1;border-bottom:1px solid var(--line-soft);margin-bottom:6px}
+.rail-brand .logo{width:30px;height:30px;border-radius:9px;background:linear-gradient(135deg,var(--signal),#3E8BFF);display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+.rail-brand .logo svg{width:17px;height:17px;color:#fff}
+.rail-brand .rb-t{font-family:var(--font-display);font-weight:600;font-size:14px;letter-spacing:-.01em;line-height:1.15}
+.rail-brand .rb-s{font-family:var(--font-mono);font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-faint);margin-top:1px}
+.rail-sec{font-family:var(--font-mono);font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-faint);padding:14px var(--rail-pad) 8px;position:relative;z-index:1}
+.rail-links{display:flex;flex-direction:column;gap:2px;padding:0 10px;position:relative;z-index:1;flex:1}
+.rail-links a{display:flex;align-items:center;gap:11px;padding:9px 12px;border-radius:9px;color:var(--ink-lo);font-size:13.5px;font-weight:500;position:relative;transition:background .25s var(--ease),color .25s var(--ease)}
+.rail-links a .ri{width:26px;height:26px;border-radius:7px;display:flex;align-items:center;justify-content:center;background:transparent;flex:0 0 auto;transition:background .25s var(--ease)}
+.rail-links a .ri svg{width:15px;height:15px;color:var(--ink-faint)}
+.rail-links a .idx{margin-left:auto;font-family:var(--font-mono);font-size:10.5px;color:var(--ink-faint)}
+.rail-links a:hover{background:var(--signal-dim);color:var(--ink)}
+.rail-links a:hover .ri svg{color:var(--signal)}
+.rail-links a.active{background:var(--signal-dim);color:var(--signal)}
+.rail-links a.active::before{content:"";position:absolute;left:-10px;top:50%;transform:translateY(-50%);width:3px;height:18px;border-radius:3px;background:var(--signal)}
+.rail-links a.active .ri svg{color:var(--signal)}
+.rail-links a.active .idx{color:var(--signal)}
+.rail-prog{position:absolute;left:0;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--signal),#3E8BFF);transform:scaleY(0);transform-origin:top;transition:transform .15s linear;z-index:2}
+.rail-foot{padding:12px var(--rail-pad) 4px;font-size:10.5px;color:var(--ink-faint);font-family:var(--font-mono);letter-spacing:.03em;position:relative;z-index:1;border-top:1px solid var(--line-soft);margin-top:6px}
+.rail-foot b{color:var(--ink-mid);font-weight:600}
 .main{flex:1;margin-left:var(--rail-w);min-width:0}
 .nav.scrolled{opacity:0;pointer-events:none;height:0;overflow:hidden;border:0}
 .nav-inner{max-width:var(--maxw);margin:0 auto;padding:0 var(--s5);height:56px;display:flex;align-items:center;justify-content:space-between}
@@ -469,7 +468,33 @@ body{
   .section{padding:var(--s6) 0}
   body{background-attachment:scroll}
 }
-</style>
+
+/* ============ 方法论平铺 + 整体逻辑架构图 ============ */
+.m-arch-block .m-block-body{padding-top:var(--s4)}
+.m-arch{display:flex;flex-direction:column;gap:0}
+.arch-stage{background:var(--surface);border:1px solid var(--line-soft);border-radius:var(--r-md);padding:var(--s4);position:relative}
+.arch-stage.arch-out{background:linear-gradient(180deg,var(--signal-dim),rgba(0,113,227,.08));border-color:var(--signal-line)}
+.arch-label{font-family:var(--font-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:var(--s3)}
+.arch-row{display:flex;flex-wrap:wrap;gap:10px}
+.arch-node{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:10px;font-size:14px;font-weight:600;color:var(--ink);background:#fff;border:1px solid var(--line-soft);box-shadow:0 1px 2px rgba(0,0,0,.03)}
+.arch-node .an-ico{font-size:15px}
+.n-user{border-left:3px solid #3E8BFF}
+.n-rival{border-left:3px solid #F0A23B}
+.n-trend{border-left:3px solid #36C08A}
+.n-evi{border-left:3px solid #8B6CE8}
+.n-idea{border-left:3px solid #E8628B}
+.n-score{border-left:3px solid var(--signal);background:var(--signal-dim)}
+.n-top{border-left:3px solid var(--signal);background:#fff}
+.arch-conn{margin-top:var(--s3);font-size:12.5px;color:var(--ink-lo);font-family:var(--font-mono);letter-spacing:.02em}
+.arch-arrow{text-align:center;color:var(--signal);font-size:14px;line-height:1;padding:6px 0;font-weight:700}
+/* 配置网格（数据源/市场验证平铺） */
+.m-cfg{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--s3)}
+.m-cfg-i{background:var(--surface);border:1px solid var(--line-soft);border-radius:var(--r-sm);padding:var(--s3)}
+.m-cfg-i .mc-tag{display:inline-block;font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;color:var(--signal);background:var(--signal-dim);padding:4px 9px;border-radius:6px;margin-bottom:9px}
+.m-cfg-i p{font-size:13.5px;color:var(--ink-lo);line-height:1.55}
+.m-cfg-i code,.m-rules code{font-family:var(--font-mono);font-size:12px;background:rgba(0,0,0,.05);padding:1px 5px;border-radius:4px}
+@media(max-width:900px){.m-cfg{grid-template-columns:1fr}}
+
 </head>
 <body>
 
@@ -639,35 +664,85 @@ body{
       </div>
     </div>
 
-    <!-- 数据源差异化配置（折叠） -->
-    <details class="m-fold">
-      <summary>数据源差异化配置<span class="chev">›</span></summary>
-      <div class="fold-inner">
-        根据雷鸟 X3 Pro 的核心客群地理（国内为主、出海并行）配置采集源：
-        <ul>
-          <li><b>国内主战场</b>：京东 / 什么值得买 / 知乎 / 小红书 / 观察者网 / 搜狐 / IT之家，覆盖用户声音与媒体核验。</li>
-          <li><b>出海并行</b>：Reddit / Trustpilot / Amazon 评论，验证 Meta Ray-Ban、XREAL 海外用户反馈。</li>
-          <li><b>行业与竞品</b>：洛图科技、Counterpoint、IDC、XREAL / Rokid / Meta 官方参数页。</li>
-          <li><b>数据窗口</b>：2025-05 至 2026-05，确保结论基于近 12 个月可核验信号。</li>
-        </ul>
+    <!-- 整体逻辑架构图（平铺可视化，讲清设计逻辑与关系） -->
+    <div class="m-block m-arch-block">
+      <div class="m-block-head"><h3>整体逻辑架构：从客观信号到可执行机会</h3><span class="mh-sub">三轨信号经交叉验证沉淀为证据链，再经需求建模与 10 维评分收敛为 TOP5，最终推演落地</span></div>
+      <div class="m-block-body">
+        <div class="m-arch">
+          <div class="arch-stage">
+            <div class="arch-label">采集三轨 · 客观信号</div>
+            <div class="arch-row">
+              <div class="arch-node n-user"><span class="an-ico">👥</span>用户声音</div>
+              <div class="arch-node n-rival"><span class="an-ico">⚔️</span>竞品缺口</div>
+              <div class="arch-node n-trend"><span class="an-ico">📈</span>行业趋势</div>
+            </div>
+            <div class="arch-conn">三轨交叉 × 单点降假设</div>
+          </div>
+          <div class="arch-arrow">▼</div>
+          <div class="arch-stage">
+            <div class="arch-label">证据链 · 可溯源（E001–E017）</div>
+            <div class="arch-row">
+              <div class="arch-node n-evi"><span class="an-ico">🔗</span>三级核验 L1/L2/L3</div>
+              <div class="arch-node n-evi"><span class="an-ico">🔗</span>根因多源交叉</div>
+            </div>
+            <div class="arch-conn">五源强支撑 · 任一缺失即降级假设</div>
+          </div>
+          <div class="arch-arrow">▼</div>
+          <div class="arch-stage">
+            <div class="arch-label">需求建模 · IDEA</div>
+            <div class="arch-row">
+              <div class="arch-node n-idea"><span class="an-ico">💡</span>场景锚定需求</div>
+              <div class="arch-node n-idea"><span class="an-ico">💡</span>竞品映射缺口</div>
+              <div class="arch-node n-idea"><span class="an-ico">💡</span>伪需求剔除</div>
+            </div>
+            <div class="arch-conn">观测池 → TOP5 候选</div>
+          </div>
+          <div class="arch-arrow">▼</div>
+          <div class="arch-stage">
+            <div class="arch-label">10 维评分 × 四专家加权</div>
+            <div class="arch-row">
+              <div class="arch-node n-score"><span class="an-ico">🎯</span>综合分 ≥90 卡线</div>
+            </div>
+            <div class="arch-conn">不足 90 则补强真实证据，而非改分</div>
+          </div>
+          <div class="arch-arrow">▼</div>
+          <div class="arch-stage arch-out">
+            <div class="arch-label">产出 · TOP5 PRD → GTM 落地</div>
+            <div class="arch-row">
+              <div class="arch-node n-top"><span class="an-ico">🚀</span>5 条可执行机会</div>
+              <div class="arch-node n-top"><span class="an-ico">📋</span>分需求 GTM 推演</div>
+            </div>
+          </div>
+        </div>
       </div>
-    </details>
+    </div>
 
-    <!-- 市场验证闭环（折叠） -->
-    <details class="m-fold">
-      <summary>市场验证闭环：进 TOP5 的前置硬门槛<span class="chev">›</span></summary>
-      <div class="fold-inner">
-        每条进入 TOP5 的需求须通过"五源强支撑"交叉验证，任一维度缺失即降级为假设：
-        <ul>
-          <li><b>市场声音</b>：赛道增速 / 规模拐点（行业报告）。</li>
-          <li><b>竞品验证</b>：头部竞品已有对应动作或明确缺口。</li>
-          <li><b>行业验证</b>：技术成熟度 / 供应链可达性。</li>
-          <li><b>参考行业验证</b>：相邻品类已验证的商业化路径（如 Meta Ray-Ban 拍摄眼镜）。</li>
-          <li><b>用户声音</b>：≥2 个独立来源的真实痛点（如续航焦虑、可读性短板）。</li>
-        </ul>
-        五源在评分模型的 <code>validationChain</code> 中显式列出，QA 强制校验，杜绝"拍脑袋"进榜。
+    <!-- 数据源差异化配置（平铺） -->
+    <div class="m-block">
+      <div class="m-block-head"><h3>数据源差异化配置</h3><span class="mh-sub">按客群地理定向</span></div>
+      <div class="m-block-body">
+        <div class="m-cfg">
+          <div class="m-cfg-i"><div class="mc-tag">国内主战场</div><p>京东 / 什么值得买 / 知乎 / 小红书 / 观察者网 / 搜狐 / IT之家，覆盖用户声音与媒体核验。</p></div>
+          <div class="m-cfg-i"><div class="mc-tag">出海并行</div><p>Reddit / Trustpilot / Amazon 评论，验证 Meta Ray-Ban、XREAL 海外用户反馈。</p></div>
+          <div class="m-cfg-i"><div class="mc-tag">行业与竞品</div><p>洛图科技、Counterpoint、IDC、XREAL / Rokid / Meta 官方参数页。</p></div>
+          <div class="m-cfg-i"><div class="mc-tag">数据窗口</div><p>2025-05 至 2026-05，确保结论基于近 12 个月可核验信号。</p></div>
+        </div>
       </div>
-    </details>
+    </div>
+
+    <!-- 市场验证闭环（平铺） -->
+    <div class="m-block">
+      <div class="m-block-head"><h3>市场验证闭环：进 TOP5 的前置硬门槛</h3><span class="mh-sub">五源强支撑 · 缺一即降级假设</span></div>
+      <div class="m-block-body">
+        <div class="m-cfg">
+          <div class="m-cfg-i"><div class="mc-tag">市场声音</div><p>赛道增速 / 规模拐点（行业报告）。</p></div>
+          <div class="m-cfg-i"><div class="mc-tag">竞品验证</div><p>头部竞品已有对应动作或明确缺口。</p></div>
+          <div class="m-cfg-i"><div class="mc-tag">行业验证</div><p>技术成熟度 / 供应链可达性。</p></div>
+          <div class="m-cfg-i"><div class="mc-tag">参考行业验证</div><p>相邻品类已验证的商业化路径（如 Meta Ray-Ban 拍摄眼镜）。</p></div>
+          <div class="m-cfg-i" style="grid-column:1/-1"><div class="mc-tag">用户声音</div><p>≥2 个独立来源的真实痛点（如续航焦虑、可读性短板）。五源在评分模型的 <code>validationChain</code> 中显式列出，QA 强制校验，杜绝"拍脑袋"进榜。</p></div>
+        </div>
+      </div>
+    </div>
 
     <!-- 10 维权重环 + 权重条 -->
     <div class="m-block">
@@ -705,27 +780,10 @@ body{
       </div>
     </div>
 
-    <!-- 数据传导（折叠） -->
-    <details class="m-fold">
-      <summary>数据传导关系<span class="chev">›</span></summary>
-      <div class="fold-inner">
-        <div class="m-flow">
-          <span class="fn">用户声音</span><span class="farr">→</span>
-          <span class="fn">竞品缺口</span><span class="farr">→</span>
-          <span class="fn">行业趋势</span><span class="farr">→</span>
-          <span class="fn">证据链 E##</span><span class="farr">→</span>
-          <span class="fn">需求 IDEA</span><span class="farr">→</span>
-          <span class="fn">10 维评分</span><span class="farr">→</span>
-          <span class="fn">TOP5 PRD</span><span class="farr">→</span>
-          <span class="fn">GTM 落地</span>
-        </div>
-      </div>
-    </details>
-
-    <!-- 证据规范（折叠） -->
-    <details class="m-fold">
-      <summary>证据规范与红线<span class="chev">›</span></summary>
-      <div class="fold-inner">
+    <!-- 证据规范与红线（平铺） -->
+    <div class="m-block">
+      <div class="m-block-head"><h3>证据规范与红线</h3><span class="mh-sub">可信度不可逾越的边界</span></div>
+      <div class="m-block-body">
         <div class="m-rules">
           <div class="m-rule"><h4>三级核验</h4><p>L1 端内官方 / L2 专业媒体 / L3 社区社媒，逐条标注核验层级。</p></div>
           <div class="m-rule"><h4>可溯源</h4><p>每条证据附真实可点击 URL + 真实日期，链接内容与摘要一致。</p></div>
@@ -733,7 +791,7 @@ body{
           <div class="m-rule"><h4>不伪称</h4><p>不伪称"竞品无某功能"，缺口须定位为升级 / 补全而非从零建设。</p></div>
         </div>
       </div>
-    </details>
+    </div>
   </div>
 </section>
 
