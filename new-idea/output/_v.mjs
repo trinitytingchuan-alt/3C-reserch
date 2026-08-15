@@ -1,0 +1,11 @@
+import fs from 'fs';
+const html=fs.readFileSync('index.html','utf8');
+const re=/assets\/(?:func\/[^\s"')]+|ithome_[0-9]+\.jpg)/g;
+const refs=[...html.matchAll(re)].map(m=>m[0]);
+const top5=['g16_gadgetflow_1600.jpg','g15_case_2000.jpg','g1_form_5712.jpg','g2_form_4885.jpg','g6_product_1200.png'].map(x=>'assets/func/glasses/'+x);
+const gtm=['assets/ithome_7.jpg','assets/ithome_9.jpg','assets/func/glasses/g10_review_1280.jpg','assets/func/glasses/gx2_2x2.png','assets/func/glasses/gx3_2x4.png'];
+console.log('TOP5∩GTM:', top5.filter(x=>gtm.includes(x)).length?'OVERLAP!':'NONE');
+const uniq=[...new Set(refs)];
+let miss=uniq.filter(u=>!fs.existsSync(u));
+console.log('unique:',uniq.length,'missing:',miss.length, miss);
+console.log('non-glasses refs:', uniq.filter(u=>!u.includes('glasses')&&!u.includes('ithome_')));

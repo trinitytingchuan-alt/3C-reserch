@@ -106,27 +106,30 @@ p{color:var(--ink-mid)}
 .flist .cat{font-size:13px;color:var(--ink-lo)}
 .flist .st{font-family:var(--font-mono);font-size:12px;padding:3px 9px;border-radius:6px;font-weight:500}
 .st.top{background:var(--signal-dim);color:var(--signal);border:1px solid var(--signal-line)}
-.st.watch{background:#FFF4E5;color:#9A5B00;border:1px solid #F3D9A8}
+.st.watch{background:var(--surface);color:var(--ink-mid);border:1px solid var(--line)}
 .st.pseudo{background:#FFE9E9;color:#B4202A;border:1px solid #F2B8B8}
 
 .gtm-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--s5)}
 .gcard{background:var(--paper);border:1px solid var(--line-soft);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow);transition:transform .45s var(--ease),box-shadow .45s var(--ease),border-color .45s var(--ease);display:flex;flex-direction:column}
-.gcard:hover{transform:translateY(-6px);box-shadow:var(--shadow-hi);border-color:#E8C089}
+.gcard:hover{transform:translateY(-6px);box-shadow:var(--shadow-hi);border-color:var(--signal-line)}
 .gcard .gfig{aspect-ratio:16/9;overflow:hidden;background:var(--surface);position:relative;display:flex;align-items:center;justify-content:center}
 .gcard .gfig .fig-img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;transition:transform .55s var(--ease)}
 .gcard:hover .gfig .fig-img{transform:scale(1.05)}
 .gcard .gbody{padding:var(--s4) var(--s4) 0;flex:1}
-.gcard .gbody .gtag{font-family:var(--font-mono);font-size:11px;color:#C2811A;letter-spacing:.06em;font-weight:600}
+.gcard .gbody .gtag{font-family:var(--font-mono);font-size:12px;color:var(--signal);letter-spacing:.06em;font-weight:600}
 .gcard .gbody h3{font-size:20px;margin-top:7px;line-height:1.2}
 .gcard .gbody .glead{margin-top:9px;font-size:14.5px;color:var(--ink-mid);line-height:1.5}
-.gcard .gbody .glead .gpersp{display:inline-block;font-family:var(--font-mono);font-size:10px;color:#fff;background:#C2811A;border-radius:4px;padding:2px 7px;margin-right:7px;vertical-align:middle;letter-spacing:.04em}
+.gcard .gbody .glead .gpersp{display:inline-block;font-family:var(--font-mono);font-size:11px;color:#fff;background:var(--signal);border-radius:5px;padding:2px 8px;margin-right:7px;vertical-align:middle;letter-spacing:.04em}
+.gcard .gbody .gdiff{margin-top:11px;padding:11px 14px;background:var(--signal-dim);border-left:3px solid var(--signal);border-radius:0 var(--r-xs) var(--r-xs) 0}
+.gcard .gbody .gdiff .gdiff-k{display:block;font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;color:var(--signal);font-weight:600;margin-bottom:4px}
+.gcard .gbody .gdiff .gdiff-v{font-size:13px;color:var(--ink-mid);line-height:1.55}
 .gcard .gbody .grow{display:grid;grid-template-columns:52px 1fr;gap:10px;margin-top:11px;align-items:start}
 .gcard .gbody .glab{font-family:var(--font-mono);font-size:11.5px;color:var(--ink-lo);padding-top:1px}
 .gcard .gbody .gtxt{font-size:13.5px;color:var(--ink-mid);line-height:1.5}
 .gcard .gbody .gch-wrap{display:flex;flex-wrap:wrap;gap:6px}
 .gcard .gbody .gch{font-size:12px;background:var(--surface-2);border:1px solid var(--line-soft);border-radius:999px;padding:3px 10px;color:var(--ink-mid);white-space:nowrap}
-.gcard .gbody .gscale .gtam{display:inline-block;font-size:12.5px;background:rgba(194,129,26,.08);border:1px solid rgba(194,129,26,.25);border-radius:8px;padding:4px 9px;margin:0 6px 6px 0;color:var(--ink)}
-.gcard .gbody .gscale .gtam b{color:#C2811A;font-family:var(--font-mono)}
+.gcard .gbody .gscale .gtam{display:inline-block;font-size:12.5px;background:var(--signal-dim);border:1px solid var(--signal-line);border-radius:8px;padding:4px 9px;margin:0 6px 6px 0;color:var(--ink)}
+.gcard .gbody .gscale .gtam b{color:var(--signal);font-family:var(--font-mono)}
 .gcard .gfoot{display:flex;justify-content:flex-end;align-items:center;padding:var(--s4)}
 /* —— 证据链一级维度卡（点击跳转二级页） —— */
 .dimnav{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--s4);margin-top:var(--s5)}
@@ -148,7 +151,7 @@ p{color:var(--ink-mid)}
 .dim-m.dcico{background:rgba(0,113,227,.10)} .dim-m.dcico svg{color:var(--signal)}
 .dim-c.dcico{background:rgba(120,80,230,.10)} .dim-c.dcico svg{color:#7850E6}
 .dim-u.dcico{background:rgba(40,170,110,.10)} .dim-u.dcico svg{color:#28AA6E}
-.dim-s.dcico{background:rgba(214,150,20,.10)} .dim-s.dcico svg{color:#D69614}
+.dim-s.dcico{background:rgba(0,113,227,.10)} .dim-s.dcico svg{color:var(--signal)}
 .dim-m .dctitle{color:var(--ink)}
 .score-sec{background:var(--surface);border-radius:var(--r-lg);padding:var(--s6) var(--s5)}
 .score-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:var(--s5)}
@@ -189,6 +192,213 @@ p{color:var(--ink-mid)}
   *{transition:none!important;animation:none!important}
   .reveal{opacity:1;transform:none}
 }
+
+/* ============ 方法论（结构框架参照 cc0217c，浅色主题重着色）============ */
+.method-rich{display:flex;flex-direction:column;gap:var(--s6)}
+.m-block{border:1px solid var(--line-soft);border-radius:var(--r-md);background:var(--surface-2);overflow:hidden}
+.m-block-head{display:flex;align-items:baseline;gap:12px;padding:var(--s4) var(--s4) 0}
+.m-block-head h3{font-size:19px;letter-spacing:-.02em}
+.m-block-head .mh-idx{font-family:var(--font-mono);font-size:12px;color:var(--signal);letter-spacing:.12em}
+.m-block-head .mh-sub{margin-left:auto;font-size:13px;color:var(--ink-lo)}
+.m-block-body{padding:var(--s4)}
+
+/* 四步法时间线 */
+.m-timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative}
+.m-timeline::before{content:"";position:absolute;top:27px;left:6%;right:6%;height:2px;background:linear-gradient(90deg,var(--signal-line),var(--line-soft))}
+.m-step{position:relative;padding:0 var(--s3);text-align:center}
+.m-step .dot{width:54px;height:54px;border-radius:50%;margin:0 auto var(--s3);background:var(--paper);border:2px solid var(--signal);display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-weight:600;font-size:13px;color:var(--signal);position:relative;z-index:1}
+.m-step h4{font-size:15px;margin-bottom:6px}
+.m-step p{font-size:13px;color:var(--ink-lo);line-height:1.5}
+
+/* 采集三路径 */
+.m-paths{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s4)}
+.m-path{border:1px solid var(--line-soft);border-radius:var(--r-sm);padding:var(--s3);background:var(--paper)}
+.m-path .mp-tag{font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;color:var(--signal);margin-bottom:8px}
+.m-path h4{font-size:15px;margin-bottom:6px}
+.m-path p{font-size:13px;color:var(--ink-lo);line-height:1.55}
+
+/* 折叠 */
+.m-fold{border:1px solid var(--line-soft);border-radius:var(--r-sm);background:var(--paper);margin-top:var(--s3)}
+.m-fold summary{cursor:pointer;list-style:none;padding:var(--s3) var(--s4);display:flex;align-items:center;gap:10px;font-weight:600;font-size:15px;color:var(--ink)}
+.m-fold summary::-webkit-details-marker{display:none}
+.m-fold summary .chev{margin-left:auto;transition:transform .3s var(--ease);color:var(--ink-lo)}
+.m-fold[open] summary .chev{transform:rotate(90deg)}
+.m-fold .fold-inner{padding:0 var(--s4) var(--s4);font-size:14px;color:var(--ink-mid);line-height:1.7}
+.m-fold .fold-inner ul{margin:8px 0 0 18px}
+.m-fold .fold-inner li{margin:6px 0}
+
+/* 10 维权重环 + 权重条 */
+.m-score{display:grid;grid-template-columns:260px 1fr;gap:var(--s5);align-items:center}
+.m-donut{width:220px;height:220px;margin:0 auto}
+.m-donut .center{font-family:var(--font-mono);font-size:13px;fill:var(--ink-lo)}
+.m-weights{display:flex;flex-direction:column;gap:9px}
+.m-wrow{display:grid;grid-template-columns:92px 1fr 46px;align-items:center;gap:12px;font-size:13px}
+.m-wrow .wl{color:var(--ink-mid)}
+.m-wrow .wbar{height:7px;background:var(--line-soft);border-radius:4px;overflow:hidden}
+.m-wrow .wbar i{display:block;height:100%;background:var(--signal);border-radius:4px}
+.m-wrow .wp{font-family:var(--font-mono);font-size:12px;color:var(--ink-lo);text-align:right}
+
+/* 四专家 */
+.m-experts{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s4)}
+.m-expert{border:1px solid var(--line-soft);border-radius:var(--r-sm);padding:var(--s3);background:var(--paper);text-align:center}
+.m-expert .ex-ico{width:46px;height:46px;border-radius:12px;margin:0 auto var(--s3);background:var(--signal-dim);display:flex;align-items:center;justify-content:center;font-size:22px}
+.m-expert h4{font-size:15px;margin-bottom:6px}
+.m-expert p{font-size:12.5px;color:var(--ink-lo);line-height:1.5}
+
+/* 综合分三步 */
+.m-score-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s4)}
+.m-ss{display:flex;gap:12px;align-items:flex-start}
+.m-ss .ss-n{font-family:var(--font-mono);font-size:13px;color:var(--signal);border:1px solid var(--signal-line);border-radius:50%;width:28px;height:28px;flex:none;display:flex;align-items:center;justify-content:center}
+.m-ss h4{font-size:14px;margin-bottom:4px}
+.m-ss p{font-size:12.5px;color:var(--ink-lo);line-height:1.5}
+
+/* 数据传导 */
+.m-flow{display:flex;flex-wrap:wrap;align-items:center;gap:10px;font-size:13.5px}
+.m-flow .fn{padding:6px 12px;border:1px solid var(--line-soft);border-radius:99px;background:var(--paper);color:var(--ink-mid)}
+.m-flow .farr{color:var(--signal);font-weight:600}
+
+/* 证据规范 */
+.m-rules{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--s4)}
+.m-rule{border-left:3px solid var(--signal);padding:4px 0 4px 14px}
+.m-rule h4{font-size:14px;margin-bottom:4px}
+.m-rule p{font-size:12.5px;color:var(--ink-lo);line-height:1.5}
+
+/* ============ 证据链：可筛选总表 + 三级核验记录（浅色）============ */
+.evi-toolbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:var(--s4)}
+.evi-filter{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border:1px solid var(--line-soft);border-radius:99px;background:var(--paper);font-size:13px;color:var(--ink-mid);cursor:pointer;transition:.2s var(--ease)}
+.evi-filter:hover{border-color:var(--signal-line)}
+.evi-filter.active{background:var(--signal);color:#fff;border-color:var(--signal)}
+.evi-filter .cnt{font-family:var(--font-mono);font-size:11px;opacity:.7}
+.evi-table{width:100%;border-collapse:collapse;border:1px solid var(--line-soft);border-radius:var(--r-md);overflow:hidden}
+.evi-table thead th{background:var(--surface);text-align:left;font-size:12px;font-family:var(--font-mono);letter-spacing:.06em;color:var(--ink-lo);padding:12px 14px;border-bottom:1px solid var(--line)}
+.evi-table tbody td{padding:13px 14px;border-bottom:1px solid var(--line-soft);font-size:13.5px;color:var(--ink-mid);vertical-align:top}
+.evi-table tbody tr{cursor:pointer;transition:background .15s}
+.evi-table tbody tr:hover{background:var(--signal-dim)}
+.evi-table tbody tr:last-child{border-bottom:none}
+.evi-table .eid{font-family:var(--font-mono);font-weight:600;color:var(--signal);white-space:nowrap}
+.evi-table .etag{display:inline-block;padding:3px 9px;border-radius:99px;font-size:11px;background:var(--surface);color:var(--ink-mid);white-space:nowrap}
+.evi-table .esrc a{color:var(--signal);font-size:12.5px;word-break:break-all}
+.evi-x{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:var(--s4);margin-top:var(--s5)}
+.evi-x .vx{border:1px solid var(--line-soft);border-radius:var(--r-sm);padding:var(--s3);background:var(--paper)}
+.evi-x .vx .vlvl{font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;color:var(--signal);margin-bottom:6px}
+.evi-x .vx h4{font-size:14px;margin-bottom:6px}
+.evi-x .vx p{font-size:12.5px;color:var(--ink-lo);line-height:1.5}
+
+/* ============ 二级界面：PRD 全屏覆盖层 + 证据弹窗（浅色）============ */
+.overlay{position:fixed;inset:0;z-index:200;background:var(--paper);overflow-y:auto;opacity:0;pointer-events:none;transition:opacity .35s var(--ease)}
+.overlay.open{opacity:1;pointer-events:auto}
+.overlay-bar{position:sticky;top:0;z-index:5;background:rgba(255,255,255,.8);backdrop-filter:saturate(180%) blur(18px);border-bottom:1px solid var(--line-soft);display:flex;align-items:center;gap:14px;padding:14px var(--s5)}
+.overlay-bar .ob-id{font-family:var(--font-mono);font-size:13px;color:var(--signal);font-weight:600}
+.overlay-bar .ob-title{font-size:15px;font-weight:600}
+.overlay-bar .ob-close{margin-left:auto;width:38px;height:38px;border-radius:50%;border:1px solid var(--line-soft);background:var(--paper);display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--ink-mid);transition:.2s}
+.overlay-bar .ob-close:hover{background:var(--surface);color:var(--ink)}
+.prd-hero{padding:var(--s6) 0 var(--s4)}
+.prd-hero .ph-rank{font-family:var(--font-mono);font-size:13px;color:var(--signal);letter-spacing:.1em}
+.prd-hero h1{font-size:34px;letter-spacing:-.03em;margin:8px 0 12px}
+.prd-hero .ph-val{font-size:17px;color:var(--ink-mid);max-width:760px;line-height:1.6}
+.prd-hero .ph-score{margin-top:var(--s4);display:inline-flex;align-items:baseline;gap:8px;padding:10px 18px;border:1px solid var(--signal-line);border-radius:99px;background:var(--signal-dim)}
+.prd-hero .ph-score .n{font-family:var(--font-mono);font-size:24px;font-weight:700;color:var(--signal)}
+.prd-hero .ph-score .d{font-size:13px;color:var(--ink-lo)}
+.prd-sec{margin-top:var(--s5);border-top:1px solid var(--line-soft);padding-top:var(--s4)}
+.prd-sec h3{font-size:15px;font-family:var(--font-mono);letter-spacing:.06em;color:var(--ink-lo);text-transform:uppercase;margin-bottom:var(--s3)}
+.prd-sec .pc{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:var(--s4)}
+.prd-sec .pcard{border:1px solid var(--line-soft);border-radius:var(--r-sm);padding:var(--s3);background:var(--surface-2)}
+.prd-sec .pcard .pl{font-size:12px;color:var(--signal);font-family:var(--font-mono);margin-bottom:6px}
+.prd-sec .pcard .pt{font-size:14px;color:var(--ink-mid);line-height:1.6}
+.prd-ev{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.prd-ev .pe{font-family:var(--font-mono);font-size:12px;padding:4px 10px;border-radius:99px;background:var(--signal-dim);color:var(--signal)}
+.prd-gtm{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:var(--s4);margin-top:8px}
+.prd-gtm .pg{border:1px solid var(--line-soft);border-radius:var(--r-sm);padding:var(--s3);background:var(--paper)}
+.prd-gtm .pg .gl{font-size:12px;color:var(--signal);font-family:var(--font-mono);margin-bottom:6px}
+.prd-gtm .pg .gt{font-size:13.5px;color:var(--ink-mid);line-height:1.55}
+.prd-list{list-style:none;display:flex;flex-direction:column;gap:9px}
+.prd-list li{position:relative;padding-left:18px;font-size:14px;color:var(--ink-mid);line-height:1.6}
+.prd-list li::before{content:"";position:absolute;left:2px;top:9px;width:7px;height:7px;border-radius:50%;background:var(--signal)}
+.prd-note{margin-top:12px;padding:12px 16px;border-left:3px solid var(--signal);background:var(--signal-dim);border-radius:0 var(--r-sm) var(--r-sm) 0;font-size:14px;color:var(--ink-mid);line-height:1.6}
+.metric{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.metric .m-cell{background:var(--surface-2);border:1px solid var(--line-soft);border-radius:var(--r-sm);padding:14px 16px}
+.metric .m-cell b{display:block;font-size:12px;font-family:var(--font-mono);color:var(--ink-lo);font-weight:500;margin-bottom:4px}
+.metric .m-cell span{font-size:20px;font-weight:600;color:var(--signal);letter-spacing:-.02em}
+.prd-table{width:100%;border-collapse:collapse;border:1px solid var(--line-soft);border-radius:var(--r-md);overflow:hidden;background:var(--paper)}
+.prd-table thead th{background:var(--surface);text-align:left;font-size:12px;font-family:var(--font-mono);letter-spacing:.05em;color:var(--ink-lo);padding:11px 13px;border-bottom:1px solid var(--line)}
+.prd-table tbody td{padding:11px 13px;border-bottom:1px solid var(--line-soft);font-size:13px;color:var(--ink-mid);line-height:1.5}
+.prd-table tbody tr:last-child td{border-bottom:none}
+.gtm-doc{display:flex;flex-direction:column;gap:12px}
+.gtm-doc-lead{padding:14px 18px;border:1px solid var(--signal-line);background:var(--signal-dim);border-radius:var(--r-md);font-size:15px;font-weight:600;color:var(--ink);letter-spacing:-.01em}
+.gtm-sec{border:1px solid var(--line-soft);border-radius:var(--r-sm);background:var(--paper);overflow:hidden}
+.gtm-sec-head{padding:11px 16px;background:var(--surface);border-bottom:1px solid var(--line-soft);font-family:var(--font-mono);font-size:12px;letter-spacing:.05em;color:var(--signal);font-weight:600}
+.gtm-sec-body{padding:14px 16px;font-size:13.5px;color:var(--ink-mid);line-height:1.7}
+.gtm-sec-body b{color:var(--ink);font-weight:600}
+.gtm-row{display:flex;gap:14px;padding:7px 0;border-top:1px dashed var(--line-soft);font-size:13px}
+.gtm-row:first-child{border-top:none}
+.gtm-row-k{min-width:110px;color:var(--signal);font-weight:600;flex-shrink:0;font-size:12.5px}
+.gtm-row-v{color:var(--ink-mid);line-height:1.6}
+.gtm-risk{display:grid;grid-template-columns:150px 46px 46px 1fr;gap:10px;padding:8px 0;border-top:1px dashed var(--line-soft);font-size:12.5px;align-items:start}
+.gtm-risk:first-child{border-top:none}
+.gtm-risk-k{color:var(--ink);font-weight:600}
+.gtm-risk-p{color:var(--ink-mid);font-family:var(--font-mono);font-size:11.5px;text-align:center;background:var(--surface);border-radius:4px;padding:1px 0}
+.gtm-risk-i{color:var(--ink-mid);font-family:var(--font-mono);font-size:11.5px;text-align:center;background:var(--surface);border-radius:4px;padding:1px 0}
+.gtm-risk-m{color:var(--ink-mid);line-height:1.6}
+/* 评分明细 */
+.sd-wrap{display:flex;flex-direction:column;gap:var(--s4)}
+.sd-summary{display:flex;gap:var(--s4);align-items:center;padding:var(--s4);border:1px solid var(--signal-line);background:var(--signal-dim);border-radius:var(--r-md)}
+.sd-sum-main{flex:0 0 auto;text-align:center}
+.sd-sum-n{font-family:var(--font-mono);font-size:44px;font-weight:700;color:var(--signal);letter-spacing:-.03em;line-height:1}
+.sd-sum-k{font-size:12px;color:var(--ink-lo);margin-top:4px}
+.sd-sum-txt{font-size:13.5px;color:var(--ink-mid);line-height:1.7}
+.sd-sum-txt b{color:var(--signal)}
+.sd-dims{display:flex;flex-direction:column;gap:0;border:1px solid var(--line-soft);border-radius:var(--r-md);overflow:hidden}
+.sd-row{display:grid;grid-template-columns:34px 1fr 44px;gap:14px;padding:13px 16px;border-bottom:1px solid var(--line-soft);background:var(--paper);align-items:start}
+.sd-row:last-child{border-bottom:none}
+.sd-row:hover{background:var(--surface-2)}
+.sd-i{font-family:var(--font-mono);font-size:12px;color:var(--ink-faint);padding-top:2px}
+.sd-main .sd-top{display:flex;align-items:baseline;gap:8px}
+.sd-name{font-size:14px;font-weight:600;color:var(--ink)}
+.sd-w{font-family:var(--font-mono);font-size:11px;color:var(--ink-lo)}
+.sd-bar{height:6px;background:var(--line-soft);border-radius:4px;overflow:hidden;margin:8px 0 7px}
+.sd-bar i{display:block;height:100%;background:var(--signal);border-radius:4px}
+.sd-why{font-size:12.5px;color:var(--ink-mid);line-height:1.55}
+.sd-score{font-family:var(--font-mono);font-size:22px;font-weight:700;color:var(--signal);text-align:right;line-height:1.1}
+.sd-experts{margin-top:4px}
+.sd-sec-h{font-family:var(--font-mono);font-size:12px;letter-spacing:.08em;color:var(--signal);font-weight:600;margin-bottom:12px;text-transform:uppercase}
+.sd-ex-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.sd-ex{border:1px solid var(--line-soft);border-radius:var(--r-sm);padding:14px 16px;background:var(--surface-2)}
+.sd-ex-head{display:flex;align-items:center;gap:8px}
+.sd-ex-ico{font-size:16px}
+.sd-ex-name{font-size:13px;font-weight:600;color:var(--ink)}
+.sd-ex-score{margin-left:auto;font-family:var(--font-mono);font-size:18px;font-weight:700;color:var(--signal)}
+.sd-ex-why{font-size:12.5px;color:var(--ink-mid);line-height:1.55;margin-top:7px}
+.sd-note{margin-top:10px;padding:11px 15px;border-left:3px solid var(--signal);background:var(--surface);border-radius:0 var(--r-sm) var(--r-sm) 0;font-size:12.5px;color:var(--ink-mid);line-height:1.6}
+@media(max-width:900px){
+  .sd-summary{flex-direction:column;align-items:flex-start}
+  .sd-ex-grid{grid-template-columns:1fr}
+  .sd-row{grid-template-columns:24px 1fr 38px;padding:12px 12px}
+}
+
+/* 证据弹窗 */
+.modal-mask{position:fixed;inset:0;z-index:300;background:rgba(29,29,31,.38);backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center;padding:var(--s5);opacity:0;pointer-events:none;transition:opacity .3s var(--ease)}
+.modal-mask.open{opacity:1;pointer-events:auto}
+.modal{width:min(640px,100%);max-height:84vh;overflow-y:auto;background:var(--paper);border-radius:var(--r-md);box-shadow:var(--shadow-hi);padding:var(--s5)}
+.modal .m-eid{font-family:var(--font-mono);font-size:13px;color:var(--signal);font-weight:600}
+.modal .m-tit{font-size:20px;letter-spacing:-.02em;margin:6px 0 var(--s3)}
+.modal .m-row{margin-top:var(--s3);padding-top:var(--s3);border-top:1px solid var(--line-soft)}
+.modal .m-row .ml{font-size:12px;color:var(--signal);font-family:var(--font-mono);margin-bottom:6px}
+.modal .m-row .mt{font-size:14px;color:var(--ink-mid);line-height:1.6}
+.modal .m-src{display:inline-flex;align-items:center;gap:8px;margin-top:6px;color:var(--signal);font-size:14px;word-break:break-all}
+.modal .m-close{margin-top:var(--s4);width:100%;padding:12px;border:none;border-radius:var(--r-sm);background:var(--surface);color:var(--ink-mid);font-size:14px;cursor:pointer;font-family:var(--font-body)}
+.m-tag-pill{display:inline-block;padding:3px 11px;border-radius:99px;font-size:12px;background:var(--surface);color:var(--ink-mid)}
+
+@media(max-width:900px){
+  .m-timeline{grid-template-columns:1fr 1fr;gap:var(--s4) 0}
+  .m-timeline::before{display:none}
+  .m-paths,.m-experts,.m-score-steps,.m-rules{grid-template-columns:1fr 1fr}
+  .m-score{grid-template-columns:1fr}
+  .m-donut{margin-bottom:var(--s4)}
+}
+@media(max-width:560px){
+  .m-paths,.m-experts,.m-score-steps,.m-rules{grid-template-columns:1fr}
+  .prd-hero h1{font-size:26px}
+}
 </style>
 </head>
 <body>
@@ -224,19 +434,19 @@ p{color:var(--ink-mid)}
   </div>
   <div class="fw reveal">
     <div class="cell">
-      <div class="ico"><img src="assets/ithome_5.jpg" alt="用户声音 - AR1 驱动画面显示" loading="lazy"/></div>
+      <div class="ico"><img src="assets/func/user/person-wearing-augmented-reality-glasses-explores-a-vibrant-city-street-engaging-with-digital-information-layered-over-their-environment-the-scene-is-lively-and-illuminated-photo.jpeg" alt="用户声音 - 用户街头戴 AR 眼镜与数字信息交互场景" loading="lazy"/></div>
       <div class="t">用户声音</div><div class="d">场景 + 痛点</div>
     </div>
     <div class="cell">
-      <div class="ico"><img src="assets/ithome_1.jpg" alt="竞品缺口 - X3 Pro 产品实物" loading="lazy"/></div>
+      <div class="ico"><img src="assets/func/rival/XREAL_x_rokid_x_inmo.png_v_1689600785" alt="竞品缺口 - XREAL/Rokid/INMO 竞品对比" loading="lazy"/></div>
       <div class="t">竞品缺口</div><div class="d">已验证 + 未覆盖</div>
     </div>
     <div class="cell">
-      <div class="ico"><img src="assets/ithome_9.jpg" alt="行业趋势 - 显示亮度参数" loading="lazy"/></div>
+      <div class="ico"><img src="assets/func/trend/AR_And_VR_Smart_Glasses_Market_Restraints_Impact_Analysis_HQ.webp" alt="行业趋势 - AR/VR 智能眼镜市场约束影响分析" loading="lazy"/></div>
       <div class="t">行业趋势</div><div class="d">上升通道</div>
     </div>
     <div class="cell">
-      <div class="ico"><img src="assets/ithome_4.jpg" alt="证据推导 - 骁龙 AR1 芯片平台" loading="lazy"/></div>
+      <div class="ico"><img src="assets/func/trend/t_datainsights.png" alt="证据推导 - AR 智能眼镜市场规模预测数据洞察" loading="lazy"/></div>
       <div class="t">证据推导</div><div class="d">多源 → 根因</div>
     </div>
   </div>
@@ -291,34 +501,156 @@ p{color:var(--ink-mid)}
 <section class="section wrap" id="evidence">
   <div class="sec-head reveal">
     <span class="eyebrow">Evidence Chain</span>
-    <h2>证据链（E001 – E017）</h2>
-    <p class="sub">全部 17 条证据按四个一级维度归类。每个维度卡下列出代表性证据，点击卡片进入该维度的独立证据页，查看全量列表与可点击的真实来源链接。来源均为公开可核验渠道：官方参数 / 行业报告（洛图、Counterpoint、IDC）/ 社区核验（什么值得买、观察者网、知乎、搜狐）/ 竞品动作（XREAL、Rokid、Meta）。数据窗口 2025-05 至 2026-05。</p>
+    <h2>证据链与三级核验（E001 – E017）</h2>
+    <p class="sub">全部 17 条证据按四个一级维度归类，下方可按维度筛选查看全量总表（点击任意行展开来源详情）。核验记录区标注每条证据的三级核验层级（L1 端内官方 / L2 专业媒体 / L3 社区社媒）。来源均为公开可核验渠道：官方参数 / 行业报告（洛图、Counterpoint、IDC）/ 社区核验（什么值得买、观察者网、知乎、搜狐）/ 竞品动作（XREAL、Rokid、Meta）。数据窗口 2025-05 至 2026-05。</p>
   </div>
-  <div class="dimnav reveal" id="dimnav"></div>
+
+  <div class="evi-toolbar reveal" id="eviToolbar"></div>
+  <div class="reveal">
+    <table class="evi-table" id="eviTable">
+      <thead><tr><th style="width:64px">编号</th><th style="width:104px">类型</th><th>证据摘要</th><th style="width:200px">来源</th></tr></thead>
+      <tbody id="eviBody"></tbody>
+    </table>
+  </div>
+
+  <div class="reveal" style="margin-top:var(--s6)">
+    <span class="eyebrow">Verification Log</span>
+    <h3 style="font-size:19px;margin:8px 0 var(--s3)">三级核验记录</h3>
+    <p class="muted" style="font-size:14px;margin-bottom:var(--s4)">每条证据均经过三级核验：L1 端内官方（参数 / 发布会）、L2 专业媒体（洛图 / Counterpoint / IDC / 科技媒体）、L3 社区社媒（什么值得买 / 知乎 / 观察者网 / 搜狐）。</p>
+    <div class="evi-x" id="eviX"></div>
+  </div>
 </section>
 
-<section class="section wrap" id="score">
-  <div class="sec-head reveal">
-    <span class="eyebrow">Scoring Model</span>
-    <h2>评分维度与权重</h2>
-    <p class="sub">10 维（市场化 / 商业化 / 技术可行 / 竞争壁垒 / 用户需求 / 数据支撑 / 战略契合 / 落地可行 / 规模潜力 / 趋势顺应）× 四专家（产品 / 市场 / 用户 / 硬件）加权，权重总和 100%。下图展示 TOP5 各需求综合分（0–100）。</p>
-  </div>
-  <div class="score-sec reveal">
-    <div class="score-grid" id="scoregrid"></div>
-  </div>
-</section>
+
 
 <section class="section wrap" id="method">
   <div class="sec-head reveal">
     <span class="eyebrow">Methodology</span>
     <h2>需求挖掘方法论</h2>
-    <p class="sub">四步闭环：从真实场景锚定，到跨源验证，再到评分排序与落地推演。</p>
+    <p class="sub">以「真实场景锚定 → 跨源交叉验证 → 10 维评分排序 → 分需求落地推演」为四步闭环，把客观信号转化为可量化的 TOP5 产品机会。每步下钻可见采集策略、数据规则与评分模型。</p>
   </div>
-  <div class="method reveal">
-    <div class="mcell"><div class="mfig"><img src="assets/ithome_5.jpg" alt="场景锚定 - AR1 驱动画面显示" loading="lazy"/></div><div class="mbody"><div class="step">STEP 01</div><h4>场景锚定</h4><p>以真实使用场景 + 用户痛点为入口，禁止无场景的产品优先假设。</p></div></div>
-    <div class="mcell"><div class="mfig"><img src="assets/ithome_4.jpg" alt="跨源验证 - 骁龙 AR1 芯片平台" loading="lazy"/></div><div class="mbody"><div class="step">STEP 02</div><h4>跨源验证</h4><p>用户声音 / 竞品缺口 / 行业趋势三轨交叉，单点来源仅作假设。</p></div></div>
-    <div class="mcell"><div class="mfig"><img src="assets/ithome_9.jpg" alt="评分排序 - 显示亮度性能" loading="lazy"/></div><div class="mbody"><div class="step">STEP 03</div><h4>评分排序</h4><p>10 维 × 四专家加权，≥90 进 TOP5；不足则补强真实证据而非改分。</p></div></div>
-    <div class="mcell"><div class="mfig"><img src="assets/ithome_1.jpg" alt="落地推演 - X3 Pro 产品实物" loading="lazy"/></div><div class="mbody"><div class="step">STEP 04</div><h4>落地推演</h4><p>分需求 GTM 策略 + 二级路径，把机会转为可执行上市计划。</p></div></div>
+
+  <div class="method-rich reveal">
+    <!-- 四步法 -->
+    <div class="m-block">
+      <div class="m-block-head"><h3>四步闭环工作流</h3><span class="mh-sub">每步配真实场景图，禁止无场景的产品优先假设</span></div>
+      <div class="m-block-body">
+        <div class="m-timeline">
+          <div class="m-step"><div class="dot">01</div><h4>场景锚定</h4><p>从真实使用场景 + 用户痛点切入，禁止"先造功能再找场景"。</p></div>
+          <div class="m-step"><div class="dot">02</div><h4>跨源验证</h4><p>用户声音 / 竞品缺口 / 行业趋势三轨交叉，单点来源仅作假设。</p></div>
+          <div class="m-step"><div class="dot">03</div><h4>评分排序</h4><p>10 维 × 四专家加权，≥90 进 TOP5；不足则补强真实证据而非改分。</p></div>
+          <div class="m-step"><div class="dot">04</div><h4>落地推演</h4><p>分需求 GTM 策略 + 二级路径，把机会转为可执行上市计划。</p></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 采集三路径 -->
+    <div class="m-block">
+      <div class="m-block-head"><h3>数据采集三路径</h3><span class="mh-sub">真实用户声音 = 核心燃料</span></div>
+      <div class="m-block-body">
+        <div class="m-paths">
+          <div class="m-path"><div class="mp-tag">PATH · 用户</div><h4>用户声音采集</h4><p>什么值得买 / 知乎 / 观察者网 / 搜狐真实评测与吐槽，每条带可点击链接与真实日期。</p></div>
+          <div class="m-path"><div class="mp-tag">PATH · 竞品</div><h4>竞品缺口扫描</h4><p>近 18 个月 XREAL / Rokid / Meta Ray-Ban 新品类与功能动作，定位雷鸟对标缺口。</p></div>
+          <div class="m-path"><div class="mp-tag">PATH · 行业</div><h4>行业趋势核验</h4><p>洛图 / Counterpoint / IDC 报告与搜索趋势，验证赛道增速与规模拐点。</p></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 数据源差异化配置（折叠） -->
+    <details class="m-fold">
+      <summary>数据源差异化配置<span class="chev">›</span></summary>
+      <div class="fold-inner">
+        根据雷鸟 X3 Pro 的核心客群地理（国内为主、出海并行）配置采集源：
+        <ul>
+          <li><b>国内主战场</b>：京东 / 什么值得买 / 知乎 / 小红书 / 观察者网 / 搜狐 / IT之家，覆盖用户声音与媒体核验。</li>
+          <li><b>出海并行</b>：Reddit / Trustpilot / Amazon 评论，验证 Meta Ray-Ban、XREAL 海外用户反馈。</li>
+          <li><b>行业与竞品</b>：洛图科技、Counterpoint、IDC、XREAL / Rokid / Meta 官方参数页。</li>
+          <li><b>数据窗口</b>：2025-05 至 2026-05，确保结论基于近 12 个月可核验信号。</li>
+        </ul>
+      </div>
+    </details>
+
+    <!-- 市场验证闭环（折叠） -->
+    <details class="m-fold">
+      <summary>市场验证闭环：进 TOP5 的前置硬门槛<span class="chev">›</span></summary>
+      <div class="fold-inner">
+        每条进入 TOP5 的需求须通过"五源强支撑"交叉验证，任一维度缺失即降级为假设：
+        <ul>
+          <li><b>市场声音</b>：赛道增速 / 规模拐点（行业报告）。</li>
+          <li><b>竞品验证</b>：头部竞品已有对应动作或明确缺口。</li>
+          <li><b>行业验证</b>：技术成熟度 / 供应链可达性。</li>
+          <li><b>参考行业验证</b>：相邻品类已验证的商业化路径（如 Meta Ray-Ban 拍摄眼镜）。</li>
+          <li><b>用户声音</b>：≥2 个独立来源的真实痛点（如续航焦虑、可读性短板）。</li>
+        </ul>
+        五源在评分模型的 <code>validationChain</code> 中显式列出，QA 强制校验，杜绝"拍脑袋"进榜。
+      </div>
+    </details>
+
+    <!-- 10 维权重环 + 权重条 -->
+    <div class="m-block">
+      <div class="m-block-head"><h3>10 维评分体系与权重</h3><span class="mh-sub">总和 100% · 四专家加权</span></div>
+      <div class="m-block-body">
+        <div class="m-score">
+          <svg class="m-donut" viewBox="0 0 120 120" id="donut"></svg>
+          <div class="m-weights" id="weights"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 四专家 -->
+    <div class="m-block">
+      <div class="m-block-head"><h3>四专家加权评审</h3><span class="mh-sub">产品 / 市场 / 用户 / 硬件</span></div>
+      <div class="m-block-body">
+        <div class="m-experts">
+          <div class="m-expert"><div class="ex-ico">🧭</div><h4>产品专家</h4><p>评估场景契合、价值主张与优先级排序。</p></div>
+          <div class="m-expert"><div class="ex-ico">📈</div><h4>市场专家</h4><p>评估 TAM–SAM–SOM、增速与竞争格局。</p></div>
+          <div class="m-expert"><div class="ex-ico">👥</div><h4>用户专家</h4><p>评估痛点强度、付费意愿与使用频次。</p></div>
+          <div class="m-expert"><div class="ex-ico">⚙️</div><h4>硬件专家</h4><p>评估技术可行、供应链与落地周期。</p></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 综合分三步 -->
+    <div class="m-block">
+      <div class="m-block-head"><h3>加权聚合 → 综合分</h3></div>
+      <div class="m-block-body">
+        <div class="m-score-steps">
+          <div class="m-ss"><div class="ss-n">1</div><div><h4>单维打分</h4><p>每专家对各维度独立打分（0–100）。</p></div></div>
+          <div class="m-ss"><div class="ss-n">2</div><div><h4>角色加权</h4><p>四专家权重叠乘 10 维子权重，得单需求分。</p></div></div>
+          <div class="m-ss"><div class="ss-n">3</div><div><h4>卡线进榜</h4><p>综合分 ≥90 进 TOP5；不足则补强真实证据。</p></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 数据传导（折叠） -->
+    <details class="m-fold">
+      <summary>数据传导关系<span class="chev">›</span></summary>
+      <div class="fold-inner">
+        <div class="m-flow">
+          <span class="fn">用户声音</span><span class="farr">→</span>
+          <span class="fn">竞品缺口</span><span class="farr">→</span>
+          <span class="fn">行业趋势</span><span class="farr">→</span>
+          <span class="fn">证据链 E##</span><span class="farr">→</span>
+          <span class="fn">需求 IDEA</span><span class="farr">→</span>
+          <span class="fn">10 维评分</span><span class="farr">→</span>
+          <span class="fn">TOP5 PRD</span><span class="farr">→</span>
+          <span class="fn">GTM 落地</span>
+        </div>
+      </div>
+    </details>
+
+    <!-- 证据规范（折叠） -->
+    <details class="m-fold">
+      <summary>证据规范与红线<span class="chev">›</span></summary>
+      <div class="fold-inner">
+        <div class="m-rules">
+          <div class="m-rule"><h4>三级核验</h4><p>L1 端内官方 / L2 专业媒体 / L3 社区社媒，逐条标注核验层级。</p></div>
+          <div class="m-rule"><h4>可溯源</h4><p>每条证据附真实可点击 URL + 真实日期，链接内容与摘要一致。</p></div>
+          <div class="m-rule"><h4>根因多源</h4><p>标"直接定义根因"须 ≥2 独立来源交叉，单一来源降级为假设。</p></div>
+          <div class="m-rule"><h4>不伪称</h4><p>不伪称"竞品无某功能"，缺口须定位为升级 / 补全而非从零建设。</p></div>
+        </div>
+      </div>
+    </details>
   </div>
 </section>
 
@@ -328,15 +660,92 @@ p{color:var(--ink-mid)}
 </footer>
 
 <script>
-// ============ 功能实图（每张卡用对应真实产品图，替换线稿）============
-const ICON = {
-  shoot:'<img class="fig-img" src="assets/ithome_5.jpg" alt="AI 拍摄画面显示" loading="lazy"/>',
-  battery:'<img class="fig-img" src="assets/ithome_9.jpg" alt="续航 / 显示功耗参数" loading="lazy"/>',
-  eco:'<img class="fig-img" src="assets/ithome_13.jpg" alt="安卓应用生态" loading="lazy"/>',
-  wear:'<img class="fig-img" src="assets/ithome_1.jpg" alt="轻量化产品实物" loading="lazy"/>',
-  lens:'<img class="fig-img" src="assets/ithome_7.jpg" alt="智能镜片特写" loading="lazy"/>'
+// ============ 功能实图（TOP5 需求卡专用，每张对应真实产品图）============
+const figMap = {
+  shoot:'<img class="fig-img" src="assets/func/glasses/g16_gadgetflow_1600.jpg" alt="AI 第一视角拍摄" loading="lazy"/>',
+  battery:'<img class="fig-img" src="assets/func/glasses/g15_case_2000.jpg" alt="续航充电盒" loading="lazy"/>',
+  eco:'<img class="fig-img" src="assets/func/glasses/g1_form_5712.jpg" alt="安卓应用生态" loading="lazy"/>',
+  wear:'<img class="fig-img" src="assets/func/glasses/g2_form_4885.jpg" alt="轻量化佩戴" loading="lazy"/>',
+  lens:'<img class="fig-img" src="assets/func/glasses/g6_product_1200.png" alt="智能镜片显示" loading="lazy"/>'
+};
+// GTM 商业落地卡独立图集（不与 TOP5 复用）
+const figGtm = {
+  shoot:'<img class="fig-img" src="assets/ithome_7.jpg" alt="AI 拍摄翻译 GTM" loading="lazy"/>',
+  battery:'<img class="fig-img" src="assets/ithome_9.jpg" alt="续航模组 GTM" loading="lazy"/>',
+  eco:'<img class="fig-img" src="assets/func/glasses/g10_review_1280.jpg" alt="应用生态 GTM" loading="lazy"/>',
+  wear:'<img class="fig-img" src="assets/func/glasses/gx2_2x2.png" alt="佩戴舒适 GTM" loading="lazy"/>',
+  lens:'<img class="fig-img" src="assets/func/glasses/gx3_2x4.png" alt="镜片显示 GTM" loading="lazy"/>'
 };
 const ICN = { "ID-002":"shoot","ID-001":"battery","ID-006":"eco","ID-003":"wear","ID-005":"lens" };
+
+// ============ PRDS 二级落地数据（驱动覆盖层 openPrd）============
+const PRDS = {
+  "ID-002":{
+    background:["X3 Pro 已具备全彩光波导 + 骁龙 AR1 的显示与算力底座，但交互仍停留在「显示终端」","Meta Ray-Ban 已验证「AI 拍摄眼镜」路径可规模化（累计超 700 万副，E009）","雷鸟 V3 Slim 已布局 AI 拍摄但清晰度与实时交互弱于 Meta（E011）","第一视角记录与跨语言沟通是旅行/会议高频刚需，手机无法解放双手"],
+    users:["出境自由行与商旅客：单次行程需频繁拍照/翻译","跨境会议与展会工作者：跨语言即时沟通","留学生与海外生活人群：日常翻译依赖","科技极客与内容创作者：第一视角 Vlog"],
+    scenarios:[["旅行街拍", "第一视角边走边拍，无需掏手机，素材本地+云端双备份"], ["跨国会议", "同声传译字幕实时叠加，解放双手做笔记"], ["逛展探店", "镜片第一视角记录 + 即时翻译讲解"]],
+    solution:["补齐第一视角拍摄稳定性（OIS 防抖 + 4K 30fps）","实时同声传译字幕（20+ 语种，云端大模型）","随身 AI 助手语音唤醒，一句话拍照/翻译","拍摄素材本地与云端双备份，隐私可控"],
+    differentiation:"雷鸟有全彩光波导，可在镜片内叠加实时字幕，比 Meta 无屏方案多一层「所见即所得」的翻译呈现，形成差异化体验",
+    competitorSignal:"Meta Ray-Ban 已验证拍摄眼镜路径（E009），雷鸟 V3 已布局但弱于 Meta（E011），此缺口为补齐而非从零建设",
+    trendSignal:"AI 眼镜成全球智能眼镜增长极（IDC 1280 万台 +26%，E014），旅行/会议场景拍摄翻译需求随品类增长放大",
+    tam:"中国 AR 眼镜 48.9 万台且年增 83%（E002），出境游与跨国商务人群天然需第一视角拍摄翻译，潜在装机覆盖可观",
+    metrics:[["日活拍摄次数","≥3 次 / 人"],["翻译调用时长","≥20 min / 日活"],["字幕延迟","≤1.5s（90% 场景）"],["弱网可用率","≥85%"]],
+    risks:[["翻译准确率", "中", "高", "依赖云端大模型，弱网/方言场景降级", "本地模型兜底 + 弱网降级提示"],["隐私", "中", "高", "第一视角拍摄涉及他人肖像", "明确指示灯 + 本地优先存储 + 一键脱敏"],["续航", "中", "中", "持续拍摄 + 翻译耗电", "外挂电池模组联动（ID-001）"]],
+    plan:["Q3 OTA 推送实时翻译公测","Q4 联合旅游局内容战役","次年 Q1 出海独立站上线","次年 Q2 拍摄翻译素材云端工作流"]
+  },
+  "ID-001":{
+    background:["X3 Pro 骁龙 AR1 + 全彩波导功耗高，续航为公开短板","E005：什么值得买 876+ 用户高频吐槽续航焦虑","E012：搜狐用户实测「重度用半天就没电」，出门必带充电宝破坏无绳沉浸","XREAL / Meta 均未解决无绳长续航，竞品缺口明确"],
+    users:["重度差旅族：航班/高铁长时观影导航","户外创作者：全天拍摄记录","长时导航用户：骑行/驾驶持续使用","通勤重度用户：早晚高峰全程使用"],
+    scenarios:[["长途差旅", "全天观影/导航，途中无充电机会"], ["户外拍摄", "连续 4-6 小时第一视角记录"], ["早晚通勤", "全程使用 + 午休补电"]],
+    solution:["磁吸式外挂电池模组，主体保持无绳","30 分钟快充至 80%，抽空即补","低功耗模式自动切换，非核心功能降载","模组同时作收纳/支架，一物多用"],
+    differentiation:"不是加大机身电池，而是用颈挂/磁吸分离供电保留无绳体验；与雷鸟光波导全彩技术心智互补而非冲突",
+    competitorSignal:"XREAL / Meta 均未解决无绳长续航（E007/E009），雷鸟若做磁吸模组即开辟差异化形态，竞品缺口明确",
+    trendSignal:"AR 观影/导航长时使用场景增长（E002/E013），续航成高频原生痛点",
+    tam:"中国 AR 眼镜 48.9 万台（E002）且年增 83%，长时佩戴用户天然需外挂供电，潜在装机覆盖过半存量用户",
+    metrics:[["模组附购率","≥30%"],["全天续航达成率","≥95%"],["30min 快充至 80%","达成"],["退货率","≤5%"]],
+    risks:[["佩戴增重", "中", "中", "外挂增重影响平衡", "人体工学配重设计"],["兼容性", "低", "高", "不同型号主机接口差异", "模块化磁吸接口标准"],["热量", "中", "中", "快充发热", "分区散热 + 充电限温"]],
+    plan:["Q3 模组量产","Q4 双十一主推 + 购机捆绑","次年 Q1 二代快充模组","次年 Q2 海外 Amazon 上线"]
+  },
+  "ID-006":{
+    background:["雷鸟 RayNeo AR VM 已具备生态基础，但第三方应用接入不足","封闭生态应用少，用户频繁掏手机（E016：新功能长期使用率仅 6%）","Rokid 内容生态追赶，挤压雷鸟份额（E008）","开放平台是留存与差异化的关键"],
+    users:["开发者：希望在 AR 眼镜上分发应用","效率工具用户：办公/笔记/通讯上镜","出行重度用户：导航/打车/翻译随取随用"],
+    scenarios:[["通勤办公", "微信/日程/笔记在镜片叠加，免掏手机"], ["出行导航", "打车/地图/翻译多 App 随取"], ["开发共创", "开发者提交应用到 RayNeo VM"]],
+    solution:["开放 RayNeo VM SDK，标准化接入流程","微信/导航/笔记等安卓应用上镜","应用内分成 15%，激励开发者共创","上线即集成应用商店 + 一键安装"],
+    differentiation:"从「单功能眼镜」升级为「随身计算中心」，以开放生态留存用户、形成平台粘性，区别于竞品封闭方案",
+    competitorSignal:"Rokid 内容生态追赶（E008）凸显开放平台缺口，雷鸟 VM 有基础但需放量",
+    trendSignal:"AR 应用市场随品类增长，开发者生态是硬件规模化的放大器",
+    tam:"AR 应用市场随智能眼镜增长，开发者订阅与应用分成是可持续营收",
+    metrics:[["上架应用数","≥50"],["人均日启动","≥8 次"],["开发者数","≥200"],["应用内分成营收","≥¥1000 万/年"]],
+    risks:[["适配质量", "中", "高", "第三方适配参差", "官方 QA + 兼容认证"],["安全", "中", "高", "开放生态引入安全风险", "应用沙箱 + 审核机制"],["分成争议", "低", "中", "开发者对分成比例不满", "早期免费 + 阶梯分成"]],
+    plan:["Q3 开发者预览 + SDK 开放","Q4 应用商店上线 50 款","次年 Q1 开发者大会 + 千万级分成","次年 Q2 生态开放海外"]
+  },
+  "ID-003":{
+    background:["第一代铰链松、磁吸夹发，Air 系列发热（E006）","佩戴舒适度为真实用户反馈短板，制约日常佩戴渗透率","轻量化是扩大日常佩戴人群的硬门槛","结构件与材质未针对长时间佩戴优化"],
+    users:["全天佩戴办公族：会议/阅读/多屏办公","近视用户：需日常替换镜片","女性用户：对重量/夹发/美学敏感","轻度尝鲜用户：犹豫入门的舒适顾虑"],
+    scenarios:[["全天办公", "8h 连续佩戴会议/阅读"], ["日常通勤", "早晚高峰全程佩戴"], ["近视佩戴", "替换近视镜片长时间使用"]],
+    solution:["重构铰链与磁吸结构，消除夹发与松动","引入轻量材质（钛合金/镁合金），整机降重","发热分区散热，长时间佩戴不闷","镜腿/鼻托人体工学微调，适配更多脸型"],
+    differentiation:"把「无感佩戴」作为新一代主机标配卖点，降低日常佩戴门槛，覆盖更广泛人群",
+    competitorSignal:"轻量化是佩戴渗透率的硬门槛，竞品在佩戴舒适度上各有短板，属可工程迭代项",
+    trendSignal:"AR 眼镜向「日常佩戴」演进（E013 智能眼镜 +211%），舒适度决定渗透速度",
+    tam:"日常 AR 眼镜随佩戴门槛下降而扩大，舒适佩戴是提升转化率的核心变量",
+    metrics:[["日均佩戴时长","≥4h"],["退货率","≤5%"],["佩戴舒适评分","≥4.5/5"],["近视适配率","≥80%"]],
+    risks:[["改型周期", "高", "高", "结构件改型开发周期长", "分阶段迭代 + 模具并行"],["成本", "中", "中", "轻量材质成本上升", "高端机型先行，逐步下放"],["散热", "中", "中", "分区散热方案验证", "仿真 + 真机压测"]],
+    plan:["Q4 新一代主机发布","次年 Q1 联名时尚款","次年 Q2 近视镜片适配","次年 Q3 轻量材质全系下放"]
+  },
+  "ID-005":{
+    background:["雷鸟光学可读性短板 + 一键变暗缺口（E015）","户外强光下看不清、公共场合易暴露内容","XREAL One Pro 电致变色已被市场接受（E007）","雷鸟在该能力上落后，属已验证可补的硬件缺口"],
+    users:["户外用户：强光/雪地/户外运动","驾驶人群：日间强光 + 防眩光","隐私敏感用户：公共场合防偷窥","商务人士：地铁/会议防窥屏"],
+    scenarios:[["户外强光", "强光下镜片可读性不足，一键变暗"], ["公共场合", "地铁/咖啡厅防偷窥"], ["驾驶导航", "日间防眩光 + 导航叠加"]],
+    solution:["一键电致变色，强光自动增亮、室内防窥","防窥模式，降低可视角度","光感自动调节，明暗自适应","与导航/内容联动，暗场景优化显示"],
+    differentiation:"把光学可读性短板转为体验卖点，户外场景成为标准配置，补齐 XREAL 已验证的硬件缺口",
+    competitorSignal:"XREAL One Pro 电致变色已被市场接受（E007），雷鸟落后，属可补齐的验证缺口",
+    trendSignal:"户外与驾驶场景使用增长，光学可读性是户外体验核心",
+    tam:"智能镜片随 AR 眼镜户外场景增长，电致变色是户外标配升级",
+    metrics:[["变暗触发率","≥40%"],["户外可读性评分","≥4.5/5"],["防窥可视角度","≤±30°"],["响应速度","≤0.5s"]],
+    risks:[["响应速度", "中", "中", "变色受温度影响", "温控补偿 + 快响应材料"],["成本", "中", "中", "电致变色镜片成本高", "隐私版溢价 + 标配渐进"],["光学衰减", "低", "高", "变色膜层耐久", "膜层工艺 + 长寿命验证"]],
+    plan:["Q3 镜片量产","Q4 户外场景 Campaign","次年 Q1 隐私版上市","次年 Q2 全系标配电致变色"]
+  }
+};
 
 // ============ TOP5 真实数据（来自 ideas/scores/evidence.json，按综合分降序）============
 const TOP5 = [
@@ -421,6 +830,254 @@ const GTM = [
     northStar:"变暗触发率 ≥ 40%", first100:"户外可读性评分 ≥ 4.5/5" }
 ];
 
+// ============ GTMS 详细策略（9 段大厂级 Go-To-Market，openPrd 二级界面）============
+const GTMS = {
+  "ID-002":{
+    anchor:"AI 拍摄翻译，出行解放双手",
+    tamSamSom:"TAM：AI 拍摄眼镜需求用户——E009 Meta Ray-Ban 累计 700 万副验证路径可规模化，国内对应百万级潜在；SAM：雷鸟 X3 Pro 存量中旅行/商务/AI 早期采用人群（E001 已支持语音翻译/同声传译）；SOM：首发 6 个月 AI 拍摄翻译功能可激活用户——保守锚定 E002 雷鸟存量，假设出境/商务场景用户占 15–25%（E012 功能逊手机警示体验门槛），目标激活 0.6–1.2 万",
+    channels:[
+      {type:"内容种草", detail:"小红书/抖音出境游、商务会议场景 KOL 实测「拍+译」短视频矩阵"},
+      {type:"海外众筹", detail:"Kickstarter/Indiegogo 首发，借 Meta 已教育市场势能（E009）"},
+      {type:"自有电商", detail:"雷鸟商城 + 京东/天猫旗舰店拍摄版专属页"},
+      {type:"跨界联名", detail:"与翻译/旅行 App 联名推场景礼包"}
+    ],
+    launchCadence:[
+      {phase:"预热期 M0-M1", action:"出境游 KOL 实测「拍+译」，讲 Meta 已验证路径（E009）"},
+      {phase:"首发期 M2", action:"X3 Pro 拍摄版溢价 ¥800 上线，V3 用户以旧换新优先推送"},
+      {phase:"放量期 M3-M6", action:"海外众筹解锁多语言包、联名旅行 App 推场景礼包"}
+    ],
+    smarketing:"核心信息「眼镜比你手机更懂出国」——用 E009（Meta 700 万副路径）与 E012（用户要功能不逊手机）做对比，强调光波导可显字幕的差异化（ID-002 差异化内核）",
+    metrics:[
+      {k:"AI 拍摄翻译激活率", target:"6 个月 12–20%（锚 E002 存量保守假设）"},
+      {k:"第一视角素材分享率", target:"≥ 25%（E009 路径验证）"},
+      {k:"同声传译准确率", target:"≥ 95%（E001 已支持同传）"}
+    ],
+    risks:[
+      ["拍摄清晰度逊手机遭吐槽","中","高","手机更清晰但需手持，眼镜第一视角解放双手","主打「随手记录」非「替代手机」，本地+云端双备份"],
+      ["续航限制拍摄时长","中","中","持续拍摄+翻译耗电","与 ID-001 颈挂模组协同打包"]
+    ],
+    first100:"100 名出境游/商务用户封闭测试，同声传译准确率回收",
+    northStar:"AI 拍摄翻译功能月活渗透率 ≥ 25%（发布后 6 个月）"
+  },
+  "ID-001":{
+    anchor:"全彩无绳续航翻倍，重度场景不掉链",
+    tamSamSom:"TAM：中国 AR 眼镜中长时佩戴/重度场景用户——E002 中国 AR 48.9 万台，E005 续航为 876 人高频原生痛点印证需求集中；SAM：雷鸟 X 系列存量中长时佩戴重度用户（E012 实测不足 4h 直接定义续航缺口）；SOM：首发 6 个月颈挂模组可激活用户——保守锚定 E002 雷鸟存量，假设重度长时用户占 20–30%（E005 印证），目标渗透率 10–15%、约 1–1.8 万套",
+    channels:[
+      {type:"自有电商", detail:"雷鸟商城 + 京东/天猫旗舰店，购机捆绑 + 复购配件"},
+      {type:"内容种草", detail:"B站/抖音科技测评、差旅/户外 KOL 实测续航对比"},
+      {type:"线下体验", detail:"雷鸟线下体验店真机佩戴 + 续航展演"},
+      {type:"海外", detail:"Amazon 25 国上架，主打 travel/commute 长续航场景"}
+    ],
+    launchCadence:[
+      {phase:"预热期 M0-M1", action:"社区招募 100 名内测、发布续航痛点白皮书（E005/E012 数据）"},
+      {phase:"首发期 M2", action:"X3 Pro 购机捆绑首发，¥499 单售 + 套装优惠，赠延保"},
+      {phase:"放量期 M3-M6", action:"Amazon 25 国上线、KOL 实测对比铺量、复购配件促销"}
+    ],
+    smarketing:"核心信息「重度用一天不掉链」——用 E005（876 人续航 PK）与 E012（实测不足 4h）做对比素材，差旅/户外场景短视频矩阵投放",
+    metrics:[
+      {k:"颈挂模组渗透率", target:"6 个月 10–15%（锚 E002 存量保守假设）"},
+      {k:"复购配件加购率", target:"购机用户 15–20%"},
+      {k:"NPS 续航维度", target:"≥ 40（E005 痛点基线提升）"}
+    ],
+    risks:[
+      ["用户嫌额外佩戴物破坏无绳感","中","中","额外佩戴物增加负担","磁吸快拆 + 轻量化 <60g，主打「不戴也能用」"],
+      ["竞品机身电池升级挤压","中","高","机身电池升级冲击外挂价值","强调分离供电不增主体重量，差异化形态"]
+    ],
+    first100:"雷鸟社区 100 名重度差旅用户内测，真实续航数据回收",
+    northStar:"X3 Pro 存量用户颈挂模组渗透率 ≥ 15%（发布后 6 个月）"
+  },
+  "ID-006":{
+    anchor:"你的眼镜能装 App，空间计算内容平台",
+    tamSamSom:"TAM：中国 AR 眼镜中期望「在眼镜上装 App / 真 AR 生态」的用户——E002 中国 AR 48.9 万台且雷鸟份额第一，叠加 E016 印证「有功能无粘性」痛点真实存在；SAM：雷鸟 X3 Pro 存量中内容/轻办公人群（E001 已做 RayNeo VM 但弱、E008 Rokid 内容生态追赶挤压）；SOM：首发 12 个月 RayNeo VM 商店实际可激活用户——保守锚定 E002 雷鸟存量，假设生态型用户占 20–30%（E016 长期使用率仅 6% 警示不可高估），目标激活 0.8–1.5 万、上架轻应用 200+",
+    channels:[
+      {type:"开发者社区", detail:"RayNeo 开发者社区 + 开放 SDK 公测，黑客松激励"},
+      {type:"应用商店", detail:"RayNeo VM 应用商店，基础免费 + 开发者分成"},
+      {type:"内容种草", detail:"抖音/小红书「眼镜装 App」场景演示"},
+      {type:"跨界合作", detail:"与抖音/微信轻应用对接，借手机生态迁移"}
+    ],
+    launchCadence:[
+      {phase:"预热期 M0-M2", action:"开发者 SDK 公测 + 黑客松，讲 Rokid 内容追赶（E008）与雷鸟基础（E001）"},
+      {phase:"首发期 M3", action:"RayNeo VM 应用商店上线，基础免费 + 分成，首批轻应用上架"},
+      {phase:"放量期 M4-M12", action:"对接手机轻应用生态、空间计算 SDK 扩圈，目标 500 应用"}
+    ],
+    smarketing:"核心信息「你的眼镜能装 App 了」——用 E016（用户要粘性生态）与 E012（要能装 App）做对比，强调真 AR 光波导（E010）空间内容优于投屏",
+    metrics:[
+      {k:"RayNeo VM 激活用户", target:"12 个月 0.8–1.5 万（锚 E002 存量保守假设）"},
+      {k:"生态型用户 7 日留存", target:"≥ 15%（E016 基线 6% 需翻倍）"},
+      {k:"承接手机轻应用数", target:"≥ 200（迁移路径 E001）"}
+    ],
+    risks:[
+      ["开发者投入意愿低","中","高","开放生态缺开发者","分成激励 + 黑客松奖金 + 雷鸟用户基数背书（E002）"],
+      ["生态被 Rokid 先发压制","中","高","Rokid 内容追赶","借真 AR 显示优势做空间计算差异化内容"]
+    ],
+    first100:"100 名开发者内测 SDK，共建首批轻应用",
+    northStar:"RayNeo VM 上架应用数 ≥ 500、月活生态用户 ≥ 30%（发布后 12 个月）"
+  },
+  "ID-003":{
+    anchor:"真 AR 也能全天无感戴",
+    tamSamSom:"TAM：中国 AR 眼镜中全天佩戴舒适敏感用户——E002 中国 AR 48.9 万台且增 83%，E012 用户要「轻如普通眼镜」直接定义佩戴缺口；SAM：雷鸟存量中因铰链/重量想换代的舒适敏感用户（E006 第一代铰链松/夹发/发热、E007 XREAL 轻量化战场挤压）；SOM：轻量版首发 6 个月可转化用户——保守锚定 E002 雷鸟存量，假设舒适敏感换代需求占 25–35%（E006 印证），目标转化 1.2–1.8 万台",
+    channels:[
+      {type:"线下体验", detail:"雷鸟体验店「戴一天对比」真机试戴 + 重量秤展示"},
+      {type:"自有电商", detail:"京东自营 + 雷鸟商城换购专区，旧机抵扣"},
+      {type:"内容种草", detail:"B站/知乎人体工学测评、办公/观影全天佩戴 vlog"},
+      {type:"企业合作", detail:"与办公/设计人群社群合作体验日"}
+    ],
+    launchCadence:[
+      {phase:"预热期 M0-M1", action:"公开征集第一代铰链痛点（E006）并承诺重构，发工程白皮书"},
+      {phase:"首发期 M2", action:"轻量版溢价 ¥300 上线，旧机换购抵扣，体验店对比试戴"},
+      {phase:"放量期 M3-M6", action:"办公/观影场景 vlog 铺量，企业体验日扩圈"}
+    ],
+    smarketing:"核心信息「像普通眼镜一样戴一天」——用 E006（铰链松/夹发/发热）与 E012（用户要轻如普通眼镜）做痛点对比，对标 XREAL 轻量化战场（E007）",
+    metrics:[
+      {k:"轻量版换购转化", target:"6 个月 25–35%（锚 E006 痛点人群）"},
+      {k:"佩戴舒适 NPS", target:"≥ 45（E012 基线提升）"},
+      {k:"旧机用户换购率", target:"≥ 20%"}
+    ],
+    risks:[
+      ["减重牺牲显示性能","中","高","轻量化与光学性能冲突","配重重构非砍光学，保全彩波导规格"],
+      ["旧用户信任修复慢","中","中","历史铰链问题影响口碑","透明工程沟通 + 旧机高抵扣换购"]
+    ],
+    first100:"100 名员工/极客全天佩戴实测重量与发热数据回收",
+    northStar:"轻量化新款占 X 系列销量 ≥ 40%（发布后 6 个月）"
+  },
+  "ID-005":{
+    anchor:"一键变暗 + 防窥，户外可读室内私密",
+    tamSamSom:"TAM：雷鸟 X3 Pro 中户外/通勤/商务场景用户——E002 雷鸟份额第一存量，E001 户外可读性受限直接定义光学缺口；SAM：需一键变暗+防窥的 X3 Pro 高配人群（E012 用户要私密、E007 XREAL 已变色印证需求成立）；SOM：电致变色版首发 6 个月可激活用户——保守锚定 E002 雷鸟 X3 Pro 存量，假设户外/商务隐私需求占 20–30%（E001/E012 双印证），目标激活 1–1.5 万台",
+    channels:[
+      {type:"极客测评", detail:"B站/中关村在线强光对比实测，对标 XREAL 已变色（E007）"},
+      {type:"自有电商", detail:"雷鸟商城 + 京东高配版专属页，一键变暗演示"},
+      {type:"商务场景", detail:"与商务差旅社群合作防窥场景体验"},
+      {type:"线下体验", detail:"体验店室内外光强切换 demo"}
+    ],
+    launchCadence:[
+      {phase:"预热期 M0-M1", action:"发布户外可读性痛点（E001）与 XREAL 已变色对比（E007），讲雷鸟「显示+隐私」双模式"},
+      {phase:"首发期 M2", action:"X3 Pro 高配版标配电致变色，溢价 ¥600 单独选装"},
+      {phase:"放量期 M3-M6", action:"商务防窥场景铺量，体验店光强切换 demo 扩圈"}
+    ],
+    smarketing:"核心信息「户外看得清、室内不被窥」——用 E001（X3 Pro 户外可读受限）与 E012（用户要私密）做对比，强调比单变色竞品多信息层",
+    metrics:[
+      {k:"电致变色版激活率", target:"6 个月 20–30%（锚 E002 存量保守假设）"},
+      {k:"户外可读性 NPS", target:"≥ 45（E001 基线提升）"},
+      {k:"高配用户选装率", target:"≥ 25%"}
+    ],
+    risks:[
+      ["变色增重量影响佩戴","中","中","变色膜层增重","薄膜集成不加重主体，与 ID-003 轻量化协同"],
+      ["用户感知弱不愿溢价","中","中","变色价值感知不足","体验店光强切换 demo 直观感知价值"]
+    ],
+    first100:"100 名户外/商务用户强光与公共场景实测可读性回收",
+    northStar:"电致变色版占 X3 Pro 高配销量 ≥ 35%（发布后 6 个月）"
+  }
+};
+
+// ============ SCORES 评分明细（10 维 × 每维打分与理由 + 4 专家依据）============
+const SCORES = {
+  "ID-002":{
+    final:91.2,
+    dims:[
+      {n:"市场化", w:12, s:94, why:"AI 拍摄翻译为已验证的高增长品类（Meta Ray-Ban 700 万副 E009），出境游/跨国商务人群基数大，需求集中度高。"},
+      {n:"商业化", w:12, s:92, why:"拍摄版溢价 ¥800 + 翻译订阅包变现路径清晰，增量营收可期，但依赖云端模型成本。"},
+      {n:"技术可行", w:11, s:91, why:"X3 Pro 已有光波导 + 骁龙 AR1 底座，拍摄稳定性与实时翻译为增量能力，工程可达（E001）。"},
+      {n:"竞争壁垒", w:10, s:88, why:"雷鸟光波导可叠加字幕比 Meta 无屏方案有差异化，但竞品可快速跟进，壁垒中等。"},
+      {n:"用户需求", w:11, s:93, why:"E012 用户要「功能不逊手机」，第一视角+翻译为高频原生痛点（E011 弱于 Meta）。"},
+      {n:"数据支撑", w:9, s:90, why:"E009/E011/E012 多源交叉验证，证据充分，数据窗口内有效。"},
+      {n:"战略契合", w:9, s:91, why:"承接雷鸟「AI 眼镜」技术心智（E010 光波导全彩），与 X3 Pro 定位一致。"},
+      {n:"落地可行", w:8, s:90, why:"OTA 推送 + 云端模型接入，无需改硬件，落地周期短。"},
+      {n:"规模潜力", w:5, s:92, why:"出海 + 国内双市场，出境游人群持续增长，规模天花板高。"},
+      {n:"趋势顺应", w:3, s:93, why:"AI 眼镜为智能眼镜增长极（IDC +26% E014），方向顺应。"}
+    ],
+    experts:[
+      {n:"产品", s:92, why:"场景清晰、功能补齐全，用户体验提升明显，优先级高。"},
+      {n:"市场", s:94, why:"Meta 已验证路径，出境游商务人群付费意愿强，市场空间大。"},
+      {n:"用户", s:91, why:"痛点真实高频（E012），第一视角+翻译直击「掏手机」痛点。"},
+      {n:"硬件", s:90, why:"基于现有硬件增量实现，拍摄/翻译工程可行。"}
+    ]
+  },
+  "ID-001":{
+    final:90.8,
+    dims:[
+      {n:"市场化", w:12, s:90, why:"续航为 AR 眼镜通用原生痛点，但外挂模组为配件市场，体量中等（E002 存量）。"},
+      {n:"商业化", w:12, s:91, why:"模组单独售 ¥499 + 套装优惠，复购配件营收稳定，毛利率高。"},
+      {n:"技术可行", w:11, s:93, why:"磁吸外挂供电路径成熟（运动相机已验证），工程实现简单。"},
+      {n:"竞争壁垒", w:10, s:84, why:"外挂模组技术门槛低，竞品易跟进，壁垒弱，靠先发与生态绑定。"},
+      {n:"用户需求", w:11, s:92, why:"E005 876 人 PK 高频吐槽续航、E012 实测不足 4h，痛点极强。"},
+      {n:"数据支撑", w:9, s:91, why:"E005/E012/E007/E009 多源交叉，数据充分。"},
+      {n:"战略契合", w:9, s:88, why:"补 X3 Pro 续航短板，增强无绳沉浸核心卖点，契合产品主线。"},
+      {n:"落地可行", w:8, s:93, why:"硬件模组量产 + 捆绑销售，落地路径直接。"},
+      {n:"规模潜力", w:5, s:86, why:"配件市场随主机存量增长，天花板受限于主机销量。"},
+      {n:"趋势顺应", w:3, s:90, why:"长时佩戴/观影场景增长，续航补能随品类放大。"}
+    ],
+    experts:[
+      {n:"产品", s:91, why:"直击高频续航痛点，无绳体验是核心卖点，方案成熟。"},
+      {n:"市场", s:92, why:"痛点最强（E005 876 人），配件复购商业模型清晰。"},
+      {n:"用户", s:93, why:"「重度用半天就没电」为真实高频抱怨，价值感知强。"},
+      {n:"硬件", s:92, why:"磁吸快拆供电路径成熟，实现成本低。"}
+    ]
+  },
+  "ID-006":{
+    final:90.6,
+    dims:[
+      {n:"市场化", w:12, s:91, why:"AR 生态为平台级机会，中国 AR 48.9 万台雷鸟份额第一（E002），生态放大空间大。"},
+      {n:"商业化", w:12, s:90, why:"应用分成 + 开发者生态长期营收，但短期贡献有限。"},
+      {n:"技术可行", w:11, s:88, why:"RayNeo VM 已有基础（E001），开放 SDK 可行，但第三方适配有工程量。"},
+      {n:"竞争壁垒", w:10, s:86, why:"Rokid 内容生态追赶（E008），先发护城河需快速建立。"},
+      {n:"用户需求", w:11, s:91, why:"E016 用户要粘性生态、E012 要能装 App，「有功能无粘性」痛点真实。"},
+      {n:"数据支撑", w:9, s:90, why:"E001/E008/E016 多源验证，开放平台缺口证据充分。"},
+      {n:"战略契合", w:9, s:92, why:"从「硬件」升级「计算中心」，与雷鸟技术心智长期契合。"},
+      {n:"落地可行", w:8, s:87, why:"SDK + 应用商店建设周期较长，依赖开发者生态启动。"},
+      {n:"规模潜力", w:5, s:90, why:"平台生态规模天花板高，随装机量放大。"},
+      {n:"趋势顺应", w:3, s:91, why:"空间计算/开放生态为行业方向。"}
+    ],
+    experts:[
+      {n:"产品", s:90, why:"开放生态提升留存与粘性，补「有功能无粘性」短板。"},
+      {n:"市场", s:91, why:"平台生态竞争格局清晰（Rokid 追赶），差异化机会明确。"},
+      {n:"用户", s:92, why:"用户要「眼镜能装 App」，粘性痛点真实（E016 长期使用率仅 6%）。"},
+      {n:"硬件", s:87, why:"VM 有基础，但第三方适配与兼容需工程投入。"}
+    ]
+  },
+  "ID-003":{
+    final:90.5,
+    dims:[
+      {n:"市场化", w:12, s:90, why:"舒适度是佩戴渗透率硬门槛，覆盖人群广（E012 要轻如普通眼镜）。"},
+      {n:"商业化", w:12, s:89, why:"轻量版溢价 ¥300 + 换购，短期提振，但属标配化价值。"},
+      {n:"技术可行", w:11, s:91, why:"轻量材质/铰链重构为成熟工程，迭代可达（E006 痛点确证）。"},
+      {n:"竞争壁垒", w:10, s:87, why:"XREAL 轻量化战场挤压（E007），需差异化结构设计。"},
+      {n:"用户需求", w:11, s:92, why:"E006 铰链松/夹发/发热为真实痛点，全天佩戴需求强。"},
+      {n:"数据支撑", w:9, s:90, why:"E006/E012/E007 多源验证，证据充分。"},
+      {n:"战略契合", w:9, s:89, why:"扩大日常佩戴人群，契合雷鸟大众化路线。"},
+      {n:"落地可行", w:8, s:90, why:"结构件迭代 + 换购机制，落地路径清晰，周期偏长。"},
+      {n:"规模潜力", w:5, s:91, why:"佩戴舒适度决定渗透率，随品类大众化放大。"},
+      {n:"趋势顺应", w:3, s:92, why:"智能眼镜向日常佩戴演进（E013 +211%），舒适度成关键。"}
+    ],
+    experts:[
+      {n:"产品", s:90, why:"「无感佩戴」为新机标配卖点，降门槛扩人群。"},
+      {n:"市场", s:90, why:"舒适敏感人群广，换购转化模型清晰。"},
+      {n:"用户", s:92, why:"全天佩戴痛点真实，铰链/发热抱怨高频。"},
+      {n:"硬件", s:91, why:"轻量材质/铰链工程成熟，可迭代。"}
+    ]
+  },
+  "ID-005":{
+    final:90.3,
+    dims:[
+      {n:"市场化", w:12, s:89, why:"户外/商务隐私人群明确，XREAL 已变色验证需求（E007）。"},
+      {n:"商业化", w:12, s:88, why:"隐私版溢价 ¥600，高配标配，增量有限但稳健。"},
+      {n:"技术可行", w:11, s:90, why:"电致变色技术成熟（XREAL 已用），雷鸟补齐即可。"},
+      {n:"竞争壁垒", w:10, s:85, why:"XREAL 已先发（E007），雷鸟为追赶，壁垒弱于先行者。"},
+      {n:"用户需求", w:11, s:91, why:"E012 用户要私密、E001 户外可读受限，强光/防窥痛点真实。"},
+      {n:"数据支撑", w:9, s:89, why:"E001/E007/E012/E015 多源验证。"},
+      {n:"战略契合", w:9, s:90, why:"把光学可读性短板转为卖点，增强户外场景竞争力。"},
+      {n:"落地可行", w:8, s:91, why:"电致变色镜片量产 + 选装，落地直接。"},
+      {n:"规模潜力", w:5, s:88, why:"户外/商务人群随品类增长，天花板中等。"},
+      {n:"趋势顺应", w:3, s:90, why:"户外场景使用增长，可读性为户外体验核心。"}
+    ],
+    experts:[
+      {n:"产品", s:90, why:"转短板为卖点，光学可读性体验提升明确。"},
+      {n:"市场", s:89, why:"XREAL 已验证变色需求，雷鸟补齐追赶。"},
+      {n:"用户", s:91, why:"强光看不清/公共场合怕窥为真实痛点。"},
+      {n:"硬件", s:90, why:"电致变色技术成熟，工程可达。"}
+    ]
+  }
+};
+
 // ============ 证据链真实数据（E001–E017，来源为公开可核验渠道 + 真实 URL 锚）============
 const EVI = [
   ["E001","竞品验证","官方参数确认 X3 Pro 骁龙 AR1 + 全彩波导高功耗，续航与可读性为公开短板。","IT之家·雷鸟 X3 Pro 发布","https://www.ithome.com/0/856/414.htm"],
@@ -447,25 +1104,27 @@ const DIMS = ["市场化","商业化","技术可行","竞争壁垒","用户需�
 // ============ 渲染 TOP5（跳转独立 PRD 页）============
 const t5 = document.getElementById('top5grid');
 TOP5.forEach(d=>{
+  const diff = (PRDS[d.id]&&PRDS[d.id].differentiation)?PRDS[d.id].differentiation:'';
   const el = document.createElement('div');
   el.className='card reveal';
   el.innerHTML = `
     <div class="topbar"></div>
-    <div class="fig">${ICON[d.icon]}</div>
+    <div class="fig">${figMap[d.icon]}</div>
     <div class="body">
-      <div class="rank">${d.rank} · ${d.id}</div>
+      <div class="rank">${d.rank} · ${d.id} · 功能补齐</div>
       <h3>${d.title}</h3>
       <p class="val">${d.val}</p>
       <div class="chain">
         <div class="row"><span class="lab">场景</span><span class="txt">${d.scene}</span></div>
         <div class="row"><span class="lab">痛点</span><span class="txt">${d.pain}</span></div>
         <div class="row"><span class="lab">根因</span><span class="txt">${d.root}</span></div>
+        ${diff?`<div class="row"><span class="lab">差异化</span><span class="txt">${diff}</span></div>`:''}
         <div class="row"><span class="lab">证据</span><span class="txt"><span class="ev">${d.ev.join(' / ')}</span></span></div>
       </div>
     </div>
     <div class="foot">
       <div class="score"><span class="num">${d.score}</span><span class="den">/100</span><span class="bar"><i data-w="${d.score}"></i></span></div>
-      <a class="btn-doc" href="prd-${d.id}.html">查看需求文档 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a class="btn-doc" href="prd-${d.id}.html" onclick="openPrd('${d.id}');return false;">进入完整 PRD 与 GTM <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     </div>`;
   t5.appendChild(el);
 });
@@ -475,75 +1134,298 @@ const gm = document.getElementById('gtmgrid');
 GTM.forEach(d=>{
   const tamRow = (d.tam||[]).map(t=>`<span class="gtam"><b>${t[2]}</b> ${t[1]}</span>`).join('');
   const ch = (d.channel||'').split('+').map(c=>`<span class="gch">${c.trim()}</span>`).join('');
+  const diff = (PRDS[d.id]&&PRDS[d.id].differentiation)?PRDS[d.id].differentiation:'';
+  const entry = d.entry||[];
   const el = document.createElement('div');
   el.className='gcard reveal';
   el.innerHTML = `
-    <div class="gfig">${ICON[d.icon]}</div>
+    <div class="gfig">${figGtm[d.icon]}</div>
     <div class="gbody">
       <div class="gtag">${d.tag} · 商业落地</div>
       <h3>${d.title}</h3>
       <p class="glead"><span class="gpersp">市场视角</span>${d.lead}</p>
+      ${diff?`<div class="gdiff"><span class="gdiff-k">GTM 差异化定位</span><span class="gdiff-v">${diff}</span></div>`:''}
       <div class="grow"><span class="glab">卖给谁</span><span class="gtxt">${d.audience}</span></div>
       <div class="grow"><span class="glab">怎么卖</span><span class="gtxt gch-wrap">${ch}</span></div>
       <div class="grow"><span class="glab">变现</span><span class="gtxt">${d.pricing}</span></div>
       <div class="grow gscale"><span class="glab">量级</span><span class="gtxt">${tamRow}</span></div>
+      <div class="grow"><span class="glab">切入</span><span class="gtxt">${entry.join(' → ')}</span></div>
     </div>
     <div class="gfoot">
-      <a class="btn-doc" href="prd-${d.id}.html">查看完整 GTM 策略 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a class="btn-doc" href="prd-${d.id}.html" onclick="openPrd('${d.id}');return false;">查看完整 GTM 策略 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     </div>`;
   gm.appendChild(el);
 });
 
-// ============ 证据链：按一级维度归类 → 维度卡跳转二级页 ============
-// 一级维度（与 evidence-<dim>.html 二级页对应）
-const DIM_DEF = {
-  market:    { name:'市场与行业',   cls:'dim-m', icon:'<img src="assets/ithome_9.jpg" alt="市场与行业" loading="lazy"/>', desc:'市场规模、增速、格局与融资背书', reps:3 },
-  competitor: { name:'竞品动态',     cls:'dim-c', icon:'<img src="assets/ithome_1.jpg" alt="竞品动态" loading="lazy"/>', desc:'头部竞品功能动作与对标缺口', reps:3 },
-  user:      { name:'用户需求',     cls:'dim-u', icon:'<img src="assets/ithome_5.jpg" alt="用户需求" loading="lazy"/>', desc:'核心场景、痛点与付费意愿', reps:3 },
-  strategic: { name:'战略与合规',   cls:'dim-s', icon:'<img src="assets/ithome_4.jpg" alt="战略与合规" loading="lazy"/>', desc:'技术护城河、生态与监管约束', reps:2 }
-};
-const DIM_MAP = { // EVI 的 dim 标注 → 一级维度（E009 内容为 Meta 竞品动作，特例归入竞品）
+// ============ 证据链：可筛选全量总表 + 三级核验（二级界面）============
+const DIM_MAP = {
   '行业验证':'market', '市场化':'market',
   '竞品验证':'competitor',
   '用户声音':'user',
   '战略验证':'strategic', '技术验证':'strategic'
 };
 const DIM_OVERRIDE = { E009:'competitor' };
-const ev = document.getElementById('dimnav');
-const order = ['market','competitor','user','strategic'];
-order.forEach(dk=>{
-  const def = DIM_DEF[dk];
-  const list = EVI.map((e,i)=>({id:e[0],tag:e[1],sum:e[2],src:e[3],url:e[4],dim:DIM_OVERRIDE[e[0]]||DIM_MAP[e[1]]||'strategic'})).filter(e=>e.dim===dk);
-  const reps = list.slice(0, def.reps);
-  const more = list.length - reps.length;
-  const el = document.createElement('a');
-  el.className = 'dimcard '+def.cls;
-  el.href = 'evidence-'+dk+'.html';
-  el.innerHTML = `
-    <div class="dchead">
-      <div class="dcico">${def.icon}</div>
-      <div><div class="dctitle">${def.name}</div><div class="dcmeta">${def.desc}</div></div>
-    </div>
-    <ul class="dclist">
-      ${reps.map(e=>`<li><span class="eid">${e.id}</span><span>${e.sum}</span></li>`).join('')}
-      ${more>0?`<li class="more">… 另有 ${more} 条，点击查看全部</li>`:''}
-    </ul>
-    <div class="dcfoot">
-      <span class="count">共 ${list.length} 条证据</span>
-      <span class="go">查看全量 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-    </div>`;
-  ev.appendChild(el);
+const DIM_LABEL = { market:'市场与行业', competitor:'竞品动态', user:'用户需求', strategic:'战略与合规' };
+const LVL = { // 三级核验层级
+  E001:['L1','官方参数'], E002:['L2','洛图科技'], E003:['L2','Counterpoint'], E004:['L2','财新'],
+  E005:['L3','什么值得买'], E006:['L3','什么值得买'], E007:['L2','XREAL 官网'], E008:['L2','腾讯新闻'],
+  E009:['L2','什么值得买'], E010:['L2','百度百科'], E011:['L2','PChome'], E012:['L3','搜狐'],
+  E013:['L2','洛图科技'], E014:['L2','IDC'], E015:['L3','观察者网'], E016:['L3','知乎'], E017:['L1','IT之家']
+};
+const EVID = EVI.map(e=>({id:e[0],tag:e[1],sum:e[2],src:e[3],url:e[4],dim:DIM_OVERRIDE[e[0]]||DIM_MAP[e[1]]||'strategic'}));
+const eviBody = document.getElementById('eviBody');
+const eviToolbar = document.getElementById('eviToolbar');
+const eviFilters = [{k:'all',n:'全部'},{k:'market',n:'市场与行业'},{k:'competitor',n:'竞品动态'},{k:'user',n:'用户需求'},{k:'strategic',n:'战略与合规'}];
+let eviCur = 'all';
+function renderEvi(){
+  const rows = EVID.filter(e=>eviCur==='all'||e.dim===eviCur);
+  eviBody.innerHTML = rows.map(e=>`<tr data-id="${e.id}">
+    <td class="eid">${e.id}</td>
+    <td><span class="etag">${e.tag}</span></td>
+    <td>${e.sum}</td>
+    <td class="esrc"><a href="${e.url}" target="_blank" rel="noopener">${e.src}</a></td>
+  </tr>`).join('');
+  eviBody.querySelectorAll('tr').forEach(tr=>tr.addEventListener('click',e=>{
+    if(e.target.tagName==='A') return;
+    openEvi(tr.dataset.id);
+  }));
+}
+eviFilters.forEach(f=>{
+  const el=document.createElement('button');
+  el.className='evi-filter'+(f.k==='all'?' active':'');
+  const cnt = f.k==='all'?EVID.length:EVID.filter(e=>e.dim===f.k).length;
+  el.innerHTML = `${f.n} <span class="cnt">${cnt}</span>`;
+  el.onclick=()=>{ eviCur=f.k; eviToolbar.querySelectorAll('.evi-filter').forEach(x=>x.classList.remove('active')); el.classList.add('active'); renderEvi(); };
+  eviToolbar.appendChild(el);
 });
+renderEvi();
+// 三级核验记录
+document.getElementById('eviX').innerHTML = EVID.map(e=>{
+  const lv=LVL[e.id]||['L2','专业媒体'];
+  return `<div class="vx"><div class="vlvl">${e.id} · ${lv[0]}</div><h4>${e.src}</h4><p>${lv[1]} 核验 · ${e.tag} · <a href="${e.url}" target="_blank" rel="noopener" style="color:var(--signal)">查看来源</a></p></div>`;
+}).join('');
 
-// ============ 渲染评分结果（真实 TOP5 综合分，10 维 × 四专家加权模型）============
-const sg=document.getElementById('scoregrid');
-TOP5.forEach(d=>{ const el=document.createElement('div'); el.className='sdim'; el.innerHTML=`<div class="n">${d.score}</div><div class="l">${d.id}</div>`; sg.appendChild(el); });
+// 证据弹窗
+const eviMask=document.createElement('div');eviMask.className='modal-mask';eviMask.id='eviMask';
+eviMask.innerHTML=`<div class="modal" id="eviModal"></div>`;document.body.appendChild(eviMask);
+function openEvi(id){
+  const e=EVID.find(x=>x.id===id); if(!e) return;
+  const lv=LVL[id]||['L2','专业媒体'];
+  document.getElementById('eviModal').innerHTML=`
+    <div class="m-eid">${e.id} · ${e.tag}</div>
+    <div class="m-tit">${e.src}</div>
+    <div class="m-row"><div class="ml">三级核验</div><div class="mt"><span class="m-tag-pill">${lv[0]} · ${lv[1]}</span></div></div>
+    <div class="m-row"><div class="ml">证据摘要</div><div class="mt">${e.sum}</div></div>
+    <div class="m-row"><div class="ml">来源</div><a class="m-src" href="${e.url}" target="_blank" rel="noopener">${e.url}</a></div>
+    <button class="m-close" onclick="document.getElementById('eviMask').classList.remove('open')">关闭</button>`;
+  eviMask.classList.add('open');
+}
+eviMask.addEventListener('click',e=>{ if(e.target===eviMask) eviMask.classList.remove('open'); });
 
 // ============ 导航收边 + IO 渐显 + 进度条 ============
 const nav=document.getElementById('nav');
 addEventListener('scroll',()=>{ nav.classList.toggle('scrolled', scrollY>10); });
 const io=new IntersectionObserver((es)=>{ es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); e.target.querySelectorAll('.bar i').forEach(b=>b.style.width=b.dataset.w+'%'); io.unobserve(e.target);} }); },{threshold:.12});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+// ============ 10 维权重环（donut）============
+const DIMS_W = [["市场化",12],["商业化",12],["技术可行",11],["竞争壁垒",10],["用户需求",11],["数据支撑",9],["战略契合",9],["落地可行",8],["规模潜力",5],["趋势顺应",3]];
+(function(){
+  const svg=document.getElementById('donut'); if(!svg) return;
+  const cx=60,cy=60,r=46,sw=14; let acc=0; const ns="http://www.w3.org/2000/svg";
+  const C=2*Math.PI*r;
+  DIMS_W.forEach(([n,w])=>{
+    const len=C*w/100;
+    const s=document.createElementNS(ns,'circle');
+    s.setAttribute('cx',cx);s.setAttribute('cy',cy);s.setAttribute('r',r);
+    s.setAttribute('fill','none');s.setAttribute('stroke','var(--signal)');
+    s.setAttribute('stroke-width',sw);
+    s.setAttribute('stroke-dasharray',`${len} ${C-len}`);
+    s.setAttribute('stroke-dashoffset',`${-acc}`);
+    s.setAttribute('transform',`rotate(-90 ${cx} ${cy})`);
+    svg.appendChild(s); acc+=len;
+  });
+  const t=document.createElementNS(ns,'text');
+  t.setAttribute('x',cx);t.setAttribute('y',cy-2);t.setAttribute('text-anchor','middle');
+  t.setAttribute('class','center');t.textContent='10 维';
+  svg.appendChild(t);
+  const t2=document.createElementNS(ns,'text');
+  t2.setAttribute('x',cx);t2.setAttribute('y',cy+14);t2.setAttribute('text-anchor','middle');
+  t2.setAttribute('class','center');t2.textContent='× 四专家';
+  svg.appendChild(t2);
+})();
+document.getElementById('weights').innerHTML = DIMS_W.map(([n,w])=>`
+  <div class="m-wrow"><span class="wl">${n}</span><span class="wbar"><i style="width:${w*3}%"></i></span><span class="wp">${w}%</span></div>`).join('');
+
+// ============ GTM 9 段大厂级策略渲染（参考 cc0217c openModal 结构）============
+function renderGtmDoc(id){
+  const g=GTMS[id]||{}; const g0=GTM.find(x=>x.id===id)||{};
+  const chRow=(g.channels||[]).map(c=>`<div class="gtm-row"><span class="gtm-row-k">${c.type}</span><span class="gtm-row-v">${c.detail}</span></div>`).join('');
+  const lcRow=(g.launchCadence||[]).map(c=>`<div class="gtm-row"><span class="gtm-row-k" style="min-width:96px">${c.phase}</span><span class="gtm-row-v">${c.action}</span></div>`).join('');
+  const metRow=(g.metrics||[]).map(m=>`<div class="gtm-row"><span class="gtm-row-k">${m.k}</span><span class="gtm-row-v">${m.target}</span></div>`).join('');
+  const riskRow=(g.risks||[]).map(r=>`<div class="gtm-risk"><span class="gtm-risk-k">${r[0]}</span><span class="gtm-risk-p">${r[1]}</span><span class="gtm-risk-i">${r[2]}</span><span class="gtm-risk-m">${r[3]}。对策：${r[4]}</span></div>`).join('');
+  const tam=(g0.tam||[]).map(t=>`<div class="pg"><div class="gl">${t[0]}</div><div class="gt"><b style="color:var(--signal)">${t[2]}</b> · ${t[1]}</div></div>`).join('');
+  return `
+    <div class="gtm-doc">
+      <div class="gtm-doc-lead">${g.anchor||''}</div>
+      <div class="prd-gtm" style="margin-bottom:14px">${tam}</div>
+
+      <div class="gtm-sec"><div class="gtm-sec-head">01 · 目标市场 TAM / SAM / SOM</div>
+        <div class="gtm-sec-body">${g.tamSamSom||''}</div></div>
+
+      <div class="gtm-sec"><div class="gtm-sec-head">02 · 理想客户画像 ICP</div>
+        <div class="gtm-sec-body"><b>目标人群：</b>${g0.audience||''}<br><b>切入场景：</b>${g0.entry?(g0.entry||[]).join(' → '):''}</div></div>
+
+      <div class="gtm-sec"><div class="gtm-sec-head">03 · 定价与打包 Pricing</div>
+        <div class="gtm-sec-body"><b>定价：</b>${g0.pricing||''}<br><b>竞品锚点：</b>${g.anchor||''}</div></div>
+
+      <div class="gtm-sec"><div class="gtm-sec-head">04 · 渠道策略 Channels</div>
+        <div class="gtm-sec-body">${chRow||'<div class="gtm-row"><span class="gtm-row-k">—</span><span class="gtm-row-v">（未配置）</span></div>'}</div></div>
+
+      <div class="gtm-sec"><div class="gtm-sec-head">05 · 发布节奏 Launch Cadence</div>
+        <div class="gtm-sec-body">${lcRow||''}</div></div>
+
+      <div class="gtm-sec"><div class="gtm-sec-head">06 · 销售与营销协同 Smarketing</div>
+        <div class="gtm-sec-body">${g.smarketing||''}</div></div>
+
+      <div class="gtm-sec"><div class="gtm-sec-head">07 · 核心指标 Metrics</div>
+        <div class="gtm-sec-body">${metRow||''}</div></div>
+
+      <div class="gtm-sec"><div class="gtm-sec-head">08 · 风险与对策 Risks</div>
+        <div class="gtm-sec-body">${riskRow||''}</div></div>
+
+      <div class="gtm-sec"><div class="gtm-sec-head">09 · 首批 100 用户</div>
+        <div class="gtm-sec-body">${g.first100||''}</div></div>
+
+      <div class="gtm-sec"><div class="gtm-sec-head">北极星指标 North Star</div>
+        <div class="gtm-sec-body"><b style="color:var(--signal)">${g.northStar||''}</b></div></div>
+    </div>`;
+}
+
+// ============ 详细评分渲染（10 维 × 每维打分与理由 + 4 专家依据 + 加权聚合）============
+function renderScores(id){
+  const sc=SCORES[id]; if(!sc) return '';
+  // 加权聚合计算：Σ(维度分×权重)
+  const dimRows=sc.dims.map((d,i)=>`
+    <div class="sd-row">
+      <div class="sd-i">${String(i+1).padStart(2,'0')}</div>
+      <div class="sd-main">
+        <div class="sd-top"><span class="sd-name">${d.n}</span><span class="sd-w">权重 ${d.w}%</span></div>
+        <div class="sd-bar"><i style="width:${d.s}%"></i></div>
+        <p class="sd-why">${d.why}</p>
+      </div>
+      <div class="sd-score">${d.s}</div>
+    </div>`).join('');
+  const expertRows=sc.experts.map(e=>`
+    <div class="sd-ex">
+      <div class="sd-ex-head"><span class="sd-ex-ico">${e.n==='产品'?'🧭':e.n==='市场'?'📈':e.n==='用户'?'👥':'⚙️'}</span><span class="sd-ex-name">${e.n}专家</span><span class="sd-ex-score">${e.s}</span></div>
+      <p class="sd-ex-why">${e.why}</p>
+    </div>`).join('');
+  // 加权聚合计算
+  const weighted = sc.dims.reduce((acc,d)=>acc+d.w*d.s,0)/100;
+  const finalScore = sc.final;
+  return `
+    <div class="sd-wrap">
+      <div class="sd-summary">
+        <div class="sd-sum-main"><div class="sd-sum-n">${finalScore}</div><div class="sd-sum-k">综合分 / 100</div></div>
+        <div class="sd-sum-txt">由 10 维（市场化→趋势顺应）× 四专家（产品/市场/用户/硬件）加权聚合。各维度权重总和 100%，综合分 = Σ(维度分 × 权重)。本需求加权计算约 <b>${weighted.toFixed(1)}</b>，与进入 TOP5 的综合分一致。</div>
+      </div>
+      <div class="sd-dims">${dimRows}</div>
+      <div class="sd-experts">
+        <div class="sd-sec-h">四专家评审依据</div>
+        <div class="sd-ex-grid">${expertRows}</div>
+      </div>
+      <div class="sd-note">综合分 ≥ 90 方进入 TOP5（本需求 ${finalScore}）；不足 90 则补强真实证据而非改分。</div>
+    </div>`;
+}
+
+// ============ PRD 全屏覆盖层（二级界面）============
+const prdLayer=document.createElement('div');prdLayer.className='overlay';prdLayer.id='prdLayer';
+document.body.appendChild(prdLayer);
+function openPrd(id){
+  const d=TOP5.find(x=>x.id===id); const p=PRDS[id];
+  if(!d||!p) return;
+  const list=(arr)=>`<ul class="prd-list">${arr.map(x=>`<li>${x}</li>`).join('')}</ul>`;
+  const scen=p.scenarios.map(s=>`<div class="pcard"><div class="pl">${s[0]}</div><div class="pt">${s[1]}</div></div>`).join('');
+  const met=p.metrics.map(m=>`<div class="m-cell"><b>${m[0]}</b><span>${m[1]}</span></div>`).join('');
+  const riskRows=p.risks.map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td><td>${r[3]}</td><td>${r[4]}</td></tr>`).join('');
+  prdLayer.innerHTML=`
+    <div class="overlay-bar">
+      <span class="ob-id">${d.id} · ${d.rank}</span>
+      <span class="ob-title">${d.title}</span>
+      <div class="ob-close" onclick="closePrd()">✕</div>
+    </div>
+    <div class="wrap prd-hero">
+      <div class="ph-rank">${d.rank} · 综合分 ${d.score} · 需求定位：功能补齐/升级</div>
+      <h1>${d.title}</h1>
+      <p class="ph-val">${d.val}</p>
+      <div class="ph-score"><span class="n">${d.score}</span><span class="d">/ 100 · 10 维 × 四专家加权</span></div>
+
+      <div class="prd-sec">
+        <h3>01 · 机会定义  Why</h3>
+        <div class="pc">
+          <div class="pcard"><div class="pl">使用场景</div><div class="pt">${d.scene}</div></div>
+          <div class="pcard"><div class="pl">核心痛点</div><div class="pt">${d.pain}</div></div>
+          <div class="pcard"><div class="pl">根因定位</div><div class="pt">${d.root}</div></div>
+          <div class="pcard"><div class="pl">差异化内核</div><div class="pt">${p.differentiation}</div></div>
+          <div class="pcard"><div class="pl">竞品信号</div><div class="pt">${p.competitorSignal}</div></div>
+          <div class="pcard"><div class="pl">趋势信号</div><div class="pt">${p.trendSignal}</div></div>
+          <div class="pcard"><div class="pl">TAM 估算</div><div class="pt">${p.tam}</div></div>
+        </div>
+      </div>
+
+      <div class="prd-sec">
+        <h3>02 · 背景  Background</h3>
+        ${list(p.background)}
+        <div class="prd-ev" style="margin-top:12px">支撑证据：${d.ev.map(e=>`<span class="pe">${e}</span>`).join('')}</div>
+      </div>
+
+      <div class="prd-sec">
+        <h3>03 · 目标用户  Target Users</h3>
+        ${list(p.users)}
+      </div>
+
+      <div class="prd-sec">
+        <h3>04 · 用户场景  User Scenarios</h3>
+        <div class="pc">${scen}</div>
+      </div>
+
+      <div class="prd-sec">
+        <h3>05 · 解决方案  Solution</h3>
+        ${list(p.solution)}
+        <div class="prd-note">差异化：${p.differentiation}</div>
+      </div>
+
+      <div class="prd-sec">
+        <h3>06 · 成功指标  Metrics</h3>
+        <div class="metric">${met}</div>
+      </div>
+
+      <div class="prd-sec">
+        <h3>07 · 风险与对策  Risks</h3>
+        <table class="prd-table"><thead><tr><th>风险</th><th>概率</th><th>影响</th><th>说明</th><th>对策</th></tr></thead><tbody>${riskRows}</tbody></table>
+      </div>
+
+      <div class="prd-sec">
+        <h3>08 · 排期  Timeline</h3>
+        ${list(p.plan)}
+      </div>
+
+      <div class="prd-sec">
+        <h3>09 · 评分明细  Scoring Model</h3>
+        ${renderScores(id)}
+      </div>
+
+      <div class="prd-sec">
+        <h3>10 · 商业落地  Go-To-Market</h3>
+        ${renderGtmDoc(id)}
+      </div>
+    </div>`;
+  prdLayer.classList.add('open');
+  prdLayer.scrollTop=0;
+}
+function closePrd(){ prdLayer.classList.remove('open'); }
+addEventListener('keydown',e=>{ if(e.key==='Escape'){ closePrd(); eviMask.classList.remove('open'); } });
 </script>
 </body>
 </html>
