@@ -455,12 +455,17 @@ p{color:var(--ink-mid)}
 .evi-x .vx p{font-size:12.5px;color:var(--ink-lo);line-height:1.5}
 
 /* ============ 二级界面：PRD 全屏覆盖层 + 证据弹窗（浅色）============ */
-.overlay{position:fixed;inset:0;z-index:200;background:var(--paper);overflow-y:auto;opacity:0;pointer-events:none;transition:opacity .35s var(--ease)}
+.overlay{position:fixed;inset:0;z-index:200;background:
+  radial-gradient(1200px 600px at 85% -10%, rgba(0,113,227,.10), transparent 60%),
+  radial-gradient(900px 500px at -10% 20%, rgba(47,130,201,.08), transparent 55%),
+  linear-gradient(180deg,#fafbfd,var(--paper) 30%);
+  overflow-y:auto;opacity:0;pointer-events:none;transition:opacity .35s var(--ease)}
+.overlay::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;background-image:radial-gradient(rgba(0,0,0,.025) 1px,transparent 1px);background-size:22px 22px}
 .overlay.open{opacity:1;pointer-events:auto}
-.overlay-bar{position:sticky;top:0;z-index:5;background:rgba(255,255,255,.8);backdrop-filter:saturate(180%) blur(18px);border-bottom:1px solid var(--line-soft);display:flex;align-items:center;gap:14px;padding:14px var(--s5)}
+.overlay-bar{position:sticky;top:0;z-index:6;background:rgba(255,255,255,.72);backdrop-filter:saturate(160%) blur(22px);border-bottom:1px solid rgba(0,113,227,.08);display:flex;align-items:center;gap:14px;padding:14px var(--s5)}
 .overlay-bar .ob-id{font-family:var(--font-mono);font-size:13px;color:var(--signal);font-weight:600}
 .overlay-bar .ob-title{font-size:15px;font-weight:600}
-.overlay-bar .ob-close{margin-left:auto;width:38px;height:38px;border-radius:50%;border:1px solid var(--line-soft);background:var(--paper);display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--ink-mid);transition:.2s}
+.overlay-bar .ob-close{margin-left:auto;width:38px;height:38px;border-radius:50%;border:1px solid var(--line-soft);background:rgba(255,255,255,.7);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--ink-mid);transition:.2s}
 .overlay-bar .ob-close:hover{background:var(--surface);color:var(--ink)}
 .prd-hero{padding:var(--s6) 0 var(--s4)}
 .prd-hero-grid{display:grid;grid-template-columns:1fr 300px;gap:var(--s5);align-items:center}
@@ -477,11 +482,11 @@ p{color:var(--ink-mid)}
 /* 推导链：场景→痛点→根因→方案 可视化 */
 .derive{margin-top:var(--s5)}
 .derive-head{font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:var(--s3)}
-.derive-chain{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.derive-step{position:relative;padding:18px 20px 18px 0}
-.derive-step+.derive-step{padding-left:20px}
-.derive-step+.derive-step::before{content:"";position:absolute;left:0;top:18px;bottom:18px;width:1px;background:var(--line-soft)}
-.derive-step .ds-ico{width:26px;height:26px;border-radius:50%;border:1px solid var(--signal-line);color:var(--signal);font-family:var(--font-mono);font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-bottom:10px}
+.derive-chain{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--signal-line);border-radius:var(--r-lg);background:linear-gradient(180deg,rgba(255,255,255,.82),rgba(244,247,251,.72));backdrop-filter:blur(14px);box-shadow:0 1px 2px rgba(0,0,0,.02),0 24px 60px rgba(0,113,227,.08);overflow:hidden}
+.derive-step{position:relative;padding:22px 24px 22px 0}
+.derive-step+.derive-step{padding-left:24px}
+.derive-step+.derive-step::before{content:"";position:absolute;left:0;top:22px;bottom:22px;width:1px;background:linear-gradient(180deg,var(--signal-line),transparent)}
+.derive-step .ds-ico{width:28px;height:28px;border-radius:50%;background:var(--signal);color:#fff;font-family:var(--font-mono);font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-bottom:12px;box-shadow:0 4px 12px rgba(0,113,227,.28)}
 .derive-step .ds-l{font-size:11px;font-family:var(--font-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--signal);margin-bottom:4px}
 .derive-step .ds-t{font-size:14px;color:var(--ink);line-height:1.55;font-weight:500}
 .derive-step .ds-a{display:flex;align-items:center;justify-content:space-between;margin-top:12px}
@@ -491,8 +496,10 @@ p{color:var(--ink-mid)}
 .derive-evs .de-lab{font-size:11px;font-family:var(--font-mono);letter-spacing:.1em;color:var(--ink-faint);margin-right:4px;text-transform:uppercase}
 .derive-evs .ev-chip{display:inline-block;font-family:var(--font-mono);font-size:11px;font-weight:600;color:var(--signal);background:var(--signal-line);border:1px solid var(--signal-soft);border-radius:6px;padding:2px 7px;text-decoration:none;transition:background .2s,color .2s}
 .derive-evs .ev-chip:hover{background:var(--signal);color:#fff}
-.prd-sec{margin-top:var(--s5);border-top:1px solid var(--line-soft);padding-top:var(--s4);scroll-margin-top:104px}
-.prd-sec h3{font-size:15px;font-family:var(--font-mono);letter-spacing:.06em;color:var(--ink-lo);text-transform:uppercase;margin-bottom:var(--s3)}
+.prd-sec{margin-top:var(--s6);padding-top:var(--s5);border-top:1px solid var(--line);scroll-margin-top:104px;position:relative}
+.prd-sec h3{display:flex;align-items:baseline;gap:14px;font-size:22px;font-family:var(--font-display);font-weight:600;letter-spacing:-.01em;color:var(--ink);text-transform:none;margin:0 0 var(--s3)}
+.prd-sec h3 .ps-no{font-family:var(--font-mono);font-size:13px;color:var(--signal);font-weight:700;letter-spacing:.08em;background:var(--signal-dim);border:1px solid var(--signal-line);padding:3px 10px;border-radius:8px;align-self:center}
+.prd-sec h3 .ps-en{font-size:13px;font-family:var(--font-mono);letter-spacing:.12em;color:var(--ink-faint);text-transform:uppercase;margin-left:auto}
 /* 二级页：左导航 + 右内容布局 */
 .prd-layout{display:flex;align-items:flex-start;gap:var(--s5)}
 .prd-aside{position:sticky;top:82px;flex:0 0 184px;align-self:flex-start;max-height:calc(100vh - 100px);overflow:auto;padding:6px 4px}
@@ -505,13 +512,14 @@ p{color:var(--ink-mid)}
 .overlay-nav a.active .n{color:var(--signal)}
 .prd-main{flex:1 1 auto;min-width:0}
 /* 最小化证据面板 */
-.prd-evsec .ev-count{font-family:var(--font-mono);font-size:12px;color:var(--signal);background:var(--signal-dim);padding:2px 9px;border-radius:99px;margin-left:8px;vertical-align:middle}
-.ev-mini{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:var(--s3)}
-.ev-chip{display:flex;flex-direction:column;gap:5px;padding:14px 16px;border-radius:var(--r-sm);border:1px solid var(--line-soft);background:var(--paper);text-decoration:none;transition:.2s var(--ease)}
-.ev-chip:hover{border-color:var(--signal-line);box-shadow:var(--shadow);transform:translateY(-2px)}
-.ev-chip .et{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint)}
-.ev-chip .es{font-size:13px;color:var(--ink);line-height:1.55}
-.ev-chip .el{font-size:11.5px;color:var(--signal);font-weight:600}
+.prd-evsec .ev-count{font-family:var(--font-mono);font-size:12px;color:var(--signal);background:var(--signal-dim);border:1px solid var(--signal-line);padding:2px 9px;border-radius:99px;align-self:center;white-space:nowrap}
+.ev-mini{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:0;border-top:1px solid var(--line)}
+.ev-chip{display:flex;flex-direction:column;gap:6px;padding:15px 18px;border-right:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);text-decoration:none;transition:background .2s var(--ease)}
+.ev-chip:nth-child(3n){border-right:none}
+.ev-chip:hover{background:var(--signal-dim)}
+.ev-chip .et{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--signal);font-weight:600}
+.ev-chip .es{font-size:13px;color:var(--ink);line-height:1.6}
+.ev-chip .el{font-size:11.5px;color:var(--ink-faint);font-weight:600}
 .ev-all{display:inline-block;margin-top:14px;font-size:13px;font-weight:600;color:var(--signal);text-decoration:none}
 .ev-all:hover{text-decoration:underline}
 .prd-sec .pc{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:var(--s4)}
@@ -527,10 +535,10 @@ p{color:var(--ink-mid)}
 .prd-list{list-style:none;display:flex;flex-direction:column;gap:11px}
 .prd-list li{position:relative;padding-left:22px;font-size:14px;color:var(--ink-mid);line-height:1.65}
 .prd-list li::before{content:"";position:absolute;left:2px;top:8px;width:9px;height:9px;border-radius:50%;border:1.5px solid var(--signal)}
-.prd-note{margin-top:var(--s3);padding:14px 18px;border-left:1px solid var(--signal-line);background:var(--signal-dim);border-radius:0 var(--r-sm) var(--r-sm) 0;font-size:14px;color:var(--ink-mid);line-height:1.65}
+.prd-note{margin-top:var(--s3);padding:15px 18px;border-left:3px solid var(--signal);background:linear-gradient(90deg,rgba(0,113,227,.07),transparent 80%);border-radius:0 var(--r-sm) var(--r-sm) 0;font-size:14px;color:var(--ink);line-height:1.7;font-weight:500}
 .prd-logic{margin-top:var(--s4);padding:14px 18px;border:1px solid var(--line-soft);border-left:1px solid var(--signal-line);border-radius:var(--r-sm);font-size:13.5px;color:var(--ink-mid);line-height:1.7}
 .prd-logic .ev{font-family:var(--font-mono);color:var(--signal);font-weight:600}
-.prd-sec-lead{font-size:13px;color:var(--ink-lo);line-height:1.6;margin-bottom:12px;padding-left:12px;border-left:2px solid var(--line-soft)}
+.prd-sec-lead{font-size:13.5px;color:var(--ink-mid);line-height:1.7;margin-bottom:14px;padding-left:14px;border-left:2px solid var(--signal)}
 .metric{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .metric .m-cell{padding:16px var(--s4);border-left:1px solid var(--line-soft)}
 .metric .m-cell:first-child{border-left:none}
@@ -543,7 +551,8 @@ p{color:var(--ink-mid)}
 .gtm-doc{display:flex;flex-direction:column;gap:12px}
 .gtm-doc-lead{padding:var(--s4) 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-size:16px;font-weight:600;color:var(--ink);letter-spacing:-.01em;line-height:1.6}
 .gtm-sec{margin-top:var(--s5);padding-top:var(--s4);border-top:1px solid var(--line-soft);scroll-margin-top:88px}
-.gtm-sec-head{padding:0 0 12px;font-family:var(--font-mono);font-size:12px;letter-spacing:.08em;color:var(--signal);font-weight:600;text-transform:uppercase}
+.gtm-sec-head{display:flex;align-items:center;gap:10px;padding:0 0 12px;font-family:var(--font-mono);font-size:13px;letter-spacing:.05em;color:var(--signal);font-weight:700}
+.gtm-sec-head::before{content:"";width:4px;height:16px;border-radius:2px;background:var(--signal)}
 .gtm-sec-body{padding:14px 16px;font-size:13.5px;color:var(--ink-mid);line-height:1.7}
 .gtm-sec-body b{color:var(--ink);font-weight:600}
 .gtm-row{display:flex;gap:14px;padding:7px 0;border-top:1px dashed var(--line-soft);font-size:13px}
@@ -558,7 +567,7 @@ p{color:var(--ink-mid)}
 .gtm-risk-m{color:var(--ink-mid);line-height:1.6}
 /* 评分明细 */
 .sd-wrap{display:flex;flex-direction:column;gap:var(--s4)}
-.sd-summary{display:flex;gap:var(--s5);align-items:center;padding:var(--s4) 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.sd-summary{display:flex;gap:var(--s5);align-items:center;padding:var(--s4) var(--s5);border:1px solid var(--signal-line);border-radius:var(--r-lg);background:linear-gradient(160deg,rgba(255,255,255,.85),rgba(231,240,250,.75));backdrop-filter:blur(14px);box-shadow:0 24px 60px rgba(0,113,227,.10)}
 .sd-sum-main{flex:0 0 auto;text-align:left;padding-right:var(--s5);border-right:1px solid var(--line-soft)}
 .sd-sum-n{font-family:var(--font-mono);font-size:48px;font-weight:700;color:var(--signal);letter-spacing:-.04em;line-height:1}
 .sd-sum-k{font-size:11px;color:var(--ink-faint);margin-top:6px;font-family:var(--font-mono);letter-spacing:.06em}
@@ -1905,7 +1914,7 @@ function openPrd(id){
       </div>
 
       <div class="prd-sec">
-        <h3>01 · 机会定义  Opportunity</h3>
+        <h3><span class="ps-no">01</span>机会定义<span class="ps-en">Opportunity</span></h3>
         <div class="pc">
           <div class="pcard"><div class="pl">使用场景</div><div class="pt">${d.scene}</div></div>
           <div class="pcard"><div class="pl">核心痛点</div><div class="pt">${d.pain}</div></div>
@@ -1917,7 +1926,7 @@ function openPrd(id){
       </div>
 
       <div class="prd-sec prd-evsec">
-        <h3>02 · 支撑证据  Evidence <span class="ev-count">${evCount(d.id)} 条</span></h3>
+        <h3><span class="ps-no">02</span>支撑证据<span class="ps-en">Evidence</span><span class="ev-count">${evCount(d.id)} 条</span></h3>
         <p class="prd-sec-lead">以下证据按本需求真实归属，跨「市场 / 竞品 / 用户 / 战略」四维交叉，单点来源仅作假设、不定义根因。</p>
         <div class="ev-mini">
           ${FUNC_EV[d.id].map(id=>{const e=EVID.find(x=>x.id===id);if(!e)return '';return `<a class="ev-chip t-${e.dim}" href="${e.url}" target="_blank" rel="noopener"><span class="et">${e.tag}</span><span class="es">${e.sum}</span><span class="el">↗ ${e.src}</span></a>`;}).join('')}
@@ -1926,44 +1935,44 @@ function openPrd(id){
       </div>
 
       <div class="prd-sec">
-        <h3>03 · 背景与目标  Background &amp; Objective</h3>
+        <h3><span class="ps-no">03</span>背景与目标<span class="ps-en">Background &amp; Objective</span></h3>
         ${list(p.background)}
         <div class="prd-note">目标：在现有硬件 / 生态底座上补齐该能力，把体验缺口转为差异化卖点，而非重新立项。</div>
       </div>
 
       <div class="prd-sec">
-        <h3>04 · 目标用户  Target Users</h3>
+        <h3><span class="ps-no">04</span>目标用户<span class="ps-en">Target Users</span></h3>
         ${list(p.users)}
       </div>
 
       <div class="prd-sec">
-        <h3>05 · 用户场景  User Scenarios</h3>
+        <h3><span class="ps-no">05</span>用户场景<span class="ps-en">User Scenarios</span></h3>
         <div class="pc">${scen}</div>
       </div>
 
       <div class="prd-sec">
-        <h3>06 · 解决方案  Solution</h3>
+        <h3><span class="ps-no">06</span>解决方案<span class="ps-en">Solution</span></h3>
         ${list(p.solution)}
         <div class="prd-note">差异化：${p.differentiation}　|　TAM 估算：${p.tam}</div>
       </div>
 
       <div class="prd-sec">
-        <h3>07 · 成功指标  Metrics</h3>
+        <h3><span class="ps-no">07</span>成功指标<span class="ps-en">Metrics</span></h3>
         <div class="metric">${met}</div>
       </div>
 
       <div class="prd-sec">
-        <h3>08 · 风险与对策  Risks &amp; Mitigations</h3>
+        <h3><span class="ps-no">08</span>风险与对策<span class="ps-en">Risks &amp; Mitigations</span></h3>
         <table class="prd-table"><thead><tr><th>风险</th><th>概率</th><th>影响</th><th>说明</th><th>对策</th></tr></thead><tbody>${riskRows}</tbody></table>
       </div>
 
       <div class="prd-sec">
-        <h3>09 · 排期路线  Timeline</h3>
+        <h3><span class="ps-no">09</span>排期路线<span class="ps-en">Timeline</span></h3>
         ${list(p.plan)}
       </div>
 
       <div class="prd-sec">
-        <h3>10 · 评分模型  Scoring</h3>
+        <h3><span class="ps-no">10</span>评分模型<span class="ps-en">Scoring</span></h3>
         ${renderScores(id)}
       </div>
     </div>
