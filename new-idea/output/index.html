@@ -138,6 +138,9 @@ p{color:var(--ink-mid)}
 .flist tr:last-child td{border-bottom:0}
 .flist tr:hover td{background:var(--surface-2)}
 .flist .name{color:var(--ink);font-weight:500}
+.flist .name.cand{color:var(--signal);cursor:pointer;text-decoration:underline;text-decoration-style:dotted;text-underline-offset:4px}
+.flist tbody tr[onclick]{cursor:pointer;transition:background .18s}
+.flist tbody tr[onclick]:hover{background:var(--signal-dim)}
 .flist .id{font-family:var(--font-mono);font-size:12px;color:var(--ink-lo)}
 .flist .cat{font-size:13px;color:var(--ink-lo)}
 .flist .st{font-family:var(--font-mono);font-size:12px;padding:3px 9px;border-radius:6px;font-weight:500}
@@ -638,6 +641,13 @@ p{color:var(--ink-mid)}
 .modal .m-row .mt{font-size:14px;color:var(--ink-mid);line-height:1.6}
 .modal .m-src{display:inline-flex;align-items:center;gap:8px;margin-top:6px;color:var(--signal);font-size:14px;word-break:break-all}
 .modal .m-close{margin-top:var(--s4);width:100%;padding:12px;border:none;border-radius:var(--r-sm);background:var(--surface);color:var(--ink-mid);font-size:14px;cursor:pointer;font-family:var(--font-body)}
+.modal .m-hint{margin-top:14px;padding:11px 14px;border-left:2px solid var(--signal);background:var(--signal-dim);border-radius:0 var(--r-sm) var(--r-sm) 0;font-size:12.5px;color:var(--ink-mid);line-height:1.6}
+.modal .cand-evs{display:flex;flex-direction:column;gap:8px}
+.modal .cand-ev{display:flex;flex-direction:column;gap:3px;padding:10px 12px;border:1px solid var(--line-soft);border-radius:var(--r-sm);text-decoration:none;transition:.2s var(--ease)}
+.modal .cand-ev:hover{border-color:var(--signal-line);background:var(--signal-dim)}
+.modal .cand-ev .ce-id{font-family:var(--font-mono);font-size:11px;font-weight:700;color:var(--signal)}
+.modal .cand-ev .ce-s{font-size:12.5px;color:var(--ink);line-height:1.5}
+.modal .cand-ev .ce-src{font-size:11px;color:var(--ink-faint)}
 .m-tag-pill{display:inline-block;padding:3px 11px;border-radius:99px;font-size:12px;background:var(--surface);color:var(--ink-mid)}
 
 @media(max-width:900px){
@@ -827,11 +837,11 @@ body{
         <tr><td class="id">ID-006</td><td class="name"><a href="prd-ID-006.html">安卓应用生态 / RayNeo VM</a></td><td class="cat">平台 / 生态</td><td><span class="st top">TOP5</span></td><td class="id">90.6</td></tr>
         <tr><td class="id">ID-003</td><td class="name"><a href="prd-ID-003.html">轻量化舒适佩戴（铰链 / 磁吸 / 材质）</a></td><td class="cat">硬件 / 佩戴</td><td><span class="st top">TOP5</span></td><td class="id">90.5</td></tr>
         <tr><td class="id">ID-005</td><td class="name"><a href="prd-ID-005.html">电致变色 / 隐私智能镜片</a></td><td class="cat">硬件 / 光学</td><td><span class="st top">TOP5</span></td><td class="id">90.3</td></tr>
-        <tr><td class="id">ID-008</td><td class="name">怀旧游戏模拟器生态（浮窗 / 主机 ROM）</td><td class="cat">内容 / 游戏</td><td><span class="st watch">观测候选</span></td><td class="id">84.6</td></tr>
-        <tr><td class="id">ID-009</td><td class="name">AI 语音助手 / 多模交互（所见即所说）</td><td class="cat">软件 / AI 能力</td><td><span class="st watch">观测候选</span></td><td class="id">83.8</td></tr>
-        <tr><td class="id">ID-010</td><td class="name">eSIM 独立联网 / 出海本地化</td><td class="cat">平台 / 连接</td><td><span class="st watch">观测候选</span></td><td class="id">82.9</td></tr>
-        <tr><td class="id">ID-011</td><td class="name">AR 空间导航 / 实景定位</td><td class="cat">软件 / 定位</td><td><span class="st watch">观测候选</span></td><td class="id">81.5</td></tr>
-        <tr><td class="id">ID-012</td><td class="name">会议记录 / 实时提词</td><td class="cat">软件 / 办公</td><td><span class="st watch">观测候选</span></td><td class="id">80.2</td></tr>
+        <tr onclick="openCandidate('ID-008')"><td class="id">ID-008</td><td class="name cand">怀旧游戏模拟器生态（浮窗 / 主机 ROM）</td><td class="cat">内容 / 游戏</td><td><span class="st watch">观测候选</span></td><td class="id">84.6</td></tr>
+        <tr onclick="openCandidate('ID-009')"><td class="id">ID-009</td><td class="name cand">AI 语音助手 / 多模交互（所见即所说）</td><td class="cat">软件 / AI 能力</td><td><span class="st watch">观测候选</span></td><td class="id">83.8</td></tr>
+        <tr onclick="openCandidate('ID-010')"><td class="id">ID-010</td><td class="name cand">eSIM 独立联网 / 出海本地化</td><td class="cat">平台 / 连接</td><td><span class="st watch">观测候选</span></td><td class="id">82.9</td></tr>
+        <tr onclick="openCandidate('ID-011')"><td class="id">ID-011</td><td class="name cand">AR 空间导航 / 实景定位</td><td class="cat">软件 / 定位</td><td><span class="st watch">观测候选</span></td><td class="id">81.5</td></tr>
+        <tr onclick="openCandidate('ID-012')"><td class="id">ID-012</td><td class="name cand">会议记录 / 实时提词</td><td class="cat">软件 / 办公</td><td><span class="st watch">观测候选</span></td><td class="id">80.2</td></tr>
         <tr><td class="id">ID-007</td><td class="name">健康监测传感器融合</td><td class="cat">硬件 / 传感</td><td><span class="st watch">观测池</span></td><td class="id">76.4</td></tr>
         <tr><td class="id">ID-004</td><td class="name">独立支付（NFC / 扫码）</td><td class="cat">软件 / 支付</td><td><span class="st pseudo">已具备 · 升级补齐</span></td><td class="id">—</td></tr>
       </tbody>
@@ -1063,7 +1073,7 @@ body{
         <a class="epi-card-link" href="#top"><span class="ecl-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.27 5.82 21 7 14.14 2 9.27l6.91-1.01z"/></svg></span><div><div class="ecl-t">机会总览</div><div class="ecl-d">TOP5 候选 + 综合评分</div></div></a>
         <a class="epi-card-link" href="#list"><span class="ecl-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg></span><div><div class="ecl-t">完整需求池</div><div class="ecl-d">backlog 全量列表</div></div></a>
         <a class="epi-card-link" href="#gtm"><span class="ecl-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V7l8-4 8 4v14"/><circle cx="10" cy="11" r="1"/><circle cx="15" cy="11" r="1"/><path d="M10 16s1-2 2-2 2 2 2 2"/></svg></span><div><div class="ecl-t">上市与商业化</div><div class="ecl-d">GTM 策略与节奏</div></div></a>
-        <a class="epi-card-link" href="#evi"><span class="ecl-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg></span><div><div class="ecl-t">证据链</div><div class="ecl-d">E001–E056 可追溯来源</div></div></a>
+        <a class="epi-card-link" href="#evi"><span class="ecl-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg></span><div><div class="ecl-t">证据链</div><div class="ecl-d">E001–E062 可追溯来源</div></div></a>
         <a class="epi-card-link" href="#method"><span class="ecl-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 3"/><path d="M12 3v2"/><path d="M12 19v2"/><path d="M3 12h2"/><path d="M19 12h2"/></svg></span><div><div class="ecl-t">方法论</div><div class="ecl-d">推导框架与质量红线</div></div></a>
       </div>
       <div class="epi-col">
@@ -1131,14 +1141,14 @@ const PRDS = {
     plan:["Q3 OTA 推送实时翻译公测","Q4 联合旅游局内容战役","次年 Q1 出海独立站上线","次年 Q2 拍摄翻译素材云端工作流"]
   },
   "ID-001":{
-    background:["X3 Pro 骁龙 AR1 + 全彩波导功耗高，续航为公开短板","E005：什么值得买 876+ 用户高频吐槽续航焦虑","E012：搜狐用户实测「重度用半天就没电」，出门必带充电宝破坏无绳沉浸","XREAL / Meta 均未解决无绳长续航，竞品缺口明确"],
+    background:["X3 Pro 骁龙 AR1 + 全彩波导功耗高，续航为公开短板","E031：什么值得买 876+ 用户高频吐槽续航焦虑","E033：搜狐用户实测「重度用半天就没电」，出门必带充电宝破坏无绳沉浸","XREAL / Meta 均未解决无绳长续航，竞品缺口明确"],
     users:["重度差旅族：航班/高铁长时观影导航","户外创作者：全天拍摄记录","长时导航用户：骑行/驾驶持续使用","通勤重度用户：早晚高峰全程使用"],
     scenarios:[["长途差旅", "全天观影/导航，途中无充电机会"], ["户外拍摄", "连续 4-6 小时第一视角记录"], ["早晚通勤", "全程使用 + 午休补电"]],
     solution:["磁吸式外挂电池模组，主体保持无绳","30 分钟快充至 80%，抽空即补","低功耗模式自动切换，非核心功能降载","模组同时作收纳/支架，一物多用"],
     differentiation:"不是加大机身电池，而是用颈挂/磁吸分离供电保留无绳体验；与雷鸟光波导全彩技术心智互补而非冲突",
-    competitorSignal:"XREAL / Meta 均未解决无绳长续航（E007/E009），雷鸟若做磁吸模组即开辟差异化形态，竞品缺口明确",
-    trendSignal:"AR 观影/导航长时使用场景增长（E002/E013），续航成高频原生痛点",
-    tam:"中国 AR 眼镜 48.9 万台（E002）且年增 83%，长时佩戴用户天然需外挂供电，潜在装机覆盖过半存量用户",
+    competitorSignal:"XREAL / Meta 均未解决无绳长续航（E018/E026），雷鸟若做磁吸模组即开辟差异化形态，竞品缺口明确",
+    trendSignal:"AR 观影/导航长时使用场景增长（E001/E002），续航成高频原生痛点",
+    tam:"中国 AR 眼镜 48.9 万台（E001）且年增 83%，长时佩戴用户天然需外挂供电，潜在装机覆盖过半存量用户",
     metrics:[["模组附购率","≥30%"],["全天续航达成率","≥95%"],["30min 快充至 80%","达成"],["退货率","≤5%"]],
     risks:[["佩戴增重", "中", "中", "外挂增重影响平衡", "人体工学配重设计"],["兼容性", "低", "高", "不同型号主机接口差异", "模块化磁吸接口标准"],["热量", "中", "中", "快充发热", "分区散热 + 充电限温"]],
     plan:["Q3 模组量产","Q4 双十一主推 + 购机捆绑","次年 Q1 二代快充模组","次年 Q2 海外 Amazon 上线"]
@@ -1149,7 +1159,7 @@ const PRDS = {
     scenarios:[["通勤办公", "微信/日程/笔记在镜片叠加，免掏手机"], ["出行导航", "打车/地图/翻译多 App 随取"], ["开发共创", "开发者提交应用到 RayNeo VM"]],
     solution:["开放 RayNeo VM SDK，标准化接入流程","微信/导航/笔记等安卓应用上镜","应用内分成 15%，激励开发者共创","上线即集成应用商店 + 一键安装"],
     differentiation:"从「单功能眼镜」升级为「随身计算中心」，以开放生态留存用户、形成平台粘性，区别于竞品封闭方案",
-    competitorSignal:"Rokid 内容生态追赶（E008）凸显开放平台缺口，雷鸟 VM 有基础但需放量",
+    competitorSignal:"Rokid 内容生态追赶（E025）凸显开放平台缺口，雷鸟 VM 有基础但需放量",
     trendSignal:"AR 应用市场随品类增长，开发者生态是硬件规模化的放大器",
     tam:"AR 应用市场随智能眼镜增长，开发者订阅与应用分成是可持续营收",
     metrics:[["上架应用数","≥50"],["人均日启动","≥8 次"],["开发者数","≥200"],["应用内分成营收","≥¥1000 万/年"]],
@@ -1157,13 +1167,13 @@ const PRDS = {
     plan:["Q3 开发者预览 + SDK 开放","Q4 应用商店上线 50 款","次年 Q1 开发者大会 + 千万级分成","次年 Q2 生态开放海外"]
   },
   "ID-003":{
-    background:["第一代铰链松、磁吸夹发，Air 系列发热（E006）","佩戴舒适度为真实用户反馈短板，制约日常佩戴渗透率","轻量化是扩大日常佩戴人群的硬门槛","结构件与材质未针对长时间佩戴优化"],
+    background:["佩戴由重量分布与鼻托决定，轻至 25 克≠无感（E035）","佩戴舒适度为真实用户反馈短板，制约日常佩戴渗透率（E036 横评）","轻量化是扩大日常佩戴人群的硬门槛","X3 Pro 因集成 eSIM 增重至 68 克（E035）"],
     users:["全天佩戴办公族：会议/阅读/多屏办公","近视用户：需日常替换镜片","女性用户：对重量/夹发/美学敏感","轻度尝鲜用户：犹豫入门的舒适顾虑"],
     scenarios:[["全天办公", "8h 连续佩戴会议/阅读"], ["日常通勤", "早晚高峰全程佩戴"], ["近视佩戴", "替换近视镜片长时间使用"]],
     solution:["重构铰链与磁吸结构，消除夹发与松动","引入轻量材质（钛合金/镁合金），整机降重","发热分区散热，长时间佩戴不闷","镜腿/鼻托人体工学微调，适配更多脸型"],
     differentiation:"把「无感佩戴」作为新一代主机标配卖点，降低日常佩戴门槛，覆盖更广泛人群",
     competitorSignal:"轻量化是佩戴渗透率的硬门槛，竞品在佩戴舒适度上各有短板，属可工程迭代项",
-    trendSignal:"AR 眼镜向「日常佩戴」演进（E013 智能眼镜 +211%），舒适度决定渗透速度",
+    trendSignal:"AR 眼镜向「日常佩戴」演进（E002 中国智能眼镜 +211%），舒适度决定渗透速度",
     tam:"日常 AR 眼镜随佩戴门槛下降而扩大，舒适佩戴是提升转化率的核心变量",
     metrics:[["日均佩戴时长","≥4h"],["退货率","≤5%"],["佩戴舒适评分","≥4.5/5"],["近视适配率","≥80%"]],
     risks:[["改型周期", "高", "高", "结构件改型开发周期长", "分阶段迭代 + 模具并行"],["成本", "中", "中", "轻量材质成本上升", "高端机型先行，逐步下放"],["散热", "中", "中", "分区散热方案验证", "仿真 + 真机压测"]],
@@ -1175,7 +1185,7 @@ const PRDS = {
     scenarios:[["户外强光", "强光下镜片可读性不足，一键变暗"], ["公共场合", "地铁/咖啡厅防偷窥"], ["驾驶导航", "日间防眩光 + 导航叠加"]],
     solution:["一键电致变色，强光自动增亮、室内防窥","防窥模式，降低可视角度","光感自动调节，明暗自适应","与导航/内容联动，暗场景优化显示"],
     differentiation:"把光学可读性短板转为体验卖点，户外场景成为标准配置，补齐 XREAL 已验证的硬件缺口",
-    competitorSignal:"XREAL One Pro 电致变色已被市场接受（E007），雷鸟落后，属可补齐的验证缺口",
+    competitorSignal:"XREAL One Pro 电致变色已被市场接受（E018/E019），雷鸟落后，属可补齐的验证缺口",
     trendSignal:"户外与驾驶场景使用增长，光学可读性是户外体验核心",
     tam:"智能镜片随 AR 眼镜户外场景增长，电致变色是户外标配升级",
     metrics:[["变暗触发率","≥40%"],["户外可读性评分","≥4.5/5"],["防窥可视角度","≤±30°"],["响应速度","≤0.5s"]],
@@ -1199,28 +1209,28 @@ const TOP5 = [
     scene:"出差、长途旅行、户外全天拍摄 / 导航等高频使用场景。",
     pain:"X3 Pro 骁龙 AR1 + 全彩波导高功耗，续航为公开短板，用户吐槽续航焦虑。",
     root:"光波导 + 旗舰 SoC 功耗刚性，短期电芯密度难突破；外挂模组是轻量补能的最快路径，非从零研发。",
-    ev:["E005","E012"] },
+    ev:["E031","E033"] },
   { id:"ID-006", rank:"TOP 3", score:90.6, icon:ICN["ID-006"],
     title:"安卓应用生态 / RayNeo VM",
     val:"开放应用虚拟机，让微信、导航、笔记等安卓应用上镜，把眼镜从「单功能」变为「随身计算中心」。",
     scene:"日常通勤、办公、出行中需要随时调起多类 App 的场景。",
     pain:"封闭生态应用少，用户要频繁掏手机；Rokid 内容生态追赶凸显开放平台缺口。",
-    root:"雷鸟 RayNeo AR VM 已具备生态基础，但第三方应用接入不足；开放平台是留存与差异化关键。",
-    ev:["E001","E008"] },
+    root:"雷鸟 RayNeo AR VM 已具备生态基础（官方 E013），但第三方应用接入不足；Rokid 生态追赶（E025）凸显开放平台是留存与差异化关键。",
+    ev:["E013","E025"] },
   { id:"ID-003", rank:"TOP 4", score:90.5, icon:ICN["ID-003"],
     title:"轻量化舒适佩戴（铰链 / 磁吸 / 材质）",
     val:"重构铰链与磁吸结构、引入轻量材质，把长时间佩戴负担降到「无感」，扩大日常佩戴人群。",
     scene:"全天办公、阅读、通勤等需要长时间佩戴的场景。",
     pain:"第一代铰链松、磁吸夹发，Air 系列发热，佩戴舒适度为真实用户反馈短板。",
-    root:"结构件与材质未针对长时间佩戴优化；轻量化是佩戴渗透率的硬门槛，属可工程迭代项。",
-    ev:["E006","E010"] },
+    root:"结构件与材质未针对长时间佩戴优化（E035 佩戴由重量分布决定）；轻量化是佩戴渗透率的硬门槛，属可工程迭代项。",
+    ev:["E035","E036"] },
   { id:"ID-005", rank:"TOP 5", score:90.3, icon:ICN["ID-005"],
     title:"电致变色 / 隐私智能镜片",
     val:"一键变暗 + 防窥，户外强光可读、室内防偷窥，把光学可读性短板转为体验卖点。",
     scene:"户外强光、雪地、驾驶、公共场合需隐私防窥的场景。",
     pain:"雷鸟光学可读性短板 + 一键变暗缺口，强光下看不清、公共场合易暴露内容。",
-    root:"XREAL One Pro 电致变色已被市场接受，雷鸟在该能力上落后，属已验证可补的硬件缺口。",
-    ev:["E007","E015"] }
+    root:"XREAL One Pro 电致变色已被市场接受（E018/E019），雷鸟在该能力上落后，属已验证可补的硬件缺口。",
+    ev:["E018","E019"] }
 ];
 
 // ============ GTM 真实数据（分需求差异化）============
@@ -1271,23 +1281,23 @@ const GTM = [
 const GTMS = {
   "ID-002":{
     anchor:"AI 拍摄翻译，出行解放双手",
-    tamSamSom:"TAM：AI 拍摄眼镜需求用户——E009 Meta Ray-Ban 累计 700 万副验证路径可规模化，国内对应百万级潜在；SAM：雷鸟 X3 Pro 存量中旅行/商务/AI 早期采用人群（E001 已支持语音翻译/同声传译）；SOM：首发 6 个月 AI 拍摄翻译功能可激活用户——保守锚定 E002 雷鸟存量，假设出境/商务场景用户占 15–25%（E012 功能逊手机警示体验门槛），目标激活 0.6–1.2 万",
+    tamSamSom:"TAM：AI 拍摄眼镜需求用户——E026 Meta Ray-Ban 2025 出货 740 万台验证路径可规模化，国内对应百万级潜在；SAM：雷鸟 X3 Pro 存量中旅行/商务/AI 早期采用人群（E012 官方已支持 AI 拍摄与实时翻译）；SOM：首发 6 个月 AI 拍摄翻译功能可激活用户——保守锚定 E001 雷鸟 AR 存量，假设出境/商务场景用户占 15–25%（E033 功能逊手机警示体验门槛），目标激活 0.6–1.2 万",
     channels:[
       {type:"内容种草", detail:"小红书/抖音出境游、商务会议场景 KOL 实测「拍+译」短视频矩阵"},
-      {type:"海外众筹", detail:"Kickstarter/Indiegogo 首发，借 Meta 已教育市场势能（E009）"},
+      {type:"海外众筹", detail:"Kickstarter/Indiegogo 首发，借 Meta 已教育市场势能（E026）"},
       {type:"自有电商", detail:"雷鸟商城 + 京东/天猫旗舰店拍摄版专属页"},
       {type:"跨界联名", detail:"与翻译/旅行 App 联名推场景礼包"}
     ],
     launchCadence:[
-      {phase:"预热期 M0-M1", action:"出境游 KOL 实测「拍+译」，讲 Meta 已验证路径（E009）"},
+      {phase:"预热期 M0-M1", action:"出境游 KOL 实测「拍+译」，讲 Meta 已验证路径（E026）"},
       {phase:"首发期 M2", action:"X3 Pro 拍摄版溢价 ¥800 上线，V3 用户以旧换新优先推送"},
       {phase:"放量期 M3-M6", action:"海外众筹解锁多语言包、联名旅行 App 推场景礼包"}
     ],
-    smarketing:"核心信息「眼镜比你手机更懂出国」——用 E009（Meta 700 万副路径）与 E012（用户要功能不逊手机）做对比，强调光波导可显字幕的差异化（ID-002 差异化内核）",
+    smarketing:"核心信息「眼镜比你手机更懂出国」——用 E026（Meta 出货 740 万台路径）与 E033（用户要功能不逊手机）做对比，强调光波导可显字幕的差异化（ID-002 差异化内核）",
     metrics:[
-      {k:"AI 拍摄翻译激活率", target:"6 个月 12–20%（锚 E002 存量保守假设）"},
-      {k:"第一视角素材分享率", target:"≥ 25%（E009 路径验证）"},
-      {k:"同声传译准确率", target:"≥ 95%（E001 已支持同传）"}
+      {k:"AI 拍摄翻译激活率", target:"6 个月 12–20%（锚 E001 存量保守假设）"},
+      {k:"第一视角素材分享率", target:"≥ 25%（E026 路径验证）"},
+      {k:"同声传译准确率", target:"≥ 95%（E012 已支持同传）"}
     ],
     risks:[
       ["拍摄清晰度逊手机遭吐槽","中","高","手机更清晰但需手持，眼镜第一视角解放双手","主打「随手记录」非「替代手机」，本地+云端双备份"],
@@ -1298,7 +1308,7 @@ const GTMS = {
   },
   "ID-001":{
     anchor:"全彩无绳续航翻倍，重度场景不掉链",
-    tamSamSom:"TAM：中国 AR 眼镜中长时佩戴/重度场景用户——E002 中国 AR 48.9 万台，E005 续航为 876 人高频原生痛点印证需求集中；SAM：雷鸟 X 系列存量中长时佩戴重度用户（E012 实测不足 4h 直接定义续航缺口）；SOM：首发 6 个月颈挂模组可激活用户——保守锚定 E002 雷鸟存量，假设重度长时用户占 20–30%（E005 印证），目标渗透率 10–15%、约 1–1.8 万套",
+    tamSamSom:"TAM：中国 AR 眼镜中长时佩戴/重度场景用户——E001 中国 AR 48.9 万台，E031 续航为 876 人高频原生痛点印证需求集中；SAM：雷鸟 X 系列存量中长时佩戴重度用户（E032 少数派称续航为轻量化硬伤、E033 实测不足半天直接定义续航缺口）；SOM：首发 6 个月颈挂模组可激活用户——保守锚定 E001 雷鸟存量，假设重度长时用户占 20–30%（E031 印证），目标渗透率 10–15%、约 1–1.8 万套",
     channels:[
       {type:"自有电商", detail:"雷鸟商城 + 京东/天猫旗舰店，购机捆绑 + 复购配件"},
       {type:"内容种草", detail:"B站/抖音科技测评、差旅/户外 KOL 实测续航对比"},
@@ -1306,15 +1316,15 @@ const GTMS = {
       {type:"海外", detail:"Amazon 25 国上架，主打 travel/commute 长续航场景"}
     ],
     launchCadence:[
-      {phase:"预热期 M0-M1", action:"社区招募 100 名内测、发布续航痛点白皮书（E005/E012 数据）"},
+      {phase:"预热期 M0-M1", action:"社区招募 100 名内测、发布续航痛点白皮书（E031/E033 数据）"},
       {phase:"首发期 M2", action:"X3 Pro 购机捆绑首发，¥499 单售 + 套装优惠，赠延保"},
       {phase:"放量期 M3-M6", action:"Amazon 25 国上线、KOL 实测对比铺量、复购配件促销"}
     ],
-    smarketing:"核心信息「重度用一天不掉链」——用 E005（876 人续航 PK）与 E012（实测不足 4h）做对比素材，差旅/户外场景短视频矩阵投放",
+    smarketing:"核心信息「重度用一天不掉链」——用 E031（876 人续航 PK）与 E033（实测不足半天）做对比素材，差旅/户外场景短视频矩阵投放",
     metrics:[
-      {k:"颈挂模组渗透率", target:"6 个月 10–15%（锚 E002 存量保守假设）"},
+      {k:"颈挂模组渗透率", target:"6 个月 10–15%（锚 E001 存量保守假设）"},
       {k:"复购配件加购率", target:"购机用户 15–20%"},
-      {k:"NPS 续航维度", target:"≥ 40（E005 痛点基线提升）"}
+      {k:"NPS 续航维度", target:"≥ 40（E031 痛点基线提升）"}
     ],
     risks:[
       ["用户嫌额外佩戴物破坏无绳感","中","中","额外佩戴物增加负担","磁吸快拆 + 轻量化 <60g，主打「不戴也能用」"],
@@ -1325,7 +1335,7 @@ const GTMS = {
   },
   "ID-006":{
     anchor:"你的眼镜能装 App，空间计算内容平台",
-    tamSamSom:"TAM：中国 AR 眼镜中期望「在眼镜上装 App / 真 AR 生态」的用户——E002 中国 AR 48.9 万台且雷鸟份额第一，叠加 E016 印证「有功能无粘性」痛点真实存在；SAM：雷鸟 X3 Pro 存量中内容/轻办公人群（E001 已做 RayNeo VM 但弱、E008 Rokid 内容生态追赶挤压）；SOM：首发 12 个月 RayNeo VM 商店实际可激活用户——保守锚定 E002 雷鸟存量，假设生态型用户占 20–30%（E016 长期使用率仅 6% 警示不可高估），目标激活 0.8–1.5 万、上架轻应用 200+",
+    tamSamSom:"TAM：中国 AR 眼镜中期望「在眼镜上装 App / 真 AR 生态」的用户——E001 中国 AR 48.9 万台且雷鸟份额第一，叠加 E034 印证「有功能无粘性」痛点真实存在；SAM：雷鸟 X3 Pro 存量中内容/轻办公人群（E013 官方已做 RayNeo VM 但第三方弱、E025 Rokid 内容生态追赶挤压）；SOM：首发 12 个月 RayNeo VM 商店实际可激活用户——保守锚定 E001 雷鸟存量，假设生态型用户占 20–30%（E034 长期使用率仅 6% 警示不可高估），目标激活 0.8–1.5 万、上架轻应用 200+",
     channels:[
       {type:"开发者社区", detail:"RayNeo 开发者社区 + 开放 SDK 公测，黑客松激励"},
       {type:"应用商店", detail:"RayNeo VM 应用商店，基础免费 + 开发者分成"},
@@ -1333,18 +1343,18 @@ const GTMS = {
       {type:"跨界合作", detail:"与抖音/微信轻应用对接，借手机生态迁移"}
     ],
     launchCadence:[
-      {phase:"预热期 M0-M2", action:"开发者 SDK 公测 + 黑客松，讲 Rokid 内容追赶（E008）与雷鸟基础（E001）"},
+      {phase:"预热期 M0-M2", action:"开发者 SDK 公测 + 黑客松，讲 Rokid 内容追赶（E025）与雷鸟基础（E013）"},
       {phase:"首发期 M3", action:"RayNeo VM 应用商店上线，基础免费 + 分成，首批轻应用上架"},
       {phase:"放量期 M4-M12", action:"对接手机轻应用生态、空间计算 SDK 扩圈，目标 500 应用"}
     ],
-    smarketing:"核心信息「你的眼镜能装 App 了」——用 E016（用户要粘性生态）与 E012（要能装 App）做对比，强调真 AR 光波导（E010）空间内容优于投屏",
+    smarketing:"核心信息「你的眼镜能装 App 了」——用 E034（用户要粘性生态）与 E013（能装 App 的官方基础）做对比，强调真 AR 光波导空间内容优于投屏",
     metrics:[
-      {k:"RayNeo VM 激活用户", target:"12 个月 0.8–1.5 万（锚 E002 存量保守假设）"},
-      {k:"生态型用户 7 日留存", target:"≥ 15%（E016 基线 6% 需翻倍）"},
-      {k:"承接手机轻应用数", target:"≥ 200（迁移路径 E001）"}
+      {k:"RayNeo VM 激活用户", target:"12 个月 0.8–1.5 万（锚 E001 存量保守假设）"},
+      {k:"生态型用户 7 日留存", target:"≥ 15%（E034 基线 6% 需翻倍）"},
+      {k:"承接手机轻应用数", target:"≥ 200（迁移路径 E013）"}
     ],
     risks:[
-      ["开发者投入意愿低","中","高","开放生态缺开发者","分成激励 + 黑客松奖金 + 雷鸟用户基数背书（E002）"],
+      ["开发者投入意愿低","中","高","开放生态缺开发者","分成激励 + 黑客松奖金 + 雷鸟用户基数背书（E001）"],
       ["生态被 Rokid 先发压制","中","高","Rokid 内容追赶","借真 AR 显示优势做空间计算差异化内容"]
     ],
     first100:"100 名开发者内测 SDK，共建首批轻应用",
@@ -1352,7 +1362,7 @@ const GTMS = {
   },
   "ID-003":{
     anchor:"真 AR 也能全天无感戴",
-    tamSamSom:"TAM：中国 AR 眼镜中全天佩戴舒适敏感用户——E002 中国 AR 48.9 万台且增 83%，E012 用户要「轻如普通眼镜」直接定义佩戴缺口；SAM：雷鸟存量中因铰链/重量想换代的舒适敏感用户（E006 第一代铰链松/夹发/发热、E007 XREAL 轻量化战场挤压）；SOM：轻量版首发 6 个月可转化用户——保守锚定 E002 雷鸟存量，假设舒适敏感换代需求占 25–35%（E006 印证），目标转化 1.2–1.8 万台",
+    tamSamSom:"TAM：中国 AR 眼镜中全天佩戴舒适敏感用户——E001 中国 AR 48.9 万台且增 83%，E035 佩戴由重量分布决定、轻至 25 克≠无感直接定义佩戴缺口；SAM：雷鸟存量中因铰链/重量想换代的舒适敏感用户（E035 佩戴舒适由鼻托/重量决定、E036 三款轻量横评确证）；SOM：轻量版首发 6 个月可转化用户——保守锚定 E001 雷鸟存量，假设舒适敏感换代需求占 25–35%（E036 印证），目标转化 1.2–1.8 万台",
     channels:[
       {type:"线下体验", detail:"雷鸟体验店「戴一天对比」真机试戴 + 重量秤展示"},
       {type:"自有电商", detail:"京东自营 + 雷鸟商城换购专区，旧机抵扣"},
@@ -1360,14 +1370,14 @@ const GTMS = {
       {type:"企业合作", detail:"与办公/设计人群社群合作体验日"}
     ],
     launchCadence:[
-      {phase:"预热期 M0-M1", action:"公开征集第一代铰链痛点（E006）并承诺重构，发工程白皮书"},
+      {phase:"预热期 M0-M1", action:"公开征集第一代佩戴痛点（E035/E036）并承诺重构，发工程白皮书"},
       {phase:"首发期 M2", action:"轻量版溢价 ¥300 上线，旧机换购抵扣，体验店对比试戴"},
       {phase:"放量期 M3-M6", action:"办公/观影场景 vlog 铺量，企业体验日扩圈"}
     ],
-    smarketing:"核心信息「像普通眼镜一样戴一天」——用 E006（铰链松/夹发/发热）与 E012（用户要轻如普通眼镜）做痛点对比，对标 XREAL 轻量化战场（E007）",
+    smarketing:"核心信息「像普通眼镜一样戴一天」——用 E035（佩戴由重量分布决定）与 E052（后置电池/镜腿增厚影响佩戴）做痛点对比，对标 XREAL 轻量化战场（E018）",
     metrics:[
-      {k:"轻量版换购转化", target:"6 个月 25–35%（锚 E006 痛点人群）"},
-      {k:"佩戴舒适 NPS", target:"≥ 45（E012 基线提升）"},
+      {k:"轻量版换购转化", target:"6 个月 25–35%（锚 E035 痛点人群）"},
+      {k:"佩戴舒适 NPS", target:"≥ 45（E052 基线提升）"},
       {k:"旧机用户换购率", target:"≥ 20%"}
     ],
     risks:[
@@ -1379,22 +1389,22 @@ const GTMS = {
   },
   "ID-005":{
     anchor:"一键变暗 + 防窥，户外可读室内私密",
-    tamSamSom:"TAM：雷鸟 X3 Pro 中户外/通勤/商务场景用户——E002 雷鸟份额第一存量，E001 户外可读性受限直接定义光学缺口；SAM：需一键变暗+防窥的 X3 Pro 高配人群（E012 用户要私密、E007 XREAL 已变色印证需求成立）；SOM：电致变色版首发 6 个月可激活用户——保守锚定 E002 雷鸟 X3 Pro 存量，假设户外/商务隐私需求占 20–30%（E001/E012 双印证），目标激活 1–1.5 万台",
+    tamSamSom:"TAM：雷鸟 X3 Pro 中户外/通勤/商务场景用户——E001 雷鸟份额第一存量，E012 X3 Pro 户外可读性受限直接定义光学缺口；SAM：需一键变暗+防窥的 X3 Pro 高配人群（E019 XREAL 已变色印证需求成立、E018 三档变色已获市场接受）；SOM：电致变色版首发 6 个月可激活用户——保守锚定 E001 雷鸟 X3 Pro 存量，假设户外/商务隐私需求占 20–30%（E012/E019 双印证），目标激活 1–1.5 万台",
     channels:[
-      {type:"极客测评", detail:"B站/中关村在线强光对比实测，对标 XREAL 已变色（E007）"},
+      {type:"极客测评", detail:"B站/中关村在线强光对比实测，对标 XREAL 已变色（E018/E019）"},
       {type:"自有电商", detail:"雷鸟商城 + 京东高配版专属页，一键变暗演示"},
       {type:"商务场景", detail:"与商务差旅社群合作防窥场景体验"},
       {type:"线下体验", detail:"体验店室内外光强切换 demo"}
     ],
     launchCadence:[
-      {phase:"预热期 M0-M1", action:"发布户外可读性痛点（E001）与 XREAL 已变色对比（E007），讲雷鸟「显示+隐私」双模式"},
+      {phase:"预热期 M0-M1", action:"发布户外可读性痛点（E012）与 XREAL 已变色对比（E018/E019），讲雷鸟「显示+隐私」双模式"},
       {phase:"首发期 M2", action:"X3 Pro 高配版标配电致变色，溢价 ¥600 单独选装"},
       {phase:"放量期 M3-M6", action:"商务防窥场景铺量，体验店光强切换 demo 扩圈"}
     ],
-    smarketing:"核心信息「户外看得清、室内不被窥」——用 E001（X3 Pro 户外可读受限）与 E012（用户要私密）做对比，强调比单变色竞品多信息层",
+    smarketing:"核心信息「户外看得清、室内不被窥」——用 E012（X3 Pro 户外可读受限）与 E019（变色获市场接受）做对比，强调比单变色竞品多信息层",
     metrics:[
-      {k:"电致变色版激活率", target:"6 个月 20–30%（锚 E002 存量保守假设）"},
-      {k:"户外可读性 NPS", target:"≥ 45（E001 基线提升）"},
+      {k:"电致变色版激活率", target:"6 个月 20–30%（锚 E001 存量保守假设）"},
+      {k:"户外可读性 NPS", target:"≥ 45（E012 基线提升）"},
       {k:"高配用户选装率", target:"≥ 25%"}
     ],
     risks:[
@@ -1761,6 +1771,27 @@ function openEvi(id){
 }
 eviMask.addEventListener('click',e=>{ if(e.target===eviMask) eviMask.classList.remove('open'); });
 
+// ============ 候选功能：简易需求来源界面（区别于 TOP5 完整 PRD）============
+const CANDIDATES = {
+  "ID-008":{ title:"怀旧游戏模拟器生态", val:"雷鸟 X3 Pro「浮窗」App 已实现主机模拟器，原生运行 FC 等怀旧游戏，激活 AR 硬件的内容价值。", state:"观测候选" },
+  "ID-009":{ title:"AI 语音助手 / 多模交互", val:"X3 Pro 已搭载通义多模态大模型 + 3DoF，实现「所见即所说」的零学习成本交互，为 AI 眼镜核心入口。", state:"观测候选" },
+  "ID-010":{ title:"eSIM 独立联网 / 出海本地化", val:"X3 Pro eSIM 版为全球首款支持 eSIM 的双目全彩 AR，可脱离手机独立运行，是出海本地化的硬件底座。", state:"观测候选" },
+  "ID-011":{ title:"AR 空间导航 / 实景定位", val:"深度评测显示空间导航为高频使用场景，实景定位叠加信息层是 AR 区别于投屏的核心能力。", state:"观测候选" },
+  "ID-012":{ title:"会议记录 / 实时提词", val:"第一视角拍摄 + 同传翻译天然承接会议记录与提词场景，是办公人群的轻量提效工具。", state:"观测候选" }
+};
+function openCandidate(id){
+  const c=CANDIDATES[id]; if(!c) return;
+  const evs=(FUNC_EV[id]||[]).map(evid=>{const e=EVID.find(x=>x.id===evid);if(!e)return '';return `<a class="cand-ev" href="${e.url}" target="_blank" rel="noopener"><span class="ce-id">${e.id}</span><span class="ce-s">${e.sum}</span><span class="ce-src">↗ ${e.src}</span></a>`;}).join('');
+  document.getElementById('eviModal').innerHTML=`
+    <div class="m-eid">${id} · ${c.state} · 需求来源</div>
+    <div class="m-tit">${c.title}</div>
+    <div class="m-row"><div class="ml">一句话价值</div><div class="mt">${c.val}</div></div>
+    <div class="m-row"><div class="ml">支撑证据</div><div class="mt"><div class="cand-evs">${evs}</div></div></div>
+    <div class="m-hint">候选功能暂不进入完整 PRD / GTM 规划，此处仅展示需求来源证据以供研判。</div>
+    <button class="m-close" onclick="document.getElementById('eviMask').classList.remove('open')">关闭</button>`;
+  eviMask.classList.add('open');
+}
+
 // ============ 左侧导航：滚动进度 + 章节激活 + IO 渐显 ============
 const railLinks=document.getElementById('railLinks');
 const railProg=document.getElementById('railProg');
@@ -2008,7 +2039,7 @@ function openPrd(id){
         <div class="ev-mini">
           ${FUNC_EV[d.id].map(id=>{const e=EVID.find(x=>x.id===id);if(!e)return '';return `<a class="ev-chip t-${e.dim}" href="${e.url}" target="_blank" rel="noopener"><span class="et">${e.tag}</span><span class="es">${e.sum}</span><span class="el">↗ ${e.src}</span></a>`;}).join('')}
         </div>
-        <a class="ev-all" href="#evidence" onclick="closePrd();setTimeout(()=>location.hash='#evidence',60);return false;">查看全量证据链 E001–E056 →</a>
+        <a class="ev-all" href="#evidence" onclick="closePrd();setTimeout(()=>location.hash='#evidence',60);return false;">查看全量证据链 E001–E062 →</a>
       </div>
     </div>
     </div>
