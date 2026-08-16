@@ -71,6 +71,18 @@ node harness/lock.mjs --update          # 内容评审通过后重建 SHA-256 �
 - 来源以 `.src-link` 外链（`target="_blank"`），场景来源带类型标签。
 - 产物后浏览器实测：渲染、链接跳转、无控制台错误。
 
+### ⚠️ 强制规则：每次 UI/前端改动必须加载 `web-design-engineer` skill
+
+任何对 `new-idea/output/index.html` 及其模板的**视觉/交互/排版改动**（包括一级页、二级界面 PRD/GTM、导航、卡片、证据链、颜色/字体/留白/间距、图片、动效等），**必须先调用 `use_skill("web-design-engineer")` 加载该 skill**，并按其完整工作流执行，禁止跳过：
+
+1. **先声明设计读解（Design Read）**：artifact/audience/visual-language/mode，再动手。
+2. **Step 3 声明设计系统**（Design Read + 设计方向五表盘），对照 `references/design-calibration.md`。
+3. **Step 4 出 v0 草稿** → **Checkpoint 2** 自查（对照 `references/failure-patterns.md` 的失败模式：Cardification / Repeated section header / Micro-label noise / Shape drift / Decoration-drift / Toolbar-cheese 等）。
+4. **自我迭代修复**后再输出，不直接"跑完就交付"。
+5. **禁止**：跑完命令直接交付、跳过设计系统声明、用花哨渐变/阴影/emoji/过多圆角堆砌替代真正的设计判断。
+
+违反即视为交付不合格，需重做。此规则由用户 2026-08-16 强制加入。
+
 ## 工作模式速查
 
 - **更新现有报告**：改模板内联数据或 `data/<company>/` JSON → `build.mjs` → 浏览器验证 → `lock.mjs --update`。
