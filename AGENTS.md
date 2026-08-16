@@ -108,6 +108,20 @@ node bin/evolve.mjs
 4. 经验库随每次失败持续累积——这就是「学习」：同类问题下次由标尺直接拦下，不再需要人工口头指出。
 
 ### 经验库（LESSONS — 由 self-evolution 自动沉淀）
+> L6 [2026-08-16] AGENTS-redline/no-leak: 正文透出红线词: pipeline（AGENTS.md 第8条）
+> 　根因：违反本项目 AGENTS.md 硬性契约（红线/数据可信度）
+> 　修复：将透出词改为结论性语言，不暴露内部工作流/方法论机制
+> L7 [2026-08-16] AGENTS-redline/contract: AGENTS.md 红线 1 项不通过
+> 　根因：违反本项目 AGENTS.md 硬性契约（红线/数据可信度）
+> 　修复：人工复核并修复
+
+> L4 [2026-08-16] AGENTS-redline/no-leak: 正文透出红线词: pipeline（AGENTS.md 第8条）
+> 　根因：违反本项目 AGENTS.md 硬性契约（红线/数据可信度）
+> 　修复：将透出词改为结论性语言，不暴露内部工作流/方法论机制
+> L5 [2026-08-16] AGENTS-redline/contract: AGENTS.md 红线 1 项不通过
+> 　根因：违反本项目 AGENTS.md 硬性契约（红线/数据可信度）
+> 　修复：人工复核并修复
+
 
 > L1 [2026-08-16] AGENTS-redline/no-leak: 正文透出红线词 "QA 强制校验"（方法论页 m-cfg-i）
 > 　根因：违反 AGENTS.md 第8条——向读者透出了内部工作流指令词（QA），应用结论性语言替代。
