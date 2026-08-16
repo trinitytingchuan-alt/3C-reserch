@@ -39,8 +39,7 @@ p{color:var(--ink-mid)}
 .rail{position:fixed;top:0;left:0;bottom:0;width:var(--rail-w);z-index:60;background:rgba(252,254,255,.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);color:var(--ink);display:flex;flex-direction:column;justify-content:center;padding:var(--rail-pad) 0;overflow:hidden;border-right:1px solid rgba(0,113,227,.10)}
 .rail-brand{display:flex;align-items:center;gap:11px;padding:0 var(--rail-pad) 18px;position:relative;z-index:1;margin-bottom:8px}
 .rail-brand::after{content:"";position:absolute;left:var(--rail-pad);right:var(--rail-pad);bottom:0;height:1px;background:linear-gradient(90deg,rgba(0,113,227,.18),transparent)}
-.rail-brand .logo{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,var(--signal),#3E8BFF);display:flex;align-items:center;justify-content:center;flex:0 0 auto;box-shadow:0 4px 12px rgba(0,113,227,.22)}
-.rail-brand .logo svg{width:18px;height:18px;color:#fff}
+.rail-brand .brand-logo-img{height:34px;width:auto;flex:0 0 auto;object-fit:contain;filter:contrast(1.05)}
 .rail-brand .rb-b{display:flex;flex-direction:column;line-height:1.16}
 .rail-brand .rb-mark{font-family:var(--font-display);font-weight:700;font-size:15px;letter-spacing:-.02em;color:var(--signal);letter-spacing:.01em}
 .rail-brand .rb-t{font-family:var(--font-display);font-weight:600;font-size:12px;color:var(--ink);margin-top:2px}
@@ -379,17 +378,28 @@ p{color:var(--ink-mid)}
 .epi-inner{position:relative;z-index:1;max-width:var(--maxw);margin:0 auto;padding:var(--s7) var(--s5) var(--s6)}
 .epi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s5)}
 .epi-col-h{font-family:var(--font-mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#7E8796;margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,.08)}
-.epi-link{display:block;font-size:15px;color:#C5CBD6;text-decoration:none;padding:9px 0;border-bottom:1px solid rgba(255,255,255,.05);transition:color .25s var(--ease),padding-left .25s var(--ease)}
-.epi-link:hover{color:#fff;padding-left:6px}
+.epi-card-link{display:flex;align-items:center;gap:13px;text-decoration:none;color:inherit;padding:12px 14px;border-radius:14px;border:1px solid rgba(255,255,255,.07);background:rgba(255,255,255,.03);transition:border-color .25s var(--ease),background .25s var(--ease),transform .25s var(--ease)}
+.epi-card-link+.epi-card-link{margin-top:9px}
+.epi-card-link:hover{border-color:rgba(95,168,255,.35);background:rgba(95,168,255,.08);transform:translateY(-2px)}
+.epi-card-link .ecl-ico{flex:none;width:32px;height:32px;border-radius:10px;background:rgba(95,168,255,.11);border:1px solid rgba(95,168,255,.22);display:flex;align-items:center;justify-content:center}
+.epi-card-link .ecl-ico svg{width:16px;height:16px;color:#5FA8FF}
+.epi-card-link .ecl-t{font-size:15px;font-weight:600;color:#F2F4F8}
+.epi-card-link .ecl-d{font-size:12.5px;color:#8A91A1;margin-top:2px}
 .epi-src-row{display:flex;gap:12px;align-items:flex-start;padding:11px 0;border-bottom:1px solid rgba(255,255,255,.05)}
 .epi-src-row:last-child{border-bottom:0}
 .epi-src-row .sr-ico{flex:none;width:30px;height:30px;border-radius:9px;background:rgba(95,168,255,.10);border:1px solid rgba(95,168,255,.22);display:flex;align-items:center;justify-content:center}
 .epi-src-row .sr-ico svg{width:15px;height:15px;color:#5FA8FF}
 .epi-src-row .sr-t{font-size:14.5px;font-weight:600;color:#F2F4F8}
 .epi-src-row .sr-d{font-size:12.5px;line-height:1.5;color:#8A91A1;margin-top:2px}
-.epi-author-bottom{margin-top:var(--s5);padding-top:var(--s4);border-top:1px solid rgba(255,255,255,.07);text-align:center}
-.epi-author-bottom .ab-line{font-size:12.5px;color:#6E7686;font-family:var(--font-mono);letter-spacing:.02em}
-.epi-author-bottom .ab-line b{color:#A7AEBD;font-weight:600}
+.epi-author-card{margin-top:var(--s5);display:flex;align-items:center;gap:16px;padding:20px 22px;border-radius:18px;border:1px solid rgba(255,255,255,.10);background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.015));position:relative;overflow:hidden}
+.epi-author-card::before{content:"";position:absolute;top:-30px;right:-40px;width:120px;height:120px;border-radius:50%;background:radial-gradient(circle,rgba(95,168,255,.14),transparent 70%);pointer-events:none}
+.epi-author-card .ac-logo{height:28px;width:auto;opacity:.45;flex:none}
+.epi-author-card .ac-info{flex:1;min-width:0}
+.epi-author-card .ac-name{font-family:var(--font-display);font-weight:600;font-size:19px;color:#fff;letter-spacing:-.01em}
+.epi-author-card .ac-role{font-size:13.5px;color:#A7AEBD;margin-top:2px}
+.epi-author-card .ac-meta{font-size:12px;color:#6E7686;margin-top:5px;font-family:var(--font-mono)}
+.epi-author-card .ac-sep{margin:0 8px;color:#4A5060}
+.epi-author-card .ac-label{flex:none;font-family:var(--font-mono);font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:#5FA8FF;background:rgba(95,168,255,.12);border:1px solid rgba(95,168,255,.25);padding:5px 11px;border-radius:7px}
 .epi-flow-list{list-style:none;margin:0;padding:0;position:relative}
 .epi-flow-list::before{content:"";position:absolute;left:13px;top:14px;bottom:14px;width:1px;background:linear-gradient(180deg,rgba(95,168,255,.5),rgba(95,168,255,.12))}
 .epi-flow-list li{position:relative;display:flex;gap:14px;padding:11px 0}
@@ -402,7 +412,8 @@ p{color:var(--ink-mid)}
 .epi-foot .nf{color:#8A91A1}
 @media(max-width:860px){
   .epi-grid{grid-template-columns:1fr;gap:var(--s4)}
-  .epi-author-top{flex-direction:column;align-items:flex-start;gap:14px}
+  .epi-author-card{flex-direction:column;align-items:flex-start;text-align:left;padding:16px 18px}
+  .epi-author-card .ac-label{align-self:flex-end;margin-top:-30px}
 }
 
 /* ============ 证据链：可筛选总表 + 三级核验记录（浅色）============ */
@@ -647,11 +658,9 @@ body{
 
 <aside class="rail" id="nav">
   <div class="rail-prog" id="railProg"></div>
-  <!-- 公司产品 LOGO 占位：换其他公司报告时，替换 .rail-brand 内的品牌字标与 .logo 内容即可 -->
+  <!-- 公司产品 LOGO 占位：换其他公司报告时，替换 .rail-brand 内的 logo img src 与品牌文字即可 -->
   <div class="rail-brand">
-    <div class="logo">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7h4l2 5 3-7 3 7 2-5h4"/><path d="M2 17h20"/></svg>
-    </div>
+    <img class="brand-logo-img" src="assets/brand/rayneo-blogo.png" alt="RayNeo 雷鸟创新" />
     <div class="rb-b">
       <div class="rb-mark">RayNeo</div>
       <div class="rb-t">产品机会白皮书</div>
@@ -971,11 +980,11 @@ body{
     <div class="epi-grid">
       <div class="epi-col">
         <div class="epi-col-h">白皮书结构</div>
-        <a class="epi-link" href="#top">机会总览 · TOP5 候选</a>
-        <a class="epi-link" href="#list">完整需求池 ·  backlog</a>
-        <a class="epi-link" href="#gtm">上市与商业化 · GTM</a>
-        <a class="epi-link" href="#evi">证据链 · E001–E017</a>
-        <a class="epi-link" href="#method">方法论 · 推导框架</a>
+        <a class="epi-card-link" href="#top"><span class="ecl-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.27 5.82 21 7 14.14 2 9.27l6.91-1.01z"/></svg></span><div><div class="ecl-t">机会总览</div><div class="ecl-d">TOP5 候选 + 综合评分</div></div></a>
+        <a class="epi-card-link" href="#list"><span class="ecl-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg></span><div><div class="ecl-t">完整需求池</div><div class="ecl-d">backlog 全量列表</div></div></a>
+        <a class="epi-card-link" href="#gtm"><span class="ecl-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V7l8-4 8 4v14"/><circle cx="10" cy="11" r="1"/><circle cx="15" cy="11" r="1"/><path d="M10 16s1-2 2-2 2 2 2 2"/></svg></span><div><div class="ecl-t">上市与商业化</div><div class="ecl-d">GTM 策略与节奏</div></div></a>
+        <a class="epi-card-link" href="#evi"><span class="ecl-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg></span><div><div class="ecl-t">证据链</div><div class="ecl-d">E001–E017 可追溯来源</div></div></a>
+        <a class="epi-card-link" href="#method"><span class="ecl-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 3"/><path d="M12 3v2"/><path d="M12 19v2"/><path d="M3 12h2"/><path d="M19 12h2"/></svg></span><div><div class="ecl-t">方法论</div><div class="ecl-d">推导框架与质量红线</div></div></a>
       </div>
       <div class="epi-col">
         <div class="epi-col-h">数据来源</div>
@@ -998,8 +1007,14 @@ body{
       </div>
     </div>
 
-    <div class="epi-author-bottom">
-      <span class="ab-line">作者 <b>尚文蜓</b> · 产品策略 / 机会挖掘与需求建模　|　GitHub trinitytingchuan-alt　|　trinity_ting@163.com</span>
+    <div class="epi-author-card">
+      <img src="assets/brand/rayneo-wlogo.png" alt="" class="ac-logo" />
+      <div class="ac-info">
+        <div class="ac-name">尚文蜓</div>
+        <div class="ac-role">产品策略 · 机会挖掘与需求建模</div>
+        <div class="ac-meta"><span>GitHub trinitytingchuan-alt</span><span class="ac-sep">|</span><span>trinity_ting@163.com</span></div>
+      </div>
+      <div class="ac-label">AUTHOR</div>
     </div>
   </div>
   <div class="epi-foot">
