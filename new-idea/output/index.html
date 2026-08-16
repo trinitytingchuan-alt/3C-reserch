@@ -55,14 +55,17 @@ p{color:var(--ink-mid)}
 .rail-links a.active::before{content:"";position:absolute;left:-10px;top:50%;transform:translateY(-50%);width:3px;height:18px;border-radius:3px;background:var(--signal)}
 .rail-links a.active .ri svg{color:var(--signal)}
 .rail-prog{position:absolute;left:0;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--signal),#3E8BFF);transform:scaleY(0);transform-origin:top;transition:transform .15s linear;z-index:2}
-.rail-foot{padding:16px var(--rail-pad) 12px;position:relative;z-index:1;border-top:1px solid var(--line-soft);margin-top:6px}
+.rail-foot{padding:16px var(--rail-pad) 14px;position:relative;z-index:1;border-top:1px solid var(--line-soft);margin-top:6px}
 .rail-foot::before{content:"";position:absolute;top:-1px;left:var(--rail-pad);width:26px;height:2px;background:var(--signal)}
-.rail-foot .rf-author{display:block}
-.rail-foot .rf-name{font-family:"PingFang SC","Microsoft YaHei",var(--font-display);font-weight:600;font-size:16px;color:var(--ink);letter-spacing:.02em;line-height:1.3}
-.rail-foot .rf-role{font-size:10.5px;color:var(--ink-lo);margin-top:5px;line-height:1.45;font-family:"PingFang SC","Microsoft YaHei",system-ui,sans-serif;letter-spacing:.04em}
-.rail-foot .rf-cont{margin-top:10px;padding-top:10px;border-top:1px solid var(--line-soft);display:flex;flex-direction:column;gap:4px}
-.rail-foot .rf-meta{font-size:10px;color:var(--ink-faint);line-height:1.5;font-family:var(--font-mono);letter-spacing:.02em;white-space:normal;word-break:break-all}
-.rail-foot .rf-meta .lbl{color:var(--ink-lo)}
+.rail-foot .rf-author{display:flex;flex-direction:column;gap:9px}
+.rail-foot .rf-top{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.rail-foot .rf-name{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;font-weight:400;font-size:15px;color:var(--ink);letter-spacing:.02em;line-height:1.2}
+.rail-foot .rf-role{font-size:10px;color:var(--ink-lo);line-height:1.4;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;font-weight:300;letter-spacing:.03em}
+.rail-foot .rf-stmt{font-size:10px;color:var(--ink-faint);line-height:1.5;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;font-weight:300;letter-spacing:.01em}
+.rail-foot .rf-cont{margin-top:2px;padding-top:10px;border-top:1px solid var(--line-soft);display:flex;flex-direction:column;gap:6px}
+.rail-foot .rf-meta{display:flex;align-items:center;gap:7px;font-size:10.5px;color:var(--ink-mid);line-height:1.4;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;font-weight:400;letter-spacing:.01em;white-space:normal;word-break:break-all}
+.rail-foot .rf-meta svg{flex:0 0 auto;color:var(--ink-lo)}
+.rail-foot .rf-meta .lbl{color:var(--signal)}
 .main{flex:1;margin-left:var(--rail-w);min-width:0}
 .nav.scrolled{opacity:0;pointer-events:none;height:0;overflow:hidden;border:0}
 .nav-inner{max-width:var(--maxw);margin:0 auto;padding:0 var(--s5);height:56px;display:flex;align-items:center;justify-content:space-between}
@@ -742,11 +745,14 @@ body{
   </div>
   <div class="rail-foot">
     <div class="rf-author">
-      <div class="rf-name">尚文蜓</div>
-      <div class="rf-role">产品策略 · 机会挖掘与需求建模</div>
+      <div class="rf-top">
+        <div class="rf-name">尚文蜓</div>
+        <div class="rf-role">产品策略 · 机会挖掘与需求建模</div>
+      </div>
+      <div class="rf-stmt">本白皮书基于公开可溯源证据链推导，全部结论可复核。</div>
       <div class="rf-cont">
-        <div class="rf-meta"><span class="lbl">GitHub</span> trinitytingchuan-alt</div>
-        <div class="rf-meta"><span class="lbl">Email</span> trinity_ting@163.com</div>
+        <div class="rf-meta"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>trinitytingchuan-alt</div>
+        <div class="rf-meta"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>trinity_ting@163.com</div>
       </div>
     </div>
   </div>
@@ -1889,16 +1895,16 @@ function openPrd(id){
       <aside class="prd-aside">
         <div class="as-h">需求文档目录</div>
         <nav class="overlay-nav">
-          <a onclick="prdGo('ps-01')"><span class="n">01</span>机会定义</a>
-          <a onclick="prdGo('ps-02')"><span class="n">02</span>支撑证据</a>
-          <a onclick="prdGo('ps-03')"><span class="n">03</span>背景与目标</a>
-          <a onclick="prdGo('ps-04')"><span class="n">04</span>目标用户</a>
-          <a onclick="prdGo('ps-05')"><span class="n">05</span>用户场景</a>
+          <a onclick="prdGo('ps-01')"><span class="n">01</span>评分摘要</a>
+          <a onclick="prdGo('ps-02')"><span class="n">02</span>背景与目标</a>
+          <a onclick="prdGo('ps-03')"><span class="n">03</span>目标用户</a>
+          <a onclick="prdGo('ps-04')"><span class="n">04</span>用户场景</a>
+          <a onclick="prdGo('ps-05')"><span class="n">05</span>机会定义</a>
           <a onclick="prdGo('ps-06')"><span class="n">06</span>解决方案</a>
           <a onclick="prdGo('ps-07')"><span class="n">07</span>成功指标</a>
           <a onclick="prdGo('ps-08')"><span class="n">08</span>风险对策</a>
           <a onclick="prdGo('ps-09')"><span class="n">09</span>排期路线</a>
-          <a onclick="prdGo('ps-10')"><span class="n">10</span>评分模型</a>
+          <a onclick="prdGo('ps-10')"><span class="n">10</span>支撑证据</a>
         </nav>
       </aside>
       <div class="prd-main prd-hero">
@@ -1923,40 +1929,39 @@ function openPrd(id){
       </div>
 
       <div class="prd-sec">
-        <h3><span class="ps-no">01</span>机会定义<span class="ps-en">Opportunity</span></h3>
+        <h3><span class="ps-no">01</span>评分摘要<span class="ps-en">Decision Summary</span></h3>
+        ${renderScores(id)}
+        <div class="prd-note">综合评分 ${d.score}/100 · 达 TOP5 决策门槛，立项依据见下。</div>
+      </div>
+
+      <div class="prd-sec">
+        <h3><span class="ps-no">02</span>背景与目标<span class="ps-en">Background &amp; Objective</span></h3>
+        ${list(p.background)}
+        <div class="pc" style="margin-top:var(--s3)">
+          <div class="pcard"><div class="pl">竞品信号</div><div class="pt">${p.competitorSignal}</div></div>
+          <div class="pcard"><div class="pl">趋势信号</div><div class="pt">${p.trendSignal}</div></div>
+        </div>
+        <div class="prd-note">目标：在现有硬件 / 生态底座上补齐该能力，把体验缺口转为差异化卖点，而非重新立项。</div>
+      </div>
+
+      <div class="prd-sec">
+        <h3><span class="ps-no">03</span>目标用户<span class="ps-en">Target Users</span></h3>
+        ${list(p.users)}
+      </div>
+
+      <div class="prd-sec">
+        <h3><span class="ps-no">04</span>用户场景<span class="ps-en">User Scenarios</span></h3>
+        <div class="pc">${scen}</div>
+      </div>
+
+      <div class="prd-sec">
+        <h3><span class="ps-no">05</span>机会定义<span class="ps-en">Opportunity</span></h3>
         <div class="pc">
           <div class="pcard"><div class="pl">使用场景</div><div class="pt">${d.scene}</div></div>
           <div class="pcard"><div class="pl">核心痛点</div><div class="pt">${d.pain}</div></div>
           <div class="pcard"><div class="pl">根因定位</div><div class="pt">${d.root}</div></div>
           <div class="pcard"><div class="pl">差异化内核</div><div class="pt">${p.differentiation}</div></div>
-          <div class="pcard"><div class="pl">竞品信号</div><div class="pt">${p.competitorSignal}</div></div>
-          <div class="pcard"><div class="pl">趋势信号</div><div class="pt">${p.trendSignal}</div></div>
         </div>
-      </div>
-
-      <div class="prd-sec prd-evsec">
-        <h3><span class="ps-no">02</span>支撑证据<span class="ps-en">Evidence</span><span class="ev-count">${evCount(d.id)} 条</span></h3>
-        <p class="prd-sec-lead">以下证据按本需求真实归属，跨「市场 / 竞品 / 用户 / 战略」四维交叉，单点来源仅作假设、不定义根因。</p>
-        <div class="ev-mini">
-          ${FUNC_EV[d.id].map(id=>{const e=EVID.find(x=>x.id===id);if(!e)return '';return `<a class="ev-chip t-${e.dim}" href="${e.url}" target="_blank" rel="noopener"><span class="et">${e.tag}</span><span class="es">${e.sum}</span><span class="el">↗ ${e.src}</span></a>`;}).join('')}
-        </div>
-        <a class="ev-all" href="#evidence" onclick="closePrd();setTimeout(()=>location.hash='#evidence',60);return false;">查看全量证据链 E001–E056 →</a>
-      </div>
-
-      <div class="prd-sec">
-        <h3><span class="ps-no">03</span>背景与目标<span class="ps-en">Background &amp; Objective</span></h3>
-        ${list(p.background)}
-        <div class="prd-note">目标：在现有硬件 / 生态底座上补齐该能力，把体验缺口转为差异化卖点，而非重新立项。</div>
-      </div>
-
-      <div class="prd-sec">
-        <h3><span class="ps-no">04</span>目标用户<span class="ps-en">Target Users</span></h3>
-        ${list(p.users)}
-      </div>
-
-      <div class="prd-sec">
-        <h3><span class="ps-no">05</span>用户场景<span class="ps-en">User Scenarios</span></h3>
-        <div class="pc">${scen}</div>
       </div>
 
       <div class="prd-sec">
@@ -1980,9 +1985,13 @@ function openPrd(id){
         ${list(p.plan)}
       </div>
 
-      <div class="prd-sec">
-        <h3><span class="ps-no">10</span>评分模型<span class="ps-en">Scoring</span></h3>
-        ${renderScores(id)}
+      <div class="prd-sec prd-evsec">
+        <h3><span class="ps-no">10</span>支撑证据<span class="ps-en">Evidence</span><span class="ev-count">${evCount(d.id)} 条</span></h3>
+        <p class="prd-sec-lead">以下证据按本需求真实归属，跨「市场 / 竞品 / 用户 / 战略」四维交叉，单点来源仅作假设、不定义根因。完整证据链见文末附录。</p>
+        <div class="ev-mini">
+          ${FUNC_EV[d.id].map(id=>{const e=EVID.find(x=>x.id===id);if(!e)return '';return `<a class="ev-chip t-${e.dim}" href="${e.url}" target="_blank" rel="noopener"><span class="et">${e.tag}</span><span class="es">${e.sum}</span><span class="el">↗ ${e.src}</span></a>`;}).join('')}
+        </div>
+        <a class="ev-all" href="#evidence" onclick="closePrd();setTimeout(()=>location.hash='#evidence',60);return false;">查看全量证据链 E001–E056 →</a>
       </div>
     </div>
     </div>
