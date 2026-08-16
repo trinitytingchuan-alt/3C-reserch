@@ -213,134 +213,134 @@ p{color:var(--ink-mid)}
   .reveal{opacity:1;transform:none}
 }
 
-/* ============ 方法论（浅色主题 · 重设计：节奏 / 流向 / 张力）============ */
+/* ============ 方法论（浅色 · 编辑式极简：单色信号蓝 + 中性灰阶层级）============ */
+/* 设计语言：层级靠 字号/字重/字距/留白/细分隔线 建立，不靠色彩堆砌 */
 .method-rich{display:flex;flex-direction:column;gap:var(--s7)}
-.m-block{border:1px solid var(--line-soft);border-radius:var(--r-lg);background:linear-gradient(180deg,var(--paper),var(--surface-2));overflow:hidden;position:relative}
-.m-block::before{content:"";position:absolute;inset:0 0 auto 0;height:3px;background:linear-gradient(90deg,var(--signal),#3E8BFF);opacity:.9}
-.m-block-head{display:flex;align-items:baseline;gap:12px;padding:var(--s4) var(--s4) 0;flex-wrap:wrap}
-.m-block-head h3{font-size:19px;letter-spacing:-.02em}
-.m-block-head .mh-idx{font-family:var(--font-mono);font-size:12px;color:var(--signal);letter-spacing:.12em}
-.m-block-head .mh-sub{margin-left:auto;font-size:13px;color:var(--ink-lo);max-width:40ch;text-align:right}
-.m-block-body{padding:var(--s4)}
+.m-block{border:1px solid var(--line-soft);border-radius:var(--r-lg);background:var(--paper);overflow:hidden;position:relative}
+.m-block-head{display:flex;align-items:baseline;gap:14px;padding:var(--s4) var(--s5) 0;flex-wrap:wrap}
+.m-block-head h3{font-size:21px;letter-spacing:-.025em;font-weight:600}
+.m-block-head .mh-idx{font-family:var(--font-mono);font-size:12px;color:var(--ink-faint);letter-spacing:.16em}
+.m-block-head .mh-sub{margin-left:auto;font-size:13px;color:var(--ink-lo);max-width:42ch;text-align:right;font-weight:400}
+.m-block-body{padding:var(--s5)}
+.m-block + .m-block{margin-top:0}
 
-/* 四步法 · 横向流程带 */
-.m-timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative}
-.m-timeline::before{content:"";position:absolute;top:31px;left:12.5%;right:12.5%;height:2px;background:linear-gradient(90deg,var(--signal),#3E8BFF,var(--signal-line));z-index:0}
-@media(max-width:900px){.m-timeline{grid-template-columns:repeat(2,1fr);gap:var(--s4)}.m-timeline::before{display:none}}
-.m-step{position:relative;text-align:center;padding:0 10px}
-.m-step .dot{width:62px;height:62px;border-radius:18px;margin:0 auto var(--s3);background:var(--paper);border:2px solid var(--signal);display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-weight:800;font-size:22px;color:var(--signal);position:relative;z-index:1;box-shadow:0 6px 16px rgba(0,113,227,.12);transition:transform .4s var(--ease),box-shadow .4s var(--ease),background .4s var(--ease),color .4s var(--ease)}
-.m-step:hover .dot{transform:translateY(-5px) scale(1.04);box-shadow:0 12px 26px rgba(0,113,227,.22);background:var(--signal);color:#fff}
-.m-step:nth-child(2) .dot{border-color:#1f9fce;color:#1f9fce}
-.m-step:nth-child(2):hover .dot{background:#1f9fce}
-.m-step:nth-child(3) .dot{border-color:#2f9c63;color:#2f9c63}
-.m-step:nth-child(3):hover .dot{background:#2f9c63}
-.m-step:nth-child(4) .dot{border-color:#c77a00;color:#c77a00}
-.m-step:nth-child(4):hover .dot{background:#c77a00}
-.m-step h4{font-size:16px;margin-bottom:7px;letter-spacing:-.01em}
-.m-step p{font-size:12.5px;color:var(--ink-lo);line-height:1.55;max-width:24ch;margin:0 auto}
+/* 四步法 · 编辑式大序号流程（无彩色、无圆点 pill）*/
+.m-timeline{display:grid;grid-template-columns:repeat(4,1fr)}
+@media(max-width:900px){.m-timeline{grid-template-columns:repeat(2,1fr);gap:var(--s5) var(--s4)}}
+.m-step{position:relative;padding:0 var(--s4) 0 0;border-top:2px solid var(--ink);padding-top:var(--s3)}
+.m-step:not(:last-child){border-right:1px solid var(--line-soft);padding-right:var(--s4)}
+@media(max-width:900px){.m-step:not(:last-child){border-right:none}}
+.m-step .num{font-family:var(--font-display);font-weight:600;font-size:13px;letter-spacing:.04em;color:var(--ink-faint);display:block;margin-bottom:14px}
+.m-step .num i{font-style:normal;color:var(--signal);font-weight:700;font-size:30px;letter-spacing:-.03em;margin-right:8px;vertical-align:-3px}
+.m-step h4{font-size:17px;font-weight:600;letter-spacing:-.02em;color:var(--ink);margin-bottom:8px}
+.m-step p{font-size:13.5px;color:var(--ink-lo);line-height:1.62;max-width:30ch}
+.m-step:hover h4{color:var(--signal)}
 
-/* 采集三路径 · 三栏色条卡 */
-.m-paths{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s4)}
+/* 采集三路径 · 编辑式分栏（无彩色竖线、无 pill 标签）*/
+.m-paths{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
 @media(max-width:900px){.m-paths{grid-template-columns:1fr}}
-.m-path{border:1px solid var(--line-soft);border-left:5px solid var(--signal);border-radius:var(--r-md);padding:var(--s3) var(--s4);background:linear-gradient(180deg,var(--paper),var(--surface-2));transition:transform .4s var(--ease),box-shadow .4s var(--ease)}
-.m-path:hover{transform:translateY(-4px);box-shadow:var(--shadow-hi)}
-.m-path:nth-child(2){border-left-color:#1f9fce}
-.m-path:nth-child(3){border-left-color:#2f9c63}
-.m-path .mp-tag{font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;color:var(--signal);margin-bottom:10px;display:inline-block;background:var(--signal-dim);border:1px solid var(--signal-line);padding:3px 11px;border-radius:99px}
-.m-path:nth-child(2) .mp-tag{color:#1f9fce;background:rgba(31,159,206,.1);border-color:rgba(31,159,206,.35)}
-.m-path:nth-child(3) .mp-tag{color:#2f9c63;background:rgba(47,156,99,.1);border-color:rgba(47,156,99,.35)}
-.m-path h4{font-size:16.5px;margin-bottom:7px;letter-spacing:-.01em}
-.m-path p{font-size:13px;color:var(--ink-lo);line-height:1.62}
+.m-path{padding:var(--s4) var(--s5) var(--s4) 0;border-top:1px solid var(--line-soft)}
+.m-path:not(:last-child){border-right:1px solid var(--line-soft);padding-right:var(--s5)}
+.m-path:not(:first-child){padding-left:var(--s5)}
+@media(max-width:900px){.m-path{padding:var(--s4) 0;border-right:none!important}}
+.m-path .mp-k{font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;color:var(--ink-faint);display:block;margin-bottom:10px}
+.m-path h4{font-size:17px;font-weight:600;letter-spacing:-.02em;margin-bottom:9px}
+.m-path p{font-size:13.5px;color:var(--ink-lo);line-height:1.66}
 
-/* 逻辑架构图 · 横向管道 */
+/* 逻辑架构图 · 横向管道（中性灰节点 + 信号蓝仅用于"产出"重点）*/
 .m-arch{display:flex;flex-direction:column;gap:0}
 .arch-flow{display:flex;align-items:stretch;gap:0;overflow-x:auto;padding-bottom:6px}
-.arch-stage{flex:1 1 0;min-width:180px;border:1px solid var(--line-soft);border-radius:var(--r-md);padding:var(--s3);background:var(--surface-2);display:flex;flex-direction:column;gap:11px;position:relative}
-.arch-stage:not(:last-child)::after{content:"";position:absolute;top:50%;right:-14px;width:14px;height:2px;background:linear-gradient(90deg,var(--signal),var(--ink-faint));z-index:2}
-.arch-stage:not(:last-child)::before{content:"";position:absolute;top:calc(50% - 4px);right:-16px;border-left:7px solid var(--ink-faint);border-top:4px solid transparent;border-bottom:4px solid transparent;z-index:2}
-.arch-label{font-family:var(--font-mono);font-size:11px;color:var(--signal);font-weight:600;letter-spacing:.04em;line-height:1.4}
+.arch-stage{flex:1 1 0;min-width:180px;padding:var(--s4) var(--s4) var(--s3);border-top:2px solid var(--ink);display:flex;flex-direction:column;gap:13px;position:relative}
+.arch-stage:not(:last-child){border-right:1px solid var(--line-soft);margin-right:0}
+.arch-label{font-family:var(--font-display);font-size:13.5px;color:var(--ink);font-weight:600;letter-spacing:-.01em;line-height:1.4}
 .arch-row{display:flex;flex-wrap:wrap;gap:8px}
-.arch-node{padding:7px 12px;border-radius:9px;background:var(--paper);border:1px solid var(--line);font-size:12.5px;color:var(--ink);font-weight:500;display:inline-flex;align-items:center;gap:7px;box-shadow:0 1px 2px rgba(0,0,0,.03);white-space:nowrap}
-.arch-node .an-dot{width:7px;height:7px;border-radius:50%;flex:none}
-.n-user .an-dot,.n-rival .an-dot,.n-trend .an-dot{background:var(--signal)}
-.n-evi .an-dot{background:#1f9fce}
-.n-idea .an-dot{background:#2f9c63}
-.n-score .an-dot{background:#c77a00}
-.n-top .an-dot{background:#7a4ddb}
-.arch-conn{font-size:11.5px;color:var(--ink-faint);font-family:var(--font-mono);letter-spacing:.01em;line-height:1.4}
-.arch-out{background:linear-gradient(135deg,var(--signal-dim),var(--surface-2));border-color:var(--signal-line)}
+.arch-node{padding:6px 12px;border-radius:8px;background:var(--surface);border:1px solid var(--line-soft);font-size:12.5px;color:var(--ink-mid);font-weight:500;display:inline-flex;align-items:center;gap:8px;white-space:nowrap}
+.arch-node .an-dot{width:6px;height:6px;border-radius:50%;flex:none;background:var(--ink-faint)}
+.arch-conn{font-size:11.5px;color:var(--ink-faint);font-family:var(--font-mono);letter-spacing:.02em;line-height:1.45;padding-top:2px;border-top:1px dashed var(--line-soft)}
+.arch-out{background:var(--signal-dim)}
 .arch-out .arch-label{color:var(--signal)}
-@media(max-width:760px){.arch-flow{flex-direction:column}.arch-stage:not(:last-child)::after{display:none}.arch-stage:not(:last-child)::before{display:none}}
+.arch-out .arch-node .an-dot{background:var(--signal)}
+.arch-out .arch-node{border-color:var(--signal-line);background:var(--paper)}
+.m-arch-arrow{flex:0 0 18px;align-self:center;color:var(--line-strong);font-size:18px;font-weight:300;text-align:center}
+@media(max-width:760px){.arch-flow{flex-direction:column}.arch-stage{border-right:none!important;min-width:0}.m-arch-arrow{display:none}.arch-stage:not(:last-child){margin-bottom:0}}
 
-/* 配置 / 验证 · 左右交错 */
-.m-cfg-split{display:grid;grid-template-columns:1fr 1fr;gap:var(--s5);align-items:center}
+/* 旧彩色节点类（已被中性架构取代，保留以防残留引用，单色化）*/
+.n-user .an-dot,.n-rival .an-dot,.n-trend .an-dot{background:var(--ink-faint)}
+.n-evi .an-dot,.n-idea .an-dot,.n-score .an-dot,.n-top .an-dot{background:var(--ink-faint)}
+
+/* 配置 / 验证 · 左右交错（无彩色徽章，用序号衬线大字）*/
+.m-cfg-split{display:grid;grid-template-columns:1fr 1fr;gap:var(--s6);align-items:center}
 .m-cfg-split.rev{direction:rtl}
 .m-cfg-split.rev>*{direction:ltr}
-@media(max-width:900px){.m-cfg-split{grid-template-columns:1fr;gap:var(--s4)}.m-cfg-split.rev{direction:ltr}}
-.m-cfg-visual{display:flex;flex-direction:column;gap:10px}
-.m-cfg-list{display:flex;flex-direction:column;gap:12px}
-.m-cfg-i{display:flex;gap:13px;align-items:flex-start;border:1px solid var(--line-soft);border-radius:var(--r-md);padding:14px 16px;background:var(--paper);transition:transform .35s var(--ease),box-shadow .35s var(--ease),border-color .35s var(--ease)}
-.m-cfg-i:hover{transform:translateX(4px);box-shadow:var(--shadow);border-color:var(--signal-line)}
-.m-cfg-i .mc-n{font-family:var(--font-mono);font-size:13px;font-weight:700;color:var(--signal);background:var(--signal-dim);border:1px solid var(--signal-line);min-width:30px;height:30px;border-radius:9px;display:flex;align-items:center;justify-content:center;flex:none}
-.m-cfg-i .mc-body .mc-tag{display:block;font-family:var(--font-mono);font-size:12px;letter-spacing:.06em;color:var(--ink);font-weight:600;margin-bottom:3px}
-.m-cfg-i .mc-body p{font-size:12.5px;color:var(--ink-lo);line-height:1.55;margin:0}
-.m-cfg-card{border:1px solid var(--line-soft);border-radius:var(--r-md);padding:var(--s4);background:linear-gradient(180deg,var(--paper),var(--surface-2))}
-.m-cfg-card .cc-big{font-family:var(--font-mono);font-size:38px;font-weight:800;color:var(--signal);letter-spacing:-.02em;line-height:1}
-.m-cfg-card .cc-sub{font-size:12.5px;color:var(--ink-lo);margin-top:6px;line-height:1.5}
-.m-cfg-card .cc-row{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
-.m-cfg-card .cc-chip{font-size:11px;font-family:var(--font-mono);color:var(--ink-mid);background:var(--surface);border:1px solid var(--line-soft);padding:3px 9px;border-radius:7px}
-.m-cfg-card .cc-rule{margin-top:12px;font-size:12px;color:var(--signal);font-weight:600;font-family:var(--font-mono);border-top:1px dashed var(--line);padding-top:10px}
+@media(max-width:900px){.m-cfg-split{grid-template-columns:1fr;gap:var(--s5)}.m-cfg-split.rev{direction:ltr}}
+.m-cfg-visual{display:flex;flex-direction:column;gap:0}
+.m-cfg-list{display:flex;flex-direction:column}
+.m-cfg-i{display:grid;grid-template-columns:54px 1fr;gap:18px;align-items:baseline;padding:var(--s3) 0;border-top:1px solid var(--line-soft);transition:padding-left .35s var(--ease)}
+.m-cfg-i:last-child{border-bottom:1px solid var(--line-soft)}
+.m-cfg-i:hover{padding-left:8px}
+.m-cfg-i .mc-n{font-family:var(--font-display);font-weight:600;font-size:22px;letter-spacing:-.02em;color:var(--ink-faint);line-height:1}
+.m-cfg-i:hover .mc-n{color:var(--signal)}
+.m-cfg-i .mc-body .mc-tag{display:block;font-size:14.5px;color:var(--ink);font-weight:600;letter-spacing:-.01em;margin-bottom:4px}
+.m-cfg-i .mc-body p{font-size:13px;color:var(--ink-lo);line-height:1.6;margin:0}
+.m-cfg-card{border:1px solid var(--line-soft);border-radius:var(--r-md);padding:var(--s5);background:var(--surface-2)}
+.m-cfg-card .cc-big{font-family:var(--font-display);font-weight:600;font-size:56px;letter-spacing:-.04em;color:var(--ink);line-height:.95}
+.m-cfg-card .cc-big span{font-size:18px;font-weight:500;color:var(--ink-lo);letter-spacing:0;margin-left:4px}
+.m-cfg-card .cc-sub{font-size:13.5px;color:var(--ink-lo);margin-top:14px;line-height:1.6;padding-top:14px;border-top:1px solid var(--line-soft)}
+.m-cfg-card .cc-row{display:flex;flex-wrap:wrap;gap:7px;margin-top:16px}
+.m-cfg-card .cc-chip{font-size:11.5px;font-family:var(--font-mono);color:var(--ink-mid);background:var(--paper);border:1px solid var(--line-soft);padding:4px 11px;border-radius:7px}
+.m-cfg-card .cc-rule{margin-top:16px;font-size:12px;color:var(--ink-faint);font-weight:500;font-family:var(--font-mono);letter-spacing:.02em}
 
-/* 10 维权重环 + 权重条 */
-.m-score{display:grid;grid-template-columns:260px 1fr;gap:var(--s5);align-items:center}
-.m-donut{width:220px;height:220px;margin:0 auto}
+/* 10 维权重环 + 权重条（信号蓝单色渐变，不再双色混彩）*/
+.m-score{display:grid;grid-template-columns:240px 1fr;gap:var(--s6);align-items:center}
+.m-donut{width:200px;height:200px;margin:0 auto}
 .m-donut .center{font-family:var(--font-mono);font-size:13px;fill:var(--ink-lo)}
 .m-donut circle{transition:stroke-dashoffset 1.1s var(--ease)}
-.m-weights{display:flex;flex-direction:column;gap:11px}
-.m-wrow{display:grid;grid-template-columns:104px 1fr 46px;align-items:center;gap:12px;font-size:13px}
-.m-wrow .wl{color:var(--ink-mid)}
-.m-wrow .wbar{height:8px;background:var(--surface);border-radius:4px;overflow:hidden}
-.m-wrow .wbar i{display:block;height:100%;background:linear-gradient(90deg,var(--signal),#3E8BFF);border-radius:4px;transform-origin:left;animation:growBar .9s var(--ease) both}
+.m-weights{display:flex;flex-direction:column;gap:13px}
+.m-wrow{display:grid;grid-template-columns:112px 1fr 44px;align-items:center;gap:14px;font-size:13px}
+.m-wrow .wl{color:var(--ink-mid);font-weight:500}
+.m-wrow .wbar{height:6px;background:var(--surface);border-radius:3px;overflow:hidden}
+.m-wrow .wbar i{display:block;height:100%;background:var(--signal);border-radius:3px;transform-origin:left;animation:growBar .9s var(--ease) both}
 @keyframes growBar{from{transform:scaleX(0)}to{transform:scaleX(1)}}
-.m-wrow .wp{font-family:var(--font-mono);font-size:12px;color:var(--signal);font-weight:600;text-align:right}
+.m-wrow .wp{font-family:var(--font-mono);font-size:12px;color:var(--ink);font-weight:600;text-align:right}
 
-/* 四专家 */
-.m-experts{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s4)}
-.m-expert{border:1px solid var(--line-soft);border-radius:var(--r-md);padding:var(--s3);background:var(--paper);text-align:center;position:relative;overflow:hidden;transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
-.m-expert:hover{transform:translateY(-4px);box-shadow:var(--shadow-hi)}
-.m-expert::before{content:"";position:absolute;inset:0 0 auto 0;height:3px;background:linear-gradient(90deg,var(--signal),#3E8BFF);opacity:.85}
-.m-expert .ex-ico{width:46px;height:46px;border-radius:13px;margin:0 auto var(--s3);background:var(--signal-dim);border:1px solid var(--signal-line);display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-weight:700;font-size:15px;color:var(--signal)}
-.m-expert:nth-child(2)::before{background:linear-gradient(90deg,#5AC8FA,#7EE0A8)}
-.m-expert:nth-child(2) .ex-ico{background:rgba(90,200,250,.12);border-color:rgba(90,200,250,.4);color:#1f9fce}
-.m-expert:nth-child(3)::before{background:linear-gradient(90deg,#7EE0A8,#5AC8FA)}
-.m-expert:nth-child(3) .ex-ico{background:rgba(126,224,168,.14);border-color:rgba(126,224,168,.45);color:#2f9c63}
-.m-expert:nth-child(4)::before{background:linear-gradient(90deg,#FFD60A,#FF9F0A)}
-.m-expert:nth-child(4) .ex-ico{background:rgba(255,214,10,.14);border-color:rgba(255,159,10,.4);color:#c77a00}
-.m-expert h4{font-size:15px;margin-bottom:6px}
-.m-expert p{font-size:12.5px;color:var(--ink-lo);line-height:1.55}
+/* 四专家（统一中性灰 + 信号蓝序号，去伪彩条）*/
+.m-experts{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+@media(max-width:900px){.m-experts{grid-template-columns:1fr 1fr;gap:var(--s4)}}
+.m-expert{padding:var(--s4) var(--s4) var(--s4) 0;border-top:2px solid var(--ink);position:relative}
+.m-expert:not(:last-child){border-right:1px solid var(--line-soft);padding-right:var(--s4)}
+.m-expert:not(:first-child){padding-left:var(--s4)}
+@media(max-width:900px){.m-expert{border-right:none!important;padding:var(--s4) 0!important;border-top:1px solid var(--line-soft)}}
+.m-expert .ex-idx{font-family:var(--font-mono);font-size:11px;letter-spacing:.12em;color:var(--ink-faint);display:block;margin-bottom:14px}
+.m-expert .ex-ico{width:40px;height:40px;border-radius:11px;margin:0 0 var(--s3);background:var(--surface);border:1px solid var(--line-soft);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:600;font-size:16px;color:var(--ink);transition:background .35s var(--ease),color .35s var(--ease),border-color .35s var(--ease)}
+.m-expert:hover .ex-ico{background:var(--signal);color:#fff;border-color:var(--signal)}
+.m-expert h4{font-size:15.5px;font-weight:600;letter-spacing:-.01em;margin-bottom:7px}
+.m-expert p{font-size:12.5px;color:var(--ink-lo);line-height:1.6}
 
-/* 综合分三步 */
-.m-score-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s4)}
-.m-ss{display:flex;gap:12px;align-items:flex-start;background:var(--surface-2);border:1px solid var(--line-soft);border-radius:var(--r-md);padding:var(--s3)}
-.m-ss .ss-n{font-family:var(--font-mono);font-size:13px;color:var(--signal);border:1px solid var(--signal-line);border-radius:50%;width:28px;height:28px;flex:none;display:flex;align-items:center;justify-content:center;background:var(--signal-dim)}
-.m-ss h4{font-size:14px;margin-bottom:4px}
-.m-ss p{font-size:12.5px;color:var(--ink-lo);line-height:1.55}
+/* 综合分三步（编辑式序号，无彩色圆）*/
+.m-score-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+@media(max-width:900px){.m-score-steps{grid-template-columns:1fr}}
+.m-ss{display:grid;grid-template-columns:48px 1fr;gap:16px;align-items:baseline;padding:var(--s3) var(--s5) var(--s3) 0;border-top:1px solid var(--line-soft)}
+.m-ss:not(:last-child){border-right:1px solid var(--line-soft);padding-right:var(--s5)}
+@media(max-width:900px){.m-ss{border-right:none!important;padding:var(--s3) 0}}
+.m-ss .ss-n{font-family:var(--font-display);font-weight:600;font-size:34px;letter-spacing:-.04em;color:var(--ink-faint);line-height:1;transition:color .35s var(--ease)}
+.m-ss:hover .ss-n{color:var(--signal)}
+.m-ss h4{font-size:15px;font-weight:600;margin-bottom:5px;letter-spacing:-.01em}
+.m-ss p{font-size:12.5px;color:var(--ink-lo);line-height:1.6}
 
 /* 数据传导 */
 .m-flow{display:flex;flex-wrap:wrap;align-items:center;gap:10px;font-size:13.5px}
 .m-flow .fn{padding:7px 14px;border:1px solid var(--line-soft);border-radius:99px;background:var(--paper);color:var(--ink-mid);font-weight:500}
 .m-flow .farr{color:var(--signal);font-weight:600}
 
-/* 证据规范 */
-.m-rules{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--s4)}
+/* 证据规范（统一中性灰边 + 信号蓝顶部细线，去彩虹竖线）*/
+.m-rules{display:grid;grid-template-columns:repeat(2,1fr);gap:0 var(--s5)}
 @media(max-width:900px){.m-rules{grid-template-columns:1fr}}
-.m-rule{border:1px solid var(--line-soft);border-left:3px solid var(--signal);border-radius:var(--r-sm);padding:var(--s3) var(--s3) var(--s3) 16px;background:var(--paper);transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
-.m-rule:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
-.m-rule:nth-child(2){border-left-color:#5AC8FA}
-.m-rule:nth-child(3){border-left-color:#7EE0A8}
-.m-rule:nth-child(4){border-left-color:#FF9F0A}
-.m-rule h4{font-size:14.5px;margin-bottom:5px;letter-spacing:-.01em}
-.m-rule p{font-size:12.5px;color:var(--ink-lo);line-height:1.6}
+.m-rule{padding:var(--s3) var(--s5) var(--s3) 0;border-top:2px solid var(--ink)}
+.m-rule:not(:nth-child(2n)){border-right:1px solid var(--line-soft);padding-right:var(--s5)}
+.m-rule:nth-child(2n){padding-left:0}
+@media(max-width:900px){.m-rule{border-right:none!important;padding:var(--s3) 0!important}}
+.m-rule h4{font-size:15px;font-weight:600;letter-spacing:-.01em;margin-bottom:7px;color:var(--ink)}
+.m-rule p{font-size:13px;color:var(--ink-lo);line-height:1.65}
 
 /* ============ 证据链：可筛选总表 + 三级核验记录（浅色）============ */
 .evi-toolbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:var(--s4)}
@@ -533,7 +533,7 @@ body{
 .sec-head{position:relative;padding-left:22px;margin-bottom:var(--s5)}
 .sec-head::before{content:"";position:absolute;left:0;top:6px;bottom:6px;width:5px;border-radius:5px;background:linear-gradient(180deg,var(--signal),#3E8BFF);box-shadow:0 0 0 4px var(--signal-dim)}
 .sec-head h2{position:relative}
-.sec-head h2::after{content:"";display:block;width:54px;height:4px;border-radius:3px;margin-top:14px;background:linear-gradient(90deg,var(--signal),#3E8BFF)}
+.sec-head h2::after{content:"";display:block;width:48px;height:3px;border-radius:3px;margin-top:14px;background:var(--signal)}
 .sec-head .eyebrow{display:inline-block;background:var(--signal-dim);border:1px solid var(--signal-line);color:var(--signal);padding:6px 12px;border-radius:999px;letter-spacing:.16em;font-size:11px}
 /* pill 升级 */
 .pill{box-shadow:0 1px 2px rgba(0,0,0,.03)}
@@ -742,10 +742,10 @@ body{
       <div class="m-block-head"><h3>四步闭环工作流</h3><span class="mh-sub">先有场景，再有功能；先有证据，再有结论</span></div>
       <div class="m-block-body">
         <div class="m-timeline">
-          <div class="m-step"><div class="dot">01</div><h4>场景锚定</h4><p>从真实使用场景 + 用户痛点切入，禁止"先造功能再找场景"。场景须带可核验来源。</p></div>
-          <div class="m-step"><div class="dot">02</div><h4>跨源验证</h4><p>用户声音 / 竞品缺口 / 行业趋势三轨交叉，单点来源仅作假设。</p></div>
-          <div class="m-step"><div class="dot">03</div><h4>评分排序</h4><p>10 维 × 四专家加权，≥90 进 TOP5；不足则补强证据而非改分。</p></div>
-          <div class="m-step"><div class="dot">04</div><h4>落地推演</h4><p>分需求 GTM 策略 + 二级路径，转为可执行上市计划。</p></div>
+          <div class="m-step"><div class="num"><i>01</i>场景优先</div><h4>场景锚定</h4><p>从真实使用场景 + 用户痛点切入，禁止"先造功能再找场景"。场景须带可核验来源。</p></div>
+          <div class="m-step"><div class="num"><i>02</i>三轨交叉</div><h4>跨源验证</h4><p>用户声音 / 竞品缺口 / 行业趋势三轨交叉，单点来源仅作假设。</p></div>
+          <div class="m-step"><div class="num"><i>03</i>加权排序</div><h4>评分排序</h4><p>10 维 × 四专家加权，≥90 进 TOP5；不足则补强证据而非改分。</p></div>
+          <div class="m-step"><div class="num"><i>04</i>落地推演</div><h4>落地推演</h4><p>分需求 GTM 策略 + 二级路径，转为可执行上市计划。</p></div>
         </div>
       </div>
     </div>
@@ -755,9 +755,9 @@ body{
       <div class="m-block-head"><h3>数据采集三路径 · 场景优先</h3><span class="mh-sub">真实用户声音 = 核心燃料</span></div>
       <div class="m-block-body">
         <div class="m-paths">
-          <div class="m-path"><div class="mp-tag">PATH · 用户</div><h4>用户声音采集</h4><p>以真实使用场景为锚，从什么值得买 / 知乎 / 观察者网 / 搜狐中提取痛点，每条附可点击链接与真实日期，拒绝概括性"用户说"。</p></div>
-          <div class="m-path"><div class="mp-tag">PATH · 竞品</div><h4>竞品缺口扫描</h4><p>追踪近 18 个月 XREAL / Rokid / Meta Ray-Ban 的新品类动作，定位对标缺口，凡竞品已具备须定位为升级而非从零建设。</p></div>
-          <div class="m-path"><div class="mp-tag">PATH · 行业</div><h4>行业趋势核验</h4><p>以洛图 / Counterpoint / IDC 与搜索趋势为标尺，验证赛道增速、规模拐点与技术成熟度，避免把个人判断当作行业事实。</p></div>
+          <div class="m-path"><div class="mp-k">PATH 01 · 用户</div><h4>用户声音采集</h4><p>以真实使用场景为锚，从什么值得买 / 知乎 / 观察者网 / 搜狐中提取痛点，每条附可点击链接与真实日期，拒绝概括性"用户说"。</p></div>
+          <div class="m-path"><div class="mp-k">PATH 02 · 竞品</div><h4>竞品缺口扫描</h4><p>追踪近 18 个月 XREAL / Rokid / Meta Ray-Ban 的新品类动作，定位对标缺口，凡竞品已具备须定位为升级而非从零建设。</p></div>
+          <div class="m-path"><div class="mp-k">PATH 03 · 行业</div><h4>行业趋势核验</h4><p>以洛图 / Counterpoint / IDC 与搜索趋势为标尺，验证赛道增速、规模拐点与技术成熟度，避免把个人判断当作行业事实。</p></div>
         </div>
       </div>
     </div>
@@ -771,41 +771,45 @@ body{
             <div class="arch-stage">
               <div class="arch-label">① 采集三轨 · 客观信号</div>
               <div class="arch-row">
-                <div class="arch-node n-user"><span class="an-dot"></span>用户声音</div>
-                <div class="arch-node n-rival"><span class="an-dot"></span>竞品缺口</div>
-                <div class="arch-node n-trend"><span class="an-dot"></span>行业趋势</div>
+                <div class="arch-node"><span class="an-dot"></span>用户声音</div>
+                <div class="arch-node"><span class="an-dot"></span>竞品缺口</div>
+                <div class="arch-node"><span class="an-dot"></span>行业趋势</div>
               </div>
               <div class="arch-conn">三轨交叉 × 单点降假设</div>
             </div>
+            <div class="m-arch-arrow">→</div>
             <div class="arch-stage">
               <div class="arch-label">② 证据链 · 可溯源</div>
               <div class="arch-row">
-                <div class="arch-node n-evi"><span class="an-dot"></span>三级核验 L1/L2/L3</div>
-                <div class="arch-node n-evi"><span class="an-dot"></span>根因多源交叉</div>
+                <div class="arch-node"><span class="an-dot"></span>三级核验 L1/L2/L3</div>
+                <div class="arch-node"><span class="an-dot"></span>根因多源交叉</div>
               </div>
               <div class="arch-conn">五源强支撑 · 缺失即降级</div>
             </div>
+            <div class="m-arch-arrow">→</div>
             <div class="arch-stage">
               <div class="arch-label">③ 需求建模 · IDEA</div>
               <div class="arch-row">
-                <div class="arch-node n-idea"><span class="an-dot"></span>场景锚定需求</div>
-                <div class="arch-node n-idea"><span class="an-dot"></span>竞品映射缺口</div>
-                <div class="arch-node n-idea"><span class="an-dot"></span>伪需求剔除</div>
+                <div class="arch-node"><span class="an-dot"></span>场景锚定需求</div>
+                <div class="arch-node"><span class="an-dot"></span>竞品映射缺口</div>
+                <div class="arch-node"><span class="an-dot"></span>伪需求剔除</div>
               </div>
               <div class="arch-conn">观测池 → TOP5 候选</div>
             </div>
+            <div class="m-arch-arrow">→</div>
             <div class="arch-stage">
               <div class="arch-label">④ 10 维评分 × 四专家</div>
               <div class="arch-row">
-                <div class="arch-node n-score"><span class="an-dot"></span>综合分 ≥90 卡线</div>
+                <div class="arch-node"><span class="an-dot"></span>综合分 ≥90 卡线</div>
               </div>
               <div class="arch-conn">不足 90 则补强证据</div>
             </div>
+            <div class="m-arch-arrow">→</div>
             <div class="arch-stage arch-out">
               <div class="arch-label">⑤ 产出 · TOP5 PRD</div>
               <div class="arch-row">
-                <div class="arch-node n-top"><span class="an-dot"></span>5 条机会</div>
-                <div class="arch-node n-top"><span class="an-dot"></span>GTM 推演</div>
+                <div class="arch-node"><span class="an-dot"></span>5 条机会</div>
+                <div class="arch-node"><span class="an-dot"></span>GTM 推演</div>
               </div>
               <div class="arch-conn">落地上市</div>
             </div>
@@ -876,10 +880,10 @@ body{
       <div class="m-block-head"><h3>四专家加权评审</h3><span class="mh-sub">产品 / 市场 / 用户 / 硬件</span></div>
       <div class="m-block-body">
         <div class="m-experts">
-          <div class="m-expert"><div class="ex-ico">产</div><h4>产品专家</h4><p>评估场景契合、价值主张与优先级排序，确保需求对齐产品战略主轴。</p></div>
-          <div class="m-expert"><div class="ex-ico">市</div><h4>市场专家</h4><p>评估 TAM–SAM–SOM、增速与竞争格局，验证商业规模与窗口期。</p></div>
-          <div class="m-expert"><div class="ex-ico">用</div><h4>用户专家</h4><p>评估痛点强度、付费意愿与使用频次，守住真实需求而非自嗨。</p></div>
-          <div class="m-expert"><div class="ex-ico">硬</div><h4>硬件专家</h4><p>评估技术可行、供应链与落地周期，把机会收敛到可交付边界。</p></div>
+          <div class="m-expert"><div class="ex-idx">EX · 01</div><div class="ex-ico">产</div><h4>产品专家</h4><p>评估场景契合、价值主张与优先级排序，确保需求对齐产品战略主轴。</p></div>
+          <div class="m-expert"><div class="ex-idx">EX · 02</div><div class="ex-ico">市</div><h4>市场专家</h4><p>评估 TAM–SAM–SOM、增速与竞争格局，验证商业规模与窗口期。</p></div>
+          <div class="m-expert"><div class="ex-idx">EX · 03</div><div class="ex-ico">用</div><h4>用户专家</h4><p>评估痛点强度、付费意愿与使用频次，守住真实需求而非自嗨。</p></div>
+          <div class="m-expert"><div class="ex-idx">EX · 04</div><div class="ex-ico">硬</div><h4>硬件专家</h4><p>评估技术可行、供应链与落地周期，把机会收敛到可交付边界。</p></div>
         </div>
       </div>
     </div>
