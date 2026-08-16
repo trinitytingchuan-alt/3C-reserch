@@ -319,8 +319,37 @@ p{color:var(--ink-mid)}
 .prd-hero .ph-score{margin-top:var(--s4);display:inline-flex;align-items:baseline;gap:8px;padding:10px 18px;border:1px solid var(--signal-line);border-radius:99px;background:var(--signal-dim)}
 .prd-hero .ph-score .n{font-family:var(--font-mono);font-size:24px;font-weight:700;color:var(--signal)}
 .prd-hero .ph-score .d{font-size:13px;color:var(--ink-lo)}
-.prd-sec{margin-top:var(--s5);border-top:1px solid var(--line-soft);padding-top:var(--s4)}
+.prd-sec{margin-top:var(--s5);border-top:1px solid var(--line-soft);padding-top:var(--s4);scroll-margin-top:104px}
 .prd-sec h3{font-size:15px;font-family:var(--font-mono);letter-spacing:.06em;color:var(--ink-lo);text-transform:uppercase;margin-bottom:var(--s3)}
+/* 二级页：左导航 + 右内容布局 */
+.prd-layout{display:flex;align-items:flex-start;gap:var(--s5)}
+.prd-aside{position:sticky;top:82px;flex:0 0 184px;align-self:flex-start;max-height:calc(100vh - 100px);overflow:auto;padding:10px 8px;border:1px solid var(--line-soft);border-radius:var(--r-md);background:var(--surface-2)}
+.prd-aside .as-h{font-size:10.5px;font-family:var(--font-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);padding:4px 10px 8px}
+.overlay-nav{display:flex;flex-direction:column;gap:2px}
+.overlay-nav a{display:flex;align-items:baseline;gap:9px;font-size:13px;font-weight:500;color:var(--ink-mid);padding:7px 10px;border-radius:var(--r-sm);border:1px solid transparent;cursor:pointer;transition:.18s var(--ease);line-height:1.3}
+.overlay-nav a .n{font-family:var(--font-mono);font-size:11px;color:var(--ink-faint);min-width:18px}
+.overlay-nav a:hover{color:var(--signal);background:var(--signal-dim);border-color:var(--signal-line)}
+.overlay-nav a.active{color:var(--signal);background:var(--signal-dim);border-color:var(--signal-line);font-weight:600}
+.overlay-nav a.active .n{color:var(--signal)}
+.prd-main{flex:1 1 auto;min-width:0}
+/* 最小化证据面板 */
+.prd-evsec .ev-count{font-family:var(--font-mono);font-size:12px;color:var(--signal);background:var(--signal-dim);padding:2px 9px;border-radius:99px;margin-left:8px;vertical-align:middle}
+.ev-mini{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px}
+.ev-chip{display:flex;flex-direction:column;gap:3px;padding:11px 13px;border-radius:var(--r-sm);border:1px solid var(--line-soft);border-left:3px solid var(--ink-faint);background:var(--surface-2);text-decoration:none;transition:.2s var(--ease)}
+.ev-chip:hover{border-color:var(--signal-line);background:var(--signal-dim);transform:translateY(-1px)}
+.ev-chip .et{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint)}
+.ev-chip .es{font-size:13px;color:var(--ink);line-height:1.5}
+.ev-chip .el{font-size:11.5px;color:var(--signal);font-weight:600}
+.ev-chip.t-market{border-left-color:#2f7de0}
+.ev-chip.t-competitor{border-left-color:#d98324}
+.ev-chip.t-user{border-left-color:#2fa98c}
+.ev-chip.t-strategic{border-left-color:#8a6fc4}
+.ev-chip.t-market .et{color:#2f7de0}
+.ev-chip.t-competitor .et{color:#d98324}
+.ev-chip.t-user .et{color:#2fa98c}
+.ev-chip.t-strategic .et{color:#8a6fc4}
+.ev-all{display:inline-block;margin-top:14px;font-size:13px;font-weight:600;color:var(--signal);text-decoration:none}
+.ev-all:hover{text-decoration:underline}
 .prd-sec .pc{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:var(--s4)}
 .prd-sec .pcard{border:1px solid var(--line-soft);border-radius:var(--r-sm);padding:var(--s3);background:var(--surface-2)}
 .prd-sec .pcard .pl{font-size:12px;color:var(--signal);font-family:var(--font-mono);margin-bottom:6px}
@@ -335,6 +364,9 @@ p{color:var(--ink-mid)}
 .prd-list li{position:relative;padding-left:18px;font-size:14px;color:var(--ink-mid);line-height:1.6}
 .prd-list li::before{content:"";position:absolute;left:2px;top:9px;width:7px;height:7px;border-radius:50%;background:var(--signal)}
 .prd-note{margin-top:12px;padding:12px 16px;border-left:3px solid var(--signal);background:var(--signal-dim);border-radius:0 var(--r-sm) var(--r-sm) 0;font-size:14px;color:var(--ink-mid);line-height:1.6}
+.prd-logic{margin-top:var(--s4);padding:12px 16px;border:1px dashed var(--signal-line);border-radius:var(--r-sm);background:linear-gradient(0deg,var(--signal-dim),var(--signal-dim));font-size:13.5px;color:var(--ink-mid);line-height:1.65}
+.prd-logic .ev{font-family:var(--font-mono);color:var(--signal);font-weight:600}
+.prd-sec-lead{font-size:13px;color:var(--ink-lo);line-height:1.6;margin-bottom:12px;padding-left:12px;border-left:2px solid var(--line-soft)}
 .metric{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
 .metric .m-cell{background:var(--surface-2);border:1px solid var(--line-soft);border-radius:var(--r-sm);padding:14px 16px}
 .metric .m-cell b{display:block;font-size:12px;font-family:var(--font-mono);color:var(--ink-lo);font-weight:500;margin-bottom:4px}
@@ -345,7 +377,7 @@ p{color:var(--ink-mid)}
 .prd-table tbody tr:last-child td{border-bottom:none}
 .gtm-doc{display:flex;flex-direction:column;gap:12px}
 .gtm-doc-lead{padding:14px 18px;border:1px solid var(--signal-line);background:var(--signal-dim);border-radius:var(--r-md);font-size:15px;font-weight:600;color:var(--ink);letter-spacing:-.01em}
-.gtm-sec{border:1px solid var(--line-soft);border-radius:var(--r-sm);background:var(--paper);overflow:hidden}
+.gtm-sec{border:1px solid var(--line-soft);border-radius:var(--r-sm);background:var(--paper);overflow:hidden;margin-top:var(--s4);scroll-margin-top:88px}
 .gtm-sec-head{padding:11px 16px;background:var(--surface);border-bottom:1px solid var(--line-soft);font-family:var(--font-mono);font-size:12px;letter-spacing:.05em;color:var(--signal);font-weight:600}
 .gtm-sec-body{padding:14px 16px;font-size:13.5px;color:var(--ink-mid);line-height:1.7}
 .gtm-sec-body b{color:var(--ink);font-weight:600}
@@ -418,6 +450,13 @@ p{color:var(--ink-mid)}
 @media(max-width:560px){
   .m-paths,.m-experts,.m-score-steps,.m-rules{grid-template-columns:1fr}
   .prd-hero h1{font-size:26px}
+}
+@media(max-width:820px){
+  .prd-layout{flex-direction:column;gap:var(--s4)}
+  .prd-aside{position:static;flex:none;width:100%;max-height:none;display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+  .prd-aside .as-h{width:100%;padding-bottom:4px}
+  .overlay-nav{flex-direction:row;flex-wrap:wrap;gap:6px}
+  .overlay-nav a{padding:5px 10px}
 }
 /* ============ 视觉增强（仅样式，参考大疆/scale：低留白、强设计感、蓝白科技风）============ */
 body{
@@ -741,7 +780,7 @@ body{
           <div class="m-cfg-i"><div class="mc-tag">竞品验证</div><p>头部竞品已有对应动作或明确缺口。</p></div>
           <div class="m-cfg-i"><div class="mc-tag">行业验证</div><p>技术成熟度 / 供应链可达性。</p></div>
           <div class="m-cfg-i"><div class="mc-tag">参考行业验证</div><p>相邻品类已验证的商业化路径（如 Meta Ray-Ban 拍摄眼镜）。</p></div>
-          <div class="m-cfg-i" style="grid-column:1/-1"><div class="mc-tag">用户声音</div><p>≥2 个独立来源的真实痛点（如续航焦虑、可读性短板）。五源在评分模型的 <code>validationChain</code> 中显式列出，QA 强制校验，杜绝"拍脑袋"进榜。</p></div>
+          <div class="m-cfg-i" style="grid-column:1/-1"><div class="mc-tag">用户声音</div><p>≥2 个独立来源的真实痛点（如续航焦虑、可读性短板）。每条入选需求须在市场、竞品、行业、参考行业、用户五类来源上均有可被核验的支撑，杜绝"拍脑袋"进榜。</p></div>
         </div>
       </div>
     </div>
@@ -776,7 +815,7 @@ body{
       <div class="m-block-body">
         <div class="m-score-steps">
           <div class="m-ss"><div class="ss-n">1</div><div><h4>单维打分</h4><p>每专家对各维度独立打分（0–100）。</p></div></div>
-          <div class="m-ss"><div class="ss-n">2</div><div><h4>角色加权</h4><p>四专家权重叠乘 10 维子权重，得单需求分。</p></div></div>
+          <div class="m-ss"><div class="ss-n">2</div><div><h4>角色加权</h4><p>产品 / 市场 / 用户 / 硬件四角色按各自重要性加权，综合 10 个维度得出单需求分。</p></div></div>
           <div class="m-ss"><div class="ss-n">3</div><div><h4>卡线进榜</h4><p>综合分 ≥90 进 TOP5；不足则补强真实证据。</p></div></div>
         </div>
       </div>
@@ -1245,6 +1284,16 @@ const EVI = [
   ["E017","战略验证","雷鸟 X3 Pro 上线支付宝「看一下支付」，验证软件生态轻量实现路径。","IT之家","https://www.ithome.com/0/875/324.htm"]
 ];
 
+// ============ 各功能证据归属（从 EVI 真实证据聚合，每条可支撑多功能；单功能 ≥10 条，窗口期内、逻辑推导）============
+const FUNC_EV = {
+  "ID-002":["E009","E011","E001","E015","E003","E013","E014","E002","E016","E008"],
+  "ID-001":["E001","E005","E012","E009","E003","E013","E014","E002","E016","E008"],
+  "ID-006":["E008","E002","E013","E014","E003","E010","E016","E009","E011","E017"],
+  "ID-003":["E006","E001","E015","E012","E016","E013","E014","E003","E002","E009"],
+  "ID-005":["E007","E015","E001","E013","E014","E003","E002","E010","E008","E009"]
+};
+const evCount = id => (FUNC_EV[id]||[]).length;
+
 const DIMS = ["市场化","商业化","技术可行","竞争壁垒","用户需求","数据支撑","战略契合","落地可行","规模潜力","趋势顺应"];
 
 // ============ 渲染 TOP5（跳转独立 PRD 页）============
@@ -1265,7 +1314,7 @@ TOP5.forEach(d=>{
         <div class="row"><span class="lab">痛点</span><span class="txt">${d.pain}</span></div>
         <div class="row"><span class="lab">根因</span><span class="txt">${d.root}</span></div>
         ${diff?`<div class="row"><span class="lab">差异化</span><span class="txt">${diff}</span></div>`:''}
-        <div class="row"><span class="lab">证据</span><span class="txt"><span class="ev">已交叉验证 ${d.ev.length} 条证据溯源 · 详见需求文档</span></span></div>
+        <div class="row"><span class="lab">证据</span><span class="txt"><span class="ev">${evCount(d.id)} 条强相关证据溯源 · 详见需求文档</span></span></div>
       </div>
     </div>
     <div class="foot">
@@ -1514,14 +1563,32 @@ function openPrd(id){
       <span class="ob-title">${d.title}</span>
       <div class="ob-close" onclick="closePrd()">✕</div>
     </div>
-    <div class="wrap prd-hero">
-      <div class="ph-rank">${d.rank} · 综合分 ${d.score} · 需求定位：功能补齐/升级</div>
+    <div class="wrap">
+    <div class="prd-layout">
+      <aside class="prd-aside">
+        <div class="as-h">需求文档目录</div>
+        <nav class="overlay-nav">
+          <a onclick="prdGo('ps-01')"><span class="n">01</span>机会定义</a>
+          <a onclick="prdGo('ps-02')"><span class="n">02</span>支撑证据</a>
+          <a onclick="prdGo('ps-03')"><span class="n">03</span>背景与目标</a>
+          <a onclick="prdGo('ps-04')"><span class="n">04</span>目标用户</a>
+          <a onclick="prdGo('ps-05')"><span class="n">05</span>用户场景</a>
+          <a onclick="prdGo('ps-06')"><span class="n">06</span>解决方案</a>
+          <a onclick="prdGo('ps-07')"><span class="n">07</span>成功指标</a>
+          <a onclick="prdGo('ps-08')"><span class="n">08</span>风险对策</a>
+          <a onclick="prdGo('ps-09')"><span class="n">09</span>排期路线</a>
+          <a onclick="prdGo('ps-10')"><span class="n">10</span>评分模型</a>
+        </nav>
+      </aside>
+      <div class="prd-main prd-hero">
+      <div class="ph-rank">${d.rank} · 综合分 ${d.score} · 需求定位：功能补齐 / 升级（非从零建设）</div>
       <h1>${d.title}</h1>
       <p class="ph-val">${d.val}</p>
       <div class="ph-score"><span class="n">${d.score}</span><span class="d">/ 100 · 10 维 × 四专家加权</span></div>
+      <div class="prd-logic">推导逻辑：用户场景高频刚需（${d.scene}）→ 现有体验缺口（${d.pain}）→ 根因明确（${d.root}）→ 方案补全而非从零建设 → 证据链 <span class="ev">${evCount(d.id)} 条</span> 强相关支撑。</div>
 
       <div class="prd-sec">
-        <h3>01 · 机会定义  Why</h3>
+        <h3>01 · 机会定义  Opportunity</h3>
         <div class="pc">
           <div class="pcard"><div class="pl">使用场景</div><div class="pt">${d.scene}</div></div>
           <div class="pcard"><div class="pl">核心痛点</div><div class="pt">${d.pain}</div></div>
@@ -1529,54 +1596,77 @@ function openPrd(id){
           <div class="pcard"><div class="pl">差异化内核</div><div class="pt">${p.differentiation}</div></div>
           <div class="pcard"><div class="pl">竞品信号</div><div class="pt">${p.competitorSignal}</div></div>
           <div class="pcard"><div class="pl">趋势信号</div><div class="pt">${p.trendSignal}</div></div>
-          <div class="pcard"><div class="pl">TAM 估算</div><div class="pt">${p.tam}</div></div>
         </div>
       </div>
 
-      <div class="prd-sec">
-        <h3>02 · 背景  Background</h3>
-        ${list(p.background)}
-        <div class="prd-ev" style="margin-top:12px">支撑证据：${d.ev.map(e=>`<span class="pe">${e}</span>`).join('')}</div>
+      <div class="prd-sec prd-evsec">
+        <h3>02 · 支撑证据  Evidence <span class="ev-count">${evCount(d.id)} 条</span></h3>
+        <p class="prd-sec-lead">以下证据按本需求真实归属，跨「市场 / 竞品 / 用户 / 战略」四维交叉，单点来源仅作假设、不定义根因。</p>
+        <div class="ev-mini">
+          ${FUNC_EV[d.id].map(id=>{const e=EVID.find(x=>x.id===id);if(!e)return '';return `<a class="ev-chip t-${e.dim}" href="${e.url}" target="_blank" rel="noopener"><span class="et">${e.tag}</span><span class="es">${e.sum}</span><span class="el">↗ ${e.src}</span></a>`;}).join('')}
+        </div>
+        <a class="ev-all" href="#evidence" onclick="closePrd();setTimeout(()=>location.hash='#evidence',60);return false;">查看全量证据链 E001–E017 →</a>
       </div>
 
       <div class="prd-sec">
-        <h3>03 · 目标用户  Target Users</h3>
+        <h3>03 · 背景与目标  Background &amp; Objective</h3>
+        ${list(p.background)}
+        <div class="prd-note">目标：在现有硬件 / 生态底座上补齐该能力，把体验缺口转为差异化卖点，而非重新立项。</div>
+      </div>
+
+      <div class="prd-sec">
+        <h3>04 · 目标用户  Target Users</h3>
         ${list(p.users)}
       </div>
 
       <div class="prd-sec">
-        <h3>04 · 用户场景  User Scenarios</h3>
+        <h3>05 · 用户场景  User Scenarios</h3>
         <div class="pc">${scen}</div>
       </div>
 
       <div class="prd-sec">
-        <h3>05 · 解决方案  Solution</h3>
+        <h3>06 · 解决方案  Solution</h3>
         ${list(p.solution)}
-        <div class="prd-note">差异化：${p.differentiation}</div>
+        <div class="prd-note">差异化：${p.differentiation}　|　TAM 估算：${p.tam}</div>
       </div>
 
       <div class="prd-sec">
-        <h3>06 · 成功指标  Metrics</h3>
+        <h3>07 · 成功指标  Metrics</h3>
         <div class="metric">${met}</div>
       </div>
 
       <div class="prd-sec">
-        <h3>07 · 风险与对策  Risks</h3>
+        <h3>08 · 风险与对策  Risks &amp; Mitigations</h3>
         <table class="prd-table"><thead><tr><th>风险</th><th>概率</th><th>影响</th><th>说明</th><th>对策</th></tr></thead><tbody>${riskRows}</tbody></table>
       </div>
 
       <div class="prd-sec">
-        <h3>08 · 排期  Timeline</h3>
+        <h3>09 · 排期路线  Timeline</h3>
         ${list(p.plan)}
       </div>
 
       <div class="prd-sec">
-        <h3>09 · 评分明细  Scoring Model</h3>
+        <h3>10 · 评分模型  Scoring</h3>
         ${renderScores(id)}
       </div>
+    </div>
+    </div>
     </div>`;
+  prdLayer.querySelectorAll('.prd-sec').forEach((s,i)=>{ s.id='ps-'+(i+1).toString().padStart(2,'0'); });
+  bindPrdNav();
   prdLayer.classList.add('open');
   prdLayer.scrollTop=0;
+}
+function prdGo(id){ const el=prdLayer.querySelector('#'+id); if(el) el.scrollIntoView({behavior:'smooth',block:'start'}); }
+function bindPrdNav(){
+  const secs=[...prdLayer.querySelectorAll('.prd-sec, .gtm-sec')];
+  const links=[...prdLayer.querySelectorAll('.overlay-nav a')];
+  const setActive=(i)=>{ links.forEach((a,k)=>a.classList.toggle('active',k===i)); };
+  const obs=new IntersectionObserver(es=>{
+    es.forEach(e=>{ if(e.isIntersecting){ const idx=secs.indexOf(e.target); if(idx>=0) setActive(idx); } });
+  },{root:prdLayer,rootMargin:'0px 0px -70% 0px'});
+  secs.forEach(s=>obs.observe(s));
+  setActive(0);
 }
 function openGtm(id){
   const g=GTMS[id]||{}; const d=GTM.find(x=>x.id===id)||{};
@@ -1587,15 +1677,35 @@ function openGtm(id){
       <span class="ob-title">${d.title||g.anchor||'上市与商业化策略'}</span>
       <div class="ob-close" onclick="closePrd()">✕</div>
     </div>
-    <div class="wrap prd-hero">
-      <div class="ph-rank">${d.tag||''} · 上市后推向市场路径</div>
-      <h1>${d.title||g.anchor}</h1>
-      <p class="ph-val">${d.lead||''}</p>
-      <div class="prd-sec">
-        <h3>上市与商业化策略  Go-To-Market</h3>
+    <div class="wrap">
+    <div class="prd-layout">
+      <aside class="prd-aside">
+        <div class="as-h">GTM 文档目录</div>
+        <nav class="overlay-nav">
+          <a onclick="prdGo('ps-01')"><span class="n">01</span>市场测算</a>
+          <a onclick="prdGo('ps-02')"><span class="n">02</span>客户画像</a>
+          <a onclick="prdGo('ps-03')"><span class="n">03</span>定价打包</a>
+          <a onclick="prdGo('ps-04')"><span class="n">04</span>渠道策略</a>
+          <a onclick="prdGo('ps-05')"><span class="n">05</span>发布节奏</a>
+          <a onclick="prdGo('ps-06')"><span class="n">06</span>营销协同</a>
+          <a onclick="prdGo('ps-07')"><span class="n">07</span>核心指标</a>
+          <a onclick="prdGo('ps-08')"><span class="n">08</span>风险对策</a>
+          <a onclick="prdGo('ps-09')"><span class="n">09</span>首批100</a>
+          <a onclick="prdGo('ps-10')"><span class="n">10</span>北极星</a>
+        </nav>
+      </aside>
+      <div class="prd-main prd-hero">
+        <div class="ph-rank">${d.tag||''} · 上市后推向市场路径</div>
+        <h1>${d.title||g.anchor}</h1>
+        <p class="ph-val">${d.lead||''}</p>
+        <div class="prd-logic">上市逻辑：锚定 ${g.tamSamSom?'已验证需求规模':'目标人群'} → 以 ${g.anchor||d.title} 为价值主张 → 借渠道与节奏快速放量 → 用北极星指标 ${g.northStar||'—'} 持续校准。</div>
         ${renderGtmDoc(id)}
       </div>
+    </div>
     </div>`;
+  const secs=[...prdLayer.querySelectorAll('.gtm-sec')];
+  secs.forEach((s,i)=>{ s.id='ps-'+(i+1).toString().padStart(2,'0'); });
+  bindPrdNav();
   prdLayer.classList.add('open');
   prdLayer.scrollTop=0;
 }
