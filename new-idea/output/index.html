@@ -106,14 +106,14 @@ p{color:var(--ink-mid)}
 .card .fig{aspect-ratio:16/9;overflow:hidden;background:var(--surface);position:relative;display:flex;align-items:center;justify-content:center}
 .card .fig .fig-img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;transition:transform .55s var(--ease)}
 .card:hover .fig .fig-img{transform:scale(1.05)}
-.card .body{padding:var(--s4);flex:1}
-.card .rank{font-family:var(--font-mono);font-size:12px;color:var(--signal);font-weight:500}
-.card .body h3{font-size:21px;margin-top:6px;line-height:1.18}
-.card .body .val{margin-top:10px;font-size:15px;color:var(--ink-mid);line-height:1.5}
-.card .chain{margin-top:var(--s3);border-top:1px solid var(--line-soft);padding-top:var(--s3);display:flex;flex-direction:column;gap:10px}
-.chain .row{display:grid;grid-template-columns:74px 1fr;gap:12px;font-size:14px}
+.card .body{padding:var(--s3) var(--s4) var(--s3);flex:1}
+.card .rank{font-family:var(--font-mono);font-size:11.5px;color:var(--signal);font-weight:500}
+.card .body h3{font-size:19px;margin-top:5px;line-height:1.2}
+.card .body .val{margin-top:8px;font-size:13.5px;color:var(--ink-mid);line-height:1.5}
+.card .chain{margin-top:11px;border-top:1px solid var(--line-soft);padding-top:11px;display:flex;flex-direction:column;gap:6px}
+.chain .row{display:grid;grid-template-columns:60px 1fr;gap:10px;font-size:13px}
 .chain .row .lab{font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);padding-top:2px}
-.chain .row .txt{color:var(--ink-mid);line-height:1.48}
+.chain .row .txt{color:var(--ink-mid);line-height:1.42}
 .chain .row .txt .ev{color:var(--signal);font-family:var(--font-mono);font-size:12.5px}
 .chain .row .txt .ev-chips{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:6px}
 .chain .row .txt .ev-chip{display:inline-block;font-family:var(--font-mono);font-size:11px;font-weight:600;color:var(--signal);background:var(--signal-line);border:1px solid var(--signal-soft);border-radius:6px;padding:2px 7px;transition:background .2s,color .2s}
@@ -1181,7 +1181,7 @@ const PRDS = {
     plan:["Q4 新一代主机发布","次年 Q1 联名时尚款","次年 Q2 近视镜片适配","次年 Q3 轻量材质全系下放"]
   },
   "ID-005":{
-    background:["雷鸟光学可读性短板 + 一键变暗缺口（E015）","户外强光下看不清、公共场合易暴露内容","XREAL One Pro 电致变色已被市场接受（E007）","雷鸟在该能力上落后，属已验证可补的硬件缺口"],
+    background:["雷鸟光学可读性短板 + 一键变暗缺口（E012 户外可读受限）","户外强光下看不清、公共场合易暴露内容","XREAL One Pro 电致变色已被市场接受（E018/E019）","雷鸟在该能力上落后，属已验证可补的硬件缺口"],
     users:["户外用户：强光/雪地/户外运动","驾驶人群：日间强光 + 防眩光","隐私敏感用户：公共场合防偷窥","商务人士：地铁/会议防窥屏"],
     scenarios:[["户外强光", "强光下镜片可读性不足，一键变暗"], ["公共场合", "地铁/咖啡厅防偷窥"], ["驾驶导航", "日间防眩光 + 导航叠加"]],
     solution:["一键电致变色，强光自动增亮、室内防窥","防窥模式，降低可视角度","光感自动调节，明暗自适应","与导航/内容联动，暗场景优化显示"],
@@ -1199,38 +1199,38 @@ const PRDS = {
 const TOP5 = [
   { id:"ID-002", rank:"TOP 1", score:91.2, icon:ICN["ID-002"],
     title:"AI 第一视角拍摄 + 实时翻译（升级补齐）",
-    val:"雷鸟 X3 Pro 已具备基础拍摄与实时翻译，本需求为在已有能力上做「防抖稳定 + 实时字幕 + 多语种」的体验升级，把拍摄翻译从「能用」推向「好用」，对标 Meta。",
-    scene:"旅行、跨国会议、逛展等需要解放双手记录与跨语言沟通的场景。",
-    pain:"现有拍摄清晰度与稳定性不足（缺 OIS 防抖、4K），实时翻译延迟与语种覆盖弱于 Meta；用户实测吐槽「功能逊于手机」。",
-    root:"核验（verify_first）：雷鸟 X3 Pro 已于发布时内置 AI 拍摄与实时翻译（L1 官方参数 E012/E014），故本需求定位为升级补全而非从零建设；缺口在清晰度/防抖/实时交互弱于 Meta（L2 竞品 E026/E027），升级为增量刚需。",
+    val:"在已有拍摄翻译上做防抖、实时字幕、多语种升级，对标 Meta。",
+    scene:"旅行 / 跨国会议等需解放双手记录与沟通。",
+    pain:"拍摄清晰度与翻译延迟弱于 Meta，用户实测「功能逊于手机」。",
+    root:"雷鸟已内置拍摄翻译，但缺防抖、多语种字幕，属升级补齐而非从零建设。",
     ev:["E037","E038","E012","E014"] },
   { id:"ID-001", rank:"TOP 2", score:90.8, icon:ICN["ID-001"],
     title:"全天候续航外挂电池模组",
     val:"磁吸式外挂电池 + 快充，把 AR 眼镜续航从「半天」拉到「全天候」，消除出行续航焦虑。",
-    scene:"出差、长途旅行、户外全天拍摄 / 导航等高频使用场景。",
-    pain:"X3 Pro 骁龙 AR1 + 全彩波导高功耗，续航为公开短板，用户吐槽续航焦虑。",
-    root:"光波导 + 旗舰 SoC 功耗刚性，短期电芯密度难突破；外挂模组是轻量补能的最快路径，非从零研发。",
+    scene:"出差、长途旅行等全天高频使用。",
+    pain:"高功耗下续航为公开短板，用户吐槽续航焦虑。",
+    root:"功耗刚性难突破，外挂补能是轻量化的最快路径。",
     ev:["E031","E033"] },
   { id:"ID-006", rank:"TOP 3", score:90.6, icon:ICN["ID-006"],
     title:"安卓应用生态 / RayNeo VM",
-    val:"开放应用虚拟机，让微信、导航、笔记等安卓应用上镜，把眼镜从「单功能」变为「随身计算中心」。",
-    scene:"日常通勤、办公、出行中需要随时调起多类 App 的场景。",
-    pain:"封闭生态应用少，用户要频繁掏手机；Rokid 内容生态追赶凸显开放平台缺口。",
-    root:"雷鸟 RayNeo AR VM 已具备生态基础（官方 E013），但第三方应用接入不足；Rokid 生态追赶（E025）凸显开放平台是留存与差异化关键。",
+    val:"开放安卓应用上镜，把眼镜变为随身计算中心。",
+    scene:"通勤、办公需随时调起多类 App。",
+    pain:"封闭生态应用少，频繁掏手机，内容生态落后竞品。",
+    root:"VM 有基础但第三方接入不足，开放平台是留存关键。",
     ev:["E013","E025"] },
   { id:"ID-003", rank:"TOP 4", score:90.5, icon:ICN["ID-003"],
     title:"轻量化舒适佩戴（铰链 / 磁吸 / 材质）",
     val:"重构铰链与磁吸结构、引入轻量材质，把长时间佩戴负担降到「无感」，扩大日常佩戴人群。",
-    scene:"全天办公、阅读、通勤等需要长时间佩戴的场景。",
-    pain:"第一代铰链松、磁吸夹发，Air 系列发热，佩戴舒适度为真实用户反馈短板。",
-    root:"结构件与材质未针对长时间佩戴优化（E035 佩戴由重量分布决定）；轻量化是佩戴渗透率的硬门槛，属可工程迭代项。",
+    scene:"全天办公、阅读、通勤等长时间佩戴。",
+    pain:"铰链松、磁吸夹发、发热，佩戴舒适度为明显短板。",
+    root:"结构与材质未按长时佩戴优化，轻量化是渗透率硬门槛。",
     ev:["E035","E036"] },
   { id:"ID-005", rank:"TOP 5", score:90.3, icon:ICN["ID-005"],
     title:"电致变色 / 隐私智能镜片",
-    val:"一键变暗 + 防窥，户外强光可读、室内防偷窥，把光学可读性短板转为体验卖点。",
-    scene:"户外强光、雪地、驾驶、公共场合需隐私防窥的场景。",
-    pain:"雷鸟光学可读性短板 + 一键变暗缺口，强光下看不清、公共场合易暴露内容。",
-    root:"XREAL One Pro 电致变色已被市场接受（E018/E019），雷鸟在该能力上落后，属已验证可补的硬件缺口。",
+    val:"一键变暗 + 防窥，户外可读、室内防偷窥。",
+    scene:"户外强光、雪地、驾驶等公共场景。",
+    pain:"强光下看不清、公共场合易被偷窥。",
+    root:"强光透光不足，电致变色是已验证的补强路径。",
     ev:["E018","E019"] }
 ];
 
@@ -1634,7 +1634,6 @@ TOP5.forEach(d=>{
         <div class="row"><span class="lab">场景</span><span class="txt">${d.scene}</span></div>
         <div class="row"><span class="lab">痛点</span><span class="txt">${d.pain}</span></div>
         <div class="row"><span class="lab">根因</span><span class="txt">${d.root}</span></div>
-        ${diff?`<div class="row"><span class="lab">差异化</span><span class="txt">${diff}</span></div>`:''}
       </div>
     </div>
     <div class="foot">
