@@ -138,9 +138,10 @@ p{color:var(--ink-mid)}
 .flist tr:last-child td{border-bottom:0}
 .flist tr:hover td{background:var(--surface-2)}
 .flist .name{color:var(--ink);font-weight:500}
-.flist .name.cand{color:var(--signal);cursor:pointer;text-decoration:underline;text-decoration-style:dotted;text-underline-offset:4px}
+.flist .name.cand{color:var(--ink);cursor:pointer;font-weight:500}
 .flist tbody tr[onclick]{cursor:pointer;transition:background .18s}
 .flist tbody tr[onclick]:hover{background:var(--signal-dim)}
+.flist tbody tr[onclick]:hover .name.cand{color:var(--signal)}
 .flist .id{font-family:var(--font-mono);font-size:12px;color:var(--ink-lo)}
 .flist .cat{font-size:13px;color:var(--ink-lo)}
 .flist .st{font-family:var(--font-mono);font-size:12px;padding:3px 9px;border-radius:6px;font-weight:500}
@@ -1626,16 +1627,19 @@ TOP5.forEach(d=>{
     <div class="topbar"></div>
     <div class="fig">${figMap[d.icon]}</div>
     <div class="body">
-      <div class="rank">${d.rank} · ${d.id} · 功能补齐</div>
+      <div class="rank">${d.rank} · ${d.id}</div>
       <h3>${d.title}</h3>
       <p class="val">${d.val}</p>
       <div class="chain">
-        <div class="ev-sum"><span class="ev-sum-l">证据</span><span class="ev-note">${evCount(d.id)} 条 · 跨市场 / 竞品 / 用户 / 战略四维交叉</span></div>
+        <div class="row"><span class="lab">场景</span><span class="txt">${d.scene}</span></div>
+        <div class="row"><span class="lab">痛点</span><span class="txt">${d.pain}</span></div>
+        <div class="row"><span class="lab">根因</span><span class="txt">${d.root}</span></div>
+        ${diff?`<div class="row"><span class="lab">差异化</span><span class="txt">${diff}</span></div>`:''}
       </div>
     </div>
     <div class="foot">
       <div class="score"><span class="num">${d.score}</span><span class="den">/100</span><span class="bar"><i data-w="${d.score}"></i></span></div>
-      <a class="btn-doc" href="prd-${d.id}.html" onclick="openPrd('${d.id}');return false;">查看推导与证据 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a class="btn-doc" href="prd-${d.id}.html" onclick="openPrd('${d.id}');return false;">查看完整需求文档 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     </div>`;
   t5.appendChild(el);
 });
@@ -1771,23 +1775,44 @@ function openEvi(id){
 }
 eviMask.addEventListener('click',e=>{ if(e.target===eviMask) eviMask.classList.remove('open'); });
 
-// ============ 候选功能：简易需求来源界面（区别于 TOP5 完整 PRD）============
+// ============ 候选功能：简易 PRD 内容（区别于 TOP5 完整 PRD，不展开 GTM/证据链接堆）============
 const CANDIDATES = {
-  "ID-008":{ title:"怀旧游戏模拟器生态", val:"雷鸟 X3 Pro「浮窗」App 已实现主机模拟器，原生运行 FC 等怀旧游戏，激活 AR 硬件的内容价值。", state:"观测候选" },
-  "ID-009":{ title:"AI 语音助手 / 多模交互", val:"X3 Pro 已搭载通义多模态大模型 + 3DoF，实现「所见即所说」的零学习成本交互，为 AI 眼镜核心入口。", state:"观测候选" },
-  "ID-010":{ title:"eSIM 独立联网 / 出海本地化", val:"X3 Pro eSIM 版为全球首款支持 eSIM 的双目全彩 AR，可脱离手机独立运行，是出海本地化的硬件底座。", state:"观测候选" },
-  "ID-011":{ title:"AR 空间导航 / 实景定位", val:"深度评测显示空间导航为高频使用场景，实景定位叠加信息层是 AR 区别于投屏的核心能力。", state:"观测候选" },
-  "ID-012":{ title:"会议记录 / 实时提词", val:"第一视角拍摄 + 同传翻译天然承接会议记录与提词场景，是办公人群的轻量提效工具。", state:"观测候选" }
+  "ID-008":{ title:"怀旧游戏模拟器生态", state:"观测候选",
+    val:"雷鸟 X3 Pro「浮窗」App 已实现主机模拟器，原生运行 FC 等怀旧游戏，激活 AR 硬件的内容价值。",
+    bg:"X3 Pro 已发布主机模拟器并获行业关注；游戏与内容生态是 AR 硬件激活关键（ChinaJoy 展验证）。",
+    user:"怀旧玩家、客厅娱乐人群、对 AR 内容好奇的早期采用者",
+    plan:"预装主流主机模拟器 + 合法 ROM 导入 + 蓝牙手柄适配，上线游戏商店专区" },
+  "ID-009":{ title:"AI 语音助手 / 多模交互", state:"观测候选",
+    val:"X3 Pro 已搭载通义多模态大模型 + 3DoF，实现「所见即所说」的零学习成本交互，为 AI 眼镜核心入口。",
+    bg:"X3 Pro 已内置多模大模型与空间定位；深度评测认可语音助手交互自然度。",
+    user:"AI 早期采用者、效率导向的商务与通勤人群",
+    plan:"强化连续对话、多轮指令、场景化 AI 助手（导航/翻译/会议），升级为默认交互入口" },
+  "ID-010":{ title:"eSIM 独立联网 / 出海本地化", state:"观测候选",
+    val:"X3 Pro eSIM 版为全球首款支持 eSIM 的双目全彩 AR，可脱离手机独立运行，是出海本地化的硬件底座。",
+    bg:"X3 Pro eSIM 版已发布（8999 元）；全球 AI 眼镜市场以 Meta 主导、中国品牌出海空间大。",
+    user:"出海目标市场的商务与差旅用户、对独立联网有刚需的早期采用者",
+    plan:"全球多运营商 eSIM 支持 + 多语言系统/内容本地化 + 海外渠道与售后布局" },
+  "ID-011":{ title:"AR 空间导航 / 实景定位", state:"观测候选",
+    val:"深度评测显示空间导航为高频使用场景，实景定位叠加信息层是 AR 区别于投屏的核心能力。",
+    bg:"X3 Pro 深度评测确认空间导航为高频使用场景；AR 核心价值在信息叠加而非投屏。",
+    user:"通勤、旅行、驾乘等需要实时导航与信息叠加的用户",
+    plan:"强化实景导航、兴趣点标注、多场景信息叠加（导航/打车/探店）" },
+  "ID-012":{ title:"会议记录 / 实时提词", state:"观测候选",
+    val:"第一视角拍摄 + 同传翻译天然承接会议记录与提词场景，是办公人群的轻量提效工具。",
+    bg:"第一视角记录与跨语言沟通为旅行/会议高频刚需；拍摄翻译底座已具备。",
+    user:"跨国会议、商务洽谈、公开演讲等需记录与提词的办公人群",
+    plan:"会议纪要自动生成 + 实时字幕提词 + 本地/云端双备份" }
 };
 function openCandidate(id){
   const c=CANDIDATES[id]; if(!c) return;
-  const evs=(FUNC_EV[id]||[]).map(evid=>{const e=EVID.find(x=>x.id===evid);if(!e)return '';return `<a class="cand-ev" href="${e.url}" target="_blank" rel="noopener"><span class="ce-id">${e.id}</span><span class="ce-s">${e.sum}</span><span class="ce-src">↗ ${e.src}</span></a>`;}).join('');
   document.getElementById('eviModal').innerHTML=`
-    <div class="m-eid">${id} · ${c.state} · 需求来源</div>
+    <div class="m-eid">${id} · ${c.state} · 简易 PRD</div>
     <div class="m-tit">${c.title}</div>
     <div class="m-row"><div class="ml">一句话价值</div><div class="mt">${c.val}</div></div>
-    <div class="m-row"><div class="ml">支撑证据</div><div class="mt"><div class="cand-evs">${evs}</div></div></div>
-    <div class="m-hint">候选功能暂不进入完整 PRD / GTM 规划，此处仅展示需求来源证据以供研判。</div>
+    <div class="m-row"><div class="ml">背景与来源</div><div class="mt">${c.bg}</div></div>
+    <div class="m-row"><div class="ml">目标用户</div><div class="mt">${c.user}</div></div>
+    <div class="m-row"><div class="ml">核心方案</div><div class="mt">${c.plan}</div></div>
+    <div class="m-hint">候选功能暂不进入完整 PRD / GTM 规划，此处为简易需求说明，供后续研判。</div>
     <button class="m-close" onclick="document.getElementById('eviMask').classList.remove('open')">关闭</button>`;
   eviMask.classList.add('open');
 }
