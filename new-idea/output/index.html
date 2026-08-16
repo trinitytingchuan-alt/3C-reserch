@@ -420,6 +420,21 @@ p{color:var(--ink-mid)}
 
 /* ============ 证据链：可筛选总表 + 三级核验记录（浅色）============ */
 .evi-toolbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:var(--s4)}
+.evi-cats{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:var(--s4)}
+.evi-cat{border:1px solid var(--line-soft);border-radius:var(--r-md);padding:var(--s4);background:var(--paper);cursor:pointer;transition:.2s var(--ease);display:flex;flex-direction:column;gap:12px}
+.evi-cat:hover{border-color:var(--signal-line);box-shadow:var(--shadow);transform:translateY(-2px)}
+.evi-cat .ec-head{display:flex;align-items:center;gap:14px}
+.evi-cat .ec-ic{width:40px;height:40px;border-radius:12px;background:var(--signal-dim);color:var(--signal);font-family:var(--font-display);font-weight:700;font-size:16px;display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+.evi-cat .ec-t{flex:1;min-width:0}
+.evi-cat .ec-n{font-size:15px;font-weight:600;color:var(--ink)}
+.evi-cat .ec-cnt{font-family:var(--font-mono);font-size:11.5px;color:var(--ink-faint);margin-top:2px}
+.evi-cat .ec-go{font-size:12px;color:var(--signal);font-weight:600;white-space:nowrap}
+.evi-cat .ec-hint{font-size:12.5px;color:var(--ink-lo);line-height:1.5;padding-top:12px;border-top:1px solid var(--line-soft)}
+.evi-cat .ec-sample{display:flex;flex-direction:column;gap:7px}
+.evi-cat .evi-s{font-size:12.5px;color:var(--ink-mid);line-height:1.5;display:flex;gap:8px}
+.evi-cat .evi-s b{font-family:var(--font-mono);color:var(--signal);flex:0 0 auto}
+.evi-back{display:inline-block;margin-bottom:var(--s3);font-size:13px;color:var(--signal);cursor:pointer;font-weight:600}
+.evi-back:hover{text-decoration:underline}
 .evi-filter{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border:1px solid var(--line-soft);border-radius:99px;background:var(--paper);font-size:13px;color:var(--ink-mid);cursor:pointer;transition:.2s var(--ease)}
 .evi-filter:hover{border-color:var(--signal-line)}
 .evi-filter.active{background:var(--signal);color:#fff;border-color:var(--signal)}
@@ -807,23 +822,19 @@ body{
 <section class="section wrap" id="evidence">
   <div class="sec-head reveal">
     <span class="eyebrow">Evidence Chain</span>
-    <h2>证据链与三级核验（E001 – E056）</h2>
-    <p class="sub">全部 56 条证据按四个一级维度归类，下方可按维度筛选查看全量总表（点击任意行展开来源详情）。核验记录区标注每条证据的三级核验层级（L1 官方 / L2 专业媒体与机构 / L3 社区社媒）。来源均为公开可核验渠道：官方参数 / 行业报告（洛图、Counterpoint、IDC、Omdia、奥维云网）/ 社区核验（什么值得买、知乎、搜狐、少数派）/ 竞品动作（XREAL、Rokid、Meta、小米）。数据窗口 2025-05 至 2026-05。</p>
+    <h2>证据链与三级核验（56 条）</h2>
+    <p class="sub">全部 56 条证据按四个一级维度归类，每条均经三级核验（L1 官方 / L2 专业媒体与机构 / L3 社区社媒）。来源为公开可核验渠道：官方参数 / 行业报告（洛图、Counterpoint、IDC、Omdia、奥维云网）/ 社区核验（什么值得买、知乎、搜狐、少数派）/ 竞品动作（XREAL、Rokid、Meta、小米）。数据窗口 2025-05 至 2026-05。</p>
   </div>
 
-  <div class="evi-toolbar reveal" id="eviToolbar"></div>
-  <div class="reveal">
+  <div class="evi-cats reveal" id="eviCats"></div>
+
+  <div class="reveal" id="eviDetailWrap" style="display:none">
+    <div class="evi-toolbar" id="eviToolbar"></div>
+    <div class="evi-back" onclick="eviBack()">← 返回分类总览</div>
     <table class="evi-table" id="eviTable">
       <thead><tr><th style="width:64px">编号</th><th style="width:104px">类型</th><th>证据摘要</th><th style="width:200px">来源</th></tr></thead>
       <tbody id="eviBody"></tbody>
     </table>
-  </div>
-
-  <div class="reveal" style="margin-top:var(--s6)">
-    <span class="eyebrow">Verification Log</span>
-    <h3 style="font-size:19px;margin:8px 0 var(--s3)">三级核验记录</h3>
-    <p class="muted" style="font-size:14px;margin-bottom:var(--s4)">每条证据均经过三级核验：L1 端内官方（参数 / 发布会）、L2 专业媒体（洛图 / Counterpoint / IDC / 科技媒体）、L3 社区社媒（什么值得买 / 知乎 / 观察者网 / 搜狐）。</p>
-    <div class="evi-x" id="eviX"></div>
   </div>
 </section>
 
@@ -1078,14 +1089,14 @@ const ICN = { "ID-002":"shoot","ID-001":"battery","ID-006":"eco","ID-003":"wear"
 // ============ PRDS 二级落地数据（驱动覆盖层 openPrd）============
 const PRDS = {
   "ID-002":{
-    background:["X3 Pro 已具备全彩光波导 + 骁龙 AR1 的显示与算力底座，但交互仍停留在「显示终端」","Meta Ray-Ban 已验证「AI 拍摄眼镜」路径可规模化（累计超 700 万副，E009）","雷鸟 V3 Slim 已布局 AI 拍摄但清晰度与实时交互弱于 Meta（E011）","第一视角记录与跨语言沟通是旅行/会议高频刚需，手机无法解放双手"],
+    background:["雷鸟 X3 Pro 已内置 AI 第一视角拍摄与实时翻译（L1 官方参数 E012/E014），本需求为在已有能力上做升级补齐，而非从零建设","Meta Ray-Ban 2025 出货 740 万台、份额 85.2%，验证「AI 拍摄眼镜」路径可规模化（E026/E027）","雷鸟拍摄清晰度与实时交互弱于 Meta：缺 OIS 防抖、4K、多语种低延迟字幕（E037/E038 用户实测）","第一视角记录与跨语言沟通是旅行/会议高频刚需，手机无法解放双手"],
     users:["出境自由行与商旅客：单次行程需频繁拍照/翻译","跨境会议与展会工作者：跨语言即时沟通","留学生与海外生活人群：日常翻译依赖","科技极客与内容创作者：第一视角 Vlog"],
     scenarios:[["旅行街拍", "第一视角边走边拍，无需掏手机，素材本地+云端双备份"], ["跨国会议", "同声传译字幕实时叠加，解放双手做笔记"], ["逛展探店", "镜片第一视角记录 + 即时翻译讲解"]],
     solution:["补齐第一视角拍摄稳定性（OIS 防抖 + 4K 30fps）","实时同声传译字幕（20+ 语种，云端大模型）","随身 AI 助手语音唤醒，一句话拍照/翻译","拍摄素材本地与云端双备份，隐私可控"],
     differentiation:"雷鸟有全彩光波导，可在镜片内叠加实时字幕，比 Meta 无屏方案多一层「所见即所得」的翻译呈现，形成差异化体验",
-    competitorSignal:"Meta Ray-Ban 已验证拍摄眼镜路径（E009），雷鸟 V3 已布局但弱于 Meta（E011），此缺口为补齐而非从零建设",
-    trendSignal:"AI 眼镜成全球智能眼镜增长极（IDC 1280 万台 +26%，E014），旅行/会议场景拍摄翻译需求随品类增长放大",
-    tam:"中国 AR 眼镜 48.9 万台且年增 83%（E002），出境游与跨国商务人群天然需第一视角拍摄翻译，潜在装机覆盖可观",
+    competitorSignal:"Meta Ray-Ban 已验证拍摄眼镜路径（E026/E027 出货 740 万台），雷鸟 X3 Pro 已具备但清晰度与实时交互弱于 Meta（E037/E038），此缺口为升级补齐而非从零建设",
+    trendSignal:"AI 眼镜成全球智能眼镜增长极（IDC 2025 全球 1280 万台 +26%，E006），旅行/会议场景拍摄翻译需求随品类增长放大",
+    tam:"中国 AR 眼镜 48.9 万台且年增 83%（E001），出境游与跨国商务人群天然需第一视角拍摄翻译，潜在装机覆盖可观",
     metrics:[["日活拍摄次数","≥3 次 / 人"],["翻译调用时长","≥20 min / 日活"],["字幕延迟","≤1.5s（90% 场景）"],["弱网可用率","≥85%"]],
     risks:[["翻译准确率", "中", "高", "依赖云端大模型，弱网/方言场景降级", "本地模型兜底 + 弱网降级提示"],["隐私", "中", "高", "第一视角拍摄涉及他人肖像", "明确指示灯 + 本地优先存储 + 一键脱敏"],["续航", "中", "中", "持续拍摄 + 翻译耗电", "外挂电池模组联动（ID-001）"]],
     plan:["Q3 OTA 推送实时翻译公测","Q4 联合旅游局内容战役","次年 Q1 出海独立站上线","次年 Q2 拍摄翻译素材云端工作流"]
@@ -1147,12 +1158,12 @@ const PRDS = {
 // ============ TOP5 真实数据（来自 ideas/scores/evidence.json，按综合分降序）============
 const TOP5 = [
   { id:"ID-002", rank:"TOP 1", score:91.2, icon:ICN["ID-002"],
-    title:"AI 第一视角拍摄 + 实时翻译",
-    val:"解放双手的第一视角记录 + 跨语言实时字幕，把 AR 眼镜从「显示终端」升级为「随身 AI 伙伴」。",
+    title:"AI 第一视角拍摄 + 实时翻译（升级补齐）",
+    val:"雷鸟 X3 Pro 已具备基础拍摄与实时翻译，本需求为在已有能力上做「防抖稳定 + 实时字幕 + 多语种」的体验升级，把拍摄翻译从「能用」推向「好用」，对标 Meta。",
     scene:"旅行、跨国会议、逛展等需要解放双手记录与跨语言沟通的场景。",
-    pain:"手机拍摄需手持、第一视角体验差；跨语言沟通靠手机逐句翻译延迟高、不自然。",
-    root:"现有眼镜侧重显示，缺 AI 感知与实时交互层；Meta Ray-Ban 已验证拍摄眼镜路径，实时翻译为增量刚需。",
-    ev:["E009","E011"] },
+    pain:"现有拍摄清晰度与稳定性不足（缺 OIS 防抖、4K），实时翻译延迟与语种覆盖弱于 Meta；用户实测吐槽「功能逊于手机」。",
+    root:"核验（verify_first）：雷鸟 X3 Pro 已于发布时内置 AI 拍摄与实时翻译（L1 官方参数 E012/E014），故本需求定位为升级补全而非从零建设；缺口在清晰度/防抖/实时交互弱于 Meta（L2 竞品 E026/E027），升级为增量刚需。",
+    ev:["E037","E038","E012","E014"] },
   { id:"ID-001", rank:"TOP 2", score:90.8, icon:ICN["ID-001"],
     title:"全天候续航外挂电池模组",
     val:"磁吸式外挂电池 + 快充，把 AR 眼镜续航从「半天」拉到「全天候」，消除出行续航焦虑。",
@@ -1185,8 +1196,8 @@ const TOP5 = [
 
 // ============ GTM 真实数据（分需求差异化）============
 const GTM = [
-  { id:"ID-002", tag:"TOP 1 · AI 拍摄翻译", icon:ICN["ID-002"], title:"AI 第一视角拍摄 + 实时翻译",
-    lead:"以「旅行 / 跨国」高感知场景打透，建立 AI 眼镜心智。",
+  { id:"ID-002", tag:"TOP 1 · AI 拍摄翻译", icon:ICN["ID-002"], title:"AI 第一视角拍摄 + 实时翻译（升级补齐）",
+    lead:"基于 X3 Pro 已具备的拍摄翻译底座做体验升级，以「旅行 / 跨国」高感知场景打透，对标 Meta 建立 AI 眼镜心智。",
     audience:"出境自由行、跨境商务、留学生、科技极客。",
     channel:"天猫 / 京东旗舰 + 抖音内容种草 + 机场 / 免税店体验台 + 出海独立站。",
     pricing:"随 X3 Pro 系列标配，翻译订阅包 ¥29 / 月。",
@@ -1634,11 +1645,51 @@ const LVL = { // 三级核验层级（L1 官方 / L2 专业机构媒体 / L3 社
 };
 const EVID = EVI.map(e=>({id:e[0],tag:e[1],sum:e[2],src:e[3],url:e[4],dim:DIM_OVERRIDE[e[0]]||DIM_MAP[e[1]]||'strategic'}));
 const eviBody = document.getElementById('eviBody');
+const eviCats = document.getElementById('eviCats');
+const eviDetailWrap = document.getElementById('eviDetailWrap');
 const eviToolbar = document.getElementById('eviToolbar');
-const eviFilters = [{k:'all',n:'全部'},{k:'market',n:'市场与行业'},{k:'competitor',n:'竞品动态'},{k:'user',n:'用户需求'},{k:'strategic',n:'战略与合规'}];
-let eviCur = 'all';
+const eviFilters = [{k:'market',n:'市场与行业',ic:'M'},{k:'competitor',n:'竞品动态',ic:'C'},{k:'user',n:'用户需求',ic:'U'},{k:'strategic',n:'战略与合规',ic:'S'}];
+const EV_CAT_HINT = {
+  market:'行业报告 / 官方机构：市场规模、增速、份额',
+  competitor:'竞品动作：XREAL、Rokid、Meta、小米动态与缺口',
+  user:'社区真实声音：续航、佩戴、翻译、粘性等痛点',
+  strategic:'雷鸟官方参数 / 生态合作 / 融资战略'
+};
+let eviCur = null;
+function renderEviCats(){
+  eviCats.innerHTML = eviFilters.map(f=>{
+    const rows = EVID.filter(e=>e.dim===f.k);
+    const sample = rows.slice(0,2).map(e=>`<span class="evi-s"><b>${e.id}</b>${e.sum}</span>`).join('');
+    return `<div class="evi-cat" data-dim="${f.k}">
+      <div class="ec-head"><span class="ec-ic">${f.ic}</span><div class="ec-t"><div class="ec-n">${f.n}</div><div class="ec-cnt">${rows.length} 条证据</div></div><span class="ec-go">查看全部 →</span></div>
+      <div class="ec-hint">${EV_CAT_HINT[f.k]}</div>
+      <div class="ec-sample">${sample}</div>
+    </div>`;
+  }).join('');
+  eviCats.querySelectorAll('.evi-cat').forEach(card=>{
+    card.addEventListener('click',()=>showEviDetail(card.dataset.dim));
+  });
+}
+function showEviDetail(dim){
+  eviCur = dim;
+  eviCats.style.display = 'none';
+  eviDetailWrap.style.display = 'block';
+  eviDetailWrap.classList.add('in');
+  eviToolbar.innerHTML = '';
+  eviFilters.forEach(f=>{
+    const el=document.createElement('button');
+    el.className='evi-filter'+(f.k===dim?' active':'');
+    const cnt = EVID.filter(e=>e.dim===f.k).length;
+    el.innerHTML = `${f.n} <span class="cnt">${cnt}</span>`;
+    el.onclick=()=>{ eviCur=f.k; eviToolbar.querySelectorAll('.evi-filter').forEach(x=>x.classList.remove('active')); el.classList.add('active'); renderEvi(); };
+    eviToolbar.appendChild(el);
+  });
+  renderEvi();
+  eviDetailWrap.scrollIntoView({behavior:'smooth',block:'start'});
+}
+function eviBack(){ eviCur=null; eviDetailWrap.style.display='none'; eviCats.style.display='block'; eviCats.classList.add('in'); }
 function renderEvi(){
-  const rows = EVID.filter(e=>eviCur==='all'||e.dim===eviCur);
+  const rows = EVID.filter(e=>e.dim===eviCur);
   eviBody.innerHTML = rows.map(e=>`<tr data-id="${e.id}">
     <td class="eid">${e.id}</td>
     <td><span class="etag">${e.tag}</span></td>
@@ -1650,20 +1701,7 @@ function renderEvi(){
     openEvi(tr.dataset.id);
   }));
 }
-eviFilters.forEach(f=>{
-  const el=document.createElement('button');
-  el.className='evi-filter'+(f.k==='all'?' active':'');
-  const cnt = f.k==='all'?EVID.length:EVID.filter(e=>e.dim===f.k).length;
-  el.innerHTML = `${f.n} <span class="cnt">${cnt}</span>`;
-  el.onclick=()=>{ eviCur=f.k; eviToolbar.querySelectorAll('.evi-filter').forEach(x=>x.classList.remove('active')); el.classList.add('active'); renderEvi(); };
-  eviToolbar.appendChild(el);
-});
-renderEvi();
-// 三级核验记录
-document.getElementById('eviX').innerHTML = EVID.map(e=>{
-  const lv=LVL[e.id]||['L2','专业媒体'];
-  return `<div class="vx"><div class="vlvl">${e.id} · ${lv[0]}</div><h4>${e.src}</h4><p>${lv[1]} 核验 · ${e.tag} · <a href="${e.url}" target="_blank" rel="noopener" style="color:var(--signal)">查看来源</a></p></div>`;
-}).join('');
+renderEviCats();
 
 // 证据弹窗
 const eviMask=document.createElement('div');eviMask.className='modal-mask';eviMask.id='eviMask';
