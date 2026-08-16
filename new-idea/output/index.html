@@ -187,8 +187,6 @@ p{color:var(--ink-mid)}
 .mcell .step{font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;color:var(--signal)}
 .mcell .mbody h4{font-size:16px;margin-top:6px}
 .mcell .mbody p{font-size:13.5px;color:var(--ink-lo);margin-top:8px;line-height:1.5}
-.footer{padding:var(--s6) 0;border-top:1px solid var(--line-soft);color:var(--ink-lo);font-size:13.5px;line-height:1.6}
-.footer a{color:var(--signal)}
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
 .reveal.in{opacity:1;transform:none}
 @media(max-width:900px){
@@ -362,6 +360,55 @@ p{color:var(--ink-mid)}
 .method-rich .m-block:nth-child(7){animation-delay:.36s}
 .method-rich .m-block:nth-child(8){animation-delay:.42s}
 .method-rich .m-block:nth-child(9){animation-delay:.48s}
+
+/* ============ 黑色收尾区 · EPILOGUE ============ */
+.epilogue{position:relative;background:#08090C;color:#E7E9EE;overflow:hidden;margin-top:var(--s7)}
+.epilogue::before{content:"";position:absolute;inset:0;background:
+  radial-gradient(900px 480px at 78% -8%,rgba(0,113,227,.28),transparent 60%),
+  radial-gradient(720px 420px at 8% 108%,rgba(62,139,255,.18),transparent 60%);
+  pointer-events:none}
+.epilogue::after{content:"";position:absolute;inset:0;opacity:.5;
+  background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);
+  background-size:46px 46px;
+  -webkit-mask-image:radial-gradient(circle at 50% 30%,#000,transparent 78%);
+  mask-image:radial-gradient(circle at 50% 30%,#000,transparent 78%);
+  pointer-events:none}
+.epi-inner{position:relative;z-index:1;max-width:var(--maxw);margin:0 auto;padding:var(--s7) var(--s5) var(--s6)}
+.epi-eyebrow{font-family:var(--font-mono);font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:#5FA8FF;font-weight:500}
+.epi-lead{margin-top:18px;font-family:var(--font-display);font-weight:600;letter-spacing:-.03em;line-height:1.14;font-size:clamp(28px,4vw,46px);color:#fff;max-width:18ch}
+.epi-lead .hl{color:#5FA8FF}
+.epi-summary{margin-top:22px;font-size:17px;line-height:1.62;color:#A7AEBD;max-width:62ch}
+.epi-flow{margin-top:var(--s5);display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+.epi-flow .ef{position:relative;padding:18px 18px 20px;border:1px solid rgba(255,255,255,.10);border-radius:16px;background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02))}
+.epi-flow .ef .n{font-family:var(--font-mono);font-size:11px;letter-spacing:.12em;color:#5FA8FF}
+.epi-flow .ef .t{margin-top:9px;font-size:15px;font-weight:600;color:#F2F4F8;letter-spacing:-.01em}
+.epi-flow .ef .d{margin-top:6px;font-size:12.5px;line-height:1.55;color:#8A91A1}
+.epi-flow .ef::after{content:"";position:absolute;right:-9px;top:50%;transform:translateY(-50%);width:14px;height:1px;background:rgba(95,168,255,.5)}
+.epi-flow .ef:last-child::after{display:none}
+.epi-cols{margin-top:var(--s6);display:grid;grid-template-columns:1.5fr 1fr;gap:var(--s5);align-items:stretch}
+.epi-card{border:1px solid rgba(255,255,255,.10);border-radius:20px;padding:var(--s5);background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.015))}
+.epi-card .cc-h{font-family:var(--font-mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#7E8796;margin-bottom:16px}
+.epi-src{display:flex;flex-direction:column;gap:13px}
+.epi-src .s-row{display:flex;gap:13px;align-items:flex-start}
+.epi-src .s-row .dot{flex:none;width:7px;height:7px;border-radius:50%;background:#5FA8FF;margin-top:7px;box-shadow:0 0 0 4px rgba(95,168,255,.14)}
+.epi-src .s-row .lab{font-size:11px;font-family:var(--font-mono);letter-spacing:.08em;color:#6E7686;text-transform:uppercase}
+.epi-src .s-row .txt{font-size:14.5px;color:#C5CBD6;line-height:1.55;margin-top:2px}
+.epi-author{display:flex;flex-direction:column;justify-content:space-between}
+.epi-author .who{display:flex;align-items:center;gap:15px}
+.epi-author .av{width:54px;height:54px;border-radius:14px;background:linear-gradient(135deg,#0071E3,#3E8BFF);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:700;font-size:20px;color:#fff;flex:none;box-shadow:0 6px 18px rgba(0,113,227,.4)}
+.epi-author .nm{font-size:21px;font-weight:600;color:#fff;letter-spacing:-.01em}
+.epi-author .rl{font-size:13px;color:#8A91A1;margin-top:3px}
+.epi-author .meta{margin-top:22px;display:flex;flex-direction:column;gap:11px}
+.epi-author .meta .m{display:flex;align-items:center;gap:10px;font-size:14px;color:#C5CBD6}
+.epi-author .meta .m svg{width:16px;height:16px;color:#5FA8FF;flex:none}
+.epi-author .meta .m .k{font-family:var(--font-mono);font-size:11px;color:#6E7686;width:58px;flex:none}
+.epi-foot{position:relative;z-index:1;max-width:var(--maxw);margin:0 auto;padding:22px var(--s5) var(--s5);display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.08);font-size:12.5px;color:#6E7686;font-family:var(--font-mono);letter-spacing:.02em}
+.epi-foot .nf{color:#8A91A1}
+@media(max-width:860px){
+  .epi-flow{grid-template-columns:1fr 1fr}
+  .epi-flow .ef::after{display:none}
+  .epi-cols{grid-template-columns:1fr}
+}
 
 /* ============ 证据链：可筛选总表 + 三级核验记录（浅色）============ */
 .evi-toolbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:var(--s4)}
@@ -921,9 +968,51 @@ body{
   </div>
 </section>
 
-<footer class="footer wrap">
-  <p>数据来源：雷鸟创新 RayNeo 官方参数与产品资料、洛图科技 / Counterpoint / IDC 行业报告、什么值得买 / 观察者网 / 知乎 / 搜狐社区核验、XREAL / Rokid / Meta Ray-Ban 竞品公开动作。证据链 E001–E017 详见各卡片来源标注与独立 PRD 页。</p>
-  <p style="margin-top:10px">本白皮书为产品机会推导文档，供产品与战略决策参考，非产品发布页。</p>
+<footer class="epilogue">
+  <div class="epi-inner">
+    <span class="epi-eyebrow">In Summary · 一份可被核验的产品机会白皮书</span>
+    <h2 class="epi-lead">从<span class="hl">真实声音</span>到<span class="hl">可执行机会</span></h2>
+    <p class="epi-summary">本白皮书围绕雷鸟创新 RayNeo AR 智能眼镜，以真实用户声音为燃料、以竞品公开动作为坐标、以证据链为骨架，推导出 5 个综合分 ≥90 的产品机会（TOP5）及配套上市路径。所有结论均挂可追溯出处，拒绝拍脑袋进榜——这是一份可被质疑、可被复算的产品决策依据，而非发布稿。</p>
+
+    <div class="epi-flow">
+      <div class="ef"><div class="n">S1</div><div class="t">采集三轨</div><div class="d">用户声 / 竞品 / 行业，场景优先，地理定向信号源</div></div>
+      <div class="ef"><div class="n">S2</div><div class="t">证据链</div><div class="d">每条 E## 带可点击 URL 与真实日期，三级核验</div></div>
+      <div class="ef"><div class="n">S3</div><div class="t">需求建模</div><div class="d">场景锚定 → 竞品映射缺口 → 伪需求剔除 → 观测池</div></div>
+      <div class="ef"><div class="n">S4</div><div class="t">10 维评分</div><div class="d">四专家加权聚合，综合分 ≥90 卡线进 TOP5</div></div>
+      <div class="ef"><div class="n">S5</div><div class="t">产出落地</div><div class="d">PRD + GTM，含验证日志与量化指标</div></div>
+    </div>
+
+    <div class="epi-cols">
+      <div class="epi-card">
+        <div class="cc-h">数据来源 · 可被核验</div>
+        <div class="epi-src">
+          <div class="s-row"><span class="dot"></span><div><div class="lab">官方 / 参数</div><div class="txt">雷鸟创新 RayNeo 官方产品资料与硬件参数</div></div></div>
+          <div class="s-row"><span class="dot"></span><div><div class="lab">行业报告</div><div class="txt">洛图科技 / Counterpoint / IDC 市场规模与出货量数据</div></div></div>
+          <div class="s-row"><span class="dot"></span><div><div class="lab">社区核验</div><div class="txt">什么值得买 / 观察者网 / 知乎 / 搜狐 真实用户反馈</div></div></div>
+          <div class="s-row"><span class="dot"></span><div><div class="lab">竞品动作</div><div class="txt">XREAL / Rokid / Meta Ray-Ban 公开产品与策略信号</div></div></div>
+        </div>
+      </div>
+
+      <div class="epi-card epi-author">
+        <div class="cc-h">关于创作者</div>
+        <div class="who">
+          <div class="av">尚</div>
+          <div>
+            <div class="nm">尚文蜓</div>
+            <div class="rl">产品策略 · 机会挖掘与需求建模</div>
+          </div>
+        </div>
+        <div class="meta">
+          <div class="m"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M4 6l8 6 8-6"/></svg><span class="k">GITHUB</span><span>trinitytingchuan-alt</span></div>
+          <div class="m"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg><span class="k">EMAIL</span><span>trinity_ting@163.com</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="epi-foot">
+    <span>RayNeo 产品机会白皮书 · 基于证据链 E001–E017 推导</span>
+    <span class="nf">本页为产品决策参考文档，非产品发布页</span>
+  </div>
 </footer>
 
 </div><!-- /.main -->
