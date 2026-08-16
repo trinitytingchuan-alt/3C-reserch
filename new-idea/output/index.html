@@ -36,26 +36,24 @@ p{color:var(--ink-mid)}
 /* ============ 左侧固定导航栏 ============ */
 :root{--rail-w:176px;--rail-pad:14px}
 .shell{display:flex;min-height:100vh;align-items:stretch}
-.rail{position:fixed;top:0;left:0;bottom:0;width:var(--rail-w);z-index:60;background:rgba(252,254,255,.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);color:var(--ink);display:flex;flex-direction:column;justify-content:center;padding:var(--rail-pad) 0;overflow:hidden;border-right:1px solid rgba(0,113,227,.10)}
-.rail-brand{display:flex;align-items:center;gap:11px;padding:0 var(--rail-pad) 18px;position:relative;z-index:1;margin-bottom:8px}
-.rail-brand::after{content:"";position:absolute;left:var(--rail-pad);right:var(--rail-pad);bottom:0;height:1px;background:linear-gradient(90deg,rgba(0,113,227,.18),transparent)}
-.rail-brand .brand-logo-img{height:34px;width:auto;flex:0 0 auto;object-fit:contain;filter:contrast(1.05)}
-.rail-brand .rb-b{display:flex;flex-direction:column;line-height:1.16}
-.rail-brand .rb-mark{font-family:var(--font-display);font-weight:700;font-size:15px;letter-spacing:-.02em;color:var(--signal);letter-spacing:.01em}
+.rail{position:fixed;top:0;left:0;bottom:0;width:var(--rail-w);z-index:60;background:rgba(252,254,255,.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);color:var(--ink);display:flex;flex-direction:column;padding:var(--rail-pad) 0;overflow:hidden;border-right:1px solid rgba(0,113,227,.10)}
+.rail-brand{display:flex;flex-direction:column;align-items:center;text-align:center;padding:8px var(--rail-pad) 18px;position:relative;z-index:1;margin-bottom:6px}
+.rail-brand::after{content:"";position:absolute;left:var(--rail-pad);right:var(--rail-pad);bottom:0;height:1px;background:linear-gradient(90deg,transparent,rgba(0,113,227,.18),transparent)}
+.rail-brand .brand-logo-img{height:52px;width:auto;max-width:100%;object-fit:contain;filter:contrast(1.05);margin-bottom:10px}
+.rail-brand .rb-b{display:flex;flex-direction:column;line-height:1.18}
+.rail-brand .rb-mark{font-family:var(--font-display);font-weight:700;font-size:16px;letter-spacing:.01em;color:var(--signal)}
 .rail-brand .rb-t{font-family:var(--font-display);font-weight:600;font-size:12px;color:var(--ink);margin-top:2px}
-.rail-brand .rb-s{font-family:var(--font-mono);font-size:8.5px;letter-spacing:.10em;text-transform:uppercase;color:var(--ink-faint);margin-top:1px}
-.rail-sec{font-family:var(--font-mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint);padding:10px var(--rail-pad) 7px;position:relative;z-index:1}
-.rail-links{display:flex;flex-direction:column;gap:2px;padding:0 8px;position:relative;z-index:1;flex:1}
-.rail-links a{display:flex;align-items:center;gap:9px;padding:8px 10px;border-radius:8px;color:var(--ink-lo);font-size:12.5px;font-weight:500;position:relative;transition:background .25s var(--ease),color .25s var(--ease)}
-.rail-links a .ri{width:23px;height:23px;border-radius:6px;display:flex;align-items:center;justify-content:center;background:transparent;flex:0 0 auto;transition:background .25s var(--ease)}
+.rail-brand .rb-s{font-family:var(--font-mono);font-size:8.5px;letter-spacing:.10em;text-transform:uppercase;color:var(--ink-faint);margin-top:2px}
+.rail-sec{font-family:var(--font-mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint);padding:8px var(--rail-pad) 7px;position:relative;z-index:1;text-align:center}
+.rail-links{display:flex;flex-direction:column;justify-content:center;gap:3px;padding:0 10px;position:relative;z-index:1;flex:1}
+.rail-links a{display:flex;align-items:center;gap:10px;padding:9px 11px;border-radius:9px;color:var(--ink-lo);font-size:12.5px;font-weight:500;position:relative;transition:background .25s var(--ease),color .25s var(--ease)}
+.rail-links a .ri{width:24px;height:24px;border-radius:7px;display:flex;align-items:center;justify-content:center;background:transparent;flex:0 0 auto;transition:background .25s var(--ease)}
 .rail-links a .ri svg{width:14px;height:14px;color:var(--ink-faint)}
-.rail-links a .idx{margin-left:auto;font-family:var(--font-mono);font-size:10px;color:var(--ink-faint)}
 .rail-links a:hover{background:var(--signal-dim);color:var(--ink)}
 .rail-links a:hover .ri svg{color:var(--signal)}
 .rail-links a.active{background:var(--signal-dim);color:var(--signal)}
 .rail-links a.active::before{content:"";position:absolute;left:-10px;top:50%;transform:translateY(-50%);width:3px;height:18px;border-radius:3px;background:var(--signal)}
 .rail-links a.active .ri svg{color:var(--signal)}
-.rail-links a.active .idx{color:var(--signal)}
 .rail-prog{position:absolute;left:0;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--signal),#3E8BFF);transform:scaleY(0);transform-origin:top;transition:transform .15s linear;z-index:2}
 .rail-foot{padding:12px var(--rail-pad) 4px;font-size:10.5px;color:var(--ink-faint);font-family:var(--font-mono);letter-spacing:.03em;position:relative;z-index:1;border-top:1px solid var(--line-soft);margin-top:6px}
 .rail-foot b{color:var(--ink-mid);font-weight:600}
@@ -669,12 +667,12 @@ body{
   </div>
   <div class="rail-sec">导航 · Navigation</div>
   <div class="rail-links" id="railLinks">
-    <a href="#top" data-sec="top" class="active"><span class="ri"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg></span>首页概览<span class="idx">0</span></a>
-    <a href="#top5" data-sec="top5"><span class="ri"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></span>TOP5 机会<span class="idx">1</span></a>
-    <a href="#flist" data-sec="flist"><span class="ri"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><circle cx="3.5" cy="6" r="1.3"/><circle cx="3.5" cy="12" r="1.3"/><circle cx="3.5" cy="18" r="1.3"/></svg></span>功能总览<span class="idx">2</span></a>
-    <a href="#gtm" data-sec="gtm"><span class="ri"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18M7 7l10 10M17 7L7 17"/></svg></span>落地策略<span class="idx">3</span></a>
-    <a href="#evidence" data-sec="evidence"><span class="ri"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3 8-8"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>证据链<span class="idx">4</span></a>
-    <a href="#method" data-sec="method"><span class="ri"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19 12a7 7 0 0 0-.1-1l2-1.5-2-3.4-2.3 1a7 7 0 0 0-1.7-1L16.5 3h-3l-.4 2.6a7 7 0 0 0-1.7 1l-2.3-1-2 3.4L9 11a7 7 0 0 0 0 2l-2 1.5 2 3.4 2.3-1a7 7 0 0 0 1.7 1l.4 2.6h3l.4-2.6a7 7 0 0 0 1.7-1l2.3 1 2-3.4-2-1.5a7 7 0 0 0 .1-1z"/></svg></span>方法论<span class="idx">5</span></a>
+    <a href="#top" data-sec="top" class="active"><span class="ri"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg></span>首页概览</a>
+    <a href="#top5" data-sec="top5"><span class="ri"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></span>TOP5 机会</a>
+    <a href="#flist" data-sec="flist"><span class="ri"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><circle cx="3.5" cy="6" r="1.3"/><circle cx="3.5" cy="12" r="1.3"/><circle cx="3.5" cy="18" r="1.3"/></svg></span>功能总览</a>
+    <a href="#gtm" data-sec="gtm"><span class="ri"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18M7 7l10 10M17 7L7 17"/></svg></span>落地策略</a>
+    <a href="#evidence" data-sec="evidence"><span class="ri"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3 8-8"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>证据链</a>
+    <a href="#method" data-sec="method"><span class="ri"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19 12a7 7 0 0 0-.1-1l2-1.5-2-3.4-2.3 1a7 7 0 0 0-1.7-1L16.5 3h-3l-.4 2.6a7 7 0 0 0-1.7 1l-2.3-1-2 3.4L9 11a7 7 0 0 0 0 2l-2 1.5 2 3.4 2.3-1a7 7 0 0 0 1.7 1l.4 2.6h3l.4-2.6a7 7 0 0 0 1.7-1l2.3 1 2-3.4-2-1.5a7 7 0 0 0 .1-1z"/></svg></span>方法论</a>
   </div>
   <div class="rail-foot">数据窗口 <b>2025-05 → 2026-05</b><br>TOP5 门槛 <b>≥ 90</b></div>
 </aside>
