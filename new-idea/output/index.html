@@ -213,75 +213,113 @@ p{color:var(--ink-mid)}
   .reveal{opacity:1;transform:none}
 }
 
-/* ============ 方法论（结构框架参照 cc0217c，浅色主题重着色）============ */
+/* ============ 方法论（浅色主题 · 标准化卡片升级）============ */
 .method-rich{display:flex;flex-direction:column;gap:var(--s6)}
-.m-block{border:1px solid var(--line-soft);border-radius:var(--r-md);background:var(--surface-2);overflow:hidden}
+.m-block{border:1px solid var(--line-soft);border-radius:var(--r-lg);background:linear-gradient(180deg,var(--paper),var(--surface-2));overflow:hidden;position:relative}
+.m-block::before{content:"";position:absolute;inset:0 0 auto 0;height:3px;background:linear-gradient(90deg,var(--signal),#3E8BFF);opacity:.9}
 .m-block-head{display:flex;align-items:baseline;gap:12px;padding:var(--s4) var(--s4) 0}
 .m-block-head h3{font-size:19px;letter-spacing:-.02em}
 .m-block-head .mh-idx{font-family:var(--font-mono);font-size:12px;color:var(--signal);letter-spacing:.12em}
-.m-block-head .mh-sub{margin-left:auto;font-size:13px;color:var(--ink-lo)}
+.m-block-head .mh-sub{margin-left:auto;font-size:13px;color:var(--ink-lo);max-width:38ch;text-align:right}
 .m-block-body{padding:var(--s4)}
 
 /* 四步法时间线 */
-.m-timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative}
+.m-timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s4);position:relative}
 .m-timeline::before{content:"";position:absolute;top:27px;left:6%;right:6%;height:2px;background:linear-gradient(90deg,var(--signal-line),var(--line-soft))}
-.m-step{position:relative;padding:0 var(--s3);text-align:center}
-.m-step .dot{width:54px;height:54px;border-radius:50%;margin:0 auto var(--s3);background:var(--paper);border:2px solid var(--signal);display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-weight:600;font-size:13px;color:var(--signal);position:relative;z-index:1}
-.m-step h4{font-size:15px;margin-bottom:6px}
-.m-step p{font-size:13px;color:var(--ink-lo);line-height:1.5}
+.m-step{position:relative;text-align:center;padding:0 6px}
+.m-step .dot{width:54px;height:54px;border-radius:16px;margin:0 auto var(--s3);background:var(--signal-dim);border:1px solid var(--signal-line);display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-weight:700;font-size:15px;color:var(--signal);position:relative;z-index:1;transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
+.m-step:hover .dot{transform:translateY(-3px);box-shadow:var(--shadow)}
+.m-step:nth-child(2) .dot{background:rgba(90,200,250,.12);border-color:rgba(90,200,250,.4);color:#1f9fce}
+.m-step:nth-child(3) .dot{background:rgba(126,224,168,.14);border-color:rgba(126,224,168,.45);color:#2f9c63}
+.m-step:nth-child(4) .dot{background:rgba(255,214,10,.14);border-color:rgba(255,159,10,.4);color:#c77a00}
+.m-step h4{font-size:15px;margin-bottom:6px;letter-spacing:-.01em}
+.m-step p{font-size:13px;color:var(--ink-lo);line-height:1.55}
 
 /* 采集三路径 */
 .m-paths{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s4)}
-.m-path{border:1px solid var(--line-soft);border-radius:var(--r-sm);padding:var(--s3);background:var(--paper)}
-.m-path .mp-tag{font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;color:var(--signal);margin-bottom:8px}
-.m-path h4{font-size:15px;margin-bottom:6px}
-.m-path p{font-size:13px;color:var(--ink-lo);line-height:1.55}
+.m-path{border:1px solid var(--line-soft);border-left:4px solid var(--signal);border-radius:var(--r-md);padding:var(--s3);background:var(--paper);transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
+.m-path:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.m-path:nth-child(2){border-left-color:#5AC8FA}
+.m-path:nth-child(3){border-left-color:#7EE0A8}
+.m-path .mp-tag{font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;color:var(--signal);margin-bottom:8px;display:inline-block;background:var(--signal-dim);border:1px solid var(--signal-line);padding:2px 9px;border-radius:99px}
+.m-path:nth-child(2) .mp-tag{color:#1f9fce;background:rgba(90,200,250,.12);border-color:rgba(90,200,250,.4)}
+.m-path:nth-child(3) .mp-tag{color:#2f9c63;background:rgba(126,224,168,.14);border-color:rgba(126,224,168,.45)}
+.m-path h4{font-size:15.5px;margin-bottom:6px;letter-spacing:-.01em}
+.m-path p{font-size:13px;color:var(--ink-lo);line-height:1.6}
 
-/* 折叠 */
-.m-fold{border:1px solid var(--line-soft);border-radius:var(--r-sm);background:var(--paper);margin-top:var(--s3)}
-.m-fold summary{cursor:pointer;list-style:none;padding:var(--s3) var(--s4);display:flex;align-items:center;gap:10px;font-weight:600;font-size:15px;color:var(--ink)}
-.m-fold summary::-webkit-details-marker{display:none}
-.m-fold summary .chev{margin-left:auto;transition:transform .3s var(--ease);color:var(--ink-lo)}
-.m-fold[open] summary .chev{transform:rotate(90deg)}
-.m-fold .fold-inner{padding:0 var(--s4) var(--s4);font-size:14px;color:var(--ink-mid);line-height:1.7}
-.m-fold .fold-inner ul{margin:8px 0 0 18px}
-.m-fold .fold-inner li{margin:6px 0}
+/* 逻辑架构图 */
+.m-arch{display:flex;flex-direction:column;gap:0}
+.arch-stage{border:1px solid var(--line-soft);border-radius:var(--r-md);padding:var(--s3);background:var(--surface-2);display:flex;flex-direction:column;gap:12px}
+.arch-label{font-family:var(--font-mono);font-size:12px;color:var(--signal);font-weight:600;letter-spacing:.04em}
+.arch-row{display:flex;flex-wrap:wrap;gap:10px}
+.arch-node{padding:9px 14px;border-radius:10px;background:var(--paper);border:1px solid var(--line);font-size:13px;color:var(--ink);font-weight:500;display:inline-flex;align-items:center;gap:8px;box-shadow:0 1px 2px rgba(0,0,0,.03)}
+.arch-node .an-dot{width:8px;height:8px;border-radius:50%;flex:none}
+.n-user .an-dot,.n-rival .an-dot,.n-trend .an-dot{background:var(--signal)}
+.n-evi .an-dot{background:#5AC8FA}
+.n-idea .an-dot{background:#7EE0A8}
+.n-score .an-dot{background:#FF9F0A}
+.n-top .an-dot{background:#2f9c63}
+.arch-conn{font-size:12px;color:var(--ink-faint);font-family:var(--font-mono);letter-spacing:.02em}
+.arch-arrow{text-align:center;color:var(--ink-faint);font-size:16px;line-height:1;margin:-2px 0;font-family:var(--font-mono)}
+.arch-out{background:linear-gradient(135deg,var(--signal-dim),var(--surface-2));border-color:var(--signal-line)}
+
+/* 配置 / 验证 统一网格卡 */
+.m-cfg{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--s4)}
+@media(max-width:900px){.m-cfg{grid-template-columns:1fr}}
+.m-cfg-i{border:1px solid var(--line-soft);border-radius:var(--r-md);padding:var(--s3);background:var(--paper);transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
+.m-cfg-i:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.m-cfg-i .mc-tag{font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;color:var(--signal);margin-bottom:8px;display:inline-block;background:var(--signal-dim);border:1px solid var(--signal-line);padding:2px 9px;border-radius:99px}
+.m-cfg-i p{font-size:13px;color:var(--ink-lo);line-height:1.6}
+@media(max-width:900px){.m-cfg-i[style]{grid-column:auto!important}}
 
 /* 10 维权重环 + 权重条 */
 .m-score{display:grid;grid-template-columns:260px 1fr;gap:var(--s5);align-items:center}
 .m-donut{width:220px;height:220px;margin:0 auto}
 .m-donut .center{font-family:var(--font-mono);font-size:13px;fill:var(--ink-lo)}
-.m-weights{display:flex;flex-direction:column;gap:9px}
-.m-wrow{display:grid;grid-template-columns:92px 1fr 46px;align-items:center;gap:12px;font-size:13px}
+.m-weights{display:flex;flex-direction:column;gap:11px}
+.m-wrow{display:grid;grid-template-columns:104px 1fr 46px;align-items:center;gap:12px;font-size:13px}
 .m-wrow .wl{color:var(--ink-mid)}
-.m-wrow .wbar{height:7px;background:var(--line-soft);border-radius:4px;overflow:hidden}
-.m-wrow .wbar i{display:block;height:100%;background:var(--signal);border-radius:4px}
-.m-wrow .wp{font-family:var(--font-mono);font-size:12px;color:var(--ink-lo);text-align:right}
+.m-wrow .wbar{height:8px;background:var(--surface);border-radius:4px;overflow:hidden}
+.m-wrow .wbar i{display:block;height:100%;background:linear-gradient(90deg,var(--signal),#3E8BFF);border-radius:4px}
+.m-wrow .wp{font-family:var(--font-mono);font-size:12px;color:var(--signal);font-weight:600;text-align:right}
 
 /* 四专家 */
 .m-experts{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s4)}
-.m-expert{border:1px solid var(--line-soft);border-radius:var(--r-sm);padding:var(--s3);background:var(--paper);text-align:center}
-.m-expert .ex-ico{width:46px;height:46px;border-radius:12px;margin:0 auto var(--s3);background:var(--signal-dim);display:flex;align-items:center;justify-content:center;font-size:22px}
+.m-expert{border:1px solid var(--line-soft);border-radius:var(--r-md);padding:var(--s3);background:var(--paper);text-align:center;position:relative;overflow:hidden;transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
+.m-expert:hover{transform:translateY(-4px);box-shadow:var(--shadow-hi)}
+.m-expert::before{content:"";position:absolute;inset:0 0 auto 0;height:3px;background:linear-gradient(90deg,var(--signal),#3E8BFF);opacity:.85}
+.m-expert .ex-ico{width:46px;height:46px;border-radius:13px;margin:0 auto var(--s3);background:var(--signal-dim);border:1px solid var(--signal-line);display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-weight:700;font-size:15px;color:var(--signal)}
+.m-expert:nth-child(2)::before{background:linear-gradient(90deg,#5AC8FA,#7EE0A8)}
+.m-expert:nth-child(2) .ex-ico{background:rgba(90,200,250,.12);border-color:rgba(90,200,250,.4);color:#1f9fce}
+.m-expert:nth-child(3)::before{background:linear-gradient(90deg,#7EE0A8,#5AC8FA)}
+.m-expert:nth-child(3) .ex-ico{background:rgba(126,224,168,.14);border-color:rgba(126,224,168,.45);color:#2f9c63}
+.m-expert:nth-child(4)::before{background:linear-gradient(90deg,#FFD60A,#FF9F0A)}
+.m-expert:nth-child(4) .ex-ico{background:rgba(255,214,10,.14);border-color:rgba(255,159,10,.4);color:#c77a00}
 .m-expert h4{font-size:15px;margin-bottom:6px}
-.m-expert p{font-size:12.5px;color:var(--ink-lo);line-height:1.5}
+.m-expert p{font-size:12.5px;color:var(--ink-lo);line-height:1.55}
 
 /* 综合分三步 */
 .m-score-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s4)}
-.m-ss{display:flex;gap:12px;align-items:flex-start}
-.m-ss .ss-n{font-family:var(--font-mono);font-size:13px;color:var(--signal);border:1px solid var(--signal-line);border-radius:50%;width:28px;height:28px;flex:none;display:flex;align-items:center;justify-content:center}
+.m-ss{display:flex;gap:12px;align-items:flex-start;background:var(--surface-2);border:1px solid var(--line-soft);border-radius:var(--r-md);padding:var(--s3)}
+.m-ss .ss-n{font-family:var(--font-mono);font-size:13px;color:var(--signal);border:1px solid var(--signal-line);border-radius:50%;width:28px;height:28px;flex:none;display:flex;align-items:center;justify-content:center;background:var(--signal-dim)}
 .m-ss h4{font-size:14px;margin-bottom:4px}
-.m-ss p{font-size:12.5px;color:var(--ink-lo);line-height:1.5}
+.m-ss p{font-size:12.5px;color:var(--ink-lo);line-height:1.55}
 
 /* 数据传导 */
 .m-flow{display:flex;flex-wrap:wrap;align-items:center;gap:10px;font-size:13.5px}
-.m-flow .fn{padding:6px 12px;border:1px solid var(--line-soft);border-radius:99px;background:var(--paper);color:var(--ink-mid)}
+.m-flow .fn{padding:7px 14px;border:1px solid var(--line-soft);border-radius:99px;background:var(--paper);color:var(--ink-mid);font-weight:500}
 .m-flow .farr{color:var(--signal);font-weight:600}
 
 /* 证据规范 */
 .m-rules{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--s4)}
-.m-rule{border-left:3px solid var(--signal);padding:4px 0 4px 14px}
-.m-rule h4{font-size:14px;margin-bottom:4px}
-.m-rule p{font-size:12.5px;color:var(--ink-lo);line-height:1.5}
+@media(max-width:900px){.m-rules{grid-template-columns:1fr}}
+.m-rule{border:1px solid var(--line-soft);border-left:3px solid var(--signal);border-radius:var(--r-sm);padding:var(--s3) var(--s3) var(--s3) 16px;background:var(--paper);transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
+.m-rule:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+.m-rule:nth-child(2){border-left-color:#5AC8FA}
+.m-rule:nth-child(3){border-left-color:#7EE0A8}
+.m-rule:nth-child(4){border-left-color:#FF9F0A}
+.m-rule h4{font-size:14.5px;margin-bottom:5px;letter-spacing:-.01em}
+.m-rule p{font-size:12.5px;color:var(--ink-lo);line-height:1.6}
 
 /* ============ 证据链：可筛选总表 + 三级核验记录（浅色）============ */
 .evi-toolbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:var(--s4)}
@@ -516,14 +554,21 @@ body{
 .arch-label{font-family:var(--font-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:var(--s3)}
 .arch-row{display:flex;flex-wrap:wrap;gap:10px}
 .arch-node{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:10px;font-size:14px;font-weight:600;color:var(--ink);background:#fff;border:1px solid var(--line-soft);box-shadow:0 1px 2px rgba(0,0,0,.03)}
-.arch-node .an-ico{font-size:15px}
+.an-dot{width:8px;height:8px;border-radius:50%;flex:none}
 .n-user{border-left:3px solid #3E8BFF}
+.n-user .an-dot{background:#3E8BFF}
 .n-rival{border-left:3px solid #F0A23B}
+.n-rival .an-dot{background:#F0A23B}
 .n-trend{border-left:3px solid #36C08A}
+.n-trend .an-dot{background:#36C08A}
 .n-evi{border-left:3px solid #8B6CE8}
+.n-evi .an-dot{background:#8B6CE8}
 .n-idea{border-left:3px solid #E8628B}
+.n-idea .an-dot{background:#E8628B}
 .n-score{border-left:3px solid var(--signal);background:var(--signal-dim)}
+.n-score .an-dot{background:var(--signal)}
 .n-top{border-left:3px solid var(--signal);background:#fff}
+.n-top .an-dot{background:var(--signal)}
 .arch-conn{margin-top:var(--s3);font-size:12.5px;color:var(--ink-lo);font-family:var(--font-mono);letter-spacing:.02em}
 .arch-arrow{text-align:center;color:var(--signal);font-size:14px;line-height:1;padding:6px 0;font-weight:700}
 /* 配置网格（数据源/市场验证平铺） */
@@ -682,25 +727,25 @@ body{
   <div class="method-rich reveal">
     <!-- 四步法 -->
     <div class="m-block">
-      <div class="m-block-head"><h3>四步闭环工作流</h3><span class="mh-sub">每步配真实场景图，禁止无场景的产品优先假设</span></div>
+      <div class="m-block-head"><h3>四步闭环工作流</h3><span class="mh-sub">先有场景，再有功能；先有证据，再有结论</span></div>
       <div class="m-block-body">
         <div class="m-timeline">
-          <div class="m-step"><div class="dot">01</div><h4>场景锚定</h4><p>从真实使用场景 + 用户痛点切入，禁止"先造功能再找场景"。</p></div>
-          <div class="m-step"><div class="dot">02</div><h4>跨源验证</h4><p>用户声音 / 竞品缺口 / 行业趋势三轨交叉，单点来源仅作假设。</p></div>
-          <div class="m-step"><div class="dot">03</div><h4>评分排序</h4><p>10 维 × 四专家加权，≥90 进 TOP5；不足则补强真实证据而非改分。</p></div>
-          <div class="m-step"><div class="dot">04</div><h4>落地推演</h4><p>分需求 GTM 策略 + 二级路径，把机会转为可执行上市计划。</p></div>
+          <div class="m-step"><div class="dot">01</div><h4>场景锚定</h4><p>从真实使用场景 + 用户痛点切入，禁止"先造功能再找场景"。场景须带可核验来源，无来源不进 PRD。</p></div>
+          <div class="m-step"><div class="dot">02</div><h4>跨源验证</h4><p>用户声音 / 竞品缺口 / 行业趋势三轨交叉，单点来源仅作假设，不得直接定义根因。</p></div>
+          <div class="m-step"><div class="dot">03</div><h4>评分排序</h4><p>10 维 × 四专家加权，≥90 进 TOP5；不足则补强真实证据而非改分或占位。</p></div>
+          <div class="m-step"><div class="dot">04</div><h4>落地推演</h4><p>分需求 GTM 策略 + 二级路径，把机会转为可执行上市计划与资源排期。</p></div>
         </div>
       </div>
     </div>
 
-    <!-- 采集三路径 -->
+    <!-- 采集三路径（场景优先，完整描述） -->
     <div class="m-block">
-      <div class="m-block-head"><h3>数据采集三路径</h3><span class="mh-sub">真实用户声音 = 核心燃料</span></div>
+      <div class="m-block-head"><h3>数据采集三路径 · 场景优先</h3><span class="mh-sub">真实用户声音 = 核心燃料</span></div>
       <div class="m-block-body">
         <div class="m-paths">
-          <div class="m-path"><div class="mp-tag">PATH · 用户</div><h4>用户声音采集</h4><p>什么值得买 / 知乎 / 观察者网 / 搜狐真实评测与吐槽，每条带可点击链接与真实日期。</p></div>
-          <div class="m-path"><div class="mp-tag">PATH · 竞品</div><h4>竞品缺口扫描</h4><p>近 18 个月 XREAL / Rokid / Meta Ray-Ban 新品类与功能动作，定位雷鸟对标缺口。</p></div>
-          <div class="m-path"><div class="mp-tag">PATH · 行业</div><h4>行业趋势核验</h4><p>洛图 / Counterpoint / IDC 报告与搜索趋势，验证赛道增速与规模拐点。</p></div>
+          <div class="m-path"><div class="mp-tag">PATH · 用户</div><h4>用户声音采集</h4><p>以真实使用场景为锚，从什么值得买 / 知乎 / 观察者网 / 搜狐评测与社区吐槽中提取痛点，每条附可点击链接与真实日期，拒绝概括性"用户说"。</p></div>
+          <div class="m-path"><div class="mp-tag">PATH · 竞品</div><h4>竞品缺口扫描</h4><p>追踪近 18 个月 XREAL / Rokid / Meta Ray-Ban 的新品类与功能动作，定位雷鸟对标缺口，凡竞品已具备须定位为升级 / 补全而非从零建设。</p></div>
+          <div class="m-path"><div class="mp-tag">PATH · 行业</div><h4>行业趋势核验</h4><p>以洛图 / Counterpoint / IDC 报告与搜索趋势为标尺，验证赛道增速、规模拐点与技术成熟度，避免把个人判断当作行业事实。</p></div>
         </div>
       </div>
     </div>
@@ -713,9 +758,9 @@ body{
           <div class="arch-stage">
             <div class="arch-label">采集三轨 · 客观信号</div>
             <div class="arch-row">
-              <div class="arch-node n-user"><span class="an-ico">👥</span>用户声音</div>
-              <div class="arch-node n-rival"><span class="an-ico">⚔️</span>竞品缺口</div>
-              <div class="arch-node n-trend"><span class="an-ico">📈</span>行业趋势</div>
+              <div class="arch-node n-user"><span class="an-dot"></span>用户声音</div>
+              <div class="arch-node n-rival"><span class="an-dot"></span>竞品缺口</div>
+              <div class="arch-node n-trend"><span class="an-dot"></span>行业趋势</div>
             </div>
             <div class="arch-conn">三轨交叉 × 单点降假设</div>
           </div>
@@ -723,8 +768,8 @@ body{
           <div class="arch-stage">
             <div class="arch-label">证据链 · 可溯源（E001–E017）</div>
             <div class="arch-row">
-              <div class="arch-node n-evi"><span class="an-ico">🔗</span>三级核验 L1/L2/L3</div>
-              <div class="arch-node n-evi"><span class="an-ico">🔗</span>根因多源交叉</div>
+              <div class="arch-node n-evi"><span class="an-dot"></span>三级核验 L1 / L2 / L3</div>
+              <div class="arch-node n-evi"><span class="an-dot"></span>根因多源交叉</div>
             </div>
             <div class="arch-conn">五源强支撑 · 任一缺失即降级假设</div>
           </div>
@@ -732,9 +777,9 @@ body{
           <div class="arch-stage">
             <div class="arch-label">需求建模 · IDEA</div>
             <div class="arch-row">
-              <div class="arch-node n-idea"><span class="an-ico">💡</span>场景锚定需求</div>
-              <div class="arch-node n-idea"><span class="an-ico">💡</span>竞品映射缺口</div>
-              <div class="arch-node n-idea"><span class="an-ico">💡</span>伪需求剔除</div>
+              <div class="arch-node n-idea"><span class="an-dot"></span>场景锚定需求</div>
+              <div class="arch-node n-idea"><span class="an-dot"></span>竞品映射缺口</div>
+              <div class="arch-node n-idea"><span class="an-dot"></span>伪需求剔除</div>
             </div>
             <div class="arch-conn">观测池 → TOP5 候选</div>
           </div>
@@ -742,7 +787,7 @@ body{
           <div class="arch-stage">
             <div class="arch-label">10 维评分 × 四专家加权</div>
             <div class="arch-row">
-              <div class="arch-node n-score"><span class="an-ico">🎯</span>综合分 ≥90 卡线</div>
+              <div class="arch-node n-score"><span class="an-dot"></span>综合分 ≥90 卡线</div>
             </div>
             <div class="arch-conn">不足 90 则补强真实证据，而非改分</div>
           </div>
@@ -750,36 +795,36 @@ body{
           <div class="arch-stage arch-out">
             <div class="arch-label">产出 · TOP5 PRD → GTM 落地</div>
             <div class="arch-row">
-              <div class="arch-node n-top"><span class="an-ico">🚀</span>5 条可执行机会</div>
-              <div class="arch-node n-top"><span class="an-ico">📋</span>分需求 GTM 推演</div>
+              <div class="arch-node n-top"><span class="an-dot"></span>5 条可执行机会</div>
+              <div class="arch-node n-top"><span class="an-dot"></span>分需求 GTM 推演</div>
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- 数据源差异化配置（平铺） -->
+    <!-- 数据源差异化配置 -->
     <div class="m-block">
-      <div class="m-block-head"><h3>数据源差异化配置</h3><span class="mh-sub">按客群地理定向</span></div>
+      <div class="m-block-head"><h3>数据源差异化配置</h3><span class="mh-sub">按客群地理定向，避免错配信号源</span></div>
       <div class="m-block-body">
         <div class="m-cfg">
-          <div class="m-cfg-i"><div class="mc-tag">国内主战场</div><p>京东 / 什么值得买 / 知乎 / 小红书 / 观察者网 / 搜狐 / IT之家，覆盖用户声音与媒体核验。</p></div>
-          <div class="m-cfg-i"><div class="mc-tag">出海并行</div><p>Reddit / Trustpilot / Amazon 评论，验证 Meta Ray-Ban、XREAL 海外用户反馈。</p></div>
-          <div class="m-cfg-i"><div class="mc-tag">行业与竞品</div><p>洛图科技、Counterpoint、IDC、XREAL / Rokid / Meta 官方参数页。</p></div>
-          <div class="m-cfg-i"><div class="mc-tag">数据窗口</div><p>2025-05 至 2026-05，确保结论基于近 12 个月可核验信号。</p></div>
+          <div class="m-cfg-i"><div class="mc-tag">国内主战场</div><p>京东 / 什么值得买 / 知乎 / 小红书 / 观察者网 / 搜狐 / IT之家，覆盖用户声音与媒体核验，构成核心客群一手信号。</p></div>
+          <div class="m-cfg-i"><div class="mc-tag">出海并行</div><p>Reddit / Trustpilot / Amazon 评论，验证 Meta Ray-Ban、XREAL 海外用户反馈，校准国际化机会窗口。</p></div>
+          <div class="m-cfg-i"><div class="mc-tag">行业与竞品</div><p>洛图科技、Counterpoint、IDC、XREAL / Rokid / Meta 官方参数页，提供规模、增速与技术基线。</p></div>
+          <div class="m-cfg-i"><div class="mc-tag">数据窗口</div><p>2025-05 至 2026-05，确保结论基于近 12 个月可核验信号，过滤过时舆情。</p></div>
         </div>
       </div>
     </div>
 
-    <!-- 市场验证闭环（平铺） -->
+    <!-- 市场验证闭环 -->
     <div class="m-block">
       <div class="m-block-head"><h3>市场验证闭环：进 TOP5 的前置硬门槛</h3><span class="mh-sub">五源强支撑 · 缺一即降级假设</span></div>
       <div class="m-block-body">
         <div class="m-cfg">
-          <div class="m-cfg-i"><div class="mc-tag">市场声音</div><p>赛道增速 / 规模拐点（行业报告）。</p></div>
-          <div class="m-cfg-i"><div class="mc-tag">竞品验证</div><p>头部竞品已有对应动作或明确缺口。</p></div>
-          <div class="m-cfg-i"><div class="mc-tag">行业验证</div><p>技术成熟度 / 供应链可达性。</p></div>
-          <div class="m-cfg-i"><div class="mc-tag">参考行业验证</div><p>相邻品类已验证的商业化路径（如 Meta Ray-Ban 拍摄眼镜）。</p></div>
+          <div class="m-cfg-i"><div class="mc-tag">市场声音</div><p>赛道增速 / 规模拐点（行业报告），确认需求处在上升通道而非存量内卷。</p></div>
+          <div class="m-cfg-i"><div class="mc-tag">竞品验证</div><p>头部竞品已有对应动作或明确缺口，证明需求被市场侧验证而非孤证。</p></div>
+          <div class="m-cfg-i"><div class="mc-tag">行业验证</div><p>技术成熟度 / 供应链可达性，排除短期无法落地的"科幻需求"。</p></div>
+          <div class="m-cfg-i"><div class="mc-tag">参考行业验证</div><p>相邻品类已验证的商业化路径（如 Meta Ray-Ban 拍摄眼镜），提供可复用范式。</p></div>
           <div class="m-cfg-i" style="grid-column:1/-1"><div class="mc-tag">用户声音</div><p>≥2 个独立来源的真实痛点（如续航焦虑、可读性短板）。每条入选需求须在市场、竞品、行业、参考行业、用户五类来源上均有可被核验的支撑，杜绝"拍脑袋"进榜。</p></div>
         </div>
       </div>
@@ -801,35 +846,35 @@ body{
       <div class="m-block-head"><h3>四专家加权评审</h3><span class="mh-sub">产品 / 市场 / 用户 / 硬件</span></div>
       <div class="m-block-body">
         <div class="m-experts">
-          <div class="m-expert"><div class="ex-ico">🧭</div><h4>产品专家</h4><p>评估场景契合、价值主张与优先级排序。</p></div>
-          <div class="m-expert"><div class="ex-ico">📈</div><h4>市场专家</h4><p>评估 TAM–SAM–SOM、增速与竞争格局。</p></div>
-          <div class="m-expert"><div class="ex-ico">👥</div><h4>用户专家</h4><p>评估痛点强度、付费意愿与使用频次。</p></div>
-          <div class="m-expert"><div class="ex-ico">⚙️</div><h4>硬件专家</h4><p>评估技术可行、供应链与落地周期。</p></div>
+          <div class="m-expert"><div class="ex-ico">产</div><h4>产品专家</h4><p>评估场景契合、价值主张与优先级排序，确保需求对齐产品战略主轴。</p></div>
+          <div class="m-expert"><div class="ex-ico">市</div><h4>市场专家</h4><p>评估 TAM–SAM–SOM、增速与竞争格局，验证商业规模与窗口期。</p></div>
+          <div class="m-expert"><div class="ex-ico">用</div><h4>用户专家</h4><p>评估痛点强度、付费意愿与使用频次，守住真实需求而非自嗨。</p></div>
+          <div class="m-expert"><div class="ex-ico">硬</div><h4>硬件专家</h4><p>评估技术可行、供应链与落地周期，把机会收敛到可交付边界。</p></div>
         </div>
       </div>
     </div>
 
-    <!-- 综合分三步 -->
+    <!-- 综合分三步（完整公式） -->
     <div class="m-block">
-      <div class="m-block-head"><h3>加权聚合 → 综合分</h3></div>
+      <div class="m-block-head"><h3>加权聚合 → 综合分</h3><span class="mh-sub">单维打分 → 角色加权 → 卡线进榜</span></div>
       <div class="m-block-body">
         <div class="m-score-steps">
-          <div class="m-ss"><div class="ss-n">1</div><div><h4>单维打分</h4><p>每专家对各维度独立打分（0–100）。</p></div></div>
-          <div class="m-ss"><div class="ss-n">2</div><div><h4>角色加权</h4><p>产品 / 市场 / 用户 / 硬件四角色按各自重要性加权，综合 10 个维度得出单需求分。</p></div></div>
-          <div class="m-ss"><div class="ss-n">3</div><div><h4>卡线进榜</h4><p>综合分 ≥90 进 TOP5；不足则补强真实证据。</p></div></div>
+          <div class="m-ss"><div class="ss-n">1</div><div><h4>单维打分</h4><p>四专家各自对 10 个维度独立打分（0–100），形成四维评分矩阵，避免单一视角偏差。</p></div></div>
+          <div class="m-ss"><div class="ss-n">2</div><div><h4>角色加权</h4><p>产品 30% / 市场 25% / 用户 25% / 硬件 20% 四角色加权，先得单维分，再按维权重聚合为单需求分。</p></div></div>
+          <div class="m-ss"><div class="ss-n">3</div><div><h4>卡线进榜</h4><p>综合分 ≥90 进 TOP5；不足则回到证据链补强真实来源，而非调整权重或分数占位。</p></div></div>
         </div>
       </div>
     </div>
 
-    <!-- 证据规范与红线（平铺） -->
+    <!-- 证据规范与红线 -->
     <div class="m-block">
       <div class="m-block-head"><h3>证据规范与红线</h3><span class="mh-sub">可信度不可逾越的边界</span></div>
       <div class="m-block-body">
         <div class="m-rules">
-          <div class="m-rule"><h4>三级核验</h4><p>L1 端内官方 / L2 专业媒体 / L3 社区社媒，逐条标注核验层级。</p></div>
-          <div class="m-rule"><h4>可溯源</h4><p>每条证据附真实可点击 URL + 真实日期，链接内容与摘要一致。</p></div>
-          <div class="m-rule"><h4>根因多源</h4><p>标"直接定义根因"须 ≥2 独立来源交叉，单一来源降级为假设。</p></div>
-          <div class="m-rule"><h4>不伪称</h4><p>不伪称"竞品无某功能"，缺口须定位为升级 / 补全而非从零建设。</p></div>
+          <div class="m-rule"><h4>三级核验</h4><p>L1 端内官方 / L2 专业媒体 / L3 社区社媒，逐条标注核验层级；高权重结论须有 L1 或 L2 支撑。</p></div>
+          <div class="m-rule"><h4>可溯源</h4><p>每条证据附真实可点击 URL + 真实日期，链接内容与摘要一致，失效链接须替换而非删除。</p></div>
+          <div class="m-rule"><h4>根因多源</h4><p>标"直接定义根因"须 ≥2 独立来源交叉验证，单一来源降级为假设 / 待验证。</p></div>
+          <div class="m-rule"><h4>不伪称 · 同类可比</h4><p>不伪称"竞品无某功能"；缺口须定位为升级 / 补全；功能对比须同类可比，严禁跨维度混比。</p></div>
         </div>
       </div>
     </div>
