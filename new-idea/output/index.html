@@ -383,7 +383,14 @@ p{color:var(--ink-mid)}
 .epi-col-h{font-family:var(--font-mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#7E8796;margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,.08)}
 .epi-link{display:block;font-size:15px;color:#C5CBD6;text-decoration:none;padding:9px 0;border-bottom:1px solid rgba(255,255,255,.05);transition:color .25s var(--ease),padding-left .25s var(--ease)}
 .epi-link:hover{color:#fff;padding-left:6px}
-.epi-col .epi-tag{display:inline-block;font-size:13px;color:#C5CBD6;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.10);border-radius:8px;padding:7px 12px;margin:0 8px 8px 0}
+.epi-flow-list{list-style:none;margin:0;padding:0;position:relative}
+.epi-flow-list::before{content:"";position:absolute;left:13px;top:14px;bottom:14px;width:1px;background:linear-gradient(180deg,rgba(95,168,255,.5),rgba(95,168,255,.12))}
+.epi-flow-list li{position:relative;display:flex;gap:14px;padding:11px 0}
+.epi-flow-list .ef-n{flex:none;width:27px;height:27px;border-radius:50%;background:rgba(95,168,255,.12);border:1px solid rgba(95,168,255,.45);font-family:var(--font-mono);font-size:11px;font-weight:600;color:#5FA8FF;display:flex;align-items:center;justify-content:center;z-index:1}
+.epi-flow-list .ef-body{flex:1;min-width:0;transition:transform .25s var(--ease)}
+.epi-flow-list li:hover .ef-body{transform:translateX(4px)}
+.epi-flow-list .ef-t{font-size:15px;font-weight:600;color:#F2F4F8;letter-spacing:-.01em}
+.epi-flow-list .ef-d{font-size:12.5px;line-height:1.55;color:#8A91A1;margin-top:3px}
 .epi-foot{position:relative;z-index:1;max-width:var(--maxw);margin:0 auto;padding:22px var(--s5) var(--s5);display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.08);font-size:12.5px;color:#6E7686;font-family:var(--font-mono);letter-spacing:.02em}
 .epi-foot .nf{color:#8A91A1}
 @media(max-width:860px){
@@ -977,13 +984,16 @@ body{
         <span class="epi-tag">竞品动作</span>
         <span class="epi-tag">三级核验</span>
       </div>
-      <div class="epi-col">
-        <div class="epi-col-h">核心框架</div>
-        <span class="epi-tag">场景锚定</span>
-        <span class="epi-tag">竞品映射缺口</span>
-        <span class="epi-tag">伪需求剔除</span>
-        <span class="epi-tag">观测池</span>
-        <span class="epi-tag">TOP5 ≥90</span>
+      <div class="epi-col epi-flow-col">
+        <div class="epi-col-h">核心框架 · 推导流程</div>
+        <ol class="epi-flow-list">
+          <li><span class="ef-n">01</span><div class="ef-body"><div class="ef-t">前端数据收集</div><div class="ef-d">按客群地理定向抓取官方参数、行业报告与社区信号，建立原始数据集</div></div></li>
+          <li><span class="ef-n">02</span><div class="ef-body"><div class="ef-t">用户声音</div><div class="ef-d">提炼真实痛点与场景，每条附可点击来源与日期，沉淀为 VOC</div></div></li>
+          <li><span class="ef-n">03</span><div class="ef-body"><div class="ef-t">竞品分析</div><div class="ef-d">扫描 XREAL / Rokid / Meta 等近 12 个月动作，映射功能缺口</div></div></li>
+          <li><span class="ef-n">04</span><div class="ef-body"><div class="ef-t">得出需求</div><div class="ef-d">场景锚定 → 竞品映射缺口 → 伪需求剔除 → 观测池，形成需求池</div></div></li>
+          <li><span class="ef-n">05</span><div class="ef-body"><div class="ef-t">GTM 策略</div><div class="ef-d">围绕 TOP5 设计上市节奏、定价与渠道，配套量化指标</div></div></li>
+          <li><span class="ef-n">06</span><div class="ef-body"><div class="ef-t">核验打分</div><div class="ef-d">10 维专家加权评分，综合分 ≥90 卡线进 TOP5，证据链全程可追溯</div></div></li>
+        </ol>
       </div>
     </div>
   </div>
