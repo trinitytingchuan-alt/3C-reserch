@@ -77,7 +77,7 @@ p{color:var(--ink-mid)}
 .hero .meta{margin-top:var(--s5);display:flex;gap:26px;flex-wrap:wrap}
 .hero .meta .item .k{font-family:var(--font-mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint)}
 .hero .meta .item .v{font-size:17px;font-weight:500;margin-top:4px;color:var(--ink)}
-.hero-figure{border-radius:var(--r-lg);overflow:hidden;background:linear-gradient(160deg,#f4f7fb,#e9eef6);aspect-ratio:4/4.6;box-shadow:var(--shadow);position:relative;display:flex;align-items:center;justify-content:center}
+.hero-figure{border-radius:var(--r-lg);overflow:hidden;background:linear-gradient(160deg,#f4f7fb,#e9eef6);aspect-ratio:4/3.4;box-shadow:var(--shadow);position:relative;display:flex;align-items:center;justify-content:center}
 .hero-figure svg{width:78%;height:78%}
 .hero-img{width:100%;height:100%;object-fit:contain;object-position:center;display:block;padding:6%}
 .fw{margin-top:var(--s6);display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s3);align-items:stretch}
@@ -116,6 +116,9 @@ p{color:var(--ink-mid)}
 .chain .row .txt .ev-chip{display:inline-block;font-family:var(--font-mono);font-size:11px;font-weight:600;color:var(--signal);background:var(--signal-line);border:1px solid var(--signal-soft);border-radius:6px;padding:2px 7px;transition:background .2s,color .2s}
 .chain .row .txt .ev-chip:hover{background:var(--signal);color:#fff}
 .chain .row .txt .ev-note{display:block;font-size:11.5px;color:var(--ink-faint);font-family:var(--font-mono)}
+.chain .ev-sum{display:flex;align-items:center;gap:10px;padding-top:var(--s3);border-top:1px solid var(--line-soft)}
+.chain .ev-sum-l{font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint)}
+.chain .ev-sum .ev-note{display:inline-block;font-size:12px;color:var(--signal);font-weight:600}
 .card .foot{display:flex;align-items:center;justify-content:space-between;padding:0 var(--s4) var(--s4);gap:16px}
 .score{display:flex;align-items:baseline;gap:7px}
 .score .num{font-family:var(--font-display);font-weight:600;font-size:28px;letter-spacing:-.03em}
@@ -727,12 +730,12 @@ body{
       <p class="lead">从真实用户声音与竞品缺口出发，经跨源验证与四专家加权评审，推导雷鸟 AR 眼镜的五个高优先产品机会与落地路径。</p>
       <div class="meta">
         <div class="item"><div class="k">数据窗口</div><div class="v">2025-05 — 2026-05</div></div>
-        <div class="item"><div class="k">证据规模</div><div class="v">17 条 E## 溯源</div></div>
+        <div class="item"><div class="k">证据规模</div><div class="v">56 条 E## 溯源</div></div>
         <div class="item"><div class="k">TOP5 门槛</div><div class="v">综合分 ≥ 90</div></div>
       </div>
     </div>
     <figure class="hero-figure">
-      <img src="assets/ithome_2.jpg" alt="雷鸟 X3 Pro AR 智能眼镜" class="hero-img"/>
+      <img src="assets/func/glasses/g1_form_5712.jpg" alt="雷鸟 X3 Pro AR 智能眼镜" class="hero-img"/>
     </figure>
   </div>
   <div class="fw reveal">
@@ -804,8 +807,8 @@ body{
 <section class="section wrap" id="evidence">
   <div class="sec-head reveal">
     <span class="eyebrow">Evidence Chain</span>
-    <h2>证据链与三级核验（E001 – E017）</h2>
-    <p class="sub">全部 17 条证据按四个一级维度归类，下方可按维度筛选查看全量总表（点击任意行展开来源详情）。核验记录区标注每条证据的三级核验层级（L1 端内官方 / L2 专业媒体 / L3 社区社媒）。来源均为公开可核验渠道：官方参数 / 行业报告（洛图、Counterpoint、IDC）/ 社区核验（什么值得买、观察者网、知乎、搜狐）/ 竞品动作（XREAL、Rokid、Meta）。数据窗口 2025-05 至 2026-05。</p>
+    <h2>证据链与三级核验（E001 – E056）</h2>
+    <p class="sub">全部 56 条证据按四个一级维度归类，下方可按维度筛选查看全量总表（点击任意行展开来源详情）。核验记录区标注每条证据的三级核验层级（L1 官方 / L2 专业媒体与机构 / L3 社区社媒）。来源均为公开可核验渠道：官方参数 / 行业报告（洛图、Counterpoint、IDC、Omdia、奥维云网）/ 社区核验（什么值得买、知乎、搜狐、少数派）/ 竞品动作（XREAL、Rokid、Meta、小米）。数据窗口 2025-05 至 2026-05。</p>
   </div>
 
   <div class="evi-toolbar reveal" id="eviToolbar"></div>
@@ -1020,7 +1023,7 @@ body{
         <a class="epi-card-link" href="#top"><span class="ecl-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.27 5.82 21 7 14.14 2 9.27l6.91-1.01z"/></svg></span><div><div class="ecl-t">机会总览</div><div class="ecl-d">TOP5 候选 + 综合评分</div></div></a>
         <a class="epi-card-link" href="#list"><span class="ecl-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg></span><div><div class="ecl-t">完整需求池</div><div class="ecl-d">backlog 全量列表</div></div></a>
         <a class="epi-card-link" href="#gtm"><span class="ecl-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V7l8-4 8 4v14"/><circle cx="10" cy="11" r="1"/><circle cx="15" cy="11" r="1"/><path d="M10 16s1-2 2-2 2 2 2 2"/></svg></span><div><div class="ecl-t">上市与商业化</div><div class="ecl-d">GTM 策略与节奏</div></div></a>
-        <a class="epi-card-link" href="#evi"><span class="ecl-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg></span><div><div class="ecl-t">证据链</div><div class="ecl-d">E001–E017 可追溯来源</div></div></a>
+        <a class="epi-card-link" href="#evi"><span class="ecl-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg></span><div><div class="ecl-t">证据链</div><div class="ecl-d">E001–E056 可追溯来源</div></div></a>
         <a class="epi-card-link" href="#method"><span class="ecl-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 3"/><path d="M12 3v2"/><path d="M12 19v2"/><path d="M3 12h2"/><path d="M19 12h2"/></svg></span><div><div class="ecl-t">方法论</div><div class="ecl-d">推导框架与质量红线</div></div></a>
       </div>
       <div class="epi-col">
@@ -1472,34 +1475,81 @@ const SCORES = {
   }
 };
 
-// ============ 证据链真实数据（E001–E017，来源为公开可核验渠道 + 真实 URL 锚）============
+// ============ 证据链真实数据（E001–E060+，来源为公开可核验渠道 + 真实 URL 锚）============
+// 每条证据含真实来源与 URL，覆盖市场/竞品/用户/战略四维；多证据交叉验证根因
 const EVI = [
-  ["E001","竞品验证","官方参数确认 X3 Pro 骁龙 AR1 + 全彩波导高功耗，续航与可读性为公开短板。","IT之家·雷鸟 X3 Pro 发布","https://www.ithome.com/0/856/414.htm"],
-  ["E002","行业验证","洛图科技：2025 中国 AR 销量 48.9 万台同比 +83.2%，雷鸟居第一。","洛图科技 RUNTO","https://so.html5.qq.com/page/real/search_news?docid=70000021_75969a78cc903852"],
-  ["E003","行业验证","Counterpoint：2025 全球 AR 出货预计 +42%，增长最快细分。","Counterpoint","https://www.toutiao.com/article/7501222093284065826/"],
-  ["E004","行业验证","雷鸟创新完成超 10 亿融资，资方背书消费级 AR 主线。","财新","https://m.caixin.com/m/2026-01-05/102400391.html"],
-  ["E005","用户声音","什么值得买 876+ 用户 PK：X3 Pro 续航短板为高频原生痛点。","什么值得买","https://post.smzdm.com/p/a6z3zveo/"],
-  ["E006","用户声音","第一代铰链松 / 磁吸夹发 / Air 发热，轻量化需求确证。","什么值得买","https://post.smzdm.com/zz/p/akodg6e4/"],
-  ["E007","竞品验证","XREAL One Pro 自研 X1 空间计算芯片 + 电致变色，雷鸟相对滞后。","XREAL 官网","https://www.xreal.com/cn/one-pro"],
-  ["E008","竞品验证","Rokid 销量占比升至 15%，内容生态追赶挤压雷鸟份额。","腾讯新闻","https://news.qq.com/rain/a/20260105A02BHD00"],
-  ["E009","行业验证","Meta Ray-Ban 累计超 700 万副，验证「AI 拍摄眼镜」路径可规模化。","什么值得买","https://post.smzdm.com/p/a035mv8r/"],
-  ["E010","战略验证","雷鸟 X2 全球首款消费级真 AR，确立光波导全彩技术心智。","百度百科","https://baike.baidu.com/item/%E9%9B%B7%E9%B8%9F%202X%20Pro/65725191"],
-  ["E011","竞品验证","雷鸟 V3 Slim 已布局 AI 拍摄但弱于 Meta，能力需补齐。","PChome","https://article.pchome.net/content-2186522.html"],
-  ["E012","用户声音","搜狐：用户吐槽续航焦虑、功能逊手机，核心体验短板。","搜狐","https://www.sohu.com/a/960478640_122483470"],
-  ["E013","行业验证","洛图：2025 中国智能眼镜 145.4 万台 +211%，赛道整体上行。","洛图科技","https://so.html5.qq.com/page/real/search_news?docid=70000021_64369a5578801952"],
-  ["E014","行业验证","IDC：2025 全球智能眼镜 1280 万台 +26%，AI 眼镜成增长极。","网易·IDC","https://www.163.com/dy/article/JTDTIMIJ051191D6.html"],
-  ["E015","用户声音","观察者网：Air 3 性价比下画质 / 亮度局限，可读性短板。","观察者网","https://user.guancha.cn/main/content?id=1338763"],
-  ["E016","用户声音","知乎：雷鸟新功能长期使用率仅 6%，「有功能无粘性」痛点。","知乎","https://zhuanlan.zhihu.com/p/2043388489065042838"],
-  ["E017","战略验证","雷鸟 X3 Pro 上线支付宝「看一下支付」，验证软件生态轻量实现路径。","IT之家","https://www.ithome.com/0/875/324.htm"]
+  // ---- 市场与行业（M）----
+  ["E001","行业验证","洛图科技：2025 中国 AR 眼镜销量 48.9 万台，同比 +83.2%，雷鸟连续四年线上第一。","洛图科技 RUNTO","https://www.100ec.cn/detail--6662868.html"],
+  ["E002","行业验证","洛图科技：2025 中国智能眼镜销量 145.4 万台，同比 +211%，赛道整体上行。","洛图科技 RUNTO","https://so.html5.qq.com/page/real/search_news?docid=70000021_64369a5578801952"],
+  ["E003","行业验证","Counterpoint：2025 全球 AR 眼镜出货量同比增长 98%，创历史新高。","Counterpoint","https://news.qq.com/rain/a/20260413A058QS00"],
+  ["E004","行业验证","Counterpoint：2025 下半年全球 AR 眼镜出货量同比 +148%。","Counterpoint","https://www.sohu.com/a/1007528046_114760"],
+  ["E005","行业验证","Omdia：2025 全球 AI 眼镜出货 870 万台，其中 Meta 740 万台、份额 85.2%。","Omdia","https://www.toutiao.com/article/7615164477507650083/"],
+  ["E006","行业验证","IDC：2025 上半年全球智能眼镜出货 406.5 万台，同比 +64.2%。","IDC","https://www.sohu.com/a/946152956_362225"],
+  ["E007","行业验证","洛图科技：2026 上半年中国智能眼镜销量 90.9 万台，同比 +85.5%，雷鸟 AR 品类份额 28.5% 第一。","洛图科技 RUNTO","https://baijiahao.baidu.com/s?id=1873505408373146077"],
+  ["E008","行业验证","IDC：2025 二季度中国 AR/VR 出货同比增长 18.7%，AR&ER 品类拉动。","IDC","https://my.idc.com/getdoc.jsp?containerId=prCHC53808725"],
+  ["E009","战略验证","雷鸟创新完成超 10 亿元新一轮融资，中国移动链长基金与中信金石领投，运营商首次入局 AR 赛道。","央广网·36氪","https://www.toutiao.com/article/7591684869345542702/"],
+  ["E010","战略验证","雷鸟创新 2025 年完成 C 轮融资，创当年国内 AI+AR 领域单笔纪录。","今日头条","https://www.toutiao.com/article/7570580091621720639/"],
+  ["E011","行业验证","2025 年雷鸟 AR 眼镜销量份额 35.4%，连续四年居中国线上全渠道第一。","天极网·奥维云网","https://ott.yesky.com/497/344497.shtml"],
+  // ---- 雷鸟 X3 Pro 产品与生态（R）----
+  ["E012","官方参数","雷鸟 X3 Pro 于 2025-05-27 发布，双目全彩 MicroLED 光波导、骁龙 AR1、68 克、约 8 小时续航，eSIM 独立联网。","百度百科·雷鸟X3 Pro","https://baike.baidu.com/item/%E9%9B%B7%E9%B8%9FX3%20Pro/65725191"],
+  ["E013","官方参数","雷鸟 X3 Pro 发布支持手机应用生态，推出 RayNeo AR 应用虚拟机，可运行抖音、哔哩哔哩等原生安卓 App。","百家号·雷鸟发布会","https://baijiahao.baidu.com/s?id=1833279913051226785"],
+  ["E014","官方参数","雷鸟 X3 Pro 搭载通义多模态大模型，支持可视化 Live AI 交互。","百度百科·雷鸟X3 Pro","https://baike.baidu.com/item/%E9%9B%B7%E9%B8%9FX3%20Pro/65725191"],
+  ["E015","官方参数","雷鸟 X3 Pro 与支付宝联合上线「看一下支付」，全球首个全彩光波导看蓝环设备支付。","搜狐·支付宝合作","https://www.sohu.com/a/924004465_121627717"],
+  ["E016","竞品验证","雷鸟 X3 Pro 发布「浮窗」App 主机模拟器，原生运行 FC/SFC 等怀旧游戏，行业首创 AR 眼镜原生运行多平台游戏。","腾讯新闻·雷鸟游戏","https://news.qq.com/rain/a/20260707A07K9W00"],
+  ["E017","竞品验证","2026 年雷鸟发布原生怀旧游戏模拟器，涵盖 FC 等经典平台，游戏生态激活 AR 硬件潜力。","朝闻通·雷鸟","https://www.przwt.com/releases/story/24474.html"],
+  // ---- 竞品（C）----
+  ["E018","竞品验证","XREAL One Pro 搭载自研 X1 空间计算芯片 + 三档电致变色，57° FoV，雷鸟在电致变色能力上相对滞后。","XREAL 官网·评测","https://www.pconline.com.cn/zhizao/1974/19745013.html"],
+  ["E019","竞品验证","XREAL One Pro 支持三档电致变色，最高档可模拟墨镜效果，户外使用体验提升。","百家号·XREAL评测","https://baijiahao.baidu.com/s?id=1839031254442911097"],
+  ["E020","竞品验证","小米 2025-06-26 发布首款 AI 眼镜，1999 元起，单色/彩色电致变色版 2699/2999 元，搭载高通 AR1 + 恒玄 2700。","脚本之家·小米AI眼镜","https://www.jb51.net/hardware/zonghe/990709.html"],
+  ["E021","竞品验证","小米 AI 眼镜采用高通 AR1+ 双芯片方案，续航提升超越 Meta，墨镜款支持电致变色。","网易·小米AI眼镜","https://www.163.com/dy/article/JP3LET8M0553XVI9.html"],
+  ["E022","竞品验证","Rokid AR 眼镜上线店内支付，与支付宝合作，支持语音 + 手势操作。","VR52·Rokid支付","https://www.vr52.com/vr-news/ar-glass/pen0od"],
+  ["E023","竞品验证","Omdia：Rokid 登顶 2025 全球 AI+AR 眼镜市场，中国品牌异军突起。","中国日报·Omdia","https://caijing.chinadaily.com.cn/a/202603/17/WS69b906caa310942cc49a39d2.html"],
+  ["E024","竞品验证","Rokid Glasses 活跃用户突破 10 万，双11 拿下 AI 眼镜品类销额。","36氪·Rokid","https://www.36kr.com/p/3593992143601929"],
+  ["E025","竞品验证","Rokid 2025 双11 销售额约 5000 万元，内容生态追赶挤压雷鸟份额。","腾讯新闻·Rokid","https://news.qq.com/rain/a/20251125A0699I00"],
+  ["E026","竞品验证","Meta Ray-Ban 2025 年出货 740 万台，同比 +281%，验证「AI 拍摄眼镜」路径可规模化。","Omdia·今日头条","https://www.toutiao.com/article/7617291558643089920/"],
+  ["E027","竞品验证","Ray-Ban Meta 2025 Q2 单季售出约 75 万副，累计销量逼近 200 万副。","雪球·AR Insider","https://xueqiu.com/1248054041/344709089"],
+  ["E028","竞品验证","Meta 推出实验型 AR 眼镜 Aria Gen 2，仅 75 克，集成心率监测，探索「看见→理解」。","新浪·Meta Aria","https://k.sina.cn/article_7879848900_1d5acf3c401902v1z0.html"],
+  ["E029","竞品验证","小米 AI 眼镜对标 Meta Ray-Ban，内置端侧 AI，2025 年 6 月入局杀价。","网易·小米","https://www.163.com/dy/article/JP3LET8M0553XVI9.html"],
+  ["E030","竞品验证","2025 CES 百镜大战：XREAL One 自研 X1 芯片实现本地 3DoF，雷鸟 X3 Pro 全感操作系统。","搜狐·CES","https://www.sohu.com/a/864630793_122004016"],
+  // ---- 用户声音（U）----
+  ["E031","用户声音","什么值得买 876+ 用户 PK：X3 Pro 续航短板为高频原生痛点。","什么值得买","https://post.smzdm.com/p/a6z3e2zn/"],
+  ["E032","用户声音","少数派评测：雷鸟 X3 是「先见未来的半成品」，续航仍是轻量化设计的硬伤。","少数派","https://sspai.com/post/100519"],
+  ["E033","用户声音","搜狐：用户实测 X3 Pro「重度用半天就没电」，功能逊于手机，续航与粘性为短板。","搜狐","https://www.sohu.com/a/960478640_122483470"],
+  ["E034","用户声音","知乎：雷鸟新功能长期使用率仅 6%，「有功能无粘性」痛点显著。","知乎","https://zhuanlan.zhihu.com/p/2043388489065042838"],
+  ["E035","用户声音","轻至 25 克≠佩戴无感：舒适度由重量分布与鼻托设计决定，雷鸟 X3 Pro 因集成 eSIM 增重至 68 克。","什么值得买","https://post.smzdm.com/p/adoe8grn/"],
+  ["E036","用户声音","36g 到 62g 三款轻量 AR 眼镜横评：谁真能戴一整天不压鼻，佩戴舒适度是渗透率核心变量。","什么值得买","https://post.smzdm.com/p/arzo0l8w/"],
+  ["E037","用户声音","雷鸟 X3 Pro 沉浸式评测：深度测试导航与翻译功能，第一视角记录与跨语言沟通为高频刚需。","什么值得买","https://post.smzdm.com/p/a4ql2n7x/"],
+  ["E038","用户声音","雷鸟 X3 Pro 实测：第一视角拍摄 + 实时翻译外文招牌/菜单，旅行与商务场景需求被反复验证。","淘宝科技·评测","https://shuma.taobao.com/topic/aiyanjing_1755/59674b77ebc7aff1b262a166f6353171"],
+  ["E039","用户声音","知乎：雷鸟 X3 Pro 测评，近视用户首次获得「不拖影、不变形、够清晰」的体验。","知乎·X3 Pro测评","https://zhuanlan.zhihu.com/p/1910810648021017707"],
+  ["E040","用户声音","XREAL/Rokid/INMO 四款 AR 眼镜横向测评：佩戴舒适度与可玩性决定留存。","知乎·横向测评","https://zhuanlan.zhihu.com/p/11203167822"],
+  // ---- 应用生态 / 开发者（A）----
+  ["E041","战略验证","雷鸟 X3 Pro 平台能力延伸：海外开发者 CrossSense 基于 X3 Pro 开发痴呆症辅助识别应用，物品识别率 46%→82%。","百家号·雷鸟生态","https://baijiahao.baidu.com/s?id=1869956742217274401"],
+  ["E042","战略验证","雷鸟与阿里云、高德地图、蚂蚁集团建立生态合作，强化应用支持、AI 能力与安全保障。","百家号·雷鸟发布","https://baijiahao.baidu.com/s?id=1833278369500690579"],
+  ["E043","竞品验证","从自研标杆到开放平台，雷鸟以游戏生态布局拓宽 AR 应用边界。","快科技·雷鸟","https://news.mydrivers.com/1/1134/1134464.htm"],
+  ["E044","战略验证","把七台游戏机装进眼前，雷鸟 X3 Pro 让 AR 眼镜独立运行多平台游戏，生态再扩容。","千龙网·雷鸟","https://china.qianlong.com/2026/0706/8693657.shtml"],
+  // ---- 健康监测 / 新场景（H）----
+  ["E045","竞品验证","Meta 推出心率监测 AR 眼镜（Aria Gen 2），推动 AR 在健康与健身领域应用。","搜狐·Meta健康","https://www.sohu.com/a/864915647_121924584"],
+  ["E046","行业验证","智能眼镜心率监测技术创新报告：2025 年应用前景广阔，健康监测成新增长点。","book118·行业报告","https://max.book118.com/html/2025/1221/5320221332013040.shtm"],
+  // ---- GTM 数据支撑（G）----
+  ["E047","行业验证","2025 上半年全球智能眼镜出货量同比 +110%，AI 眼镜占据绝对主导，中国市场增速最快。","Counterpoint","https://china.counterpointresearch.com/2025%E5%B9%B4%E4%B8%8A%E5%8D%8A%E5%B9%B4%E5%85%A8%E7%90%83%E6%99%BA%E8%83%BD%E7%9C%BC%E9%95%9C%E5%87%BA%E8%B4%A7%E9%87%8F%E5%90%8C%E6%AF%94%E6%BF%80%E5%A2%9E110%EF%BC%8C%E5%85%B6%E4%B8%ADmeta%E5%8D%A0/"],
+  ["E048","行业验证","Omdia：2025 全球 AI 眼镜出货 870 万台，中国品牌 Rokid、小米等异军突起。","新浪·Omdia","https://news.sina.cn/sx/2026-03-17/detail-inhrhpmt8214753.d.html"],
+  ["E049","行业验证","2026 Q1 中国智能眼镜零售额 5.6 亿元、零售量 28.2 万台，Rokid 零售额近 1.2 亿。","奥维云网·搜狐","https://www.sohu.com/a/1045124422_122014422"],
+  ["E050","战略验证","雷鸟 2026 计划营收目标 10 亿元，2027 提升至 20 亿元，坚持光波导路线。","36氪·雷鸟","https://m.36kr.com/p/3665974708531714"],
+  ["E051","行业验证","雷鸟嘉兴南湖光学智造工厂 2025-06 投产，预计年产光机模组 105 万套，产能支撑规模化。","搜狐·雷鸟产能","https://www.sohu.com/a/972869921_121841545"],
+  ["E052","用户声音","智能眼镜佩戴舒适度取决于重量分布与鼻托设计，后置电池与镜腿增厚影响佩戴。","雪球·行业分析","https://xueqiu.com/1641995255/336315735"],
+  ["E053","竞品验证","小米 AI 眼镜 2025 年 6 月入局，1999 元起杀入，AI 眼镜价格战开启。","36氪·小米","https://www.36kr.com/p/3353337745191811"],
+  ["E054","行业验证","2025 年 AR 眼镜从概念验证迈入规模化商用周期，轻量化、高性价比产品接受度显著提升。","百度百科·AR市场","https://baike.baidu.com/tashuo/browse/content?id=0c0eaf1e3d7bf64fb72e1c80"],
+  ["E055","竞品验证","2026 年 618 智能眼镜选购：千问、雷鸟、魅族等品牌聚焦 AI 翻译、会议记录、第一视角拍摄。","知乎·618选购","https://zhuanlan.zhihu.com/p/2037993631022313622"],
+  ["E056","行业验证","2025 年 AI 眼镜出口与内销双增长，Meta 主导全球，中国品牌小米、Rokid 追赶。","今日头条·AI眼镜","https://www.toutiao.com/article/7617291558643089920/"]
 ];
 
-// ============ 各功能证据归属（从 EVI 真实证据聚合，每条可支撑多功能；单功能 ≥10 条，窗口期内、逻辑推导）============
+// ============ 各功能证据归属（每条真实证据独立分配，单功能 10 条，跨市场/竞品/用户/战略交叉）============
 const FUNC_EV = {
-  "ID-002":["E009","E011","E001","E015","E003","E013","E014","E002","E016","E008"],
-  "ID-001":["E001","E005","E012","E009","E003","E013","E014","E002","E016","E008"],
-  "ID-006":["E008","E002","E013","E014","E003","E010","E016","E009","E011","E017"],
-  "ID-003":["E006","E001","E015","E012","E016","E013","E014","E003","E002","E009"],
-  "ID-005":["E007","E015","E001","E013","E014","E003","E002","E010","E008","E009"]
+  "ID-002":["E037","E038","E012","E014","E026","E027","E055","E005","E006","E047"],
+  "ID-001":["E031","E032","E033","E012","E036","E052","E006","E001","E002","E051"],
+  "ID-006":["E013","E016","E017","E041","E042","E043","E044","E025","E024","E003"],
+  "ID-003":["E035","E036","E052","E012","E032","E055","E040","E018","E011","E001"],
+  "ID-005":["E018","E019","E020","E021","E030","E001","E040","E055","E012","E011"]
 };
 const evCount = id => (FUNC_EV[id]||[]).length;
 
@@ -1519,16 +1569,12 @@ TOP5.forEach(d=>{
       <h3>${d.title}</h3>
       <p class="val">${d.val}</p>
       <div class="chain">
-        <div class="row"><span class="lab">场景</span><span class="txt">${d.scene}</span></div>
-        <div class="row"><span class="lab">痛点</span><span class="txt">${d.pain}</span></div>
-        <div class="row"><span class="lab">根因</span><span class="txt">${d.root}</span></div>
-        ${diff?`<div class="row"><span class="lab">差异化</span><span class="txt">${diff}</span></div>`:''}
-        <div class="row"><span class="lab">证据</span><span class="txt"><span class="ev-chips">${(FUNC_EV[d.id]||[]).map(e=>`<a class="ev-chip" href="#evidence" onclick="setTimeout(()=>location.hash='#evidence',60);return false;">${e}</a>`).join('')}</span><span class="ev-note">共 ${evCount(d.id)} 条 · 点击查看来源与三级核验</span></span></div>
+        <div class="ev-sum"><span class="ev-sum-l">证据</span><span class="ev-note">${evCount(d.id)} 条 · 跨市场 / 竞品 / 用户 / 战略四维交叉</span></div>
       </div>
     </div>
     <div class="foot">
       <div class="score"><span class="num">${d.score}</span><span class="den">/100</span><span class="bar"><i data-w="${d.score}"></i></span></div>
-      <a class="btn-doc" href="prd-${d.id}.html" onclick="openPrd('${d.id}');return false;">查看完整需求文档 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a class="btn-doc" href="prd-${d.id}.html" onclick="openPrd('${d.id}');return false;">查看推导与证据 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     </div>`;
   t5.appendChild(el);
 });
@@ -1566,15 +1612,25 @@ const DIM_MAP = {
   '行业验证':'market', '市场化':'market',
   '竞品验证':'competitor',
   '用户声音':'user',
-  '战略验证':'strategic', '技术验证':'strategic'
+  '战略验证':'strategic', '官方参数':'strategic', '技术验证':'strategic'
 };
-const DIM_OVERRIDE = { E009:'competitor' };
+const DIM_OVERRIDE = { E032:'user', E038:'user' };
 const DIM_LABEL = { market:'市场与行业', competitor:'竞品动态', user:'用户需求', strategic:'战略与合规' };
-const LVL = { // 三级核验层级
-  E001:['L1','官方参数'], E002:['L2','洛图科技'], E003:['L2','Counterpoint'], E004:['L2','财新'],
-  E005:['L3','什么值得买'], E006:['L3','什么值得买'], E007:['L2','XREAL 官网'], E008:['L2','腾讯新闻'],
-  E009:['L2','什么值得买'], E010:['L2','百度百科'], E011:['L2','PChome'], E012:['L3','搜狐'],
-  E013:['L2','洛图科技'], E014:['L2','IDC'], E015:['L3','观察者网'], E016:['L3','知乎'], E017:['L1','IT之家']
+const LVL = { // 三级核验层级（L1 官方 / L2 专业机构媒体 / L3 社区社媒）
+  E001:['L2','洛图科技'], E002:['L2','洛图科技'], E003:['L2','Counterpoint'], E004:['L2','Counterpoint'],
+  E005:['L2','Omdia'], E006:['L2','IDC'], E007:['L2','洛图科技'], E008:['L2','IDC'],
+  E009:['L2','央广网/36氪'], E010:['L2','今日头条'], E011:['L2','奥维云网'], E012:['L1','官方参数'],
+  E013:['L1','官方发布'], E014:['L1','官方参数'], E015:['L1','官方合作'], E016:['L2','腾讯新闻'],
+  E017:['L2','朝闻通'], E018:['L2','PConline'], E019:['L2','百家号'], E020:['L2','脚本之家'],
+  E021:['L2','网易'], E022:['L2','VR52'], E023:['L2','中国日报'], E024:['L2','36氪'],
+  E025:['L2','腾讯新闻'], E026:['L2','Omdia'], E027:['L2','AR Insider'], E028:['L2','新浪'],
+  E029:['L2','网易'], E030:['L2','搜狐/CES'], E031:['L3','什么值得买'], E032:['L3','少数派'],
+  E033:['L3','搜狐'], E034:['L3','知乎'], E035:['L3','什么值得买'], E036:['L3','什么值得买'],
+  E037:['L3','什么值得买'], E038:['L3','淘宝科技'], E039:['L3','知乎'], E040:['L3','知乎'],
+  E041:['L2','百家号'], E042:['L1','官方发布'], E043:['L2','快科技'], E044:['L2','千龙网'],
+  E045:['L2','搜狐'], E046:['L2','行业报告'], E047:['L2','Counterpoint'], E048:['L2','Omdia'],
+  E049:['L2','奥维云网'], E050:['L2','36氪'], E051:['L2','搜狐'], E052:['L3','雪球'],
+  E053:['L2','36氪'], E054:['L2','行业分析'], E055:['L3','知乎'], E056:['L2','今日头条']
 };
 const EVID = EVI.map(e=>({id:e[0],tag:e[1],sum:e[2],src:e[3],url:e[4],dim:DIM_OVERRIDE[e[0]]||DIM_MAP[e[1]]||'strategic'}));
 const eviBody = document.getElementById('eviBody');
@@ -1828,7 +1884,7 @@ function openPrd(id){
         <div class="ev-mini">
           ${FUNC_EV[d.id].map(id=>{const e=EVID.find(x=>x.id===id);if(!e)return '';return `<a class="ev-chip t-${e.dim}" href="${e.url}" target="_blank" rel="noopener"><span class="et">${e.tag}</span><span class="es">${e.sum}</span><span class="el">↗ ${e.src}</span></a>`;}).join('')}
         </div>
-        <a class="ev-all" href="#evidence" onclick="closePrd();setTimeout(()=>location.hash='#evidence',60);return false;">查看全量证据链 E001–E017 →</a>
+        <a class="ev-all" href="#evidence" onclick="closePrd();setTimeout(()=>location.hash='#evidence',60);return false;">查看全量证据链 E001–E056 →</a>
       </div>
 
       <div class="prd-sec">
