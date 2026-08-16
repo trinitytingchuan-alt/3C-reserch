@@ -35,14 +35,17 @@ p{color:var(--ink-mid)}
 .section{padding:var(--s8) 0}
 /* ============ 左侧固定导航栏 ============ */
 :root{--rail-w:176px;--rail-pad:14px}
-.shell{display:flex;min-height:100vh;align-items:flex-start}
-.rail{position:fixed;top:0;left:0;bottom:0;width:var(--rail-w);z-index:60;background:linear-gradient(180deg,#FCFEFF,#F4F8FD);color:var(--ink);display:flex;flex-direction:column;padding:var(--rail-pad) 0;overflow:hidden;border-right:1px solid var(--line-soft)}
-.rail-brand{display:flex;align-items:center;gap:10px;padding:4px var(--rail-pad) 16px;position:relative;z-index:1;border-bottom:1px solid var(--line-soft);margin-bottom:6px}
-.rail-brand .logo{width:30px;height:30px;border-radius:9px;background:linear-gradient(135deg,var(--signal),#3E8BFF);display:flex;align-items:center;justify-content:center;flex:0 0 auto}
-.rail-brand .logo svg{width:17px;height:17px;color:#fff}
-.rail-brand .rb-t{font-family:var(--font-display);font-weight:600;font-size:13px;letter-spacing:-.01em;line-height:1.15}
-.rail-brand .rb-s{font-family:var(--font-mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);margin-top:1px}
-.rail-sec{font-family:var(--font-mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint);padding:12px var(--rail-pad) 7px;position:relative;z-index:1}
+.shell{display:flex;min-height:100vh;align-items:stretch}
+.rail{position:fixed;top:0;left:0;bottom:0;width:var(--rail-w);z-index:60;background:rgba(252,254,255,.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);color:var(--ink);display:flex;flex-direction:column;justify-content:center;padding:var(--rail-pad) 0;overflow:hidden;border-right:1px solid rgba(0,113,227,.10)}
+.rail-brand{display:flex;align-items:center;gap:11px;padding:0 var(--rail-pad) 18px;position:relative;z-index:1;margin-bottom:8px}
+.rail-brand::after{content:"";position:absolute;left:var(--rail-pad);right:var(--rail-pad);bottom:0;height:1px;background:linear-gradient(90deg,rgba(0,113,227,.18),transparent)}
+.rail-brand .logo{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,var(--signal),#3E8BFF);display:flex;align-items:center;justify-content:center;flex:0 0 auto;box-shadow:0 4px 12px rgba(0,113,227,.22)}
+.rail-brand .logo svg{width:18px;height:18px;color:#fff}
+.rail-brand .rb-b{display:flex;flex-direction:column;line-height:1.16}
+.rail-brand .rb-mark{font-family:var(--font-display);font-weight:700;font-size:15px;letter-spacing:-.02em;color:var(--signal);letter-spacing:.01em}
+.rail-brand .rb-t{font-family:var(--font-display);font-weight:600;font-size:12px;color:var(--ink);margin-top:2px}
+.rail-brand .rb-s{font-family:var(--font-mono);font-size:8.5px;letter-spacing:.10em;text-transform:uppercase;color:var(--ink-faint);margin-top:1px}
+.rail-sec{font-family:var(--font-mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint);padding:10px var(--rail-pad) 7px;position:relative;z-index:1}
 .rail-links{display:flex;flex-direction:column;gap:2px;padding:0 8px;position:relative;z-index:1;flex:1}
 .rail-links a{display:flex;align-items:center;gap:9px;padding:8px 10px;border-radius:8px;color:var(--ink-lo);font-size:12.5px;font-weight:500;position:relative;transition:background .25s var(--ease),color .25s var(--ease)}
 .rail-links a .ri{width:23px;height:23px;border-radius:6px;display:flex;align-items:center;justify-content:center;background:transparent;flex:0 0 auto;transition:background .25s var(--ease)}
@@ -374,15 +377,19 @@ p{color:var(--ink-mid)}
   mask-image:radial-gradient(circle at 50% 30%,#000,transparent 78%);
   pointer-events:none}
 .epi-inner{position:relative;z-index:1;max-width:var(--maxw);margin:0 auto;padding:var(--s7) var(--s5) var(--s6)}
-.epi-author-top{display:flex;align-items:center;gap:18px;padding-bottom:var(--s5);border-bottom:1px solid rgba(255,255,255,.10)}
-.epi-author-top .av{width:56px;height:56px;border-radius:15px;background:linear-gradient(135deg,#0071E3,#3E8BFF);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:700;font-size:21px;color:#fff;flex:none;box-shadow:0 6px 18px rgba(0,113,227,.4)}
-.epi-author-top .at-role{font-family:var(--font-mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#5FA8FF;font-weight:500}
-.epi-author-top .at-name{font-family:var(--font-display);font-weight:600;font-size:25px;color:#fff;letter-spacing:-.02em;margin-top:3px}
-.epi-author-top .at-meta{margin-top:5px;font-size:13px;color:#8A91A1;line-height:1.5}
-.epi-grid{margin-top:var(--s5);display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s5)}
+.epi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s5)}
 .epi-col-h{font-family:var(--font-mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#7E8796;margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,.08)}
 .epi-link{display:block;font-size:15px;color:#C5CBD6;text-decoration:none;padding:9px 0;border-bottom:1px solid rgba(255,255,255,.05);transition:color .25s var(--ease),padding-left .25s var(--ease)}
 .epi-link:hover{color:#fff;padding-left:6px}
+.epi-src-row{display:flex;gap:12px;align-items:flex-start;padding:11px 0;border-bottom:1px solid rgba(255,255,255,.05)}
+.epi-src-row:last-child{border-bottom:0}
+.epi-src-row .sr-ico{flex:none;width:30px;height:30px;border-radius:9px;background:rgba(95,168,255,.10);border:1px solid rgba(95,168,255,.22);display:flex;align-items:center;justify-content:center}
+.epi-src-row .sr-ico svg{width:15px;height:15px;color:#5FA8FF}
+.epi-src-row .sr-t{font-size:14.5px;font-weight:600;color:#F2F4F8}
+.epi-src-row .sr-d{font-size:12.5px;line-height:1.5;color:#8A91A1;margin-top:2px}
+.epi-author-bottom{margin-top:var(--s5);padding-top:var(--s4);border-top:1px solid rgba(255,255,255,.07);text-align:center}
+.epi-author-bottom .ab-line{font-size:12.5px;color:#6E7686;font-family:var(--font-mono);letter-spacing:.02em}
+.epi-author-bottom .ab-line b{color:#A7AEBD;font-weight:600}
 .epi-flow-list{list-style:none;margin:0;padding:0;position:relative}
 .epi-flow-list::before{content:"";position:absolute;left:13px;top:14px;bottom:14px;width:1px;background:linear-gradient(180deg,rgba(95,168,255,.5),rgba(95,168,255,.12))}
 .epi-flow-list li{position:relative;display:flex;gap:14px;padding:11px 0}
@@ -611,7 +618,8 @@ body{
   :root{--rail-w:0px}
   .rail{position:static;width:100%;flex-direction:row;align-items:center;flex-wrap:wrap;gap:8px;padding:12px var(--rail-pad)}
   .rail::before,.rail::after,.rail-prog,.rail-sec,.rail-foot{display:none}
-  .rail-brand{padding:0 12px 0 4px}
+  .rail-brand{padding:0 12px 0 4px;margin-bottom:0}
+  .rail-brand::after{display:none}
   .rail-links{flex-direction:row;flex-wrap:wrap;flex:1;padding:0;gap:6px}
   .rail-links a{padding:8px 12px;font-size:13px}
   .rail-links a .idx{display:none}
@@ -639,13 +647,15 @@ body{
 
 <aside class="rail" id="nav">
   <div class="rail-prog" id="railProg"></div>
+  <!-- 公司产品 LOGO 占位：换其他公司报告时，替换 .rail-brand 内的品牌字标与 .logo 内容即可 -->
   <div class="rail-brand">
     <div class="logo">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7h4l2 5 3-7 3 7 2-5h4"/><path d="M2 17h20"/></svg>
     </div>
-    <div>
-      <div class="rb-t">雷鸟 RayNeo</div>
-      <div class="rb-s">Product White Paper</div>
+    <div class="rb-b">
+      <div class="rb-mark">RayNeo</div>
+      <div class="rb-t">产品机会白皮书</div>
+      <div class="rb-s">雷鸟创新 · 机会挖掘</div>
     </div>
   </div>
   <div class="rail-sec">导航 · Navigation</div>
@@ -958,15 +968,6 @@ body{
 
 <footer class="epilogue">
   <div class="epi-inner">
-    <div class="epi-author-top">
-      <div class="av">尚</div>
-      <div>
-        <div class="at-role">作者 · AUTHOR</div>
-        <div class="at-name">尚文蜓</div>
-        <div class="at-meta">产品策略 · 机会挖掘与需求建模　|　GitHub trinitytingchuan-alt　|　trinity_ting@163.com</div>
-      </div>
-    </div>
-
     <div class="epi-grid">
       <div class="epi-col">
         <div class="epi-col-h">白皮书结构</div>
@@ -978,11 +979,11 @@ body{
       </div>
       <div class="epi-col">
         <div class="epi-col-h">数据来源</div>
-        <span class="epi-tag">官方参数</span>
-        <span class="epi-tag">行业报告</span>
-        <span class="epi-tag">社区核验</span>
-        <span class="epi-tag">竞品动作</span>
-        <span class="epi-tag">三级核验</span>
+        <div class="epi-src-row"><span class="sr-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M9 21V9"/></svg></span><div><div class="sr-t">官方参数</div><div class="sr-d">雷鸟 RayNeo 官方产品资料与硬件规格</div></div></div>
+        <div class="epi-src-row"><span class="sr-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19V5l8 4 8-4v14l-8 4z"/></svg></span><div><div class="sr-t">行业报告</div><div class="sr-d">洛图科技 / Counterpoint / IDC 规模与出货数据</div></div></div>
+        <div class="epi-src-row"><span class="sr-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V8l7-5 7 5v13"/><path d="M9 21v-6h6v6"/></svg></span><div><div class="sr-t">社区核验</div><div class="sr-d">什么值得买 / 观察者网 / 知乎 / 搜狐 真实反馈</div></div></div>
+        <div class="epi-src-row"><span class="sr-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18"/></svg></span><div><div class="sr-t">竞品动作</div><div class="sr-d">XREAL / Rokid / Meta Ray-Ban 公开产品信号</div></div></div>
+        <div class="epi-src-row"><span class="sr-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3 8-8"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span><div><div class="sr-t">三级核验</div><div class="sr-d">L1 端内官方 / L2 专业媒体 / L3 社区社媒</div></div></div>
       </div>
       <div class="epi-col epi-flow-col">
         <div class="epi-col-h">核心框架 · 推导流程</div>
@@ -995,6 +996,10 @@ body{
           <li><span class="ef-n">06</span><div class="ef-body"><div class="ef-t">核验打分</div><div class="ef-d">10 维专家加权评分，综合分 ≥90 卡线进 TOP5，证据链全程可追溯</div></div></li>
         </ol>
       </div>
+    </div>
+
+    <div class="epi-author-bottom">
+      <span class="ab-line">作者 <b>尚文蜓</b> · 产品策略 / 机会挖掘与需求建模　|　GitHub trinitytingchuan-alt　|　trinity_ting@163.com</span>
     </div>
   </div>
   <div class="epi-foot">
