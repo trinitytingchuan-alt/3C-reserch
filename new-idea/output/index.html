@@ -109,6 +109,10 @@ p{color:var(--ink-mid)}
 .chain .row .lab{font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);padding-top:2px}
 .chain .row .txt{color:var(--ink-mid);line-height:1.48}
 .chain .row .txt .ev{color:var(--signal);font-family:var(--font-mono);font-size:12.5px}
+.chain .row .txt .ev-chips{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:6px}
+.chain .row .txt .ev-chip{display:inline-block;font-family:var(--font-mono);font-size:11px;font-weight:600;color:var(--signal);background:var(--signal-line);border:1px solid var(--signal-soft);border-radius:6px;padding:2px 7px;transition:background .2s,color .2s}
+.chain .row .txt .ev-chip:hover{background:var(--signal);color:#fff}
+.chain .row .txt .ev-note{display:block;font-size:11.5px;color:var(--ink-faint);font-family:var(--font-mono)}
 .card .foot{display:flex;align-items:center;justify-content:space-between;padding:0 var(--s4) var(--s4);gap:16px}
 .score{display:flex;align-items:baseline;gap:7px}
 .score .num{font-family:var(--font-display);font-weight:600;font-size:28px;letter-spacing:-.03em}
@@ -1485,7 +1489,7 @@ TOP5.forEach(d=>{
         <div class="row"><span class="lab">痛点</span><span class="txt">${d.pain}</span></div>
         <div class="row"><span class="lab">根因</span><span class="txt">${d.root}</span></div>
         ${diff?`<div class="row"><span class="lab">差异化</span><span class="txt">${diff}</span></div>`:''}
-        <div class="row"><span class="lab">证据</span><span class="txt"><span class="ev">${evCount(d.id)} 条强相关证据溯源 · 详见需求文档</span></span></div>
+        <div class="row"><span class="lab">证据</span><span class="txt"><span class="ev-chips">${(FUNC_EV[d.id]||[]).map(e=>`<a class="ev-chip" href="#evidence" onclick="setTimeout(()=>location.hash='#evidence',60);return false;">${e}</a>`).join('')}</span><span class="ev-note">共 ${evCount(d.id)} 条 · 点击查看来源与三级核验</span></span></div>
       </div>
     </div>
     <div class="foot">
@@ -1756,7 +1760,7 @@ function openPrd(id){
       <h1>${d.title}</h1>
       <p class="ph-val">${d.val}</p>
       <div class="ph-score"><span class="n">${d.score}</span><span class="d">/ 100 · 10 维 × 四专家加权</span></div>
-      <div class="prd-logic">推导逻辑：用户场景高频刚需（${d.scene}）→ 现有体验缺口（${d.pain}）→ 根因明确（${d.root}）→ 方案补全而非从零建设 → 证据链 <span class="ev">${evCount(d.id)} 条</span> 强相关支撑。</div>
+      <div class="prd-logic">推导逻辑：用户场景高频刚需（${d.scene}）→ 现有体验缺口（${d.pain}）→ 根因明确（${d.root}）→ 方案补全而非从零建设。支撑证据：<span class="ev-chips">${(FUNC_EV[d.id]||[]).map(e=>`<a class="ev-chip" href="#evidence" onclick="closePrd();setTimeout(()=>location.hash='#evidence',60);return false;">${e}</a>`).join('')}</span></div>
 
       <div class="prd-sec">
         <h3>01 · 机会定义  Opportunity</h3>
