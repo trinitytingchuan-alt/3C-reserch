@@ -55,16 +55,11 @@ p{color:var(--ink-mid)}
 .rail-links a.active::before{content:"";position:absolute;left:-10px;top:50%;transform:translateY(-50%);width:3px;height:18px;border-radius:3px;background:var(--signal)}
 .rail-links a.active .ri svg{color:var(--signal)}
 .rail-prog{position:absolute;left:0;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--signal),#3E8BFF);transform:scaleY(0);transform-origin:top;transition:transform .15s linear;z-index:2}
-.rail-foot{padding:14px var(--rail-pad) 8px;font-size:10.5px;color:var(--ink-faint);font-family:var(--font-mono);letter-spacing:.02em;position:relative;z-index:1;border-top:1px solid var(--line-soft);margin-top:6px}
-.rail-foot .rf-author{display:flex;gap:10px;align-items:center}
-.rail-foot .rf-av{width:38px;height:38px;border-radius:10px;flex:0 0 auto;background:linear-gradient(135deg,var(--signal),#3E8BFF);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:700;font-size:16px;color:#fff;box-shadow:0 4px 12px rgba(0,113,227,.22)}
-.rail-foot .rf-id{min-width:0}
-.rail-foot .rf-name{font-family:var(--font-display);font-weight:600;font-size:14px;color:var(--ink);letter-spacing:-.01em;line-height:1.2}
-.rail-foot .rf-role{font-size:10.5px;color:var(--ink-lo);margin-top:1px;line-height:1.3}
-.rail-foot .rf-meta{font-size:9.5px;color:var(--ink-faint);margin-top:1px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.rail-foot .rf-sep{height:1px;background:var(--line-soft);margin:11px 0 9px}
-.rail-foot .rf-stat{padding:2px 0;line-height:1.5}
-.rail-foot .rf-stat b{color:var(--ink-mid);font-weight:600}
+.rail-foot{padding:14px var(--rail-pad) 10px;position:relative;z-index:1;border-top:1px solid var(--line-soft);margin-top:6px}
+.rail-foot .rf-author{display:block}
+.rail-foot .rf-name{font-family:"PingFang SC","Microsoft YaHei",var(--font-display);font-weight:600;font-size:15px;color:var(--ink);letter-spacing:.01em;line-height:1.25}
+.rail-foot .rf-role{font-size:11px;color:var(--ink-lo);margin-top:3px;line-height:1.4;font-family:"PingFang SC","Microsoft YaHei",system-ui,sans-serif}
+.rail-foot .rf-meta{font-size:11px;color:var(--ink-faint);margin-top:4px;line-height:1.5;font-family:var(--font-mono);letter-spacing:.01em;white-space:normal;word-break:break-all}
 .main{flex:1;margin-left:var(--rail-w);min-width:0}
 .nav.scrolled{opacity:0;pointer-events:none;height:0;overflow:hidden;border:0}
 .nav-inner{max-width:var(--maxw);margin:0 auto;padding:0 var(--s5);height:56px;display:flex;align-items:center;justify-content:space-between}
@@ -79,9 +74,9 @@ p{color:var(--ink-mid)}
 .hero .meta{margin-top:var(--s5);display:flex;gap:26px;flex-wrap:wrap}
 .hero .meta .item .k{font-family:var(--font-mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint)}
 .hero .meta .item .v{font-size:17px;font-weight:500;margin-top:4px;color:var(--ink)}
-.hero-figure{border-radius:var(--r-lg);overflow:hidden;background:var(--surface);aspect-ratio:4/4.6;box-shadow:var(--shadow);position:relative;display:flex;align-items:center;justify-content:center}
+.hero-figure{border-radius:var(--r-lg);overflow:hidden;background:linear-gradient(160deg,#f4f7fb,#e9eef6);aspect-ratio:4/4.6;box-shadow:var(--shadow);position:relative;display:flex;align-items:center;justify-content:center}
 .hero-figure svg{width:78%;height:78%}
-.hero-img{width:100%;height:100%;object-fit:cover;object-position:center 30%;display:block}
+.hero-img{width:100%;height:100%;object-fit:contain;object-position:center;display:block;padding:6%}
 .fw{margin-top:var(--s6);display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s3);align-items:stretch}
 .fw .cell{background:var(--surface);border:1px solid var(--line-soft);border-radius:var(--r-sm);padding:var(--s3);text-align:center}
 .fw .cell .ico{width:100%;aspect-ratio:16/9;border-radius:var(--r-xs);overflow:hidden;background:var(--surface);margin-bottom:12px;display:flex;align-items:center;justify-content:center;transition:transform .35s var(--ease)}
@@ -664,7 +659,7 @@ body{
       <div class="rb-s">雷鸟创新 · 机会挖掘</div>
     </div>
   </div>
-  <div class="rail-sec">导航 · Navigation</div>
+
   <div class="rail-links" id="railLinks">
     <a href="#top" data-sec="top" class="active"><span class="ri"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg></span>首页概览</a>
     <a href="#top5" data-sec="top5"><span class="ri"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></span>TOP5 机会</a>
@@ -675,17 +670,11 @@ body{
   </div>
   <div class="rail-foot">
     <div class="rf-author">
-      <div class="rf-av">尚</div>
-      <div class="rf-id">
-        <div class="rf-name">尚文蜓</div>
-        <div class="rf-role">产品策略 · 机会挖掘与需求建模</div>
-        <div class="rf-meta">GitHub trinitytingchuan-alt</div>
-        <div class="rf-meta">trinity_ting@163.com</div>
-      </div>
+      <div class="rf-name">尚文蜓</div>
+      <div class="rf-role">产品策略 · 机会挖掘与需求建模</div>
+      <div class="rf-meta">GitHub trinitytingchuan-alt</div>
+      <div class="rf-meta">trinity_ting@163.com</div>
     </div>
-    <div class="rf-sep"></div>
-    <div class="rf-stat">数据窗口 <b>2025-05 → 2026-05</b></div>
-    <div class="rf-stat">TOP5 门槛 <b>≥ 90</b></div>
   </div>
 </aside>
 
