@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>Demo C — 编辑性时间轴 + 决策树 · 二级界面设计(tufte 学术编辑风)</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;600;700&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FBFAF8; --ink:#1A1A1A; --ink-mid:#4A4A4A; --ink-faint:#9B9A95;
+  --line:#D8D2C2; --line-soft:#E5E2D8;
+  --signal:#C9A227; --signal-deep:#8B6F1A;
+  --font-disp:"Newsreader",Georgia,"Noto Serif SC",serif;
+  --font-cn:"Noto Sans SC","Instrument Sans",sans-serif;
+  --font-num:"Instrument Sans","Noto Sans SC",sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font-family:var(--font-cn);font-size:16px;line-height:1.7;padding:60px 80px;max-width:1180px;margin:0 auto}
+.hd{font-family:var(--font-disp);font-weight:500;font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:6px}
+.hd-num{display:inline-block;width:34px;height:1px;background:var(--ink);vertical-align:middle;margin-right:10px}
+.title{font-family:var(--font-disp);font-size:38px;line-height:1.18;color:var(--ink);font-weight:500;margin-bottom:8px}
+.lead{font-family:var(--font-cn);font-size:16.5px;color:var(--ink-mid);max-width:60ch;margin-bottom:50px}
+.divider{border:none;border-top:1px solid var(--line);margin:48px 0}
+.section{font-family:var(--font-disp);font-size:22px;font-weight:500;color:var(--ink);margin-bottom:18px}
+.subsection{font-family:var(--font-disp);font-size:14px;font-weight:600;color:var(--ink);margin:28px 0 12px;letter-spacing:.04em}
+.p{font-size:15.5px;color:var(--ink-mid);line-height:1.82;max-width:64ch;margin-bottom:14px}
+
+/* ===== Demo C 核心:左侧时间轴 + 右侧决策树 ===== */
+.editorial{display:grid;grid-template-columns:130px 1fr;gap:40px;margin-top:20px}
+.left-axis{position:relative;border-right:1px solid var(--line);padding-right:20px}
+.axis-phase{font-family:var(--font-disp);font-style:italic;font-size:14px;color:var(--ink);font-weight:500;margin-bottom:4px}
+.axis-date{font-family:var(--font-num);font-size:11px;color:var(--ink-faint);letter-spacing:.06em;text-transform:uppercase;margin-bottom:20px}
+.axis-marker{width:9px;height:9px;border-radius:50%;background:var(--ink);position:absolute;right:-5px}
+.right-content{padding-top:4px}
+
+/* 决策树 */
+.decision-tree{margin-top:18px;border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);padding:24px 0}
+.dt-row{display:grid;grid-template-columns:80px 1fr 80px 1fr;gap:18px;padding:14px 0;border-bottom:1px solid var(--line-soft);align-items:baseline}
+.dt-row:last-child{border-bottom:none}
+.dt-k{font-family:var(--font-cn);font-size:11.5px;font-weight:600;color:var(--ink-faint);letter-spacing:.04em;text-transform:uppercase}
+.dt-v{font-family:var(--font-cn);font-size:14px;line-height:1.7;color:var(--ink)}
+.dt-arrow{font-family:var(--font-disp);font-style:italic;color:var(--ink-faint);text-align:center;font-size:14px}
+
+/* 数字方阵(tam) */
+.num-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);margin-top:18px}
+.num-cell{padding:22px 18px;border-right:1px solid var(--line)}
+.num-cell:last-child{border-right:none}
+.num-k{font-family:var(--font-cn);font-size:11.5px;font-weight:600;color:var(--ink-faint);letter-spacing:.06em;text-transform:uppercase;margin-bottom:8px}
+.num-v{font-family:var(--font-num);font-size:32px;font-weight:500;color:var(--ink);line-height:1;margin-bottom:6px}
+.num-v small{font-size:14px;color:var(--ink-faint);font-weight:400}
+.num-d{font-family:var(--font-cn);font-size:12.5px;color:var(--ink-mid);line-height:1.5}
+
+/* 风险栈条 */
+.risk-stack{margin-top:18px}
+.stack-row{display:grid;grid-template-columns:1fr 90px;gap:14px;padding:11px 0;border-bottom:1px solid var(--line-soft);align-items:center}
+.stack-row:last-child{border-bottom:none}
+.stack-name{font-family:var(--font-cn);font-size:14px;color:var(--ink)}
+.stack-bar{display:flex;gap:2px}
+.stack-cell{width:14px;height:14px;background:var(--line-soft);border-radius:1px}
+.stack-cell.on{background:var(--ink)}
+.stack-cell.warn{background:var(--signal)}
+
+/* 引文式 blockquote */
+.bq{margin:30px 0;padding:0 0 0 24px;border-left:2px solid var(--ink);font-family:var(--font-disp);font-size:18px;line-height:1.62;color:var(--ink);font-style:italic;max-width:62ch}
+.bq-source{font-family:var(--font-cn);font-size:12px;color:var(--ink-faint);margin-top:10px;padding-left:24px;font-style:normal;letter-spacing:.04em}
+
+.footer-note{margin-top:60px;padding-top:20px;border-top:1px solid var(--line);font-family:var(--font-disp);font-size:12px;color:var(--ink-faint);font-style:italic;text-align:center}
+</style>
+</head>
+<body>
+
+<div class="hd"><span class="hd-num"></span>Demo C · 编辑性时间轴 + 决策树 (Editorial Tufte)</div>
+<h1 class="title">首发节奏 · 决策链路 · TAM 三维</h1>
+<p class="lead">完全走 tufte 编辑部排版风:左侧细线时间轴锚定发布节奏,中部决策树展开转化条件,右侧 TAM/SAM/SOM 用编辑性大号数字呈现。无圆角无填色无图标——文字与线条承载全部含义。</p>
+
+<!-- 时间轴 + 决策树 -->
+<h2 class="section">01 首发节奏 · 决策链路</h2>
+<p class="p">Launch Cadence 的 3 个阶段 + 关键决策条目,左侧用细线时间轴对齐,右侧用决策树(条件→动作→信号→结果)展开每个阶段的转化逻辑。</p>
+
+<div class="editorial">
+  <!-- 左轴 -->
+  <div class="left-axis">
+    <div class="axis-phase">预热期</div>
+    <div class="axis-date">M0 — M1</div>
+    <div class="axis-marker" style="top:8px"></div>
+
+    <div class="axis-phase" style="margin-top:170px">首发期</div>
+    <div class="axis-date">M2</div>
+    <div class="axis-marker" style="top:198px"></div>
+
+    <div class="axis-phase" style="margin-top:130px">放量期</div>
+    <div class="axis-date">M3 — M6</div>
+    <div class="axis-marker" style="top:368px"></div>
+  </div>
+
+  <!-- 右内容 -->
+  <div class="right-content">
+    <!-- 预热期 -->
+    <div class="decision-tree">
+      <div class="dt-row">
+        <div class="dt-k">条件</div><div class="dt-v">续航痛点白皮书 + 差旅 KOL 实测素材就绪</div>
+        <div class="dt-arrow">→</div><div class="dt-v">雷鸟商城/京东预约入口开放</div>
+      </div>
+      <div class="dt-row">
+        <div class="dt-k">动作</div><div class="dt-v">社区招募 100 名差旅/户外重度用户内测</div>
+        <div class="dt-arrow">→</div><div class="dt-v">回收续航曲线 / NPS 基线</div>
+      </div>
+      <div class="dt-row">
+        <div class="dt-k">信号</div><div class="dt-v">预约转化 ≥ 8%(锚 E031 痛点集中度)</div>
+        <div class="dt-arrow">→</div><div class="dt-v">放量决策 GO</div>
+      </div>
+    </div>
+
+    <!-- 首发期 -->
+    <div class="decision-tree" style="margin-top:30px">
+      <div class="dt-row">
+        <div class="dt-k">条件</div><div class="dt-v">¥499 单售 + 套装优惠定价生效</div>
+        <div class="dt-arrow">→</div><div class="dt-v">X3 Pro 购机捆绑上线</div>
+      </div>
+      <div class="dt-row">
+        <div class="dt-k">动作</div><div class="dt-v">V3 存量以旧换新优先推送颈挂模组</div>
+        <div class="dt-arrow">→</div><div class="dt-v">京东/天猫专属页承接种草流量</div>
+      </div>
+      <div class="dt-row">
+        <div class="dt-k">信号</div><div class="dt-v">现场磁吸快拆展演转化 ≥ 20%</div>
+        <div class="dt-arrow">→</div><div class="dt-v">线下店覆盖扩区</div>
+      </div>
+    </div>
+
+    <!-- 放量期 -->
+    <div class="decision-tree" style="margin-top:30px">
+      <div class="dt-row">
+        <div class="dt-k">条件</div><div class="dt-v">首发期渗透 ≥ 8% / NPS 续航维度 ≥ 35</div>
+        <div class="dt-arrow">→</div><div class="dt-v">Amazon 25 国独立站点上线</div>
+      </div>
+      <div class="dt-row">
+        <div class="dt-k">动作</div><div class="dt-v">差旅 KOL 实测对比铺量</div>
+        <div class="dt-arrow">→</div><div class="dt-v">跨场景捆绑(拍摄版/算力协同)</div>
+      </div>
+      <div class="dt-row">
+        <div class="dt-k">信号</div><div class="dt-v">6 月累计渗透 ≥ 15%(北极星达成)</div>
+        <div class="dt-arrow">→</div><div class="dt-v">海外独立预算释放</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- TAM 三维 -->
+<h2 class="section">02 TAM / SAM / SOM · 三维数字</h2>
+<p class="p">市场测算用大号衬线数字呈现,小号中文标签说明含义,无图表装饰——数字本身即核心信息。</p>
+
+<div class="num-grid">
+  <div class="num-cell">
+    <div class="num-k">TAM · 总市场</div>
+    <div class="num-v">48.9<small>万台</small></div>
+    <div class="num-d">中国 AR 眼镜市场,E001 中国 AR 48.9 万台且年增 83%</div>
+  </div>
+  <div class="num-cell">
+    <div class="num-k">SAM · 可服务市场</div>
+    <div class="num-v">15<small>万</small></div>
+    <div class="num-d">雷鸟 X 系列存量中长时佩戴重度用户,E031 痛点集中</div>
+  </div>
+  <div class="num-cell">
+    <div class="num-k">SOM · 可获取</div>
+    <div class="num-v">1.8<small>万套</small></div>
+    <div class="num-d">6 个月颈挂模组渗透 10–15%,约 1–1.8 万套</div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- 风险栈条 -->
+<h2 class="section">03 风险栈 · 概率 × 影响</h2>
+<p class="p">风险等级用 5 格堆叠条呈现:每行 5 个小方块,左侧灰=未发生,墨黑=概率 P,黄=影响 I 命中。例如"竞品挤压" = 3P × 4I。</p>
+
+<div class="risk-stack">
+  <div class="stack-row">
+    <div class="stack-name">佩戴增重 · 平衡</div>
+    <div class="stack-bar">
+      <span class="stack-cell on" title="P"></span>
+      <span class="stack-cell on" title="P"></span>
+      <span class="stack-cell"></span>
+      <span class="stack-cell warn" title="I"></span>
+      <span class="stack-cell"></span>
+    </div>
+  </div>
+  <div class="stack-row">
+    <div class="stack-name">兼容性 · 接口</div>
+    <div class="stack-bar">
+      <span class="stack-cell on" title="P"></span>
+      <span class="stack-cell"></span>
+      <span class="stack-cell"></span>
+      <span class="stack-cell warn" title="I"></span>
+      <span class="stack-cell warn" title="I"></span>
+    </div>
+  </div>
+  <div class="stack-row">
+    <div class="stack-name">快充发热</div>
+    <div class="stack-bar">
+      <span class="stack-cell on" title="P"></span>
+      <span class="stack-cell on" title="P"></span>
+      <span class="stack-cell"></span>
+      <span class="stack-cell warn" title="I"></span>
+      <span class="stack-cell"></span>
+    </div>
+  </div>
+  <div class="stack-row">
+    <div class="stack-name">竞品机身电池挤压</div>
+    <div class="stack-bar">
+      <span class="stack-cell on" title="P"></span>
+      <span class="stack-cell on" title="P"></span>
+      <span class="stack-cell"></span>
+      <span class="stack-cell warn" title="I"></span>
+      <span class="stack-cell warn" title="I"></span>
+    </div>
+  </div>
+  <div class="stack-row">
+    <div class="stack-name">续航虚标信任危机</div>
+    <div class="stack-bar">
+      <span class="stack-cell on" title="P"></span>
+      <span class="stack-cell on" title="P"></span>
+      <span class="stack-cell"></span>
+      <span class="stack-cell warn" title="I"></span>
+      <span class="stack-cell warn" title="I"></span>
+    </div>
+  </div>
+</div>
+<p class="p" style="margin-top:14px;font-size:13px;color:var(--ink-faint)">■ 墨黑 = 概率 P(高/中/低 3 档)　■ 黄 = 影响 I(高/中/低 3 档)　■ 浅灰 = 未命中</p>
+
+<hr class="divider">
+
+<!-- 引文式总结 -->
+<h2 class="section">04 核心判断</h2>
+<div class="bq">
+  "雷鸟若做磁吸颈挂模组,即在 XREAL / Meta 均未解决的无绳长续航赛道上开辟差异化形态。续航虚标(E095)是行业级信任风险,实测曲线前置公示是底线动作。"
+</div>
+<div class="bq-source">— 推论基于 E031 / E033 / E092 / E095 等 11 条交叉证据,详见 PRD ID-001 / GTM ID-001</div>
+
+<div class="footer-note">Demo C · 编辑性时间轴 + 决策树 · 学术 / 报告风 · 适合"复杂决策链路 + 数字 + 风险栈"</div>
+
+</body>
+</html>

@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>Demo A — 并排对照环 · 二级界面设计(beautiful-article tufte 风)</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;600;700&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FBFAF8; --ink:#1A1A1A; --ink-mid:#4A4A4A; --ink-faint:#9B9A95;
+  --line:#D8D2C2; --line-soft:#E5E2D8; --signal:#C9A227; --signal-soft:#C9A22722;
+  --gap:#3.5em;
+  --font-disp:"Newsreader",Georgia,"Noto Serif SC",serif;
+  --font-cn:"Noto Sans SC","Instrument Sans",sans-serif;
+  --font-num:"Instrument Sans","Noto Sans SC",sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font-family:var(--font-cn);font-size:16px;line-height:1.7;padding:60px 80px;max-width:1180px;margin:0 auto}
+.hd{font-family:var(--font-disp);font-weight:500;font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:6px}
+.hd-num{display:inline-block;width:34px;height:1px;background:var(--ink);vertical-align:middle;margin-right:10px}
+.title{font-family:var(--font-disp);font-size:38px;line-height:1.18;color:var(--ink);font-weight:500;margin-bottom:8px}
+.lead{font-family:var(--font-cn);font-size:16.5px;color:var(--ink-mid);max-width:60ch;margin-bottom:50px}
+.divider{border:none;border-top:1px solid var(--line);margin:48px 0}
+
+/* ===== Demo A 核心:并排对照环 ===== */
+.dual-ring{display:grid;grid-template-columns:1fr var(--gap) 1fr;gap:0;align-items:start;margin-top:30px}
+.ring-col{position:relative;padding:0 10px}
+.ring-label{font-family:var(--font-cn);font-size:13px;font-weight:600;letter-spacing:.06em;color:var(--ink);text-transform:uppercase;margin-bottom:8px}
+.ring-sub{font-family:var(--font-cn);font-size:13.5px;color:var(--ink-mid);margin-bottom:24px;line-height:1.6;max-width:38ch}
+.ring-svg{width:100%;height:380px}
+.ring-node{font-family:var(--font-cn);font-size:13px;color:var(--ink);font-weight:500}
+.ring-node.faint{color:var(--ink-faint);font-weight:400;font-size:12.5px}
+
+/* 中心桥 */
+.bridge{display:flex;align-items:center;justify-content:center;height:380px;font-family:var(--font-cn);color:var(--ink-faint);font-size:13px;letter-spacing:.18em;text-transform:uppercase;position:relative}
+.bridge::before{content:"";position:absolute;top:50%;left:50%;width:1px;height:320px;background:var(--line);transform:translate(-50%,-50%)}
+.bridge-txt{background:var(--paper);padding:8px 14px;position:relative;z-index:1;font-family:var(--font-disp);font-style:italic;color:var(--ink-mid);font-size:13.5px}
+
+/* ===== 下方决策组件 ===== */
+.section{font-family:var(--font-disp);font-size:22px;font-weight:500;color:var(--ink);margin-bottom:18px}
+.subsection{font-family:var(--font-disp);font-size:14px;font-weight:600;color:var(--ink);margin:28px 0 12px;letter-spacing:.04em}
+.p{font-size:15.5px;color:var(--ink-mid);line-height:1.82;max-width:64ch;margin-bottom:14px}
+
+/* 三栏对照表:传导路径 */
+.tri-table{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--ink);border-bottom:1px solid var(--ink)}
+.tri-cell{padding:18px 22px;border-right:1px solid var(--line);font-size:14.5px;color:var(--ink);line-height:1.7;background:transparent}
+.tri-cell:last-child{border-right:none}
+.tri-cell h4{font-family:var(--font-cn);font-size:13px;font-weight:600;color:var(--ink);letter-spacing:.04em;margin-bottom:8px;text-transform:uppercase}
+.tri-cell p{font-size:13.5px;color:var(--ink-mid);line-height:1.72;margin:0}
+
+/* 风险矩阵(图表式) */
+.risk-matrix{margin-top:18px}
+.risk-row{display:grid;grid-template-columns:1fr 80px 80px 1fr;gap:0;border-bottom:1px solid var(--line-soft);padding:13px 0;align-items:baseline}
+.risk-row:last-child{border-bottom:none}
+.risk-name{font-size:14px;font-weight:500;color:var(--ink)}
+.risk-p{font-family:var(--font-num);font-size:11px;text-align:center;color:var(--ink-faint);text-transform:uppercase;letter-spacing:.06em}
+.risk-i{font-family:var(--font-num);font-size:11px;text-align:center;color:var(--ink-faint);text-transform:uppercase;letter-spacing:.06em}
+.risk-fix{font-size:13px;color:var(--ink-mid);text-align:right;line-height:1.6}
+.dot{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:6px;vertical-align:middle}
+.dot-low{background:var(--ink-faint)}
+.dot-mid{background:var(--signal)}
+.dot-hi{background:var(--ink)}
+
+.footer-note{margin-top:60px;padding-top:20px;border-top:1px solid var(--line);font-family:var(--font-disp);font-size:12px;color:var(--ink-faint);font-style:italic;text-align:center}
+</style>
+</head>
+<body>
+
+<div class="hd"><span class="hd-num"></span>Demo A · 并排对照环 (Dual-Ring Analogy)</div>
+<h1 class="title">现状环 ⇄ 方案环</h1>
+<p class="lead">沿用 beautiful-article / tufte 风格的"并排环"结构:左侧展示用户场景/痛点构成的现状,右侧展示功能方案构成的对应解,中间一道桥写"对应关系"。色仅用于承载含义(黄色为关键命中点),无卡片无圆角。</p>
+
+<!-- Demo A 核心组件 -->
+<div class="dual-ring">
+  <!-- 左环:场景现状 -->
+  <div class="ring-col">
+    <div class="ring-label">场景现状 · Current</div>
+    <div class="ring-sub">E031 876+ 用户续航 PK 高频痛点 / E033 实测不足半天 / E092 重度半天没电 — 用户场景与原痛点</div>
+    <svg class="ring-svg" viewBox="0 0 360 380" xmlns="http://www.w3.org/2000/svg">
+      <!-- 中心:痛点 -->
+      <circle cx="180" cy="200" r="42" fill="none" stroke="#1A1A1A" stroke-width="1.4"/>
+      <text x="180" y="195" text-anchor="middle" class="ring-node" style="font-size:12.5px;font-weight:600">痛点</text>
+      <text x="180" y="212" text-anchor="middle" class="ring-node faint">break</text>
+
+      <!-- 大圆(场景虚线轨道) -->
+      <circle cx="180" cy="200" r="148" fill="none" stroke="#D8D2C2" stroke-width="1" stroke-dasharray="2 4"/>
+
+      <!-- 4 个场景节点(描边圆 + 文字) -->
+      <g transform="translate(180,28)">
+        <circle r="26" fill="#FBFAF8" stroke="#1A1A1A" stroke-width="1.2"/>
+        <text y="-2" text-anchor="middle" class="ring-node" style="font-size:12px">长途差旅</text>
+        <text y="14" text-anchor="middle" class="ring-node faint" style="font-size:10.5px">E031</text>
+      </g>
+      <g transform="translate(352,200)">
+        <circle r="26" fill="#FBFAF8" stroke="#1A1A1A" stroke-width="1.2"/>
+        <text y="-2" text-anchor="middle" class="ring-node" style="font-size:12px">户外拍摄</text>
+        <text y="14" text-anchor="middle" class="ring-node faint" style="font-size:10.5px">E092</text>
+      </g>
+      <g transform="translate(180,372)">
+        <circle r="26" fill="#FBFAF8" stroke="#1A1A1A" stroke-width="1.2"/>
+        <text y="-2" text-anchor="middle" class="ring-node" style="font-size:12px">通勤全天</text>
+        <text y="14" text-anchor="middle" class="ring-node faint" style="font-size:10.5px">E033</text>
+      </g>
+      <g transform="translate(8,200)">
+        <circle r="26" fill="#FBFAF8" stroke="#1A1A1A" stroke-width="1.2"/>
+        <text y="-2" text-anchor="middle" class="ring-node" style="font-size:12px">导航骑行</text>
+        <text y="14" text-anchor="middle" class="ring-node faint" style="font-size:10.5px">E095</text>
+      </g>
+
+      <!-- 连线:场景 → 中心痛点(虚线) -->
+      <line x1="180" y1="54" x2="180" y2="158" stroke="#9B9A95" stroke-width="1" stroke-dasharray="2 3"/>
+      <line x1="326" y1="200" x2="222" y2="200" stroke="#9B9A95" stroke-width="1" stroke-dasharray="2 3"/>
+      <line x1="180" y1="346" x2="180" y2="242" stroke="#9B9A95" stroke-width="1" stroke-dasharray="2 3"/>
+      <line x1="34" y1="200" x2="138" y2="200" stroke="#9B9A95" stroke-width="1" stroke-dasharray="2 3"/>
+
+      <!-- 验证集 -->
+      <text x="180" y="-5" text-anchor="middle" class="ring-node faint" style="font-size:10.5px;letter-spacing:.16em;text-transform:uppercase">验证集 · evidence set</text>
+    </svg>
+  </div>
+
+  <!-- 中心桥 -->
+  <div class="bridge">
+    <span class="bridge-txt">⇄ 对应</span>
+  </div>
+
+  <!-- 右环:方案架构 -->
+  <div class="ring-col">
+    <div class="ring-label">方案架构 · Proposed</div>
+    <div class="ring-sub">磁吸外挂分离供电 / 30min 快充 80% / 低功耗自动降载 — 4 个方案节点围绕核心能力闭环</div>
+    <svg class="ring-svg" viewBox="0 0 360 380" xmlns="http://www.w3.org/2000/svg">
+      <!-- 中心:核心能力(填黄) -->
+      <circle cx="180" cy="200" r="46" fill="#C9A227" stroke="#1A1A1A" stroke-width="1.4"/>
+      <text x="180" y="195" text-anchor="middle" class="ring-node" fill="#FBFAF8" style="font-size:12px;font-weight:600">分离供电</text>
+      <text x="180" y="211" text-anchor="middle" fill="#FBFAF8" class="ring-node faint" style="font-size:10.5px">magnetic</text>
+
+      <!-- 大圆(方案实线轨道) -->
+      <circle cx="180" cy="200" r="148" fill="none" stroke="#1A1A1A" stroke-width="1"/>
+
+      <!-- 4 个方案节点(描边圆 + 文字) -->
+      <g transform="translate(180,28)">
+        <rect x="-32" y="-14" width="64" height="28" fill="#FBFAF8" stroke="#1A1A1A" stroke-width="1.2"/>
+        <text y="4" text-anchor="middle" class="ring-node" style="font-size:11.5px">颈挂模组</text>
+      </g>
+      <g transform="translate(352,200)">
+        <rect x="-32" y="-14" width="64" height="28" fill="#FBFAF8" stroke="#1A1A1A" stroke-width="1.2"/>
+        <text y="4" text-anchor="middle" class="ring-node" style="font-size:11.5px">快充 80%</text>
+      </g>
+      <g transform="translate(180,372)">
+        <rect x="-32" y="-14" width="64" height="28" fill="#FBFAF8" stroke="#1A1A1A" stroke-width="1.2"/>
+        <text y="4" text-anchor="middle" class="ring-node" style="font-size:11.5px">低功耗</text>
+      </g>
+      <g transform="translate(8,200)">
+        <rect x="-32" y="-14" width="64" height="28" fill="#FBFAF8" stroke="#1A1A1A" stroke-width="1.2"/>
+        <text y="4" text-anchor="middle" class="ring-node" style="font-size:11.5px">收纳支架</text>
+      </g>
+
+      <!-- 连线:中心 → 方案节点(实线) -->
+      <line x1="180" y1="154" x2="180" y2="56" stroke="#1A1A1A" stroke-width="1"/>
+      <line x1="226" y1="200" x2="320" y2="200" stroke="#1A1A1A" stroke-width="1"/>
+      <line x1="180" y1="246" x2="180" y2="346" stroke="#1A1A1A" stroke-width="1"/>
+      <line x1="134" y1="200" x2="40" y2="200" stroke="#1A1A1A" stroke-width="1"/>
+
+      <!-- 节点圆点(轨道上) -->
+      <circle cx="180" cy="52" r="3" fill="#C9A227"/>
+      <circle cx="328" cy="200" r="3" fill="#C9A227"/>
+      <circle cx="180" cy="348" r="3" fill="#C9A227"/>
+      <circle cx="32" cy="200" r="3" fill="#C9A227"/>
+
+      <!-- 端到端 -->
+      <text x="180" y="-5" text-anchor="middle" class="ring-node faint" style="font-size:10.5px;letter-spacing:.16em;text-transform:uppercase">端到端 · end-to-end</text>
+    </svg>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- 三栏传导 -->
+<h2 class="section">传导路径 · 触发 → 处理 → 边界</h2>
+<p class="p">PRD 03b 的"业务逻辑链"以三栏对照表呈现:每条 logicChain 拆为触发、处理、边界三栏,中间不画箭头分隔线,而以纵向分割让关系自显。</p>
+
+<div class="tri-table">
+  <div class="tri-cell">
+    <h4>① 触发 · Trigger</h4>
+    <p>用户长途差旅全天佩戴触发<br/>户外连续拍摄触发<br/>午休补电触发<br/>骑行导航高耗电触发</p>
+  </div>
+  <div class="tri-cell">
+    <h4>② 处理 · Process</h4>
+    <p>磁吸式外挂电池模组分离供电<br/>外挂模组 30min 快充至 80%<br/>分区散热 + 充电限温<br/>外挂模组接续供电</p>
+  </div>
+  <div class="tri-cell">
+    <h4>③ 边界 / 兜底 · Edge</h4>
+    <p>低功耗模式自动降载非核心功能<br/>磁吸接口标准化兼容多型号主机<br/>人体工学配重平衡防增重失衡<br/>全天续航达成率 ≥95%</p>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- 风险矩阵 -->
+<h2 class="section">风险矩阵 · 概率 × 影响</h2>
+<p class="p">风险表用 4 列(风险 / 概率 / 影响 / 对策),概率与影响用墨色/黄色/灰色圆点区分等级,对策列右对齐,行间仅细线分隔,无背景填色。</p>
+
+<div class="risk-matrix">
+  <div class="risk-row">
+    <div class="risk-name">佩戴增重</div>
+    <div class="risk-p"><span class="dot dot-mid"></span>中</div>
+    <div class="risk-i"><span class="dot dot-mid"></span>中</div>
+    <div class="risk-fix">人体工学配重设计,主体保持无绳</div>
+  </div>
+  <div class="risk-row">
+    <div class="risk-name">兼容性</div>
+    <div class="risk-p"><span class="dot dot-low"></span>低</div>
+    <div class="risk-i"><span class="dot dot-hi"></span>高</div>
+    <div class="risk-fix">模块化磁吸接口标准</div>
+  </div>
+  <div class="risk-row">
+    <div class="risk-name">快充发热</div>
+    <div class="risk-p"><span class="dot dot-mid"></span>中</div>
+    <div class="risk-i"><span class="dot dot-mid"></span>中</div>
+    <div class="risk-fix">分区散热 + 充电限温</div>
+  </div>
+  <div class="risk-row">
+    <div class="risk-name">竞品机身电池挤压</div>
+    <div class="risk-p"><span class="dot dot-mid"></span>中</div>
+    <div class="risk-i"><span class="dot dot-hi"></span>高</div>
+    <div class="risk-fix">强调分离供电不增主体重量 + 协同 ID-010</div>
+  </div>
+  <div class="risk-row">
+    <div class="risk-name">续航虚标信任危机</div>
+    <div class="risk-p"><span class="dot dot-mid"></span>中</div>
+    <div class="risk-i"><span class="dot dot-hi"></span>高</div>
+    <div class="risk-fix">实测续航曲线前置公示,标注重度/轻度双工况</div>
+  </div>
+</div>
+
+<div class="footer-note">Demo A · 并排对照环 · tufte 纸面 + 发丝线 + 黄色为唯一数据色 · 适合"现状 vs 方案"的对照型页面</div>
+
+</body>
+</html>

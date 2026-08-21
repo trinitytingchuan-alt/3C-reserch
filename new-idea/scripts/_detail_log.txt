@@ -1,0 +1,1 @@
+detailed 15 features (anchored regex)

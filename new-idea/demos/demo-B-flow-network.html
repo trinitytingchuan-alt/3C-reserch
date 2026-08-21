@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>Demo B — 流程节点网络图 · 二级界面设计(tufte 风格 · 加权求和网络)</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;600;700&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FBFAF8; --ink:#1A1A1A; --ink-mid:#4A4A4A; --ink-faint:#9B9A95;
+  --line:#D8D2C2; --line-soft:#E5E2D8;
+  --signal:#C9A227; --signal-deep:#8B6F1A;
+  --font-disp:"Newsreader",Georgia,"Noto Serif SC",serif;
+  --font-cn:"Noto Sans SC","Instrument Sans",sans-serif;
+  --font-num:"Instrument Sans","Noto Sans SC",sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font-family:var(--font-cn);font-size:16px;line-height:1.7;padding:60px 80px;max-width:1180px;margin:0 auto}
+.hd{font-family:var(--font-disp);font-weight:500;font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:6px}
+.hd-num{display:inline-block;width:34px;height:1px;background:var(--ink);vertical-align:middle;margin-right:10px}
+.title{font-family:var(--font-disp);font-size:38px;line-height:1.18;color:var(--ink);font-weight:500;margin-bottom:8px}
+.lead{font-family:var(--font-cn);font-size:16.5px;color:var(--ink-mid);max-width:60ch;margin-bottom:50px}
+.divider{border:none;border-top:1px solid var(--line);margin:48px 0}
+.section{font-family:var(--font-disp);font-size:22px;font-weight:500;color:var(--ink);margin-bottom:18px}
+.subsection{font-family:var(--font-disp);font-size:14px;font-weight:600;color:var(--ink);margin:28px 0 12px;letter-spacing:.04em}
+.p{font-size:15.5px;color:var(--ink-mid);line-height:1.82;max-width:64ch;margin-bottom:14px}
+
+/* ===== Demo B 核心:流程节点网络图 ===== */
+.flow-svg{width:100%;height:420px;margin-top:20px}
+.flow-cap{font-family:var(--font-disp);font-style:italic;font-size:13px;color:var(--ink-faint);margin-top:8px;text-align:center}
+
+/* 节点通用 */
+.node{font-family:var(--font-cn);font-size:13px;color:var(--ink);font-weight:500}
+.node-tiny{font-family:var(--font-cn);font-size:11px;color:var(--ink-faint);font-weight:400}
+.faint{color:var(--ink-faint)}
+
+/* 横向逻辑链(5 环节,连通器式) */
+.pipeline{display:grid;grid-template-columns:repeat(5,1fr);gap:0;border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);margin-top:24px}
+.pipe{padding:18px 16px 14px;border-right:1px solid var(--line-soft);position:relative}
+.pipe:last-child{border-right:none}
+.pipe-num{font-family:var(--font-num);font-size:11px;color:var(--ink-faint);letter-spacing:.08em;margin-bottom:6px}
+.pipe-k{font-family:var(--font-cn);font-size:11.5px;font-weight:600;color:var(--ink-faint);letter-spacing:.04em;text-transform:uppercase;margin-bottom:7px}
+.pipe-v{font-family:var(--font-cn);font-size:13.5px;line-height:1.62;color:var(--ink)}
+.pipe-v b{color:var(--ink);font-weight:600}
+
+/* 加权条可视化 */
+.bar-row{display:grid;grid-template-columns:90px 1fr 50px;gap:14px;align-items:center;padding:9px 0;border-bottom:1px solid var(--line-soft)}
+.bar-row:last-child{border-bottom:none}
+.bar-name{font-family:var(--font-cn);font-size:13px;color:var(--ink);font-weight:500}
+.bar-track{height:14px;background:var(--line-soft);position:relative;border-radius:2px}
+.bar-fill{position:absolute;left:0;top:0;height:100%;background:var(--ink);border-radius:2px}
+.bar-fill.hi{background:var(--signal)}
+.bar-pct{font-family:var(--font-num);font-size:12px;color:var(--ink-mid);text-align:right}
+
+/* 价值传导四节点(竖向连线) */
+.value-flow{margin-top:18px;position:relative}
+.v-row{display:grid;grid-template-columns:90px 1fr;gap:0;border-bottom:1px solid var(--line-soft);padding:14px 0}
+.v-row:last-child{border-bottom:none}
+.v-k{font-family:var(--font-cn);font-size:11.5px;font-weight:600;color:var(--ink-faint);letter-spacing:.04em;text-transform:uppercase}
+.v-v{font-family:var(--font-cn);font-size:14px;line-height:1.7;color:var(--ink)}
+.v-v b{font-weight:600;color:var(--ink)}
+
+.footer-note{margin-top:60px;padding-top:20px;border-top:1px solid var(--line);font-family:var(--font-disp);font-size:12px;color:var(--ink-faint);font-style:italic;text-align:center}
+</style>
+</head>
+<body>
+
+<div class="hd"><span class="hd-num"></span>Demo B · 流程节点网络图 (Weighted Flow Network)</div>
+<h1 class="title">GTM 上市传导路径 · 加权求和网络</h1>
+<p class="lead">照搬你截图中的 query→key→加权→输出 模式,将 GTM 的 5 条传导链重构为"节点 + 加权条 + Σ 输出"网络——每个环节是一个 key,加权值表示该路径对总目标的贡献,所有路径汇入一个聚合输出节点(北极星指标)。</p>
+
+<!-- Demo B 主网络图 -->
+<h2 class="section">传导网络 · 加权可视化</h2>
+<p class="p">5 条 gtmLogic 各自贡献不同权重到北极星(颈挂模组渗透率 ≥15%),加权条越长、该路径贡献越大;所有路径用细弧线接至右侧聚合输出节点。</p>
+
+<svg class="flow-svg" viewBox="0 0 1080 380" xmlns="http://www.w3.org/2000/svg">
+  <!-- 左侧:5 个 query(场景触发)节点 -->
+  <g font-family="Noto Sans SC, sans-serif" font-size="12" fill="#1A1A1A">
+    <rect x="20" y="20" width="120" height="36" fill="#FBFAF8" stroke="#1A1A1A" stroke-width="1.2"/>
+    <text x="80" y="42" text-anchor="middle" font-weight="600">长时差旅/户外</text>
+
+    <rect x="20" y="100" width="120" height="36" fill="#FBFAF8" stroke="#1A1A1A" stroke-width="1.2"/>
+    <text x="80" y="122" text-anchor="middle" font-weight="600">通勤全天佩戴</text>
+
+    <rect x="20" y="180" width="120" height="36" fill="#FBFAF8" stroke="#1A1A1A" stroke-width="1.2"/>
+    <text x="80" y="202" text-anchor="middle" font-weight="600">海外 travel</text>
+
+    <rect x="20" y="260" width="120" height="36" fill="#FBFAF8" stroke="#1A1A1A" stroke-width="1.2"/>
+    <text x="80" y="282" text-anchor="middle" font-weight="600">户外高耗电拍摄</text>
+
+    <rect x="20" y="340" width="120" height="36" fill="#FBFAF8" stroke="#1A1A1A" stroke-width="1.2"/>
+    <text x="80" y="362" text-anchor="middle" font-weight="600">展会/极客线下</text>
+  </g>
+
+  <!-- 标签 -->
+  <text x="80" y="-5" text-anchor="middle" font-family="Noto Sans SC" font-size="11" fill="#9B9A95" letter-spacing="0.12em">QUERY · 场景触发</text>
+
+  <!-- 中间:5 个 key(渠道转化动作)节点 -->
+  <g font-family="Noto Sans SC, sans-serif" font-size="12" fill="#1A1A1A">
+    <rect x="270" y="14" width="150" height="34" fill="#FBFAF8" stroke="#1A1A1A" stroke-width="1.2"/>
+    <text x="345" y="35" text-anchor="middle">B站/抖音续航测评</text>
+
+    <rect x="270" y="95" width="150" height="34" fill="#FBFAF8" stroke="#1A1A1A" stroke-width="1.2"/>
+    <text x="345" y="116" text-anchor="middle">京东捆绑+线下展演</text>
+
+    <rect x="270" y="175" width="150" height="34" fill="#FBFAF8" stroke="#1A1A1A" stroke-width="1.2"/>
+    <text x="345" y="196" text-anchor="middle">Amazon 25 国</text>
+
+    <rect x="270" y="255" width="150" height="34" fill="#FBFAF8" stroke="#1A1A1A" stroke-width="1.2"/>
+    <text x="345" y="276" text-anchor="middle">小红书种草+复购</text>
+
+    <rect x="270" y="335" width="150" height="34" fill="#FBFAF8" stroke="#1A1A1A" stroke-width="1.2"/>
+    <text x="345" y="356" text-anchor="middle">线下体验店真机</text>
+  </g>
+
+  <!-- 标签 -->
+  <text x="345" y="-5" text-anchor="middle" font-family="Noto Sans SC" font-size="11" fill="#9B9A95" letter-spacing="0.12em">KEY · 转化路径</text>
+
+  <!-- 连线:query → key(细弧线,深度由权重决定) -->
+  <g fill="none" stroke="#9B9A95" stroke-width="1">
+    <path d="M 140 38 Q 205 30 270 31" />
+    <path d="M 140 118 Q 205 110 270 112" />
+    <path d="M 140 198 Q 205 190 270 192" />
+    <path d="M 140 278 Q 205 270 270 272" />
+    <path d="M 140 358 Q 205 350 270 352" />
+  </g>
+
+  <!-- 中右:加权条 -->
+  <g>
+    <!-- 标题 -->
+    <text x="555" y="-5" text-anchor="middle" font-family="Noto Sans SC" font-size="11" fill="#9B9A95" letter-spacing="0.12em">WEIGHT · 加权贡献</text>
+
+    <!-- 5 条加权条 -->
+    <rect x="490" y="20" width="200" height="10" fill="#E5E2D8" rx="2"/>
+    <rect x="490" y="20" width="140" height="10" fill="#1A1A1A" rx="2"/>
+    <text x="700" y="29" font-family="Instrument Sans" font-size="11" fill="#1A1A1A" font-weight="600">36%</text>
+
+    <rect x="490" y="100" width="200" height="10" fill="#E5E2D8" rx="2"/>
+    <rect x="490" y="100" width="96" height="10" fill="#C9A227" rx="2"/>
+    <text x="700" y="109" font-family="Instrument Sans" font-size="11" fill="#1A1A1A" font-weight="600">24%</text>
+
+    <rect x="490" y="180" width="200" height="10" fill="#E5E2D8" rx="2"/>
+    <rect x="490" y="180" width="60" height="10" fill="#1A1A1A" rx="2"/>
+    <text x="700" y="189" font-family="Instrument Sans" font-size="11" fill="#1A1A1A" font-weight="600">15%</text>
+
+    <rect x="490" y="260" width="200" height="10" fill="#E5E2D8" rx="2"/>
+    <rect x="490" y="260" width="76" height="10" fill="#1A1A1A" rx="2"/>
+    <text x="700" y="269" font-family="Instrument Sans" font-size="11" fill="#1A1A1A" font-weight="600">19%</text>
+
+    <rect x="490" y="340" width="200" height="10" fill="#E5E2D8" rx="2"/>
+    <rect x="490" y="340" width="24" height="10" fill="#9B9A95" rx="2"/>
+    <text x="700" y="349" font-family="Instrument Sans" font-size="11" fill="#1A1A1A" font-weight="600">6%</text>
+  </g>
+
+  <!-- 连线:key → weight block(细弧线) -->
+  <g fill="none" stroke="#9B9A95" stroke-width="1">
+    <path d="M 420 31 Q 455 25 490 25" />
+    <path d="M 420 112 Q 455 106 490 106" />
+    <path d="M 420 192 Q 455 186 490 186" />
+    <path d="M 420 272 Q 455 266 490 266" />
+    <path d="M 420 352 Q 455 346 490 346" />
+  </g>
+
+  <!-- Σ 输出节点(右侧聚合,填黄) -->
+  <g>
+    <text x="945" y="-5" text-anchor="middle" font-family="Noto Sans SC" font-size="11" fill="#9B9A95" letter-spacing="0.12em">Σ 北极星 · OUTPUT</text>
+    <rect x="830" y="140" width="200" height="100" fill="#C9A227" stroke="#1A1A1A" stroke-width="1.4"/>
+    <text x="930" y="180" text-anchor="middle" font-family="Newsreader" font-size="13" fill="#FBFAF8" font-weight="500">北极星 · North Star</text>
+    <text x="930" y="205" text-anchor="middle" font-family="Instrument Sans" font-size="22" fill="#FBFAF8" font-weight="700">≥15%</text>
+    <text x="930" y="225" text-anchor="middle" font-family="Noto Sans SC" font-size="11" fill="#FBFAF8">颈挂模组渗透率 · 6 个月</text>
+  </g>
+
+  <!-- 连线:weight → Σ output(细弧线汇合) -->
+  <g fill="none" stroke="#1A1A1A" stroke-width="1">
+    <path d="M 730 25 Q 790 180 830 180" stroke-width="1.2"/>
+    <path d="M 730 106 Q 790 185 830 185" stroke-width="1.6"/>
+    <path d="M 730 186 Q 790 190 830 190" stroke-width="0.8"/>
+    <path d="M 730 266 Q 790 195 830 195" stroke-width="1.0"/>
+    <path d="M 730 346 Q 790 200 830 200" stroke-width="0.5"/>
+  </g>
+
+  <!-- 底部:权重分母说明 -->
+  <text x="80" y="378" font-family="Noto Sans SC" font-size="10" fill="#9B9A95">∑ 五路径对北极星的相对贡献 · 加权由 E031/E033 痛点集中度与渠道历史 ROI 估算</text>
+</svg>
+<p class="flow-cap">图 B · 场景-渠道-加权-北极星网络(E031/E033 痛点基线 + 渠道历史 ROI 估算)</p>
+
+<hr class="divider">
+
+<!-- 下方:横向逻辑链 5 环节版 -->
+<h2 class="section">传导路径 · 5 环节结构化陈列</h2>
+<p class="p">沿用 gtm-chain 结构:每条 gtmLogic 拆为"场景/人群/渠道/转化/指标"5 个并列单元格,中间用细线分隔,行间不画箭头——结构自显。</p>
+
+<div class="pipeline">
+  <div class="pipe">
+    <div class="pipe-num">01</div>
+    <div class="pipe-k">场景</div>
+    <div class="pipe-v">长时差旅<br/>户外拍摄</div>
+  </div>
+  <div class="pipe">
+    <div class="pipe-num"></div>
+    <div class="pipe-k">人群</div>
+    <div class="pipe-v">重度续航焦虑<br/>差旅族/户外</div>
+  </div>
+  <div class="pipe">
+    <div class="pipe-num"></div>
+    <div class="pipe-k">渠道</div>
+    <div class="pipe-v">B站/抖音续航<br/>测评+雷鸟商城</div>
+  </div>
+  <div class="pipe">
+    <div class="pipe-num"></div>
+    <div class="pipe-k">转化</div>
+    <div class="pipe-v">社区 100 名<br/>内测招募</div>
+  </div>
+  <div class="pipe">
+    <div class="pipe-num"></div>
+    <div class="pipe-k">指标</div>
+    <div class="pipe-v">颈挂模组<br/>渗透率 <b>≥15%</b></div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- 价值传导 4 节点 -->
+<h2 class="section">价值链路 · 痛点 → 方案 → 用户价值 → 商业价值</h2>
+<p class="p">价值链路用 4 行垂直陈列,左侧小号大写"角色标签",右侧完整句式——一行一个转换环节,行间仅细线。</p>
+
+<div class="value-flow">
+  <div class="v-row"><div class="v-k">痛点</div><div class="v-v">无绳长续航焦虑(E031 876+ 吐槽、E033 重度半天没电、E092 掉电)</div></div>
+  <div class="v-row"><div class="v-k">方案</div><div class="v-v">磁吸外挂分离供电保留无绳 + 30min 快充(E095 行业续航虚标痛点)</div></div>
+  <div class="v-row"><div class="v-k">用户价值</div><div class="v-v">全天佩戴不掉电,无绳沉浸解放双手</div></div>
+  <div class="v-row"><div class="v-k">商业价值</div><div class="v-v">差异化形态溢价锚定 Meta/XREAL 未解缺口(E026/E018)</div></div>
+</div>
+
+<div class="footer-note">Demo B · 加权求和网络 · tufte + 流程图 · 适合 GTM 传导路径与多路径贡献对比</div>
+
+</body>
+</html>

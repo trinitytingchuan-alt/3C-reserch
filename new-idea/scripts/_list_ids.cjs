@@ -1,0 +1,9 @@
+const fs = require('fs');
+const s = fs.readFileSync('new-idea/output/index.html', 'utf8');
+const a = s.indexOf('"prds": {');
+const b = s.indexOf('"gtms": {', a);
+const blk = s.slice(a, b);
+const re = /"(ID-\d{3})":\s*\{/g;
+let m, out=[];
+while ((m = re.exec(blk))) out.push(m[1]);
+fs.writeFileSync('new-idea/scripts/_list_ids.txt', 'prds 内 ID 顺序:\n'+out.join('\n')+'\ncount='+out.length);

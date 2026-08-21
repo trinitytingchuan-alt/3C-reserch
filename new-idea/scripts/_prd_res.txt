@@ -1,0 +1,230 @@
+
+=== ID-002 ===
+    ✅ background: 219字
+    ✅ users: 78字
+    ✅ scenarios: 106字
+    ✅ solution: 144字
+    ✅ differentiation: 93字
+    ✅ competitorSignal: 62字
+    ✅ trendSignal: 47字
+    ✅ tam: 40字
+    ⚠️ metrics: 34字
+    ✅ risks: 95字
+    ✅ plan: 516字
+
+=== ID-002 ===
+
+=== ID-001 ===
+    ✅ background: 73字
+    ✅ users: 177字
+    ✅ scenarios: 181字
+    ✅ solution: 53字
+    ✅ differentiation: 162字
+    ✅ competitorSignal: 157字
+    ✅ trendSignal: 159字
+    ✅ tam: 150字
+    ⚠️ metrics: 20字
+    ✅ risks: 62字
+    ✅ plan: 413字
+
+=== ID-001 ===
+
+=== ID-003 ===
+    ✅ background: 71字
+    ✅ users: 43字
+    ✅ scenarios: 44字
+    ✅ solution: 47字
+    ⚠️ differentiation: 39字
+    ⚠️ competitorSignal: 23字
+    ⚠️ trendSignal: 27字
+    ⚠️ tam: 33字
+    ⚠️ metrics: 24字
+    ✅ risks: 65字
+    ✅ plan: 423字
+
+=== ID-003 ===
+
+=== ID-004 ===
+    ✅ background: 78字
+    ✅ users: 54字
+    ⚠️ scenarios: 39字
+    ✅ solution: 61字
+    ⚠️ differentiation: 31字
+    ⚠️ competitorSignal: 26字
+    ⚠️ trendSignal: 24字
+    ⚠️ tam: 35字
+    ⚠️ metrics: 20字
+    ✅ risks: 65字
+    ✅ plan: 441字
+
+=== ID-004 ===
+
+=== ID-006 ===
+    ✅ background: 141字
+    ✅ users: 53字
+    ✅ scenarios: 58字
+    ✅ solution: 49字
+    ✅ differentiation: 45字
+    ✅ competitorSignal: 47字
+    ⚠️ trendSignal: 38字
+    ⚠️ tam: 31字
+    ⚠️ metrics: 29字
+    ✅ risks: 81字
+    ✅ plan: 427字
+
+=== ID-006 ===
+
+=== ID-005 ===
+    ✅ background: 68字
+    ✅ users: 47字
+    ✅ scenarios: 43字
+    ✅ solution: 51字
+    ⚠️ differentiation: 34字
+    ⚠️ competitorSignal: 23字
+    ⚠️ trendSignal: 23字
+    ⚠️ tam: 24字
+    ⚠️ metrics: 22字
+    ✅ risks: 65字
+    ✅ plan: 416字
+
+=== ID-005 ===
+
+=== ID-007 ===
+    ✅ background: 133字
+    ✅ users: 52字
+    ✅ scenarios: 66字
+    ✅ solution: 56字
+    ⚠️ differentiation: 35字
+    ✅ competitorSignal: 44字
+    ⚠️ trendSignal: 33字
+    ⚠️ tam: 25字
+    ⚠️ metrics: 22字
+    ✅ risks: 66字
+    ✅ plan: 396字
+
+=== ID-007 ===
+
+=== ID-008 ===
+    ✅ background: 119字
+    ✅ users: 50字
+    ✅ scenarios: 54字
+    ✅ solution: 43字
+    ⚠️ differentiation: 37字
+    ⚠️ competitorSignal: 39字
+    ⚠️ trendSignal: 33字
+    ⚠️ tam: 30字
+    ⚠️ metrics: 25字
+    ✅ risks: 62字
+    ✅ plan: 405字
+
+=== ID-008 ===
+
+=== ID-009 ===
+    ✅ background: 229字
+    ✅ users: 59字
+    ✅ scenarios: 97字
+    ✅ solution: 124字
+    ✅ differentiation: 84字
+    ✅ competitorSignal: 52字
+    ⚠️ trendSignal: 39字
+    ⚠️ tam: 37字
+    ⚠️ metrics: 26字
+    ✅ risks: 66字
+    ✅ plan: 404字
+
+=== ID-009 ===
+
+=== ID-010 ===
+    ✅ background: 113字
+    ✅ users: 47字
+    ✅ scenarios: 59字
+    ✅ solution: 54字
+    ⚠️ differentiation: 36字
+    ⚠️ competitorSignal: 32字
+    ⚠️ trendSignal: 24字
+    ⚠️ tam: 31字
+    ⚠️ metrics: 27字
+    ✅ risks: 66字
+    ✅ plan: 421字
+
+=== ID-010 ===
+
+=== ID-011 ===
+    ✅ background: 162字
+    ✅ users: 58字
+    ✅ scenarios: 78字
+    ✅ solution: 54字
+    ✅ differentiation: 53字
+    ✅ competitorSignal: 40字
+    ⚠️ trendSignal: 32字
+    ⚠️ tam: 37字
+    ⚠️ metrics: 28字
+    ✅ risks: 82字
+    ✅ plan: 418字
+
+=== ID-011 ===
+
+=== ID-012 ===
+    ✅ background: 186字
+    ✅ users: 48字
+    ✅ scenarios: 72字
+    ✅ solution: 66字
+    ✅ differentiation: 57字
+    ⚠️ competitorSignal: 34字
+    ⚠️ trendSignal: 23字
+    ⚠️ tam: 36字
+    ⚠️ metrics: 27字
+    ✅ risks: 80字
+    ✅ plan: 430字
+
+=== ID-012 ===
+
+=== ID-013 ===
+    ✅ background: 156字
+    ✅ users: 46字
+    ✅ scenarios: 61字
+    ✅ solution: 47字
+    ✅ differentiation: 46字
+    ⚠️ competitorSignal: 39字
+    ⚠️ trendSignal: 27字
+    ⚠️ tam: 24字
+    ⚠️ metrics: 21字
+    ✅ risks: 81字
+    ✅ plan: 441字
+
+=== ID-013 ===
+
+=== ID-014 ===
+    ✅ background: 50字
+    ⚠️ users: 34字
+    ✅ scenarios: 67字
+    ✅ solution: 67字
+    ⚠️ differentiation: 27字
+    ⚠️ competitorSignal: 23字
+    ❌ trendSignal: 18字
+    ⚠️ tam: 22字
+    ⚠️ metrics: 23字
+    ⚠️ risks: 25字
+    ✅ plan: 444字
+
+=== ID-014 ===
+
+=== ID-015 ===
+    ✅ background: 56字
+    ⚠️ users: 36字
+    ✅ scenarios: 61字
+    ✅ solution: 56字
+    ⚠️ differentiation: 28字
+    ⚠️ competitorSignal: 22字
+    ❌ trendSignal: 17字
+    ⚠️ tam: 23字
+    ❌ metrics: 19字
+    ⚠️ risks: 27字
+    ✅ plan: 429字
+    ✅ tam: 275字
+    ✅ tam: 238字
+    ✅ tam: 243字
+    ✅ tam: 230字
+    ✅ tam: 208字
+
+==== PRD 结论: 3 项缺失/严重简略(<20字) ====

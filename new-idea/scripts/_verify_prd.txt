@@ -1,0 +1,107 @@
+=== ID-002 ===
+  OK competitorSignal: 120字
+  OK trendSignal: 119字
+  OK tam: 107字
+  OK differentiation: 150字
+  users rows=1 minLen=50
+  scenarios rows=1 minLen=47
+=== ID-001 ===
+  OK competitorSignal: 157字
+  OK trendSignal: 159字
+  OK tam: 150字
+  OK differentiation: 162字
+  users rows=1 minLen=47
+  scenarios rows=1 minLen=55
+=== ID-003 ===
+  OK competitorSignal: 123字
+  OK trendSignal: 126字
+  OK tam: 124字
+  OK differentiation: 118字
+  users rows=1 minLen=50
+  scenarios rows=1 minLen=49
+=== ID-004 ===
+  OK competitorSignal: 120字
+  OK trendSignal: 114字
+  OK tam: 120字
+  OK differentiation: 118字
+  users rows=1 minLen=48
+  scenarios rows=1 minLen=48
+=== ID-006 ===
+  OK competitorSignal: 110字
+  OK trendSignal: 106字
+  OK tam: 98字
+  OK differentiation: 93字
+  users rows=1 minLen=50
+  scenarios rows=1 minLen=39
+=== ID-005 ===
+  OK competitorSignal: 120字
+  OK trendSignal: 114字
+  OK tam: 125字
+  OK differentiation: 109字
+  users rows=1 minLen=47
+  scenarios rows=1 minLen=41
+=== ID-007 ===
+  OK competitorSignal: 99字
+  OK trendSignal: 86字
+  OK tam: 88字
+  OK differentiation: 82字
+  users rows=1 minLen=43
+  scenarios rows=1 minLen=35
+=== ID-008 ===
+  OK competitorSignal: 87字
+  OK trendSignal: 91字
+  OK tam: 85字
+  OK differentiation: 71字
+  users rows=1 minLen=40
+  scenarios rows=1 minLen=36
+=== ID-009 ===
+  OK competitorSignal: 89字
+  OK trendSignal: 83字
+  OK tam: 77字
+  OK differentiation: 68字
+  users rows=1 minLen=35
+  scenarios rows=1 minLen=33
+=== ID-010 ===
+  OK competitorSignal: 75字
+  OK trendSignal: 81字
+  OK tam: 74字
+  OK differentiation: 66字
+  users rows=1 minLen=33
+  scenarios rows=1 minLen=33
+=== ID-011 ===
+  OK competitorSignal: 114字
+  OK trendSignal: 111字
+  OK tam: 133字
+  OK differentiation: 123字
+  users rows=1 minLen=59
+  scenarios rows=1 minLen=54
+=== ID-012 ===
+  OK competitorSignal: 108字
+  OK trendSignal: 102字
+  OK tam: 103字
+  OK differentiation: 117字
+  users rows=1 minLen=52
+  scenarios rows=1 minLen=56
+=== ID-013 ===
+  OK competitorSignal: 92字
+  OK trendSignal: 80字
+  OK tam: 69字
+  OK differentiation: 69字
+  users rows=1 minLen=39
+  scenarios rows=1 minLen=34
+=== ID-014 ===
+  OK competitorSignal: 88字
+  OK trendSignal: 86字
+  OK tam: 76字
+  OK differentiation: 67字
+  users rows=1 minLen=39
+  scenarios rows=1 minLen=35
+=== ID-015 ===
+  OK competitorSignal: 95字
+  OK trendSignal: 81字
+  OK tam: 63字
+  OK differentiation: 70字
+  users rows=1 minLen=36
+  scenarios rows=1 minLen=38
+
+prds 内残留 E 编号: 0

@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GTM 策略二级界面 · Demo · 多字体版本</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- skill 字体方向：全部远端 web 字体(拉丁 + 中文)，禁用 Inter/Roboto/system-ui/微软雅黑/AI默认体。
+     中文统一用 Google Fonts 的 Noto Sans SC / Noto Serif SC(远端,非系统字体) -->
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Manrope:wght@400;500;600;700;800&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Noto+Sans+SC:wght@300;400;500;600;700;800&family=Noto+Serif+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ===== 基础令牌 ===== */
+:root{
+  --paper:#FFFFFF; --surface:#F5F5F7; --surface-2:#FBFBFD;
+  --ink:#1D1D1F; --ink-mid:#515154; --ink-lo:#86868B; --ink-faint:#A1A1A6;
+  --line:#D2D2D7; --line-soft:#E8E8ED; --line-strong:#B8B8BE;
+  --signal:#0071E3; --signal-press:#005BBF; --signal-dim:rgba(0,113,227,.06); --signal-line:rgba(0,113,227,.28);
+  --s2:8px; --s3:16px; --s4:24px; --s5:40px; --s6:64px;
+  --r-xs:10px; --r-sm:12px; --r-md:18px; --r-lg:22px;
+  --ease:cubic-bezier(.22,1,.36,1); --maxw:1180px;
+  --shadow:0 1px 2px rgba(0,0,0,.04),0 8px 24px rgba(0,0,0,.05);
+  /* 默认 = A · 苹果 HIG */
+  --font-display:"Inter Tight","Noto Sans SC",sans-serif;
+  --font-body:"Inter Tight","Noto Sans SC",sans-serif;
+  --font-num:"Inter Tight","Noto Sans SC",sans-serif;
+}
+/* B · 编辑衬线：展示用 Newsreader 衬线 + 中文 Noto Serif SC */
+body[data-font="editor"]{
+  --font-display:"Newsreader","Noto Serif SC",Georgia,serif;
+  --font-body:"Inter Tight","Noto Sans SC",sans-serif;
+  --font-num:"Newsreader","Noto Serif SC",Georgia,serif;
+}
+/* C · 现代工具：Manrope + 中文 Noto Sans SC */
+body[data-font="tool"]{
+  --font-display:"Manrope","Noto Sans SC",sans-serif;
+  --font-body:"Manrope","Noto Sans SC",sans-serif;
+  --font-num:"Manrope","Noto Sans SC",sans-serif;
+}
+/* D · 艺术无衬线：Bricolage + 中文 Noto Sans SC */
+body[data-font="art"]{
+  --font-display:"Bricolage Grotesque","Noto Sans SC",sans-serif;
+  --font-body:"Inter Tight","Noto Sans SC",sans-serif;
+  --font-num:"Bricolage Grotesque","Noto Sans SC",sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--paper);color:var(--ink);font-family:var(--font-body);font-size:17px;line-height:1.5;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;letter-spacing:-.005em;overflow-x:hidden;transition:font-family .35s var(--ease)}
+h1,h2,h3,h4,h5{font-family:var(--font-display);font-weight:600;line-height:1.1;color:var(--ink)}
+a{color:inherit;text-decoration:none}
+.muted{color:var(--ink-lo)}
+.mono{font-family:var(--font-num)}
+img{display:block;max-width:100%}
+
+/* ===== 字体切换 segmented control ===== */
+.switcher{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.8);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--line-soft);padding:10px var(--s5)}
+.sw-in{max-width:var(--maxw);margin:0 auto;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.sw-label{font-size:12px;color:var(--ink-faint);letter-spacing:.04em}
+.seg{display:inline-flex;background:var(--surface);border:1px solid var(--line-soft);border-radius:980px;padding:3px}
+.seg button{font-family:var(--font-body);font-size:13px;font-weight:600;color:var(--ink-lo);background:none;border:none;cursor:pointer;padding:7px 15px;border-radius:980px;transition:.2s var(--ease);letter-spacing:.01em}
+.seg button:hover{color:var(--ink)}
+.seg button.on{background:#fff;color:var(--signal);box-shadow:0 1px 2px rgba(0,0,0,.06)}
+.sw-note{font-size:12px;color:var(--ink-faint);margin-left:auto}
+
+/* ===== 顶栏 ===== */
+.topbar{position:sticky;top:53px;z-index:40;background:rgba(255,255,255,.78);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--line-soft);padding:14px var(--s5)}
+.topbar-in{display:flex;align-items:center;gap:14px;max-width:var(--maxw);margin:0 auto}
+.topbar .ob-id{font-family:var(--font-num);font-size:13px;color:var(--signal);font-weight:700}
+.topbar .ob-title{font-size:15px;font-weight:600}
+.topbar .ob-close{margin-left:auto;width:38px;height:38px;border-radius:50%;border:1px solid var(--line-soft);background:rgba(255,255,255,.7);display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--ink-mid);transition:.2s}
+.topbar .ob-close:hover{background:var(--surface);color:var(--ink)}
+
+/* ===== 布局 ===== */
+.layout{display:flex;align-items:flex-start;gap:var(--s5);max-width:var(--maxw);margin:0 auto;padding:0 var(--s5)}
+.aside{position:sticky;top:135px;flex:0 0 200px;align-self:flex-start;max-height:calc(100vh - 160px);overflow:auto;padding:48px 4px 48px 0}
+.aside .as-h{font-size:10.5px;font-family:var(--font-num);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);padding:4px 12px 12px}
+.aside-nav{display:flex;flex-direction:column;gap:1px}
+.aside-nav a{display:flex;align-items:baseline;gap:10px;font-size:13.5px;font-weight:500;color:var(--ink-lo);padding:8px 12px;border-radius:8px;cursor:pointer;transition:.18s var(--ease);line-height:1.3}
+.aside-nav a .n{font-family:var(--font-num);font-size:13px;color:var(--signal);font-weight:700;min-width:16px}
+.aside-nav a:hover{color:var(--ink)}
+.aside-nav a.active{color:var(--signal);background:var(--signal-dim);font-weight:600}
+.content{flex:1;min-width:0;padding:48px 0 80px}
+
+/* ===== Hero（右图） ===== */
+.hero{padding:8px 0 0;display:grid;grid-template-columns:1fr 260px;gap:var(--s5);align-items:center}
+.hero .eyebrow{font-family:var(--font-num);font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--signal);font-weight:600;margin-bottom:16px}
+.hero h1{font-size:40px;font-weight:700;letter-spacing:-.025em;line-height:1.06;color:var(--ink);margin-bottom:16px}
+.hero .sub{font-size:16px;color:var(--ink-lo);max-width:54ch;line-height:1.6}
+.hero .fig{border-radius:var(--r-md);overflow:hidden;aspect-ratio:16/7;max-height:190px;background:linear-gradient(160deg,#f4f7fb,#e9eef6);box-shadow:var(--shadow),0 0 0 1px var(--signal-line);position:relative}
+.hero .fig img{width:100%;height:100%;object-fit:cover;object-position:center}
+.hero .fig .cap{position:absolute;left:12px;bottom:10px;font-family:var(--font-num);font-size:10px;letter-spacing:.06em;color:var(--ink-faint);text-shadow:0 1px 2px rgba(255,255,255,.8)}
+
+/* ===== 区块 + 重做标题视觉 ===== */
+.sec{margin-top:64px;padding-top:48px;border-top:1px solid var(--line-soft);scroll-margin-top:150px}
+.sec:first-child{border-top:none;margin-top:0;padding-top:0}
+/* 标题：编号与标题统一视觉权重，做成一个「侧标 + 脉冲点」组合，不再小字割裂 */
+.sec-head{display:flex;align-items:center;gap:16px;margin-bottom:18px}
+.sec-head .idx{position:relative;display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:13px;background:var(--signal-dim);border:1px solid var(--signal-line);font-family:var(--font-num);font-size:18px;font-weight:700;color:var(--signal);flex:none}
+.sec-head .idx::after{content:"";position:absolute;inset:-4px;border-radius:17px;border:1.5px solid var(--signal-line);opacity:.5}
+.sec-head .t{display:flex;flex-direction:column;gap:3px}
+.sec-head h2{font-size:27px;font-weight:600;letter-spacing:-.02em;color:var(--ink);line-height:1.12}
+.sec-head .en{font-family:var(--font-num);font-size:11px;letter-spacing:.16em;color:var(--ink-faint);text-transform:uppercase;font-weight:500}
+.lead{font-size:16px;color:var(--ink-mid);line-height:1.62;max-width:66ch;margin-bottom:30px}
+
+/* ===== C 组件 ===== */
+.fn-svg{width:100%;height:auto;margin-bottom:6px}
+.fn-note{font-size:13px;color:var(--ink-faint);line-height:1.6}
+.funnel{display:flex;flex-direction:column;border-top:2px solid var(--ink);margin-bottom:6px}
+.frow{display:grid;grid-template-columns:110px 1fr 150px;gap:24px;align-items:center;padding:24px 0;border-bottom:1px solid var(--line-soft)}
+.frow:last-child{border-bottom:none}
+.fl{font-family:var(--font-display);font-size:16px;font-weight:600}
+.fbar{height:34px;background:var(--surface);border-radius:8px;overflow:hidden;position:relative}
+.fbar i{display:block;height:100%;background:var(--signal);border-radius:8px}
+.fbar span{position:absolute;left:16px;top:50%;transform:translateY(-50%);font-size:12.5px;font-weight:600;color:#fff;font-family:var(--font-num)}
+.fv{font-size:14px;color:var(--ink-mid);text-align:right;line-height:1.55}
+.sig-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid var(--line)}
+.sig-card{padding:26px 30px;border-right:1px solid var(--line-soft)}
+.sig-card:last-child{border-right:none}
+.sig-h{font-size:12px;font-weight:600;color:var(--ink);letter-spacing:.05em;text-transform:uppercase;margin-bottom:12px}
+.sig-b{font-size:15.5px;color:var(--ink-mid);line-height:1.74}
+.price-hero{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line-soft);border-radius:var(--r-md);overflow:hidden}
+.price-main{padding:34px 38px;background:var(--surface-2)}
+.p-k{font-family:var(--font-num);font-size:11px;color:var(--ink-faint);letter-spacing:.1em;text-transform:uppercase;margin-bottom:12px}
+.p-v{font-size:40px;font-weight:700;color:var(--ink);letter-spacing:-.02em;font-family:var(--font-display);margin-bottom:8px}
+.p-v small{font-size:16px;color:var(--ink-lo);font-weight:400}
+.p-d{font-size:14.5px;color:var(--ink-mid);line-height:1.7}
+.price-anchor{padding:34px 38px;background:var(--signal-dim);border-left:1px solid var(--signal-line)}
+.a-k{font-family:var(--font-num);font-size:11px;color:var(--signal);letter-spacing:.1em;text-transform:uppercase;margin-bottom:12px;font-weight:600}
+.a-v{font-size:16px;color:var(--ink);line-height:1.62;font-weight:500}
+.chan-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border-top:1px solid var(--line)}
+.chan-card{padding:24px 28px;border-right:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft)}
+.chan-t{font-size:14px;font-weight:600;color:var(--signal);margin-bottom:9px;font-family:var(--font-display)}
+.chan-d{font-size:14.5px;color:var(--ink-mid);line-height:1.66}
+.cadence{position:relative;margin-top:20px;padding-left:34px}
+.cadence::before{content:"";position:absolute;left:8px;top:8px;bottom:8px;width:2px;background:var(--line)}
+.cd{position:relative;padding:0 0 36px}
+.cd:last-child{padding-bottom:0}
+.cd::before{content:"";position:absolute;left:-32px;top:6px;width:15px;height:15px;border-radius:50%;background:#fff;border:3px solid var(--signal);box-shadow:0 0 0 5px var(--signal-dim)}
+.cd-p{font-family:var(--font-num);font-size:12.5px;font-weight:600;color:var(--signal);letter-spacing:.04em;margin-bottom:9px}
+.cd-a{font-size:15.5px;color:var(--ink-mid);line-height:1.68}
+.metric{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.m-cell{padding:28px 30px;border-left:1px solid var(--line-soft)}
+.m-cell:first-child{border-left:none}
+.m-k{font-family:var(--font-num);font-size:11px;letter-spacing:.06em;color:var(--ink-faint);text-transform:uppercase;font-weight:500;margin-bottom:12px}
+.m-v{font-family:var(--font-display);font-size:28px;font-weight:700;color:var(--ink);letter-spacing:-.02em;margin-bottom:14px}
+.m-bar{height:6px;background:var(--line-soft);border-radius:980px;overflow:hidden}
+.m-bar i{display:block;height:100%;background:var(--signal);border-radius:980px}
+.risk-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid var(--line)}
+.risk-card{padding:26px 30px;border-right:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);display:flex;flex-direction:column;gap:12px}
+.risk-name{font-size:16px;font-weight:600;color:var(--ink);display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.risk-badge{font-family:var(--font-num);font-size:10px;padding:3px 9px;border-radius:6px;font-weight:600;letter-spacing:.02em}
+.risk-badge.p-lo{background:var(--surface);color:var(--ink-lo)}
+.risk-badge.p-hi{background:var(--signal-dim);color:var(--signal);border:1px solid var(--signal-line)}
+.risk-badge.i-lo{background:var(--surface);color:var(--ink-lo)}
+.risk-badge.i-hi{background:var(--signal);color:#fff}
+.risk-why{font-size:14px;color:var(--ink-lo);line-height:1.66}
+.risk-fix{font-size:14px;color:var(--ink-mid);line-height:1.66;border-top:1px dashed var(--line-soft);padding-top:12px}
+.risk-fix b{color:var(--signal);font-weight:600;font-family:var(--font-num);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;display:block;margin-bottom:5px}
+.gtm-flag{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid var(--line)}
+.flag{padding:32px 34px;border-right:1px solid var(--line-soft)}
+.flag:last-child{border-right:none}
+.f-k{font-family:var(--font-num);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--signal);font-weight:600;margin-bottom:14px}
+.f-v{font-size:15px;color:var(--ink-mid);line-height:1.7}
+.flag.north .f-big{font-family:var(--font-display);font-size:36px;font-weight:700;color:var(--ink);letter-spacing:-.02em;margin:2px 0 12px}
+.flag.north{background:var(--signal-dim)}
+.flag.first{background:var(--surface-2)}
+
+.foot{padding:40px var(--s5);border-top:1px solid var(--line-soft);font-size:13px;color:var(--ink-faint);max-width:var(--maxw);margin:0 auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.foot code{font-family:var(--font-num);font-size:11.5px}
+
+/* 编辑衬线方案下，标题轻微斜体更显品味 */
+body[data-font="editor"] .sec-head h2{font-style:italic;font-weight:500}
+body[data-font="editor"] .hero h1{font-style:italic;font-weight:500}
+body[data-font="editor"] .sec-head .idx{font-style:normal}
+
+@media(max-width:900px){
+  .switcher,.topbar,.foot,.layout{padding-left:22px;padding-right:22px}
+  .layout{flex-direction:column}
+  .aside{position:static;flex:none;max-height:none;width:100%;padding:24px 0 0}
+  .aside-nav{flex-direction:row;flex-wrap:wrap;gap:6px}
+  .hero{grid-template-columns:1fr}
+  .hero .fig{max-height:160px;order:-1}
+  .hero h1{font-size:30px}
+  .sig-grid,.price-hero,.chan-grid,.metric,.risk-grid,.gtm-flag{grid-template-columns:1fr}
+  .sig-card,.flag,.m-cell{border-right:none}
+}
+</style>
+</head>
+<body data-font="apple">
+
+<!-- 字体切换 -->
+<div class="switcher">
+  <div class="sw-in">
+    <span class="sw-label">字体方案</span>
+    <div class="seg" id="seg">
+      <button data-v="apple" class="on">A · 苹果 HIG</button>
+      <button data-v="editor">B · 编辑衬线</button>
+      <button data-v="tool">C · 现代工具</button>
+      <button data-v="art">D · 艺术无衬线</button>
+    </div>
+    <span class="sw-note" id="swNote">Inter Tight + Noto Sans SC · 白底苹果风基底</span>
+  </div>
+</div>
+
+<!-- 顶栏 -->
+<div class="topbar">
+  <div class="topbar-in">
+    <span class="ob-id">ID-002</span>
+    <span class="ob-title">AI 拍摄翻译 · 上市策略</span>
+    <span class="ob-close" title="关闭">✕</span>
+  </div>
+</div>
+
+<div class="layout">
+  <!-- 左导航栏 -->
+  <aside class="aside">
+    <div class="as-h">GTM 板块</div>
+    <nav class="aside-nav" id="nav">
+      <a href="#s1" class="active"><span class="n">1</span>上市传导路径</a>
+      <a href="#s2"><span class="n">2</span>市场测算</a>
+      <a href="#s3"><span class="n">3</span>理想客户画像</a>
+      <a href="#s4"><span class="n">4</span>定价与打包</a>
+      <a href="#s5"><span class="n">5</span>渠道策略</a>
+      <a href="#s6"><span class="n">6</span>发布节奏</a>
+      <a href="#s7"><span class="n">7</span>核心指标</a>
+      <a href="#s8"><span class="n">8</span>风险矩阵</a>
+      <a href="#s9"><span class="n">9</span>北极星 · 首批100</a>
+    </nav>
+  </aside>
+
+  <!-- 右内容 -->
+  <main class="content">
+    <!-- Hero（右上图） -->
+    <div class="hero">
+      <div>
+        <div class="eyebrow">Rayneo AR · GTM 二级界面 Demo</div>
+        <h1>上市策略 · 可视化逻辑陈列</h1>
+        <p class="sub">白底 · 强图形化版式 C · 9 大板块同页陈列。所有文字均来自原版 GTM 真实数据,仅以图形 / 逻辑重组,证据编号按硬约束已隐去。</p>
+      </div>
+      <div class="fig"><img src="../output/assets/func/glasses/g1_form_5712.jpg" alt="雷鸟 X3 Pro 形态"><span class="cap">X3 Pro · 形态实拍</span></div>
+    </div>
+
+    <!-- 1 上市传导路径 -->
+    <section class="sec" id="s1">
+      <div class="sec-head"><span class="idx">1</span><span class="t"><h2>上市传导路径</h2><span class="en">GTM Logic Chain</span></span></div>
+      <p class="lead">5 条 gtmLogic 重构为<b>场景 → 渠道 → 指标</b>三列节点网络,蓝色连线串联同一条传导链。</p>
+      <svg class="fn-svg" viewBox="0 0 1060 460" xmlns="http://www.w3.org/2000/svg">
+        <g font-family="Inter Tight,monospace" font-size="11" fill="#A1A1A6" letter-spacing="0.14em">
+          <text x="150" y="28" text-anchor="middle">场景 · 触发</text>
+          <text x="420" y="28" text-anchor="middle">渠道 · 转化</text>
+          <text x="770" y="28" text-anchor="middle">指标 · 目标</text>
+        </g>
+        <g font-family="Noto Sans SC,Inter Tight" font-size="12.5" fill="#1D1D1F">
+          <rect x="40" y="44" width="220" height="40" rx="10" fill="#FBFBFD" stroke="#D2D2D7"/><text x="150" y="68" text-anchor="middle" font-weight="600">出境自由行</text>
+          <rect x="40" y="108" width="220" height="40" rx="10" fill="#FBFBFD" stroke="#D2D2D7"/><text x="150" y="132" text-anchor="middle" font-weight="600">跨国会议 / 展会</text>
+          <rect x="40" y="172" width="220" height="40" rx="10" fill="#FBFBFD" stroke="#D2D2D7"/><text x="150" y="196" text-anchor="middle" font-weight="600">逛展探店比价</text>
+          <rect x="40" y="236" width="220" height="40" rx="10" fill="#FBFBFD" stroke="#D2D2D7"/><text x="150" y="260" text-anchor="middle" font-weight="600">海外众筹尝鲜</text>
+          <rect x="40" y="300" width="220" height="40" rx="10" fill="#FBFBFD" stroke="#D2D2D7"/><text x="150" y="324" text-anchor="middle" font-weight="600">车镜互联场景</text>
+        </g>
+        <g font-family="Noto Sans SC,Inter Tight" font-size="12" fill="#1D1D1F">
+          <rect x="330" y="44" width="180" height="40" rx="10" fill="#FBFBFD" stroke="#D2D2D7"/><text x="420" y="68" text-anchor="middle">小红书种草+京东自营</text>
+          <rect x="330" y="108" width="180" height="40" rx="10" fill="#FBFBFD" stroke="#D2D2D7"/><text x="420" y="132" text-anchor="middle">知乎/B站+雷鸟商城</text>
+          <rect x="330" y="172" width="180" height="40" rx="10" fill="#FBFBFD" stroke="#D2D2D7"/><text x="420" y="196" text-anchor="middle">抖音矩阵+旅行 App</text>
+          <rect x="330" y="236" width="180" height="40" rx="10" fill="#FBFBFD" stroke="#D2D2D7"/><text x="420" y="260" text-anchor="middle">Kickstarter/Indiegogo</text>
+          <rect x="330" y="300" width="180" height="40" rx="10" fill="#FBFBFD" stroke="#D2D2D7"/><text x="420" y="324" text-anchor="middle">车企联名+线下 demo</text>
+        </g>
+        <g font-family="Noto Sans SC,Inter Tight" font-size="11.5" fill="#1D1D1F">
+          <rect x="690" y="44" width="160" height="40" rx="10" fill="#0071E3"/><text x="770" y="68" text-anchor="middle" fill="#fff" font-weight="600">日活拍摄 ≥3 次</text>
+          <rect x="690" y="108" width="160" height="40" rx="10" fill="#0071E3"/><text x="770" y="132" text-anchor="middle" fill="#fff" font-weight="600">翻译调用 ≥20min</text>
+          <rect x="690" y="172" width="160" height="40" rx="10" fill="#0071E3"/><text x="770" y="196" text-anchor="middle" fill="#fff" font-weight="600">商品识别 ≥5 次</text>
+          <rect x="690" y="236" width="160" height="40" rx="10" fill="#0071E3"/><text x="770" y="260" text-anchor="middle" fill="#fff" font-weight="600">分享率 ≥25%</text>
+          <rect x="690" y="300" width="160" height="40" rx="10" fill="#0071E3"/><text x="770" y="324" text-anchor="middle" fill="#fff" font-weight="600">成片转化 ≥40%</text>
+        </g>
+        <g stroke="#D2D2D7" stroke-width="1.2" fill="none">
+          <path d="M260 64 Q 295 58 330 64"/><path d="M260 128 Q 295 122 330 128"/><path d="M260 192 Q 295 186 330 192"/><path d="M260 256 Q 295 250 330 256"/><path d="M260 320 Q 295 314 330 320"/>
+        </g>
+        <g stroke="#0071E3" stroke-width="1.6" fill="none" opacity="0.7">
+          <path d="M510 64 Q 600 58 690 64"/><path d="M510 128 Q 600 122 690 128"/><path d="M510 192 Q 600 186 690 192"/><path d="M510 256 Q 600 250 690 256"/><path d="M510 320 Q 600 314 690 320"/>
+        </g>
+        <g font-family="Inter Tight,monospace" font-size="10.5" fill="#A1A1A6">
+          <text x="560" y="40" text-anchor="middle">路径 1</text><text x="560" y="104" text-anchor="middle">路径 2</text><text x="560" y="168" text-anchor="middle">路径 3</text><text x="560" y="232" text-anchor="middle">路径 4</text><text x="560" y="296" text-anchor="middle">路径 5</text>
+        </g>
+      </svg>
+      <p class="fn-note">蓝色连线 = 渠道 → 指标(信号色高亮目标);灰线 = 场景 → 渠道。每行一条完整 gtmLogic,文字为原版。</p>
+    </section>
+
+    <!-- 2 市场测算 -->
+    <section class="sec" id="s2">
+      <div class="sec-head"><span class="idx">2</span><span class="t"><h2>市场测算 · TAM / SAM / SOM</h2><span class="en">Market Sizing</span></span></div>
+      <div class="funnel">
+        <div class="frow"><div class="fl">TAM</div><div class="fbar"><i data-w="100"></i><span>740 万台</span></div><div class="fv">Meta Ray-Ban 2025 出货验证路径可规模化</div></div>
+        <div class="frow"><div class="fl">SAM</div><div class="fbar"><i data-w="68"></i><span>X3 Pro 存量</span></div><div class="fv">雷鸟 X3 Pro 存量旅行/商务/AI 早期采用人群</div></div>
+        <div class="frow"><div class="fl">SOM</div><div class="fbar"><i data-w="40"></i><span>0.6–1.2 万</span></div><div class="fv">6 个月 AI 拍摄翻译功能激活,出境/商务场景用户占 15–25%,目标激活 0.6–1.2 万</div></div>
+      </div>
+    </section>
+
+    <!-- 3 理想客户画像 -->
+    <section class="sec" id="s3">
+      <div class="sec-head"><span class="idx">3</span><span class="t"><h2>理想客户画像 ICP</h2><span class="en">Ideal Customer Profile</span></span></div>
+      <div class="sig-grid">
+        <div class="sig-card"><div class="sig-h">目标人群 · Audience</div><div class="sig-b">出境游/跨境商务高频用户,AI 拍摄翻译早期采用者,V3/X3 Pro 存量人群</div></div>
+        <div class="sig-card"><div class="sig-h">切入场景 · Entry</div><div class="sig-b">出境自由行(路牌/菜单拍摄翻译)、跨国会议/展会(同声传译)、车镜互联跨端成片工作流</div></div>
+      </div>
+    </section>
+
+    <!-- 4 定价与打包 -->
+    <section class="sec" id="s4">
+      <div class="sec-head"><span class="idx">4</span><span class="t"><h2>定价与打包</h2><span class="en">Pricing</span></span></div>
+      <div class="price-hero">
+        <div class="price-main"><div class="p-k">定价策略 · Strategy</div><div class="p-v">¥800<small> 拍摄版溢价</small></div><div class="p-d">X3 Pro 拍摄版溢价上线,V3 用户以旧换新优先推送实时翻译公测 + 离线兜底</div></div>
+        <div class="price-anchor"><div class="a-k">竞品锚点 · Anchor</div><div class="a-v">「眼镜比你手机更懂出国」——锚定 Meta Ray-Ban 已教育市场(740 万台路径),以全彩光波导可显字幕差异化支撑溢价</div></div>
+      </div>
+    </section>
+
+    <!-- 5 渠道策略 -->
+    <section class="sec" id="s5">
+      <div class="sec-head"><span class="idx">5</span><span class="t"><h2>渠道策略</h2><span class="en">Channels</span></span></div>
+      <div class="chan-grid">
+        <div class="chan-card"><div class="chan-t">内容种草</div><div class="chan-d">小红书/抖音出境游、商务会议场景 KOL 实测「拍+译」短视频矩阵</div></div>
+        <div class="chan-card"><div class="chan-t">海外众筹</div><div class="chan-d">Kickstarter/Indiegogo 首发,借 Meta 已教育市场势能</div></div>
+        <div class="chan-card"><div class="chan-t">自有电商</div><div class="chan-d">雷鸟商城 + 京东/天猫旗舰店拍摄版专属页</div></div>
+        <div class="chan-card"><div class="chan-t">跨界联名</div><div class="chan-d">与翻译/旅行 App 联名推场景礼包</div></div>
+      </div>
+    </section>
+
+    <!-- 6 发布节奏 -->
+    <section class="sec" id="s6">
+      <div class="sec-head"><span class="idx">6</span><span class="t"><h2>发布节奏</h2><span class="en">Launch Cadence</span></span></div>
+      <div class="cadence">
+        <div class="cd"><div class="cd-p">预热期 M0–M1</div><div class="cd-a">出境游与商务 KOL 实测「拍+译」短视频矩阵铺量,讲 Meta 已验证 740 万台路径与雷鸟全彩光波导差异,社区招募 100 名体验官建立基线</div></div>
+        <div class="cd"><div class="cd-p">首发期 M2</div><div class="cd-a">X3 Pro 拍摄版溢价 ¥800 上线,V3 用户以旧换新优先推送实时翻译公测 + 离线兜底,京东/天猫专属页承接种草流量</div></div>
+        <div class="cd"><div class="cd-p">引爆期 M3–M4</div><div class="cd-a">海外 Kickstarter/Indiegogo 众筹解锁多语言包,跨界联名旅行/翻译 App 推场景礼包,小红书 UGC 口碑扩散拉升分享率</div></div>
+        <div class="cd"><div class="cd-p">沉淀期 M5–M6</div><div class="cd-a">车机/手机跨端成片工作流 OTA 推送(呼应 ID-006/ID-010),企业版商务场景包定向触达跨境会议人群,目标 6 个月激活率 12–20%</div></div>
+      </div>
+    </section>
+
+    <!-- 7 核心指标 -->
+    <section class="sec" id="s7">
+      <div class="sec-head"><span class="idx">7</span><span class="t"><h2>核心指标</h2><span class="en">Metrics</span></span></div>
+      <div class="metric">
+        <div class="m-cell"><div class="m-k">AI 拍摄翻译激活率</div><div class="m-v">12–20%</div><div class="m-bar"><i data-w="20"></i></div></div>
+        <div class="m-cell"><div class="m-k">第一视角素材分享率</div><div class="m-v">≥25%</div><div class="m-bar"><i data-w="25"></i></div></div>
+        <div class="m-cell"><div class="m-k">同声传译准确率</div><div class="m-v">≥95%</div><div class="m-bar"><i data-w="95"></i></div></div>
+      </div>
+    </section>
+
+    <!-- 8 风险矩阵 -->
+    <section class="sec" id="s8">
+      <div class="sec-head"><span class="idx">8</span><span class="t"><h2>风险矩阵 · 概率 × 影响</h2><span class="en">Risks &amp; Mitigations</span></span></div>
+      <div class="risk-grid">
+        <div class="risk-card"><div class="risk-name">拍摄清晰度逊手机 <span class="risk-badge p-lo">P 中</span><span class="risk-badge i-hi">I 高</span></div><div class="risk-why">手机更清晰但需手持,眼镜第一视角解放双手</div><div class="risk-fix"><b>对策</b>主打「随手记录」非「替代手机」,本地+云端双备份保素材不丢,实测对比素材前置教育预期</div></div>
+        <div class="risk-card"><div class="risk-name">续航限制拍摄时长 <span class="risk-badge p-lo">P 中</span><span class="risk-badge i-lo">I 中</span></div><div class="risk-why">持续拍摄+翻译高耗电,V3 拍 5 分钟掉电印证</div><div class="risk-fix"><b>对策</b>与 ID-001 颈挂电池模组协同打包售卖,叠加 ID-010 手机算力卸载降眼镜功耗,弱网本地兜底减少云端往返耗电</div></div>
+        <div class="risk-card"><div class="risk-name">翻译准确率弱网/方言降级 <span class="risk-badge p-lo">P 中</span><span class="risk-badge i-hi">I 高</span></div><div class="risk-why">依赖云端大模型,弱网或方言场景失真</div><div class="risk-fix"><b>对策</b>本地小模型兜底 + 弱网降级提示,明确告知用户当前模式,避免静默失效</div></div>
+        <div class="risk-card"><div class="risk-name">隐私争议 <span class="risk-badge p-lo">P 中</span><span class="risk-badge i-hi">I 高</span></div><div class="risk-why">第一视角拍摄涉及他人肖像,高认可度伴随社交尴尬</div><div class="risk-fix"><b>对策</b>明确指示灯 + 本地优先存储 + 一键脱敏,合规提示前置降低社交阻力</div></div>
+      </div>
+    </section>
+
+    <!-- 9 北极星 + 首批100 -->
+    <section class="sec" id="s9">
+      <div class="sec-head"><span class="idx">9</span><span class="t"><h2>北极星指标 · 首批 100</h2><span class="en">North Star · First 100</span></span></div>
+      <div class="gtm-flag">
+        <div class="flag north"><div class="f-k">North Star · 北极星</div><div class="f-big">≥25%</div><div class="f-v">AI 拍摄翻译功能月活渗透率(发布后 6 个月)——同时覆盖拍摄(86.98% 最高频期待)与翻译(高频刚需),直接对冲行业 6% 长期留存痛点。分解:日活拍摄 ≥3 次、翻译调用 ≥20min、字幕延迟 ≤1.5s、弱网可用率 ≥85%。</div></div>
+        <div class="flag first"><div class="f-k">First 100 · 首批体验官</div><div class="f-v">锁定雷鸟社区 V3/X3 Pro 存量出境游与跨境商务高频用户,经小红书出境 KOL 与京东拍摄版专属页双渠道招募。激活动作:发放 eSIM 拍摄版体验机、强制 3 天出境模拟(路牌/菜单拍摄翻译 + 弱网离线兜底),回收同声传译准确率、字幕延迟 ≤1.5s 达成率、弱网可用率三项基线。</div></div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<div class="foot">
+  <span>GTM 二级界面 Demo · ID-002 AI 拍摄翻译 · 文字均为原版 GTM 真实数据</span>
+  <code>白底 · 4 字体方案可切换 · 左导航 + 右上图 · 证据编号已隐去</code>
+</div>
+
+<script>
+// 字体方案切换
+const notes={
+  apple:"Inter Tight + Noto Sans SC · 白底苹果风基底",
+  editor:"Newsreader 衬线 + Noto Serif SC · 杂志编辑味",
+  tool:"Manrope + Noto Sans SC · 现代工具风",
+  art:"Bricolage Grotesque + Noto Sans SC · 艺术活泼感"
+};
+const seg=document.getElementById('seg');
+const note=document.getElementById('swNote');
+seg.addEventListener('click',e=>{
+  const b=e.target.closest('button'); if(!b) return;
+  const v=b.dataset.v;
+  document.body.dataset.font=v;
+  [...seg.children].forEach(x=>x.classList.toggle('on',x===b));
+  note.textContent=notes[v];
+});
+// 左导航：滚动高亮 + 平滑锚点
+const links=[...document.querySelectorAll('#nav a')];
+const secs=links.map(a=>document.querySelector(a.getAttribute('href')));
+links.forEach(a=>a.addEventListener('click',e=>{e.preventDefault();const t=document.querySelector(a.getAttribute('href'));t&&t.scrollIntoView({behavior:'smooth',block:'start'});}));
+const obs=new IntersectionObserver(es=>{es.forEach(en=>{if(en.isIntersecting){const id='#'+en.target.id;links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')===id));}});},{rootMargin:'-30% 0px -60% 0px'});
+secs.forEach(s=>s&&obs.observe(s));
+window.addEventListener('load',()=>{document.querySelectorAll('i[data-w]').forEach(i=>i.style.width=i.dataset.w+'%');});
+</script>
+</body>
+</html>

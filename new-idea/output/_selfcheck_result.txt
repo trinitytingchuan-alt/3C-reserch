@@ -1,0 +1,18 @@
+自我迭代回测 · 对照 AGENTS.md 红线 · 2026-08-16
+  PASS  [R-RENDER] script 标签闭合
+  PASS  [R-RENDER] 无重复声明导致整段脚本失效
+  PASS  [R-RENDER] SCRIPT RUNTIME 执行无异常
+  PASS  [R-RENDER] 右侧容器 [TOP5 卡片网格] 已填充 (id=top5grid)
+  PASS  [R-RENDER] 右侧容器 [GTM 卡片网格] 已填充 (id=gtmgrid)
+  PASS  [R-RENDER] 右侧容器 [证据总表] 已填充 (id=eviBody)
+  PASS  [R-RENDER] 右侧容器 [证据筛选器] 已填充 (id=eviToolbar)
+  PASS  [R-RENDER] 右侧容器 [三级核验记录] 已填充 (id=eviX)
+  PASS  [R-RENDER] 右侧容器 [10维权重] 已填充 (id=weights)
+> FAIL  [TOP5] TOP5 固定 5 个（当前 ?)
+> FAIL  [R8] 透出红线词未出现（命中 子权重）
+  PASS  [R8] 无写死证据文本
+  PASS  [LAYOUT] 二级页左导航 prd-aside 存在
+  PASS  [LAYOUT] 二级页导航带编号(≥20)
+
+结果：12 PASS / 2 FAIL
+❌ 存在 FAIL — 禁止交付，需自我修复至 0 FAIL

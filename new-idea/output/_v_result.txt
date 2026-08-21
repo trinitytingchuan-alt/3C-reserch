@@ -1,0 +1,32 @@
+OK    div balanced
+OK    style closed
+OK    script closed
+OK    FUNC_EV defined
+OK    prdGo defined
+OK    overlay-nav present
+OK    ev-mini present
+OK    card uses dynamic evCount
+OK    no hardcoded 2-ev text
+OK    no old d.ev refs
+OK    FUNC_EV ID-002 has 10 evidences
+OK    FUNC_EV ID-001 has 10 evidences
+OK    FUNC_EV ID-006 has 10 evidences
+OK    FUNC_EV ID-003 has 10 evidences
+OK    FUNC_EV ID-005 has 10 evidences
+OK    DIM_MAP declared exactly once (found 1)
+OK    DIM_OVERRIDE declared <=1 (found 1)
+OK    left-nav railLinks has >=6 static links
+OK    PRD overlay (prdLayer) exists in source
+OK    evidence modal (eviMask) exists in source
+OK    PRD/GTM secondary page uses left aside nav
+OK    secondary page uses left-right layout
+OK    secondary nav items carry numeric labels (found 20, PRD 10 + GTM 10 = 20)
+OK    scroll-spy bindPrdNav present for active highlighting
+OK    right-panel [TOP5 卡片网格] filled (id=top5grid)
+OK    right-panel [GTM 卡片网格] filled (id=gtmgrid)
+OK    right-panel [证据总表] filled (id=eviBody)
+OK    right-panel [证据筛选器] filled (id=eviToolbar)
+OK    right-panel [三级核验记录] filled (id=eviX)
+OK    right-panel [10维权重] filled (id=weights)
+
+PASS ✅ ALL PASS — 界面渲染自检通过

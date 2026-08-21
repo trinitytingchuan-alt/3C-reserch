@@ -1,0 +1,10 @@
+JSON FAIL: Unexpected non-whitespace character after JSON at position 43033 (line 1444 column 4)
+BLK TAIL: :"将车机互联覆盖拓展至五家以上主机厂，承接新能源千万辆级存量，以跨界协议层打通多车型，完成从单点联名到平台级生态覆盖。"}
+      ],
+      "northStar": "车机互联激活率 ≥ 15%",
+      "first100": "互联车型覆盖 ≥ 5 家"
+    }
+BLK HEAD: {
+    "ID-002": {
+      "background": [
+        "行业最高频期待功能是拍照录像（86.98%，E064 艾媒），但真实痛点是「拍了以后呢」——掉电（E093 拍 5 分钟掉电、E092 1500+ 用户续航焦虑）、翻译延迟、离线变砖，单点功能已同
